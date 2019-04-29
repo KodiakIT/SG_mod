@@ -205,7 +205,7 @@ end
 function ENT:OnRestore()
 	if not (WireAddon == nil) then Wire_Restored(self.Entity) end
 end
-/* why only rd3? its calling from wire_rd
+--[[ why only rd3? its calling from wire_rd
 function ENT:PreEntityCopy()
 	if self.HaveRD3 then
 		local RD = CAF.GetAddon("Resource Distribution")

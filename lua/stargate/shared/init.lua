@@ -1,4 +1,4 @@
-/*
+--[[
 	Stargate Lib for GarrysMod10
 	Copyright (C) 2007  aVoN
 
@@ -14,12 +14,12 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+--]]
 --################# DEFINES #################
 StarGate.Hook = StarGate.Hook or {};
 -- CreateConVar("gmod_stargate_version",StarGate.CURRENT_VERSION); -- Which version?
 
-/* Workshop part code
+--[[ Workshop part code
 local ws_addons = {}
 for _,v in pairs(engine.GetAddons()) do
 	if (v.mounted) then table.insert(ws_addons, v.title); end
@@ -40,7 +40,7 @@ function StarGate.CheckModule(type)
 	if (types[type] and table.HasValue(ws_addons,types[type]) or table.HasValue(addonlist,"Carter Addon Pack - Resources")) then return true end
 	return false;
 end
-*/
+--]]
 
 function StarGate.CheckModule(type)
 	return true;
@@ -152,14 +152,14 @@ end
 -- ramps.lua
 --###########
 
-/*
+--[[
 	##################################
 	Ramp Offset/List file, idea by AlexALX
 	##################################
 	Also you can write stargate_reload (not lua_reloadents) to update ramp offsets (much faster).
 	But for reload stools you still need to write restart.
 	All models paths must be in LOWER case.
-*/
+--]]
 
 -- ################### For stools ###################
 -- For reloading the stools require writen restart.

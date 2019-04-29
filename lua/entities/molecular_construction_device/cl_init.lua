@@ -1,7 +1,7 @@
-/*
+--[[
 	molecular construction device for GarrysMod10
 	Copyright (C) 2010  Llapp, AlexALX
-*/
+--]]
 
 include("shared.lua");
 if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then

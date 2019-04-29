@@ -1,4 +1,4 @@
-/*
+--[[
 	Eventhorizon SENT for GarrysMod10
 	Copyright (C) 2007  aVoN
 
@@ -14,7 +14,7 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+--]]
 
 --[[
 --################# This is a helper function. If you use my TraceClass, you can use this to determine a correct position and direction vector from the other gate @aVoN

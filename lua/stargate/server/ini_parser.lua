@@ -1,4 +1,4 @@
-/*
+--[[
 	INI-Parser to parse .ini files and read out the data
 	Copyright (C) 2007  aVoN
 
@@ -14,7 +14,7 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+--]]
 INIParser = {};
 -- ############## Loads an ini file (object) @ aVoN
 function INIParser:new(file_,no_autotrim,game_folder,commtype,no_msg)

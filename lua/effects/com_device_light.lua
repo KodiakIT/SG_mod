@@ -1,7 +1,7 @@
-/*
+--[[
 	Comunication Device Light
 	Copyright (C) 2011 Madman07
-*/
+--]]
 
 function EFFECT:Init(data)
 	self.Parent = data:GetEntity();

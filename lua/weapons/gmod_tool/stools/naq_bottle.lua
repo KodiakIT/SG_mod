@@ -1,7 +1,7 @@
-/*
+--[[
 	ZPM MK III Spawn Tool for GarrysMod10
 	Copyright (C) 2010 Llapp
-*/
+--]]
 
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("energy") or SGLanguage==nil or SGLanguage.GetMessage==nil) then return end
 include("weapons/gmod_tool/stargate_base_tool.lua");

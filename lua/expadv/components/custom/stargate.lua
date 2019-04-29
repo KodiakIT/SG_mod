@@ -298,7 +298,7 @@ end
 ]])
 Component:AddFunctionHelper( "stargateSetGalaxy", "wl:n", "Sets stargate galaxy mode." )
 -------------------------------------------------------------------------
-/*
+--[[
 Component:AddPreparedFunction( "stargateTarget", "e:", "e",
 [[@define result = nil
 if IsValid(@value 1) and @value 1.IsStargate and EXPADV.PPCheck(Context,@value 1) then 
@@ -318,7 +318,7 @@ if IsValid(@value 1) and @value 1.IsStargate and EXPADV.PPCheck(Context,@value 1
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateTarget", "wl:", "Returns stargate target gate entity." )
-*/
+--]]
 -------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateOpen", "e:", "n",

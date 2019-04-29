@@ -1,4 +1,4 @@
-/*   _
+--[[   _
     ( )
    _| |   __   _ __   ___ ___     _ _
  /'_` | /'__`\( '__)/' _ ` _ `\ /'_` )
@@ -7,7 +7,7 @@
 
 	DNumberWang
 
-*/
+--]]
 
 local font = {
 	font = "Default",
@@ -20,7 +20,7 @@ surface.CreateFont("OldDefaultSmall", font);
 
 local PANEL = {}
 
-/*---------------------------------------------------------
+--[[
 
 ---------------------------------------------------------*/
 function PANEL:Init()
@@ -67,7 +67,7 @@ function PANEL:GetMax()
 	return self.Wang:GetMax()
 end
 
-/*---------------------------------------------------------
+--[[
 	SetMinMax
 ---------------------------------------------------------*/
 function PANEL:SetMinMax( min, max )
@@ -75,7 +75,7 @@ function PANEL:SetMinMax( min, max )
 	self:UpdateNotches()
 end
 
-/*---------------------------------------------------------
+--[[
 	SetMin
 ---------------------------------------------------------*/
 function PANEL:SetMin( min )
@@ -83,7 +83,7 @@ function PANEL:SetMin( min )
 	self:UpdateNotches()
 end
 
-/*---------------------------------------------------------
+--[[
 	SetMax
 ---------------------------------------------------------*/
 function PANEL:SetMax( max )
@@ -91,28 +91,28 @@ function PANEL:SetMax( max )
 	self:UpdateNotches()
 end
 
-/*---------------------------------------------------------
+--[[
    Name: SetConVar
 ---------------------------------------------------------*/
 function PANEL:SetValue( val )
 	self.Wang:SetValue( val )
 end
 
-/*---------------------------------------------------------
+--[[
    Name: GetValue
 ---------------------------------------------------------*/
 function PANEL:GetValue()
 	return self.Wang:GetValue()
 end
 
-/*---------------------------------------------------------
+--[[
    Name: SetDecimals
 ---------------------------------------------------------*/
 function PANEL:SetDecimals( d )
 	return self.Wang:SetDecimals( d )
 end
 
-/*---------------------------------------------------------
+--[[
    Name: GetDecimals
 ---------------------------------------------------------*/
 function PANEL:GetDecimals()
@@ -120,21 +120,21 @@ function PANEL:GetDecimals()
 end
 
 
-/*---------------------------------------------------------
+--[[
    Name: SetConVar
 ---------------------------------------------------------*/
 function PANEL:SetConVar( cvar )
 	self.Wang:SetConVar( cvar )
 end
 
-/*---------------------------------------------------------
+--[[
    Name: SetText
 ---------------------------------------------------------*/
 function PANEL:SetText( text )
 	self.Label:SetText( text )
 end
 
-/*---------------------------------------------------------
+--[[
    Name:
 ---------------------------------------------------------*/
 function PANEL:PerformLayout()
@@ -153,7 +153,7 @@ function PANEL:PerformLayout()
 
 end
 
-/*---------------------------------------------------------
+--[[
    Name: ValueChanged
 ---------------------------------------------------------*/
 function PANEL:ValueChanged( val )
@@ -163,7 +163,7 @@ function PANEL:ValueChanged( val )
 
 end
 
-/*---------------------------------------------------------
+--[[
    Name: OnValueChanged
 ---------------------------------------------------------*/
 function PANEL:OnValueChanged( val )
@@ -173,7 +173,7 @@ function PANEL:OnValueChanged( val )
 
 end
 
-/*---------------------------------------------------------
+--[[
 
 ---------------------------------------------------------*/
 function PANEL:TranslateSliderValues( x, y )
@@ -184,7 +184,7 @@ function PANEL:TranslateSliderValues( x, y )
 
 end
 
-/*---------------------------------------------------------
+--[[
    Name: GetTextArea
 ---------------------------------------------------------*/
 function PANEL:GetTextArea()
@@ -193,7 +193,7 @@ function PANEL:GetTextArea()
 
 end
 
-/*---------------------------------------------------------
+--[[
    Name: GenerateExample
 ---------------------------------------------------------*/
 function PANEL:GenerateExample( ClassName, PropertySheet, Width, Height )

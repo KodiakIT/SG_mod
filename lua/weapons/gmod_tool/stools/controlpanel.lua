@@ -1,7 +1,7 @@
-/*
+--[[
 	Control Panel
 	Copyright (C) 2012 by AlexALX
-*/
+--]]
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("extra") or SGLanguage==nil or SGLanguage.GetMessage==nil) then return end
 include("weapons/gmod_tool/stargate_base_tool.lua");
 

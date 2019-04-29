@@ -1,7 +1,7 @@
-/*
+--[[
 	Control Panel
 	Copyright (C) 2012 by AlexALX
-*/
+--]]
 
 if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"

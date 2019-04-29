@@ -1,4 +1,4 @@
-/*   Copyright 2012 by AlexALX   */
+--[[   Copyright 2012 by AlexALX   */
 
 local matBeam = Material( "sprites/bluelaser1" )
 

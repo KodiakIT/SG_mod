@@ -1,4 +1,4 @@
-/*
+--[[
 	Stargate SENT for GarrysMod10
 	Copyright (C) 2007  aVoN
 
@@ -18,7 +18,7 @@
 	Movie Stargate for Garry's Mod
 	File modified By AlexALX
 	(c) 2010 by http://alex-php.net/
-*/
+--]]
 
 --################# HEADER #################
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("extra")) then return end

@@ -1,7 +1,7 @@
-/*
+--[[
 	Kawoosh hurt entity
 	Copyright (C) 2012  by AlexALX
-*/
+--]]
 
 ENT.Type = "point"
 ENT.Base = "base_entity"

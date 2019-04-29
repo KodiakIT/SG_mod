@@ -1,7 +1,7 @@
-/*
+--[[
 	Stargate starfall lib
 	Created by AlexALX (c) 2014
-*/
+--]]
 
 assert( SF.Entities )
 
@@ -11,13 +11,13 @@ local ents_metatable = SF.Entities.Metatable
 local ents_methods = SF.Entities.Methods
 local wrap, unwrap = SF.Entities.Wrap, SF.Entities.Unwrap
 local vunwrap = SF.UnwrapObject
-/*
+--[[
 -- Register privileges
 do
 	local P = SF.Permissions
 	P.registerPrivilege( "stargate.Address", "Stargate Address", "Allow player get stargate address" )
 end
-*/
+--]]
 
 --if not SF.Permissions.check( SF.instance.player, this, "stargate.Address" ) then SF.throw( "Insufficient permissions", 2 ) end
 
@@ -180,7 +180,7 @@ function ents_methods:stargateGetRingAngle()
 		return false;
 	end
 end
-/*
+--[[
 function ents_methods:stargateGetWireInput(name)
 	SF.CheckType( self, ents_metatable )
 	SF.CheckType( name, "string" )
@@ -681,7 +681,7 @@ function wirelink_methods:stargateGetRingAngle()
 		return false;
 	end
 end
-/*
+--[[
 function wirelink_methods:stargateGetWireInput(name)
 	SF.CheckType( self, wirelink_metatable )
 	SF.CheckType( name, "string" )

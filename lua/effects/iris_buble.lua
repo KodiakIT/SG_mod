@@ -1,8 +1,8 @@
-/*
+--[[
 	Goauld Iris Buble
 	Copyright (C) 2010  Madman07
 
-*/
+--]]
 
 EFFECT.Materiala = Material("effects/shielda");
 EFFECT.Materialb = Material("effects/shieldb");

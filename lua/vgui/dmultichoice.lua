@@ -1,4 +1,4 @@
-/*   _
+--[[   _
     ( )
    _| |   __   _ __   ___ ___     _ _
  /'_` | /'__`\( '__)/' _ ` _ `\ /'_` )
@@ -7,7 +7,7 @@
 
 	DMultiChoice
 
-*/
+--]]
 
 PANEL = {}
 
@@ -25,7 +25,7 @@ end
 
 hook.Add( "VGUIMousePressed", "DMultiChoice.TextEntryLoseFocus", TextEntryLoseFocus )
 
-/*---------------------------------------------------------
+--[[
 
 ---------------------------------------------------------*/
 function PANEL:Init()
@@ -78,7 +78,7 @@ function PANEL:IsMenuOpen()
 end
 --end
 
-/*---------------------------------------------------------
+--[[
    Name: Clear
 ---------------------------------------------------------*/
 function PANEL:Clear()
@@ -94,7 +94,7 @@ function PANEL:Clear()
 
 end
 
-/*---------------------------------------------------------
+--[[
    Name: SetText
 ---------------------------------------------------------*/
 function PANEL:SetText( text )
@@ -103,7 +103,7 @@ function PANEL:SetText( text )
 
 end
 
-/*---------------------------------------------------------
+--[[
    Name: GetOptionText
 ---------------------------------------------------------*/
 function PANEL:GetOptionText( id )
@@ -112,7 +112,7 @@ function PANEL:GetOptionText( id )
 
 end
 
-/*---------------------------------------------------------
+--[[
    Name: PerformLayout
 ---------------------------------------------------------*/
 function PANEL:PerformLayout()
@@ -121,7 +121,7 @@ function PANEL:PerformLayout()
 
 end
 
-/*---------------------------------------------------------
+--[[
    Name: ChooseOption
 ---------------------------------------------------------*/
 function PANEL:ChooseOption( value, index )
@@ -138,7 +138,7 @@ function PANEL:ChooseOption( value, index )
 
 end
 
-/*---------------------------------------------------------
+--[[
    Name: ChooseOptionID
 ---------------------------------------------------------*/
 function PANEL:ChooseOptionID( index )
@@ -158,7 +158,7 @@ end
 
 
 
-/*---------------------------------------------------------
+--[[
    Name: OnSelect
 ---------------------------------------------------------*/
 function PANEL:OnSelect( index, value, data )
@@ -167,7 +167,7 @@ function PANEL:OnSelect( index, value, data )
 
 end
 
-/*---------------------------------------------------------
+--[[
    Name: AddChoice
 ---------------------------------------------------------*/
 function PANEL:AddChoice( value, data )
@@ -182,7 +182,7 @@ function PANEL:AddChoice( value, data )
 
 end
 
-/*---------------------------------------------------------
+--[[
    Name: OpenMenu
 ---------------------------------------------------------*/
 function PANEL:OpenMenu( pControlOpener )
@@ -219,7 +219,7 @@ function PANEL:OpenMenu( pControlOpener )
 
 end
 
-/*---------------------------------------------------------
+--[[
    Name: SetConVar
 ---------------------------------------------------------*/
 function PANEL:SetConVar( cvar )
@@ -228,7 +228,7 @@ function PANEL:SetConVar( cvar )
 
 end
 
-/*---------------------------------------------------------
+--[[
    Name: SetEditable
 ---------------------------------------------------------*/
 function PANEL:SetEditable( b )
@@ -237,7 +237,7 @@ function PANEL:SetEditable( b )
 
 end
 
-/*---------------------------------------------------------
+--[[
    Name: OnMousePressed
 ---------------------------------------------------------*/
 function PANEL:OnMousePressed( button, mcode )
@@ -246,7 +246,7 @@ function PANEL:OnMousePressed( button, mcode )
 
 end
 
-/*---------------------------------------------------------
+--[[
    Name: GenerateExample
 ---------------------------------------------------------*/
 function PANEL:GenerateExample( ClassName, PropertySheet, Width, Height )

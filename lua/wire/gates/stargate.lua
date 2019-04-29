@@ -1,7 +1,7 @@
-/*
+--[[
 	Stargate wire gates lib
 	Created by AlexALX (c) 2012
-*/
+--]]
 
 GateActions("StarGate")
 

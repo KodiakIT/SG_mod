@@ -1,4 +1,4 @@
-/*
+--[[
 	Eventhorizon stabilize effect for GarrysMod10
 	Copyright (C) 2007  aVoN
 
@@ -14,7 +14,7 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+--]]
 
 EFFECT.Material = Material("zup/stargate/eventhorizon_establish");
 --################# Init @aVoN

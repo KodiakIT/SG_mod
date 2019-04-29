@@ -11,7 +11,7 @@ TOOL.CustomSpawnCode = true;
 TOOL.AddToMenu = false; -- Tell gmod not to add it. We will do it manually later!
 TOOL.Command=nil;
 TOOL.ConfigName="";
-/*
+--[[
 models = {
 	{ 'Teapot', 'models/props_interiors/pot01a.mdl' },
 	{ 'Pot', 'models/props_interiors/pot02a.mdl' },

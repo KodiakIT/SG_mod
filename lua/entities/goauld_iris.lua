@@ -1,7 +1,7 @@
-/*
+--[[
 	Goauld Iris/Shield for GarrysMod10
 	Copyright (C) 2007  aVoN, 2010 Madman07
-*/
+--]]
 
 if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"

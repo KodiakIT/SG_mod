@@ -1,4 +1,4 @@
-/*
+--[[
 	Staff Weapon for GarrysMod10
 	Copyright (C) 2007  aVoN
 	Rewrited by Madman07, 2011
@@ -15,7 +15,7 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+--]]
 
 ENT.Type = "anim"
 ENT.Base = "base_anim"

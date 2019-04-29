@@ -1,4 +1,4 @@
-/*
+--[[
 	INI-Parser to parse .ini files and read out the data
 	Copyright (C) 2007  aVoN
 
@@ -24,7 +24,7 @@
 	and also original language messages can't use in messages other text.
 	So i make this small lib.
 	###################################
-*/
+--]]
 
 if (SERVER) then
 	AddCSLuaFile();
@@ -71,7 +71,7 @@ function LANGParser:StripComment(line)
 	if(found_comment) then
 		local link = line:sub(found_comment-3,found_comment-1);
 		if (link!="tp:" and link!="ps:") then
-			line = line:sub(1,found_comment-1):Trim(); -- Removes any non neccessayry stuff
+			line = line:sub(1,found_comment-1):Trim(); -- Removes any non necessary stuff
 		end
 	end
 	return line;

@@ -1,4 +1,4 @@
-/*
+--[[
 	Stargate Auto-Spawner for GarrysMod10
 	Copyright (C) 2007  aVoN
 
@@ -14,7 +14,7 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+--]]
 
 if not SERVER then return end; -- Just to be sure
 
@@ -83,7 +83,7 @@ function StarGate.GateSpawner.LoadConfig()
 	return false;
 end
 
-/* This code is for workshop, it is disabled.
+--[[ This code is for workshop, it is disabled.
 local types = {
 	base = {"stargate_sg1","stargate_atlantis","stargate_universe","dhd_sg1","dhd_atlantis","dhd_universe","dhd_city"},
 }
@@ -530,7 +530,8 @@ function StarGate.GateSpawner.InitialSpawn(reload)
 			local protect = GetConVar("stargate_gatespawner_protect"):GetBool();
 			local i = 0; -- For delayed spawning
 
-			local tbl = {				StarGate.GateSpawner.Ramp,
+			local tbl = {
+				StarGate.GateSpawner.Ramp,
 				StarGate.GateSpawner.Gates,
 				StarGate.GateSpawner.Iris,
 				StarGate.GateSpawner.DHDs,
@@ -548,7 +549,8 @@ function StarGate.GateSpawner.InitialSpawn(reload)
 				StarGate.GateSpawner.Props,
 				StarGate.GateSpawner.Doors,
 				StarGate.GateSpawner.DoorButtons,
-				StarGate.GateSpawner.Console,			}
+				StarGate.GateSpawner.Console,
+			}
 
 			for k,t in pairs(tbl) do
 				for _,v in pairs(t) do

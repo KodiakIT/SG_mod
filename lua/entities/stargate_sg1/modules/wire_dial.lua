@@ -1,6 +1,6 @@
-/*
+--[[
 	Wire dialling by AlexALX (c) 2011
-*/
+--]]
 
 --################# Before first chevron sequence by AlexALX
 function ENT.Sequence:SeqFirstActivation()

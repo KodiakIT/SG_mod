@@ -487,7 +487,7 @@ function ENT:SpawnDoor(p)
 
 end
 
-/*
+--[[
 function ENT:IntertialDampning(b)
 	if(b) then
 		self.Cargo = ents.FindInSphere(self:GetPos(),800)
@@ -510,7 +510,7 @@ function ENT:IntertialDampning(b)
 		table.Empty(self.Cargo);
 	end
 end
-*/
+--]]
 
 function ENT:Use(p)
 

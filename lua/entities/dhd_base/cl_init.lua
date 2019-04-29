@@ -1,4 +1,4 @@
-/*
+--[[
 	DHD SENT for GarrysMod10
 	Copyright (C) 2007  aVoN
 
@@ -14,7 +14,7 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+--]]
 
 include("shared.lua")
 ENT.RenderGroup = RENDERGROUP_BOTH -- This FUCKING THING avoids the clipping bug I have had for ages since stargate BETA 1.0. DAMN!
@@ -191,7 +191,7 @@ function ENT:Draw()
 	end
 end
 
-/*
+--[[
 -- ugly workaround
 local properties_HaloThink = properties.HaloThink;
 properties.HaloThink = function()

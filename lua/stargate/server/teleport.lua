@@ -1,4 +1,4 @@
-/*
+--[[
 	Stargat Lib for GarrysMod10
 	Copyright (C) 2007  aVoN
 
@@ -14,7 +14,7 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+--]]
 
 --##################################
 --              Teleportation special behaviour class
@@ -69,7 +69,7 @@ StarGate.Teleport:Add("rpg_missile",
 	end
 );
 --##### We need to reset a players aimvector, or the shuttle may move back into the gate and will be destroyed, because the players aimvector is still into the old direction
-/*local function shuttle(e,pos,ang,vel,old_pos,old_ang,old_vel,ang_delta)
+--[[local function shuttle(e,pos,ang,vel,old_pos,old_ang,old_vel,ang_delta)
 	-- Move a players view
 	if(IsValid(e.Pilot)) then
 		e.Pilot:SetEyeAngles(e.Pilot:GetAimVector():Angle() + Angle(0,ang_delta.y+180,0));

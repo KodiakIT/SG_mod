@@ -1,7 +1,7 @@
-/*
+--[[
 	Lucian Door Opener
 	Copyright (C) 2015 Gmod4phun
-*/
+--]]
 
 ENT.Type = "anim"
 ENT.Base = "base_anim"
@@ -37,7 +37,7 @@ ENT.SpritePositions = {
 }
 
 ENT.SpriteColor = Color(255,0,0,255)
-/*
+--[[
 function ENT:Initialize()
 	self:SetPredictable(false)
 end*/
@@ -95,7 +95,7 @@ function ENT:Initialize()
 	self.GetTimer = 0
 	self.Activator = NULL
 end
-/*
+--[[
 function ENT:SpawnFunction( ply, tr )
 	if ( !tr.Hit ) then return end
 

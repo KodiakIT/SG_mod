@@ -19,7 +19,7 @@ SWEP.ViewModelFOV = 65;
 if SERVER then
 	AddCSLuaFile();
 end
-/*
+--[[
 if CLIENT then
 	if(file.Exists("materials/VGUI/weapons/wraith_grenade.vmt","GAME")) then
 		SWEP.WepSelectIcon = surface.GetTextureID("VGUI/weapons/wraith_grenade.vmt")
