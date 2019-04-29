@@ -1,4 +1,4 @@
---[[
+/*
 	Eventhorizon refract effect for GarrysMod10
 	Copyright (C) 2007  aVoN
 
@@ -14,7 +14,7 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
---]]
+*/
 
 -- WHY I ADDED THIS.
 -- Well some people dislike the event horizon beeing non-refractable. But I added this for purpose due to several problems I got with refract (aka. Clipping Bugs).

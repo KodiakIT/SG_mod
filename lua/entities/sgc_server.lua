@@ -1,4 +1,4 @@
---[[ Copyright (C) 2016 by glebqip */
+/* Copyright (C) 2016 by glebqip */
 if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
 
 ENT.Type = "anim"
@@ -108,7 +108,7 @@ function ENT:Initialize()
 ]]
 	self.OldTime = CurTime()
 end
---[[
+/*
 hook.Remove("StarGate.Teleport", "SGC_Computer_v1",function(ent,gate,test,blk)
 	if gate:GetClass() == "event_horizon" then gate = gate:GetParent() end
 	for k,v in pairs(ents.FindByClass("sgc_server")) do

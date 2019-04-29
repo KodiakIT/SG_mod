@@ -1,4 +1,4 @@
---[[
+/*
 	KINO Remote for Garry's Mod 11
 	Scripted by Sutich and Madman07; Sources from aVoN's Stargate Mod
 	Kino Remote Model by Iziraider
@@ -17,7 +17,7 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
---]]
+*/
 
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("extra")) then return end
 if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then

@@ -1,6 +1,6 @@
---[[
+/*
 	Wire dialling by AlexALX (c) 2011
---]]
+*/
 
 --################# Block wire inputs function by AlexALX
 function ENT:BlockWire(block)

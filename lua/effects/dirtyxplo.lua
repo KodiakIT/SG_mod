@@ -1,5 +1,5 @@
 
---[[
+/*---------------------------------------------------------
    Initializes the effect. The data is a table of data
    which was passed from the server.
 ---------------------------------------------------------*/
@@ -134,7 +134,7 @@ function EFFECT:Init( data )
 end
 
 
---[[
+/*---------------------------------------------------------
    THINK
 ---------------------------------------------------------*/
 function EFFECT:Think( )
@@ -184,7 +184,7 @@ function ParticleThink( part )
 	part:SetNextThink( CurTime() + 0.1 )
 end
 
---[[
+/*---------------------------------------------------------
    Draw the effect
 ---------------------------------------------------------*/
 function EFFECT:Render()

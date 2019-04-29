@@ -95,11 +95,11 @@ end
 
 -----------------------------------THINK----------------------------------
 
---[[
+/*
 function ENT:CreateTimer()
 	timer.Create(self.Entity:EntIndex().."TeleportFunc", 5, 1, function() if IsValid(self.Entity) then self:PrepareTeleport() end end)
 end
---]]
+*/
 
 function ENT:PrepareTeleport()
 

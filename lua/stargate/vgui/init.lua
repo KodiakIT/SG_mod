@@ -1,4 +1,4 @@
---[[
+/*
 	Stargate for GarrysMod10
 	Copyright (C) 2007  aVoN
 
@@ -14,7 +14,7 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
---]]
+*/
 
 -- Stargate Custom Groups sync with client @AlexALX
 SG_CUSTOM_GROUPS = {}

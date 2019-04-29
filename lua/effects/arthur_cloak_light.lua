@@ -1,7 +1,7 @@
---[[
+/*
 	Arthur's Mantle Light
 	Copyright (C) 2010 Madman07
---]]
+*/
 
 if (StarGate==nil or StarGate.MaterialFromVMT==nil) then return end
 

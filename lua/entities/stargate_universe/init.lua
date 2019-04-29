@@ -1,8 +1,8 @@
---[[
+/*
 	Stargate Universe for GarrysMod10
 	Copyright (C) 2011  Llapp
 	Edited by AlexALX
---]]
+*/
 
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("base")) then return end
 AddCSLuaFile("cl_init.lua");

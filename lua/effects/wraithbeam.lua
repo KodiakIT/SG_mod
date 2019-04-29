@@ -1,4 +1,4 @@
---[[
+/*
 	Wraith Harveser Beam for GarrysMod10
 	Copyright (C) 2007  aVoN
 
@@ -14,7 +14,7 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
---]]
+*/
 if (StarGate==nil or StarGate.MaterialCopy==nil) then return end
 EFFECT.Material1 = StarGate.MaterialCopy("WraithBeam1","models/alyx/emptool_glow");
 EFFECT.Material2 = StarGate.MaterialCopy("WraithBeam2","models/shadertest/predator");

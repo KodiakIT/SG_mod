@@ -1,4 +1,4 @@
---[[
+/*
 	Cloaking for GarrysMod10
 	Copyright (C) 2007  aVoN
 
@@ -14,7 +14,7 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
---]]
+*/
 
 ENT.Type = "anim"
 ENT.Base = "base_anim"
@@ -51,7 +51,7 @@ function ENT:Draw()
 		render.DrawSprite(self.Entity:GetPos(),size,size,Color(255,255,255,255));
 	end
 end
---[[
+/*
 -- HACKY HACKY HACKY HACKY HACKY @aVoN
 -- Stops making players "recognizeable" if they are cloaked (E.g. by looking at them - Before you e.g. saw "Catdaemon - Health 100" if you lookaed at a cloaked player. Now, you dont see anything if he is cloaked
 if(util._Cloak_TraceLine) then return end;

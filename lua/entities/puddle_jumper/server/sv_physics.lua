@@ -43,7 +43,7 @@ function ENT:PhysicsCollide(cdat, phys)
 	end
 end
 
---[[
+/*
  --############ After teleporting it, fix the angles of a player @aVoN
 function ENT.FixAngles(self,pos,ang,vel,old_pos,old_ang,old_vel,ang_delta)
 	-- Move a players view
@@ -53,7 +53,7 @@ function ENT.FixAngles(self,pos,ang,vel,old_pos,old_ang,old_vel,ang_delta)
 	end
 end
 StarGate.Teleport:Add("puddle_jumper",ENT.FixAngles)
---]]
+*/
 
 --######  TO DO: Fix Jumper Angles after teleporting
 

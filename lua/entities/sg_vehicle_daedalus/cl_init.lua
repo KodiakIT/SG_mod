@@ -100,7 +100,7 @@ function ENT:Initialize( )
 	}
 
 end
---[[
+/*
 local function KeyPress()
 	local key = "";
 	if input.IsKeyDown(KEY_1) then key = "1";
@@ -120,7 +120,7 @@ local function KeyPress()
 	end
 end
 hook.Add("Think","Daedalus_Rockets",KeyPress)
---]]
+*/
 function ENT:Think()
 
 	-- local att = {

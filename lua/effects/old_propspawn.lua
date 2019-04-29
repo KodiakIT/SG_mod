@@ -3,7 +3,7 @@
 local matRefract = Material( "models/spawn_effect" )
 local matLight	 = Material( "models/spawn_effect2" )
 
---[[
+/*---------------------------------------------------------
    Initializes the effect. The data is a table of data
    which was passed from the server.
 ---------------------------------------------------------*/
@@ -28,7 +28,7 @@ function EFFECT:Init( data )
 end
 
 
---[[
+/*---------------------------------------------------------
    THINK
    Returning false makes the entity die
 ---------------------------------------------------------*/
@@ -45,7 +45,7 @@ end
 
 
 
---[[
+/*---------------------------------------------------------
    Draw the effect
 ---------------------------------------------------------*/
 function EFFECT:Render()

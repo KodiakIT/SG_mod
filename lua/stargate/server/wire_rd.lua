@@ -1,4 +1,4 @@
---[[
+/*
 	Stargate Wire/RD Lib for GarrysMod10
 	Copyright (C) 2007-2009  aVoN
 
@@ -14,7 +14,7 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
---]]
+*/
 
 --################# Adds LifeSupport,ResourceDistribution and WireSupport to an entity when getting called - HAS TO BE CALLED BEFORE ANY OTHERTHING IS DONE IN A SENT (like includes) @aVoN
 -- My suggestion is to put this on the really top of the shared.lua

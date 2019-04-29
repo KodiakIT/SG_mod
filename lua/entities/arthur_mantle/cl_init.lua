@@ -41,7 +41,7 @@ local font = {
 }
 surface.CreateFont("GlyphsC", font);
 
---[[
+/*
 -- Damn, recoded this myself for fix stupid bugs with flashlight and cloak. I hope now all works fine (c) AlexALX
 hook.Add("Think","StarGate.ArthurCloaking.Think",
 	function()

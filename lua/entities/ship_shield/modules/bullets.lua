@@ -1,4 +1,4 @@
---[[
+/*
 	Shield SENT for GarrysMod10
 	Copyright (C) 2007  aVoN
 
@@ -14,7 +14,7 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
---]]
+*/
 -- Conditions (if we hit or not is defined in ini/cl.init!)
 --################# This is the workaround for stopping bullets (FROM SWEPS AND SENTS ONLY!) getting into a shield @aVoN
 hook.Add("StarGate.Bullet","StarGate.ShieldShip.Bullet",

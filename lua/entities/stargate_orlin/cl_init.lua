@@ -1,7 +1,7 @@
---[[
+/*
 	Stargate Orlin for GarrysMod10
 	Copyright (C) 2010  Llapp
---]]
+*/
 
 include("shared.lua");
 ENT.ChevronColor = Color(255,255,205);

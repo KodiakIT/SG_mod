@@ -654,7 +654,7 @@ function ENT:Think(ply)
 	self.Entity:NextThink( CurTime() + 0.1 )
 	return true
 end
---[[
+/*
 concommand.Add("Daedalus_FireRocket",function(ply,cmd,args)
 	local self = Entity( args[1] );
 	if (IsValid(self)) then

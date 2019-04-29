@@ -1,4 +1,4 @@
---[[
+/*
 	Sodan Cloaking Device for GarrysMod10
 	Copyright (C) 2007  Catdaemon
 
@@ -14,7 +14,7 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
---]]
+*/
 
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("extra")) then return end
 if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
@@ -162,7 +162,7 @@ end
 
 --################### Think @Catdaemon
 -- code moved to arthur_mantle
---[[
+/*
 hook.Add("Think","StarGate.SodanCloaking.Think",
 	function()
 		local cloaked_self = LocalPlayer():GetNetworkedBool("pCloaked",false);

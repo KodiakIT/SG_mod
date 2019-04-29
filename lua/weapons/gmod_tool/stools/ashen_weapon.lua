@@ -1,7 +1,7 @@
---[[
+/*
 	Naquada Bomb
 	Copyright (C) 2010  Madman07, Stargate Extras
---]]
+*/
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("entweapon") or SGLanguage==nil or SGLanguage.GetMessage==nil) then return end
 include("weapons/gmod_tool/stargate_base_tool.lua");
 
@@ -37,11 +37,11 @@ function TOOL:LeftClick(t)
 	self:AddCleanup(p,c,e);
 	return true;
 end
---[[
+/*
 function TOOL:PreEntitySpawn(p,e,model)
 	e:SetModel(model);
 end
---]]
+*/
 function TOOL:ControlsPanel(Panel)
 	Panel:CheckBox(SGLanguage.GetMessage("stool_autoweld"),"ashen_weapon_autoweld");
 end

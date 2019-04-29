@@ -1,7 +1,7 @@
---[[
+/*
 	molecular construction device for GarrysMod10
 	Copyright (C) 2010  Llapp, AlexALX
---]]
+*/
 
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("devices")) then return end
 AddCSLuaFile("cl_init.lua");

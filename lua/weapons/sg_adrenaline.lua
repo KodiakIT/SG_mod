@@ -241,7 +241,7 @@ end
 		The SWEP.VElements, SWEP.WElements and
 		SWEP.ViewModelBoneMods tables are all optional
 		and only have to be visible to the client.
---]]
+********************************************************/
 ]]--
 
 function SWEP:Initialize()

@@ -1,4 +1,4 @@
---[[
+/*
 	Stargate Lib for GarrysMod10
 	Copyright (C); 2007  aVoN
 
@@ -14,7 +14,7 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
---]]
+*/
 
 StarGate.KeyBoard = StarGate.KeyBoard or {};
 
@@ -38,7 +38,7 @@ end
 --############# Key enumerations
 --######################################
 
---[[ Now not needed, because now you can use any key with autodetection @ AlexALX
+/* Now not needed, because now you can use any key with autodetection @ AlexALX
 
 -- Source of the below keycodes: SENT gmod_wire_keyboard
 StarGate.KeyBoard.Keys = {}
@@ -161,7 +161,7 @@ StarGate.KeyBoard.Keys["F12"] 						= KEY_F12;
 --StarGate.KeyBoard.Keys["CAPSLOCK"]				= KEY_CAPSLOCKTOGGLE;
 --StarGate.KeyBoard.Keys["NUMLOCK"]			= KEY_NUMLOCKTOGGLE;
 --StarGate.KeyBoard.Keys["SCROLLLOCK"]		= KEY_SCROLLLOCKTOGGLE;
---]]
+*/
 
 --######################################
 --############# KeyDown-Hooks

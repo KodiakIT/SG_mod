@@ -1,7 +1,7 @@
---[[
+/*
 	ZPM Hub for GarrysMod10
 	Copyright (C) 2010  Llapp, cooldudetb
---]]
+*/
 
 if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"

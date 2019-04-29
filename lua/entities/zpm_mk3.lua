@@ -1,7 +1,7 @@
---[[
+/*
 	ZPM MK III for GarrysMod 10
 	Copyright (C) 2010 Llapp
---]]
+*/
 
 if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
 

@@ -1,4 +1,4 @@
---[[
+/*
 	Stargate Lib for GarrysMod10
 	Copyright (C) 2007-2009  aVoN
 
@@ -14,11 +14,11 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
---]]
---[[
+*/
+/*
 	Carter's Addon Pack Tab for GarrysMod10
 	Copyright (C) 2010  Llapp
---]]
+*/
 
 --################# Loads the menues #################
 --################ Check for visuals (used in effects) @aVoN
@@ -1051,7 +1051,7 @@ function StarGate.WeaponVisualSettings(Panel)
 	table.GetLastValue(disable):SetToolTip(medium);
 end
 
---[[
+/*
 function CAP_NotLegal()
 	if StarGate.HasInternet then
 		local LegalFrame = vgui.Create("DFrame");
@@ -1112,11 +1112,11 @@ concommand.Add("CAP_NotLegal",CAP_NotLegal)*/
 -- settings.lua
 --##############
 
---[[
+/*
 	Created by AlexALX (c) 2012
 	Small settings tab
 	For some functions what come from my addon
---]]
+*/
 
 function StarGate_Settings(Panel)
 	local LAYOUT = "Convars/Limits/Language";

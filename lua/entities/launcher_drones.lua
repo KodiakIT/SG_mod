@@ -1,7 +1,7 @@
---[[
+/*
 	Drone Launcher for GarrysMod10
 	Copyright (C) 2007  Zup, 2010 Madman07
---]]
+*/
 
 if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end -- When you need to add LifeSupport and Wire capabilities, you NEED TO CALL this before anything else or it wont work!
 ENT.Type = "anim"

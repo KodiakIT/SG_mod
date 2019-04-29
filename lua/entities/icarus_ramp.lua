@@ -1,4 +1,4 @@
---[[   Copyright 2012 by AlexALX   */
+/*   Copyright 2012 by AlexALX   */
 
 ENT.Type = "anim"
 ENT.Base = "base_anim"
@@ -286,7 +286,7 @@ end
 
 if CLIENT then
 
---[[ Smoke code from SGC Ramp by Llapp */
+/* Smoke code from SGC Ramp by Llapp */
 
 if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
 language.Add("ramp",SGLanguage.GetMessage("ramp_kill"));

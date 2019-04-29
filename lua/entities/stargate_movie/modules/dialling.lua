@@ -1,4 +1,4 @@
---[[
+/*
 	Stargate SENT for GarrysMod10
 	Copyright (C) 2007  aVoN
 
@@ -18,7 +18,7 @@
 	Movie Stargate for Garry's Mod
 	File modified By AlexALX
 	(c) 2010 by http://alex-php.net/
---]]
+*/
 -- FIXME: Todo - Rewrite this using "ANIM" like in "stargate_iris" sent.
 ENT.Sequence = {};
 

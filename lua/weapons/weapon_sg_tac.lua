@@ -202,7 +202,7 @@ function SWEP:PrimaryAttack()
 	self:SetNextPrimaryFire(CurTime()+2);
 end
 
---[[
+/*
 function SWEP:SecondaryAttack()
 
 	if(IsValid(self)) then
@@ -216,7 +216,7 @@ function SWEP:SecondaryAttack()
 		end
 	end
 end
---]]
+*/
 
 if (SERVER) then
 SWEP.NextUse = CurTime()

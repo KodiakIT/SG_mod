@@ -1,7 +1,7 @@
---[[
+/*
 	Life Sign Detector
 	Copyright (C) 2010 Madman07
---]]
+*/
 --################### Head
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("extra")) then return end
 if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
@@ -53,7 +53,7 @@ SWEP.WElements = {
 	["World_weapon_model"] = { type = "Model", model = "models/markjaw/lsd/lsd_w.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "", pos = Vector(3.4, 3.6, -0.6), angle = Angle(-120, 180, 0), size = Vector(1, 1, 1), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} }
 }
 
---[[ if (SERVER) then
+/* if (SERVER) then
 
 	function SWEP:Initialize()
 		self.Sound = CreateSound(self,Sound("weapons/atlantis_scanner.wav"));
@@ -214,7 +214,7 @@ end
 		The SWEP.VElements, SWEP.WElements and
 		SWEP.ViewModelBoneMods tables are all optional
 		and only have to be visible to the client.
---]]
+********************************************************/
 ]]--
 
 function SWEP:Initialize()

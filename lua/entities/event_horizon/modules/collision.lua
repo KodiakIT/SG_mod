@@ -1,9 +1,9 @@
---[[
+/*
 	New physics collision code
 	Created by AlexALX (c) 2012
 
 	Sorry RononDex, but this code created from from scratch, and only one line your here...
---]]
+*/
 
 -- It seems like there is still physics crash sometimes, and i have no idea why, but still, much less that in original code
 

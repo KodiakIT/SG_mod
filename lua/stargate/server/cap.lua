@@ -44,7 +44,7 @@ end
 function StarGate.Debug2(msg1, msg2)
 	Msg(msg1.." - "..msg2.."/n");
 end
---[[ this will be added later when finish function
+/* this will be added later when finish function
 function StarGate.IsJammingOnline(pos,ent)
 	if (type(pos)!="Vector" or not IsValid(ent)) then return false end
 	local radius = 1024; -- max range of jamming, we will adjust it later

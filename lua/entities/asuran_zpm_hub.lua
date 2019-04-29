@@ -1,7 +1,7 @@
---[[
+/*
 	Asuran ZPM Device for GarrysMod 10
 	Copyright (C) 2010 Llapp, cooldudetb, model by progsys
---]]
+*/
 
 if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"

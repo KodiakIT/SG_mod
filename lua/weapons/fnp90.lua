@@ -56,14 +56,14 @@ if CLIENT then
 
 end
 
---[[
+/*---------------------------------------------------------
 Muzzle Effect - Perhaps in a later rev
 ---------------------------------------------------------
 SWEP.MuzzleEffect			= "rg_muzzle_hmg" -- This is an extra muzzleflash effect
  --Available muzzle effects: rg_muzzle_grenade, rg_muzzle_highcal, rg_muzzle_hmg, rg_muzzle_pistol, rg_muzzle_rifle, rg_muzzle_silenced, none
 
 SWEP.MuzzleAttachment		= "1" -- Should be "1" for CSS models or "muzzle" for hl2 models
---]]
+*/
 
 if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
 SWEP.Category = SGLanguage.GetMessage("weapon_cat");
@@ -212,7 +212,7 @@ function SWEP:Think()
 	self:IronSight()
 end
 
---[[
+/*---------------------------------------------------------
 Initialize
 ---------------------------------------------------------*/
 
@@ -307,7 +307,7 @@ if CLIENT then
 		SWEP.WepSelectIcon = surface.GetTextureID("VGUI/weapons/P90_inventory.vmt")
 	end
 end
---[[
+/*---------------------------------------------------------
 Sensibility
 ---------------------------------------------------------*/
 local LastViewAng = false
@@ -344,7 +344,7 @@ end
 
 hook.Add ("CreateMove", "RSS", ReduceScopeSensitivity)
 
---[[
+/*---------------------------------------------------------
 Reload
 ---------------------------------------------------------*/
 function SWEP:Reload()
@@ -437,7 +437,7 @@ function SWEP:Reload()
 	return true
 end
 
---[[
+/*---------------------------------------------------------
 Deploy
 ---------------------------------------------------------*/
 function SWEP:Deploy()
@@ -509,7 +509,7 @@ function SWEP:Deploy()
 	return true
 end
 
---[[
+/*---------------------------------------------------------
 	PrimaryAttack
 ---------------------------------------------------------*/
 function SWEP:PrimaryAttack()
@@ -575,7 +575,7 @@ function SWEP:PrimaryAttack()
 	end
 end
 
---[[
+/*---------------------------------------------------------
 SecondaryAttack
 ---------------------------------------------------------*/
 function SWEP:SecondaryAttack()
@@ -628,7 +628,7 @@ function SWEP:CanPrimaryAttack()
 end
 
 SWEP.CrossHairScale = 1
---[[
+/*
 function SWEP:PreDrawViewModel(vm)
 	print_r(vm:GetSkin())
 	if (self:GetNWBool("HasKull",false)) then
@@ -955,7 +955,7 @@ function SWEP:RecoilPower()
 	end
 end
 
---[[
+/*---------------------------------------------------------
 ShootBullet
 ---------------------------------------------------------*/
 function SWEP:CSShootBullet(dmg, recoil, numbul, cone)
@@ -993,7 +993,7 @@ function SWEP:CSShootBullet(dmg, recoil, numbul, cone)
 	end
 end
 -- This should be recoded to use real entity bullets, for later then..
---[[ function BulletPenetration( hitNum, attacker, tr, dmginfo )
+/* function BulletPenetration( hitNum, attacker, tr, dmginfo )
 
  	local DoDefaultEffect = true;
  	if ( !tr.HitWorld ) then DoDefaultEffect = true end
