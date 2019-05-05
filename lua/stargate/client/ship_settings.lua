@@ -15,8 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
--- The keyboard layout, you see in the stargate/Keybinders #################
-
+-- The keyboard layout, you see in the stargate/Keybinders
 -- Adds the glider's keysettings @aVoN
 --[[function StarGate.Hook.AddF302KeysettingsConfig()
     --if(not StarGate.Installed) then return end;
@@ -196,7 +195,7 @@ function StarGate.F302Settings(Panel)
         {
             Name = SGLanguage.GetMessage("key_view_title"),
             Keys = {
-            --    {"Toggle thirdperson view","VIEW"},
+            -- {"Toggle thirdperson view","VIEW"},
                 {SGLanguage.GetMessage("key_view_hud"),"HIDE"},
                 {SGLanguage.GetMessage("key_view_zoomin"),"Z+"},
                 {SGLanguage.GetMessage("key_view_zoomout"),"Z-"},

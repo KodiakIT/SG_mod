@@ -37,10 +37,9 @@ StarGate.HTTP = {
 StarGate.LATEST_VERSION = 0;
 StarGate.CURRENT_VERSION = 0;
 
--- CODE ###################
+-- CODE
 
-
---                        Internet communication
+-- Internet communication
 
 
 -- compare two digit versions @AlexALX
@@ -128,7 +127,7 @@ end
 hook.Add("PlayerBindPress","StarGate.Hook.GetInternetStatus",StarGate.Hook.GetInternetStatus);
 
 
---                        Config Part
+-- Config Part
 
 
 -- Getting synced data from the server @aVoN
@@ -172,7 +171,7 @@ function StarGate.LifeSupportAndWire(ENT)
 end
 
 
---                        Material Helpers
+-- Material Helpers
 
 
 -- Creates a new Material according to a given VMT String @aVoN

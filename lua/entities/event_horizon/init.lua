@@ -111,8 +111,7 @@ BUFFER.ClipIgnore = {
     "shield_core_buble",
 }
 
--- SENT CODE ###############
-
+-- SENT CODE
 -- Init @aVoN
 function ENT:Initialize()
     -- We need a "fresh" copy of sounds for this entity. Otherwise "SGA-opening-sounds" might overwrite "SG1-opening-sounds", because ENT.Sounds is global!
@@ -328,7 +327,7 @@ function ENT:Open()
         local gt = 0;
 
         local class = self:GetParent():GetClass();
-        local nox_type = self:GetParent().NoxDialingType; // let it spawn without kawoosh, like nox/asgard/cassandra can do
+        local nox_type = self:GetParent().NoxDialingType; -- let it spawn without kawoosh, like nox/asgard/cassandra can do
         if (nox_type) then
             self.OpeningDelay = 0.87;
             self.OpenTime = 0.9;
@@ -1544,7 +1543,7 @@ function ENT:DoSecret(v)
     --v:SetParent(self.Entity);
     -- Now, let's change the bone's positions!
     --for _,bone in pairs(restore.Bones) do
-    --    bone.Entity:SetPos(v:LocalToWorld(bone.Position));
+    -- bone.Entity:SetPos(v:LocalToWorld(bone.Position));
     --end
     -- Make players spectate the harvester
     if(v:IsPlayer()) then

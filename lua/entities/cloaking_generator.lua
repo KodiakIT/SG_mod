@@ -40,8 +40,7 @@ ENT.Sounds={
     Uncloak=Sound("npc/turret_floor/die.wav"),
 };
 
--- SENT CODE ###############
-
+-- SENT CODE
 -- Init @aVoN
 function ENT:Initialize()
     self.Entity:PhysicsInit(SOLID_VPHYSICS);
@@ -79,7 +78,7 @@ function ENT:TriggerInput(k,v)
     end
 end
 
---  Claok @aVoN
+-- Claok @aVoN
 function ENT:Use(p)
     if (self:GetWire("Disable Use")>0) then return end
     if(self:Enabled()) then
@@ -151,7 +150,7 @@ function ENT:Think()
     return true;
 end
 
---  Updates the overlay text @aVoN
+-- Updates the overlay text @aVoN
 function ENT:ShowOutput(enabled)
     local add = "Off";
     if(enabled) then

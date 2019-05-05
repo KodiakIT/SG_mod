@@ -59,8 +59,7 @@ ENT.ChevronLocks8o = {4,8,12,24,28,32,16,36,20};
 ENT.ChevronLocks9o = {4,8,12,24,28,32,16,20,36};
 --ENT.AlwaysFast = true; -- Tells the activation code in stargate_base/events.lua:ActivateStargate() not to add a delay when called by this gate here (Atlantis always dials fast!)
 
--- SENT CODE ###############
-
+-- SENT CODE
 -- Init @aVoN
 function ENT:Initialize()
     util.PrecacheModel(self.Models.Base);
@@ -86,7 +85,7 @@ function ENT:Initialize()
     timer.Create("AtlTypeThink"..self:EntIndex(), 5.0, 0, function() if IsValid(self) then self:AtlTypeThink() end end);
 end
 
---  Called when stargate_group_system changed
+-- Called when stargate_group_system changed
 function ENT:ChangeSystemType(groupsystem)
     self:GateWireInputs(groupsystem);
     if (groupsystem) then
@@ -347,13 +346,13 @@ function ENT:ActivateChevron(chev,b,inbound,body,fasterdial)
             end
             self.Entity:SetNWBool("chevron"..chev,false); -- Dynamic light of the chevron
             --if(not inbound and not fast)then
-            --    self:RingSound(false);
+            -- self:RingSound(false);
             --end
         end
     end
 end
 
---  When getting removed..
+-- When getting removed..
 function ENT:OnRemove()
     StarGate.StopUpdateGateTemperatures(self);
     if timer.Exists("LowPriorityThink"..self:EntIndex()) then timer.Remove("LowPriorityThink"..self:EntIndex()) end

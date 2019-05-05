@@ -70,8 +70,8 @@ function SWEP:SpawnLucian()
         ang.p = 0; ang.r = 0; ang.y = (ang.y+90) % 360;
 
         if(IsValid(tr.Entity))then
-    --         ang = ang + tr.Entity:GetAngles();
-    --         ang.p = 0; ang.r = (ang.r+90) % 360; ang.y = (ang.y+180) % 360;
+    -- ang = ang + tr.Entity:GetAngles();
+    -- ang.p = 0; ang.r = (ang.r+90) % 360; ang.y = (ang.y+180) % 360;
             ang = tr.HitNormal:Angle();
             ang.p = ang.p+90;
         end

@@ -175,7 +175,7 @@ function ENT:Touch(ent)
         self.Entity:SetAngles(self.Entity.TargetDoor:LocalToWorldAngles(Angle(90,0,0)))
         self.Entity:SetCollisionGroup(COLLISION_GROUP_WORLD)
         self.Entity:FollowBone(self.Entity.TargetDoor, self.Entity.TargetDoor:LookupBone("RightLock"))
-    --    constraint.Weld(self.Entity,self.Entity.TargetDoor,0,0,0,true)
+    -- constraint.Weld(self.Entity,self.Entity.TargetDoor,0,0,0,true)
         constraint.NoCollide(self.Entity,self.Entity.TargetDoor,0,0)
     end
 
@@ -187,7 +187,7 @@ function ENT:Touch(ent)
         self.Entity:SetAngles(self.Entity.TargetDoor:LocalToWorldAngles(Angle(90,0,0)))
         self.Entity:SetCollisionGroup(COLLISION_GROUP_WORLD)
         self.Entity:FollowBone(self.Entity.TargetDoor, self.Entity.TargetDoor:LookupBone("RightLock"))
-    --    constraint.Weld(self.Entity,self.Entity.TargetDoor,0,0,0,true)
+    -- constraint.Weld(self.Entity,self.Entity.TargetDoor,0,0,0,true)
         constraint.NoCollide(self.Entity,self.Entity.TargetDoor,0,0)
     end
 
@@ -223,7 +223,7 @@ function ENT:Think()
         second:SetCollisionGroup(COLLISION_GROUP_WORLD)
         second:FollowBone(self.Entity.TargetDoor, self.Entity.TargetDoor:LookupBone("LeftLock"))
         second.Owner = second.MainLDO.Owner
-    --    constraint.Weld(second,self.Entity.TargetDoor,0,0,0,true)
+    -- constraint.Weld(second,self.Entity.TargetDoor,0,0,0,true)
         constraint.NoCollide(second,self.Entity.TargetDoor,0,0)
         self.Entity.SecondLucianDevice = second
         self.Entity.SecondLucianDevice.Untouchable = true

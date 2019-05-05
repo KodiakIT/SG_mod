@@ -33,8 +33,7 @@ if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("entw
 AddCSLuaFile();
 
 ENT.Sound = {Shot=Sound("weapons/drone_shot.mp3")};
--- SENT CODE ###############
-
+-- SENT CODE
 -- Init @Zup & aVoN
 function ENT:Initialize()
     --self.Entity:SetModel("models/props_phx/box_amraam.mdl");
@@ -131,7 +130,7 @@ function ENT:TriggerInput(k,v)
     end
 end
 
---  Shoot like hell! @aVoN
+-- Shoot like hell! @aVoN
 function ENT:Use(p)
     if (self:GetWire("Disable Use")>0) then return end
     self:TriggerInput("Launch",1);
@@ -145,7 +144,7 @@ function ENT:Use(p)
     );
 end
 
---  Updates the overlay text @aVoN
+-- Updates the overlay text @aVoN
 function ENT:ShowOutput()
     local add = "Off";
     if(self.Launched) then

@@ -17,7 +17,7 @@
 */
 
 
---                        STOOL Additions
+-- STOOL Additions
 
 
 -- Spawnfunction for SENTs (ToolUsage) @aVoN

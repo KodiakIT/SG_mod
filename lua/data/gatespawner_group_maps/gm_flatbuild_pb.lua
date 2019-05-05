@@ -140,7 +140,7 @@ classname=kino_dispenser
 position=-3350 680 -1375.3529
 angles=0 90 0
 
-#####################################
+
 
 [stargate]
 classname=stargate_atlantis

@@ -30,7 +30,7 @@ ENT.Sounds = {}
 
 function ENT:Initialize()
   -- Bomb starts disarmed
-  self:SetNetworkedInt("State", 1) --  1 = Idle ,  2 = Armed,  3 = Charging
+  self:SetNetworkedInt("State", 1) -- 1 = Idle ,  2 = Armed,  3 = Charging
   self.charge = 0
 
   -- Set up physics for entity

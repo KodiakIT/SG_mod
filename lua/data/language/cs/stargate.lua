@@ -1,9 +1,9 @@
 -- All lines/sentences what come after "//" is comments and shouldn't be translated!
 
-// Global language name, will be displayed in language settings
+-- Global language name, will be displayed in language settings
 global_lang_name = Český
 
-// Stargate and DHD names
+-- Stargate and DHD names
 stargate_category = Brány a Kruhy
 stargate_address = Adresa
 stargate_group = Skupina
@@ -30,7 +30,7 @@ stargate_reload = Změněn systém zadávání brán:\nNový zadávací systém 
 stargate_reloaded = Systém bran byl úspěšně načten.
 stargate_reload_start = Spouštím systém bran... Prosím čekejte.
 
-// New tool menu on gates (when hold C)
+-- New tool menu on gates (when hold C)
 stargate_c_tool_01 = Povolit otáčení vnitřního kruhu
 stargate_c_tool_01d = Zakázat otáčení vnitřního kruhu
 stargate_c_tool_02 = Povolit pomalý mód
@@ -67,7 +67,7 @@ stargate_c_tool_18d = Zakázat Symboly
 stargate_c_tool_19 = Povolit Atlantský typ brány
 stargate_c_tool_19d = Zakázat Atlantský typ brány
 
-// Stargate VGUI menus
+-- Stargate VGUI menus
 stargate_vgui_address = Adresa:
 stargate_vgui_address2 = Adresa
 stargate_vgui_grouptype = Skupina/typ
@@ -128,7 +128,7 @@ stargate_vgui_glyphs = Symboly
 stargate_vgui_blocked = Blokovaná
 stargate_vgui_blockedtip = Blokované brány se ukážou červenou barvou a nelze na ně kliknout.
 
-// Cap DirectX warning message, type CAP_dxlevel in console for get this message manually
+-- Cap DirectX warning message, type CAP_dxlevel in console for get this message manually
 stargate_dxlevel_01 = Carter Addon Pack - Varování
 stargate_dxlevel_02 =[[ Pozor: tvůj gmod běží na verzi DirectX 8.1 nebo nižší.
 Spůsobí to chyby s kompatibilitou Carter Addon Packu.
@@ -140,26 +140,26 @@ stargate_dxlevel_03 =[[* Žádný nestabilní vir při otevření brány.
 stargate_dxlevel_04 =[[Prosím spusťte gmod na dxlevel 90 nebo vyšší (95 doporučen).
 Můžete to změnit prěs konzoli s convarem mat_dxlevel.]]
 
-// Cap update reminter (for github users), type CAP_Outdated in console for get this message manually
+-- Cap update reminter (for github users), type CAP_Outdated in console for get this message manually
 stargate_updater_01 = CAP Připomínkovač Aktualizací
 stargate_updater_02 = Tvoje verze CAP je zastaralá!\nVlastníš verzi: %s Nejnovější verze je: %s
 stargate_updater_03 = Aktualizuj CAP, pro nové funkce a méně chyb.
 stargate_updater_04 = Zavřít
 
-// spawn menu info
+-- spawn menu info
 spawninfo_title = Informace
 spawninfo_load = Načítam...
 spawninfo_news = Novinky
 spawninfo_wiki = Wiki
 spawninfo_forum = Fórum Podpory
 spawninfo_multi = Československá podpora
-// you can create own language support thread in this forum and replace url with your link
+-- you can create own language support thread in this forum and replace url with your link
 spawninfo_multi_url = http://sg-carterpack.com/forums/topic/czech-slovak-support/
-// if you changed link, then also change "spawninfo_multi" to "Your_Language Support" written in your language.
+-- if you changed link, then also change "spawninfo_multi" to "Your_Language Support" written in your language.
 spawninfo_fp = Facepunch Thread
 spawninfo_donate = Podpořit
 
-// Stool - Credits tab
+-- Stool - Credits tab
 stargate_credits_01 = Zásluhy
 stargate_credits_02 = Tady můžeš nahlasovat chyby. Pokud nemůžeš psát v HTML-Formuláři, navštív webové stránky %s .
 stargate_credits_03 = Nelze určit nejnovější verzi. Ujisti se, že jsi připojen k internetu. Pokud máte problémy, kontaktujte "CAP Team"
@@ -176,7 +176,7 @@ stargate_credits_13 = Chyby
 stargate_credits_14 = Pokud se ti líbí, co developeři vytvořili, tak je můžeš podpořit zde:
 stargate_credits_15 = Podpořit
 
-// Stool - Settings/Language tab
+-- Stool - Settings/Language tab
 stargate_settings_01 = Nastavení
 stargate_settings_02 = Navštívte tuto stránku
 stargate_settings_02t = Jak přeložit Carter Addon Pack

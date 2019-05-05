@@ -17,7 +17,7 @@
 */
 
 
---                        SENT related additions
+-- SENT related additions
 
 
 -- Compensates velocity @aVoN
@@ -193,7 +193,7 @@ function StarGate.CAP_GmodDuplicator(ply,Data)
 end
 
 
---                 Deriving Entity Material/Color
+-- Deriving Entity Material/Color
 
 
 local meta = FindMetaTable("Entity");

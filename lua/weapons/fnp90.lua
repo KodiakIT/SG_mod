@@ -714,7 +714,7 @@ function SWEP:DrawHUD()
     local x, y
 
     -- If we're drawing the local player, draw the crosshair where theyre aiming,
-    // instead of in the center of the screen.
+    -- instead of in the center of the screen.
     if ( self.Owner == LocalPlayer() && self.Owner:ShouldDrawLocalPlayer() ) then
 
     local tr = util.GetPlayerTrace( self.Owner )
@@ -730,13 +730,13 @@ function SWEP:DrawHUD()
 
     local scale = 10 * self.Primary.Cone
 
-    // Scale the size of the crosshair according to how long ago we fired our weapon
+    -- Scale the size of the crosshair according to how long ago we fired our weapon
     local LastShootTime = self.Weapon:GetNetworkedFloat( "LastShootTime", 0 )
     scale = scale * (2 - math.Clamp( (CurTime() - LastShootTime) * 5, 0.0, 1.0 ))
 
     surface.SetDrawColor( 0, 255, 0, 255 )
 
-    // Draw an awesome crosshair
+    -- Draw an awesome crosshair
     local gap = 40 * scale
     local length = gap + 20 * scale
     surface.DrawLine( x - length, y, x - gap, y )
@@ -793,8 +793,8 @@ function SWEP:GetViewModelPosition(pos, ang)
         self.fIronTime = CurTime()
 
         -- if ( !bIron ) then
-        --    self.SwayScale     = 0.7
-        --    self.BobScale     = 0.7
+        -- self.SwayScale     = 0.7
+        -- self.BobScale     = 0.7
         -- end
     end
 

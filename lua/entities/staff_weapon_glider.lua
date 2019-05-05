@@ -189,7 +189,7 @@ function ENT:TriggerInput(k,v)
     end
 end
 
---  Shoot like hell! @aVoN
+-- Shoot like hell! @aVoN
 function ENT:Use(p)
     if (self:GetWire("Disable Use")>0) then return end
     self:TriggerInput("Fire",1);

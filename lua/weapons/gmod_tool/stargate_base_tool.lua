@@ -150,7 +150,7 @@ function TOOL:GetDefaultSettings()
 end
 
 
---                        Cleanups and Limits
+-- Cleanups and Limits
 
 
 -- Adds an undo event @aVoN
@@ -195,7 +195,7 @@ function TOOL:Weld(e,e2,weld)
 end
 
 
---                        Resource Distribution
+-- Resource Distribution
 
 
 -- Automatically links two SENTs, when they use Resource Distribution if installed @aVoN
@@ -246,7 +246,7 @@ function TOOL:AutoLink(e1,e2)
 end
 
 
---                        Ghost entities
+-- Ghost entities
 
 
 -- Sets position and angles using the trace we got @aVoN

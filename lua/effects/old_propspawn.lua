@@ -58,19 +58,19 @@ function EFFECT:Render()
     -- Change our model's alpha so the texture will fade out
     self:SetColor( Color(255, 255, 255, 1 + 254 * (ColFrac)) )
 
-    // Place the camera a tiny bit closer to the entity.
-    // It will draw a big bigger and we will skip any z buffer problems
+    -- Place the camera a tiny bit closer to the entity.
+    -- It will draw a big bigger and we will skip any z buffer problems
     local EyeNormal = self:GetPos() - EyePos()
     local Distance = EyeNormal:Length()
     EyeNormal:Normalize()
 
     local Pos = EyePos() + EyeNormal * Distance * 0.01
 
-    // Start the new 3d camera position
+    -- Start the new 3d camera position
     cam.Start3D( Pos, EyeAngles() )
 
-        // Draw our model with the Light material
-        // This is the underlying blue effect and it doubles as the DX7 only effect
+        -- Draw our model with the Light material
+        -- This is the underlying blue effect and it doubles as the DX7 only effect
         if ( ColFrac > 0 ) then
 
             render.MaterialOverride( matLight )
@@ -79,21 +79,21 @@ function EFFECT:Render()
 
         end
 
-        // If our card is DX8 or above draw the refraction effect
+        -- If our card is DX8 or above draw the refraction effect
         if ( render.GetDXLevel() >= 80 ) then
 
-            // Update the refraction texture with whatever is drawn right now
+            -- Update the refraction texture with whatever is drawn right now
             render.UpdateRefractTexture()
 
             matRefract:SetFloat( "$refractamount", Fraction * 0.1 )
-            // Draw model with refraction texture
+            -- Draw model with refraction texture
             render.MaterialOverride( matRefract )
                 self:DrawModel()
             render.MaterialOverride( 0 )
 
         end
 
-    // Set the camera back to how it was
+    -- Set the camera back to how it was
     cam.End3D()
 
 end

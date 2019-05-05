@@ -17,7 +17,7 @@
 */
 
 
---              Teleportation special behaviour class
+-- Teleportation special behaviour class
 
 
 -- The reason, this is not in the event horizon sent itself is, it needs to be loaded before the SENTs.

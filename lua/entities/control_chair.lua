@@ -218,7 +218,7 @@ function ENT:ActivateChair(p)
                 p:SetClientsideVehicle(self)
             end*/
             self.Pilot=p
---            self:SpawnRagdoll()
+-- self:SpawnRagdoll()
             --p:SetScriptedVehicle(self)
             p:SetNetworkedEntity("ScriptedVehicle", self)
             p:SetViewEntity(self)
@@ -259,7 +259,7 @@ function ENT:DeactivateChair(p)
     self.Pilot:SetNWBool("Control",false)
     self.Pilot:SetNWEntity("chair",NULL)
     self:SupplyResource("energy",500)
---    self.Ragdoll:Remove()
+-- self.Ragdoll:Remove()
     self.Controlling=false
     self.NextUse=CurTime()+1
     self.Nextthink=false

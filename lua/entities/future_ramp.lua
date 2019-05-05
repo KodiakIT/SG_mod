@@ -1,4 +1,4 @@
---   Copyright 2010 by Llapp
+-- Copyright 2010 by Llapp
 ENT.Type = "anim"
 ENT.Base = "base_anim"
 ENT.PrintName = "2010 Ramp"
@@ -65,7 +65,7 @@ function ENT:GateFinder()
         if(IsValid(v) and v:GetClass():find("stargate_*")) then
             self.Gate = v;
         --else
-        --    self.Gate = nil;
+        -- self.Gate = nil;
         end
     end
 end

@@ -159,7 +159,7 @@ function StarGate.IsInShield(ent)
     return false;
 end
 
-function StarGate.GetMultipleOwner(ent) // Ugly, no validation, but works :p
+function StarGate.GetMultipleOwner(ent) -- Ugly, no validation, but works :p
     local own = ent;
     if IsValid(own) then
         if own:IsPlayer() then return own end

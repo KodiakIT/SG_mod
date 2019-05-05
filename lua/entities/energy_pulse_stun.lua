@@ -35,8 +35,7 @@ ENT.NoAutoClose = true; -- Will not cause an autoclose event on the stargates!
 ENT.CDSIgnore = true; -- CDS Immunity
 function ENT:gcbt_breakactions() end; ENT.hasdamagecase = true; -- GCombat invulnarability!
 
--- SENT CODE ###############
-
+-- SENT CODE
 -- Init @aVoN, Madman07
 function ENT:Initialize()
     self.Entity:PhysicsInitSphere(self.Size/10,"metal");
@@ -361,7 +360,7 @@ function ENT:Stun( Ent )
     util.Effect( "TeslaHitBoxes", fx )
 end
 
---  TELEPORT
+-- TELEPORT
 function ENT.FixAngles(self,pos,ang,vel,old_pos,old_ang,old_vel,ang_delta)
     self:PhysWake()
     self.Direction = vel:GetNormalized();

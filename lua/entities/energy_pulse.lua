@@ -34,8 +34,7 @@ ENT.NoAutoClose = true; -- Will not cause an autoclose event on the stargates!
 ENT.CDSIgnore = true; -- CDS Immunity
 function ENT:gcbt_breakactions() end; ENT.hasdamagecase = true; -- GCombat invulnarability!
 
--- SENT CODE ###############
-
+-- SENT CODE
 -- Init @aVoN, Madman07
 function ENT:Initialize()
     -- this cause crash when shoot in water, when i set just same values for all shoots no crashes and everything work fine
@@ -187,7 +186,7 @@ function ENT:PhysicsCollide( data, physobj )
     end
 end
 
---  TELEPORT
+-- TELEPORT
 function ENT.FixAngles(self,pos,ang,vel,old_pos,old_ang,old_vel,ang_delta)
     self:PhysWake()
     self.Direction = vel:GetNormalized();

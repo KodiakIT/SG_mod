@@ -4,7 +4,7 @@
     Copyright (C) 2011 Madman07
 ]]--
 
-function StarGate.GetMultipleOwnerClientSide(ent) // Ugly, no validation, but works :p
+function StarGate.GetMultipleOwnerClientSide(ent) -- Ugly, no validation, but works :p
     local own = ent;
     if IsValid(own) then
         if own:IsPlayer() then return own end
@@ -31,7 +31,7 @@ function StarGate.LOSVector(startpos, endpos, filter, radius)
     }
     local trace = util.TraceLine(tracedata);
 
-    local x = math.abs(endpos.x-trace.HitPos.x) < radius; // way faster than P1:Distance(P2)  (no roots, etc)
+    local x = math.abs(endpos.x-trace.HitPos.x) < radius; -- way faster than P1:Distance(P2)  (no roots, etc)
     local y = math.abs(endpos.y-trace.HitPos.y) < radius;
     local z = math.abs(endpos.z-trace.HitPos.z) < radius;
 
@@ -93,7 +93,7 @@ function StarGate.IsInAltantisoid(pos, ent, dimension)
         is_in = StarGate.IsInEllipsoid(pos, ent, dimension);
     else
         dimension.z = dimension.z/2;
-        is_in = StarGate.IsInEllipsoid(pos, ent, dimension); // lower than 2/5c its flatened
+        is_in = StarGate.IsInEllipsoid(pos, ent, dimension); -- lower than 2/5c its flatened
     end
 
     return is_in;
@@ -133,7 +133,7 @@ function StarGate.RayPhysicsPluckerIntersect(trace, dir, ent, in_shape)
     -- ran over every triangle in physics
     for i=1, table.getn(ent.RayModel), 3 do
 
-        if in_shape then // if in shield then counter clock wise order
+        if in_shape then -- if in shield then counter clock wise order
             TA = ent.RayModel[i];
             TB = ent.RayModel[i+1];
             TC = ent.RayModel[i+2];
@@ -191,8 +191,8 @@ function StarGate.RayPhysicsPluckerIntersect(trace, dir, ent, in_shape)
 end
 
 function StarGate.RayTriangleIntersect(start, dir, v1, v2, v3)
-    local norm = (v2-v1):Cross(v3-v2):GetNormal(); // get normal of the triangle
-    local dot = norm:DotProduct(v2-v1); // get dot product for further use
+    local norm = (v2-v1):Cross(v3-v2):GetNormal(); -- get normal of the triangle
+    local dot = norm:DotProduct(v2-v1); -- get dot product for further use
 
     -- Now find plane (defined by DISTANCE, NORMAL) from three points
     local dist = -1*(v1:DotProduct(norm));
@@ -215,7 +215,7 @@ function StarGate.RayTriangleIntersect(start, dir, v1, v2, v3)
 
     --is it really intersecting?
     if StarGate.PointInTriangle(p, v1,v2,v3) then
-        norm = (v2-v1):Cross(v3-v2):GetNormal(); // do one more time jsut to be sure
+        norm = (v2-v1):Cross(v3-v2):GetNormal(); -- do one more time jsut to be sure
         return true, p, norm, t;
     else return false, nil, nil, nil;
     end

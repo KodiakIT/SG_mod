@@ -360,7 +360,7 @@ function ENT.Sequence:DialFail(instant_stop,play_sound)
     -- Stop all chevrons (if active only!)
     if(self.Entity.Active or play_sound) then
         --if (self.Entity:GetClass() == "stargate_supergate") then
-        --    action:Add({f=self.DisActivateLights,v={self,true},d=0});
+        -- action:Add({f=self.DisActivateLights,v={self,true},d=0});
         --end
 
         action:Add({f=self.ActivateRing,v={self,false},d=0});

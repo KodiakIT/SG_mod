@@ -61,10 +61,10 @@
 # If you want to change config value, read the "How to create your own config.txt" which is inside the same folder like this file!
 # The reason is, this config here is the default config and if you edit this one here incorrectly, the whole pack can stop working!
 
-#########################################
+
 #                        Stargate Pack config by aVoN
 #                        aka System of a pWne!^
-#########################################
+
 
 #### Stargate config
 [stargate]

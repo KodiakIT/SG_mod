@@ -111,8 +111,7 @@ end
 
 if SERVER then
 
--- SENT CODE ###############
-
+-- SENT CODE
 -- Init @Zup
 function ENT:Initialize()
     self.Entity:SetModel("models/Madman07/F302/missile.mdl");

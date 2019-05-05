@@ -1,4 +1,4 @@
-/*
+--[[
     INI-Parser to parse .ini files and read out the data
     Copyright (C) 2007  aVoN
 
@@ -15,16 +15,13 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-    ###################################
     StarGate with Group System
     Created by AlexALX (c) 2011
-    ###################################
     Small language lib, which lacking in gmod lua functions
     Some lua function not compatiable with language messages (with #),
     and also original language messages can't use in messages other text.
     So i make this small lib.
-    ###################################
-*/
+]]--
 
 if (SERVER) then
     AddCSLuaFile();

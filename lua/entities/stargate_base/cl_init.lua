@@ -45,8 +45,7 @@ ENT.SpritePositions = {
 
 ENT.ChevronSprite = Material("effects/multi_purpose_noz");
 
--- SENT CODE ###############
-
+-- SENT CODE
 
 
 -- Name/Address/Private Handling
@@ -418,7 +417,7 @@ function ENT:CheckEnergy(target,chevs)
     else
         consume = consume*5;
     end
-    --  energy :)
+    -- energy :)
     if(en >= consume)then energy = true else energy = false end;
     if(not self.ConnectionSGU and not self.ConnectionGalaxy and not energy) then
         for k,v in pairs(self:FindPowerDHD()) do -- look for other power sources -- look for dhd :)

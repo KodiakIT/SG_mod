@@ -128,7 +128,7 @@ function ENT:DoExplosion()
     util.BlastDamage(owner, attacker, b.Pos, 250, 250)
 
     local effectdata = EffectData()
-        effectdata:SetStart(b.Pos) // not sure if we need a start and origin (endpoint) for this effect, but whatever
+        effectdata:SetStart(b.Pos) -- not sure if we need a start and origin (endpoint) for this effect, but whatever
         effectdata:SetOrigin(b.Pos)
         effectdata:SetScale( 1 )
     util.Effect( "HelicopterMegaBomb", effectdata )

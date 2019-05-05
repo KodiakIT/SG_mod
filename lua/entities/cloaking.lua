@@ -104,8 +104,7 @@ ENT.NoDissolve = true;
 ENT.CDSIgnore = true; -- CDS Immunity
 function ENT:gcbt_breakactions() end; ENT.hasdamagecase = true; -- GCombat invulnarability!
 
--- SENT CODE ###############
-
+-- SENT CODE
 util.AddNetworkString("Stargate.Cloak.Friends");
 
 -- Init @aVoN

@@ -22,7 +22,7 @@
 -- FIXME: Todo - Rewrite this using "ANIM" like in "stargate_iris" sent.
 ENT.Sequence = {};
 
---  Milkyway movie gates - dialling sequence @aVoN / AlexALX
+-- Milkyway movie gates - dialling sequence @aVoN / AlexALX
 -- ATTENTION: The dialling time takes exactly 7 seconds with my gates (dialled in fast mode). When you code your own gates, make them take 7 seconds too!
 -- You can check a dialling sequence's length with adding "print_r(delay)" to end of the stargate_base's ENT:RunAction() function
 function ENT.Sequence:Dial(inbound,fast,fail,busy)

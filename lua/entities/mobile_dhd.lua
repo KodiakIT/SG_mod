@@ -33,8 +33,7 @@ if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("base
 -- Include
 AddCSLuaFile();
 
--- SENT CODE #################
-
+-- SENT CODE
 -- Init @aVoN
 function ENT:Initialize()
     self:PhysicsInit(SOLID_VPHYSICS);

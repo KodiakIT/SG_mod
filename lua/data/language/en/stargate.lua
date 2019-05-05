@@ -1,9 +1,9 @@
 -- All lines/sentences what come after "//" is comments and shouldn't be translated!
 
-// Global language name, will be displayed in language settings
+-- Global language name, will be displayed in language settings
 global_lang_name = English
 
-// Stargate and DHD names
+-- Stargate and DHD names
 stargate_category = StarGates and Rings
 stargate_address = Address
 stargate_group = Group
@@ -30,7 +30,7 @@ stargate_reload = Changed stargate dial system type:\nNew dial system is: %s.\nR
 stargate_reloaded = Stargate system successfully reloaded.
 stargate_reload_start = Starting reload stargate system... Please wait.
 
-// New tool menu on gates (when hold C)
+-- New tool menu on gates (when hold C)
 stargate_c_tool_01 = Enable ring rotation
 stargate_c_tool_01d = Disable ring rotation
 stargate_c_tool_02 = Enable slow mode
@@ -85,7 +85,7 @@ stargate_c_tool_23c = Cancel
 stargate_c_tool_24 = 9 Chevron Mode
 stargate_c_tool_24d = Disable 9 Chevron Mode
 
-// Stargate VGUI menus
+-- Stargate VGUI menus
 stargate_vgui_address = Address:
 stargate_vgui_address2 = Address
 stargate_vgui_grouptype = Group/type
@@ -146,7 +146,7 @@ stargate_vgui_glyphs = Glyphs
 stargate_vgui_blocked = Blocked
 stargate_vgui_blockedtip = Blocked address shows in red color and can not be clicked.
 
-// Cap DirectX warning message, type CAP_dxlevel in console for get this message manually
+-- Cap DirectX warning message, type CAP_dxlevel in console for get this message manually
 stargate_dxlevel_01 = Carter Addon Pack - Warning
 stargate_dxlevel_02 =[[ Warning: your gmod running under DirectX 8.1 or lower.
 This will cause compatibility problems with Carter Addon Pack.
@@ -158,26 +158,26 @@ stargate_dxlevel_03 =[[* No kawoosh when stargate opens.
 stargate_dxlevel_04 =[[Please run gmod under dxlevel 90 or higher (95 recommended).
 This can be changed with convar mat_dxlevel.]]
 
-// Cap update reminter (for github users), type CAP_Outdated in console for get this message manually
+-- Cap update reminter (for github users), type CAP_Outdated in console for get this message manually
 stargate_updater_01 = Cap Update Reminder
 stargate_updater_02 = Your build of CAP is out of date!\nYour Revision: %s Latest Revision: %s
 stargate_updater_03 = Please update Carter Pack to get new features and bugfixing!
 stargate_updater_04 = Close
 
-// spawn menu info
+-- spawn menu info
 spawninfo_title = Information
 spawninfo_load = Loading...
 spawninfo_news = News
 spawninfo_wiki = Wiki
 spawninfo_forum = Support Forum
 spawninfo_multi = Multi-language support
-// you can create own language support thread in this forum and replace url with your link
+-- you can create own language support thread in this forum and replace url with your link
 spawninfo_multi_url = http://sg-carterpack.com/forums/forum/support/multi-language-support/
-// if you changed link, then also change "spawninfo_multi" to "Your_Language Support" written in your language.
+-- if you changed link, then also change "spawninfo_multi" to "Your_Language Support" written in your language.
 spawninfo_fp = Facepunch Thread
 spawninfo_donate = Donate
 
-// Stool - Credits tab
+-- Stool - Credits tab
 stargate_credits_01 = Credits
 stargate_credits_02 = Here, you can report bugs. If you can't type in the HTML-Formulars, visit %s with your webbrowser.
 stargate_credits_03 = Couldn't determine latest BUILD. Make sure, you are connected to the Internet or contact with CAP Team.
@@ -194,7 +194,7 @@ stargate_credits_13 = Bugs
 stargate_credits_14 = If you like what we've brought here and want to support the developers then you can donate here:
 stargate_credits_15 = Donate
 
-// Stool - Settings/Language tab
+-- Stool - Settings/Language tab
 stargate_settings_01 = Settings menu
 stargate_settings_02 = Visit this page
 stargate_settings_02t = How to translate Carter Addon Pack

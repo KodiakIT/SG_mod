@@ -51,7 +51,7 @@ angles=-0.000 270.000 0.000
 model=models/boba_fett/ramps/ramp2.mdl
 
 
-#####################################
+
 
 [stargate]
 classname=stargate_atlantis

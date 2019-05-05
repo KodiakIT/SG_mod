@@ -7,8 +7,7 @@ ENT.WireDebugName = "Eventhorizon"
 ENT.Spawnable = false
 ENT.AdminSpawnable = false
 
--- EH Types @ AlexALX ###############
-
+-- EH Types @ AlexALX
 ENT.KawooshTypes = {
     ["sg1"] = {
         ID = 1,

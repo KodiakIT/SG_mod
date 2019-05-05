@@ -152,10 +152,10 @@ EGP:egpText(75,"Z",vec2(375,370+4))
 
 EGP:egpText(76,"#",vec2(255,270))
 
-###
+
 #}# End of if first or dupefinished
 ##
-###
+
 
 for (TRICOL = 3,39) { 
     EGP:egpColor(TRICOL,vec(220,220,220))

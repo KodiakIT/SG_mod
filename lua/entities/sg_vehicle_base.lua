@@ -459,7 +459,7 @@ function ENT:Think()
     if(IsFlying and IsDriver) then
         -- Normal behaviour for Pilot or people who stand outside
         self:StartClientsideSound("Engine");
-        --  Now add Pitch etc
+        -- Now add Pitch etc
         local velo = self.Entity:GetVelocity();
         local pitch = self.Entity:GetVelocity():Length();
         local doppler = 0;

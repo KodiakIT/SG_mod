@@ -194,10 +194,10 @@ for (WMHOLE = 81,83) {
     EGP:egpColor(WMHOLE,vec(0,80,170))  
 }
 
-###
+
 }# End of if first or dupefinished
 ##
-###
+
 
 for (G_ALPHA = 27,62) {
     EGP:egpAlpha(G_ALPHA,0)

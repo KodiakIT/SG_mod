@@ -37,8 +37,7 @@ AddCSLuaFile();
 ENT.CDSIgnore = true; -- CDS Immunity
 function ENT:gcbt_breakactions() end; ENT.hasdamagecase = true; -- GCombat invulnarability!
 
--- SENT CODE #################
-
+-- SENT CODE
 -- Init @aVoN
 function ENT:Initialize()
     self.Entity:PhysicsInit(SOLID_VPHYSICS);

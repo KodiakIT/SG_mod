@@ -31,8 +31,7 @@ ENT.Sounds = {
     OnButtonLock=Sound("stargate/stargate/dhd/dhd_usual_dial.wav"),
 }
 
--- SENT CODE ###############
-
+-- SENT CODE
 -- Init @assassin21,aVoN,Llapp
 function ENT:Initialize()
     util.PrecacheModel(self.Models.Base);
@@ -53,7 +52,7 @@ function ENT:Initialize()
     self.Entity:SetSkin(0)
 end
 
---  Called when stargate_group_system changed
+-- Called when stargate_group_system changed
 function ENT:ChangeSystemType(groupsystem,reload)
     self:GateWireInputs(groupsystem);
     self:GateWireOutputs(groupsystem);
@@ -410,7 +409,7 @@ function ENT:DialGate(address,mode)
     self:StartDialling();
 end
 
---  Use - Open the Dial Menu @aVoN
+-- Use - Open the Dial Menu @aVoN
 function ENT:Use(p)
     if self.Jamming then return end;
     if(IsValid(p) and p:IsPlayer()) then

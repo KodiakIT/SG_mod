@@ -38,8 +38,7 @@ ENT.Sounds={
     Fail={Sound("buttons/button19.wav"),Sound("buttons/combine_button2.wav")},
 };
 
--- SENT CODE ###############
-
+-- SENT CODE
 -- Init @aVoN
 function ENT:Initialize()
     self.Entity:PhysicsInit(SOLID_VPHYSICS);
@@ -221,7 +220,7 @@ function ENT:Think()
     return true;
 end
 
---  Updates the overlay text @aVoN
+-- Updates the overlay text @aVoN
 function ENT:ShowOutput(enabled)
     local add = "Off";
     if(enabled) then
@@ -335,7 +334,7 @@ function ENT:TriggerInput(k,v)
     end
 end
 
---  Claok @aVoN
+-- Claok @aVoN
 function ENT:Use(p)
     if (self:GetWire("Disable Use")>0) then return end
     if(self:Enabled()) then

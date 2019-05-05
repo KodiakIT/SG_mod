@@ -55,7 +55,7 @@ end
 StarGate.Teleport:Add("puddle_jumper",ENT.FixAngles)
 */
 
---  TO DO: Fix Jumper Angles after teleporting
+-- TO DO: Fix Jumper Angles after teleporting
 
 function ENT:PhysicsSimulate(phys,deltatime)-- Flight code@ RononDex
 

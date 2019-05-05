@@ -177,7 +177,7 @@ function ENT:DiallAllGates(dakara)
 
         timer.Create("DialTo"..self:EntIndex(),2.3,1,function()
             for _,v in pairs(self.IncomingGates or {}) do
-                v.Outbound = true; // fix lighting up dhds
+                v.Outbound = true; -- fix lighting up dhds
                 local action = v.Sequence:New();
                 action = v.Sequence:Dial(true,true,false);
                 action = action + v.Sequence:OpenGate();

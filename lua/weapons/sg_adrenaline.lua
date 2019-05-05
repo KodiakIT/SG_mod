@@ -257,8 +257,8 @@ function SWEP:Initialize()
         self.WElements = table.FullCopy( self.WElements )
         self.ViewModelBoneMods = table.FullCopy( self.ViewModelBoneMods )
 
-        self:CreateModels(self.VElements) // create viewmodels
-        self:CreateModels(self.WElements) // create worldmodels
+        self:CreateModels(self.VElements) -- create viewmodels
+        self:CreateModels(self.WElements) -- create worldmodels
 
         -- init view model bone build function
         if IsValid(self.Owner) then
@@ -559,7 +559,7 @@ if CLIENT then
 
             if (IsValid(self.Owner) and self.Owner:IsPlayer() and
                 ent == self.Owner:GetViewModel() and self.ViewModelFlip) then
-                ang.r = -ang.r // Fixes mirrored models
+                ang.r = -ang.r -- Fixes mirrored models
             end
 
         end
@@ -592,7 +592,7 @@ if CLIENT then
 
                 local name = v.sprite.."-"
                 local params = { ["$basetexture"] = v.sprite }
-                // make sure we create a unique name based on the selected options
+                -- make sure we create a unique name based on the selected options
                 local tocheck = { "nocull", "additive", "vertexalpha", "vertexcolor", "ignorez" }
                 for i, j in pairs( tocheck ) do
                     if (v[j]) then
@@ -620,8 +620,8 @@ if CLIENT then
 
             if (!vm:GetBoneCount()) then return end
 
-            // !! WORKAROUND !! //
-            // We need to check all model names :/
+            -- !! WORKAROUND !! //
+            -- We need to check all model names :/
             local loopthrough = self.ViewModelBoneMods
             if (!hasGarryFixedBoneScalingYet) then
                 allbones = {}
@@ -640,13 +640,13 @@ if CLIENT then
 
                 loopthrough = allbones
             end
-            // !! ----------- !! //
+            -- !! ----------- !! //
 
             for k, v in pairs( loopthrough ) do
                 local bone = vm:LookupBone(k)
                 if (!bone) then continue end
 
-                // !! WORKAROUND !! //
+                -- !! WORKAROUND !! //
                 local s = Vector(v.scale.x,v.scale.y,v.scale.z)
                 local p = Vector(v.pos.x,v.pos.y,v.pos.z)
                 local ms = Vector(1,1,1)
@@ -660,7 +660,7 @@ if CLIENT then
                 end
 
                 s = s * ms
-                // !! ----------- !! //
+                -- !! ----------- !! //
 
                 if vm:GetManipulateBoneScale(bone) != s then
                     vm:ManipulateBoneScale( bone, s )
@@ -693,9 +693,9 @@ if CLIENT then
         Global utility code
     **************************/
 
-    // Fully copies the table, meaning all tables inside this table are copied too and so on (normal table.Copy copies only their reference).
-    // Does not copy entities of course, only copies their reference.
-    // WARNING: do not use on tables that contain themselves somewhere down the line or you'll get an infinite loop
+    -- Fully copies the table, meaning all tables inside this table are copied too and so on (normal table.Copy copies only their reference).
+    -- Does not copy entities of course, only copies their reference.
+    -- WARNING: do not use on tables that contain themselves somewhere down the line or you'll get an infinite loop
     function table.FullCopy( tab )
 
         if (!tab) then return nil end
@@ -703,7 +703,7 @@ if CLIENT then
         local res = {}
         for k, v in pairs( tab ) do
             if (type(v) == "table") then
-                res[k] = table.FullCopy(v) // recursion ho!
+                res[k] = table.FullCopy(v) -- recursion ho!
             elseif (type(v) == "Vector") then
                 res[k] = Vector(v.x, v.y, v.z)
             elseif (type(v) == "Angle") then

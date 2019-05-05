@@ -36,7 +36,7 @@ KBD:SetDefaultKey("RIGHT",StarGate.KeyBoard.BINDS["+moveright"] or "D") -- Straf
 KBD:SetDefaultKey("BACK",StarGate.KeyBoard.BINDS["+back"] or "S") -- Go backwards
 KBD:SetDefaultKey("UP",StarGate.KeyBoard.BINDS["+jump"] or "SPACE") -- Strafe Up
 KBD:SetDefaultKey("DOWN",StarGate.KeyBoard.BINDS["+duck"] or "CTRL") -- Strafe Down
-KBD:SetDefaultKey("SPD",StarGate.KeyBoard.BINDS["+speed"] or "SHIFT") --  Drive Pods
+KBD:SetDefaultKey("SPD",StarGate.KeyBoard.BINDS["+speed"] or "SHIFT") -- Drive Pods
 
 --Roll
 KBD:SetDefaultKey("RL","MWHEELDOWN") -- Roll left
@@ -230,7 +230,7 @@ usermessage.Hook("jumperData", SetData)
 
 local num = 3.3;
 local y = ScrH()/4*num;
-function ENT:Think() --  Overly complex think function @ RononDex,LightDemon,aVoN
+function ENT:Think() -- Overly complex think function @ RononDex,LightDemon,aVoN
 
 
     local p = LocalPlayer();
@@ -379,7 +379,7 @@ function ENT:Think() --  Overly complex think function @ RononDex,LightDemon,aVo
             self:StopClientsideSound("Engine");
         end
 
-        --  Now add Pitch etc
+        -- Now add Pitch etc
         local velo = self.Entity:GetVelocity();
         local pitch = self.Entity:GetVelocity():Length();
         local doppler = 0;
@@ -501,7 +501,7 @@ function ENT:JumperEffects(b)
     if(b) and (jumper and jumper:IsValid() and jumper==self) then
         local FWD = self:GetForward();
         local vel = self:GetVelocity();
-    --    local roll = math.Rand(-90,90);
+    -- local roll = math.Rand(-90,90);
         local roll = math.Rand(-45,45);
         local id = self:EntIndex();
         local normal = (self.Entity:GetForward() * -1):GetNormalized();

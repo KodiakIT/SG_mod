@@ -17,7 +17,7 @@
 */
 
 
---                        Protection and Restrictions for entities
+-- Protection and Restrictions for entities
 
 
 -- Physgun/Gravgun picking up disabler @aVoN

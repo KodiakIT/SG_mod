@@ -7,8 +7,7 @@
 ENT.Sequence = {};
 
 
--- Recoded by Llapp ######################
-
+-- Recoded by Llapp
 function ENT.Sequence:Dial(inbound,fast,fail,busy)
     local action = self:New();
     local DialAddress = ""

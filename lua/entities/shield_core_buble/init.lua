@@ -29,7 +29,7 @@ StarGate.Trace:Add("shield_core_buble",
             if (type(values[3]) == "table") then
                 own = StarGate.GetMultipleOwner(values[3][1]);
                 if (IsValid(values[3][1])) then
-                    values[3][1]:SetNetworkedEntity("SC_Owner", own); // for clientside prediction
+                    values[3][1]:SetNetworkedEntity("SC_Owner", own); -- for clientside prediction
                 end
             else
                 own = StarGate.GetMultipleOwner(values[3]);
@@ -141,9 +141,9 @@ function ENT:Status(status)
     if status then
         self:DrawBubbleEffect(Vector(1,1,1), Vector(1,1,1), 1, false, false);
         self:SetNotSolid(false);
-        self:SetNWBool("Enabled",true); // tracelines
+        self:SetNWBool("Enabled",true); -- tracelines
         self:IsEntityInShield();
-        self:SetNWString("NoCollideID", string.Implode(" ", self.nocollideID)); // tracelines
+        self:SetNWString("NoCollideID", string.Implode(" ", self.nocollideID)); -- tracelines
     else
         self.nocollide = nil;
         self.nocollide = {};

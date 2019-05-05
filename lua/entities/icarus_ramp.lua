@@ -1,4 +1,4 @@
---   Copyright 2012 by AlexALX
+-- Copyright 2012 by AlexALX
 
 ENT.Type = "anim"
 ENT.Base = "base_anim"

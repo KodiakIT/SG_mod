@@ -42,8 +42,7 @@ StarGate.Trace:Add("shield",
     end
 );
 
--- SENT CODE ###############
-
+-- SENT CODE
 -- Init @aVoN
 function ENT:Initialize()
     self.Size = self.Size or 80; -- Make it by default at least fit for one player

@@ -37,8 +37,7 @@ ENT.Sounds = {
     Fail=Sound("stargate/dial_fail.mp3"),
 }
 
--- SENT CODE ###############
-
+-- SENT CODE
 -- Init @aVoN,Assassin21
 function ENT:Initialize()
 
@@ -110,7 +109,7 @@ function ENT:Initialize()
 
 end
 
---  Called when stargate_group_system changed
+-- Called when stargate_group_system changed
 function ENT:ChangeSystemType(groupsystem,reload)
     self:GateWireInputs(groupsystem);
     self:GateWireOutputs(groupsystem);

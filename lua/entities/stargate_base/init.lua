@@ -15,8 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
--- HEADER #################
-
+-- HEADER
 -- Reload handler
 -- Someone just entered lua_reloadents into console. Therefore, remove all stargates in the map or they will get all fucked
 if(CurTime() > 10) then StarGate.CallReload(_) end;
@@ -186,7 +185,7 @@ function ENT:DeriveOnSetColor(color)
     self.OrigColor = color
 end
 
---  Called when stargate_group_system changed
+-- Called when stargate_group_system changed
 function ENT:ChangeSystemType(groupsystem,reload)
     self:GateWireInputs(groupsystem);
     self:GateWireOutputs(groupsystem);
@@ -221,7 +220,7 @@ function ENT:GateWireOutputs(groupsystem)
     self:CreateWireOutputs("Active","Open","Inbound","Chevron","Chevron Locked","Chevrons [STRING]","Dialing Address [STRING]","Dialing Mode","Dialing Symbol [STRING]","Dialed Symbol [STRING]","Received [STRING]");
 end
 
---  When getting removed..
+-- When getting removed..
 function ENT:OnRemove()
     StarGate.StopUpdateGateTemperatures(self);
     if timer.Exists("LowPriorityThink"..self:EntIndex()) then timer.Remove("LowPriorityThink"..self:EntIndex()) end
@@ -382,7 +381,7 @@ function ENT:OnTakeDamage(dmg)
                             end
                         end
                         local effectdata = EffectData()
-                        effectdata:SetStart(self.Entity:LocalToWorld(self.chevron_posd[i])) // not sure if we need a start and origin (endpoint) for this effect, but whatever
+                        effectdata:SetStart(self.Entity:LocalToWorld(self.chevron_posd[i])) -- not sure if we need a start and origin (endpoint) for this effect, but whatever
                         effectdata:SetOrigin(self.Entity:LocalToWorld(self.chevron_posd[i]))
                         effectdata:SetScale(2)
                         util.Effect( "HelicopterMegaBomb", effectdata )
@@ -461,7 +460,7 @@ end
 
 util.AddNetworkString("StarGate.VGUI.Menu");
 
---  Use - Open the Dial Menu @aVoN
+-- Use - Open the Dial Menu @aVoN
 function ENT:Use(p)
     if self.Cooldown or self.jammed then return end;
     if(IsValid(p) and p:IsPlayer()) then

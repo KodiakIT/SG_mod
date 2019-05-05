@@ -28,7 +28,7 @@ function ENT:ActivateChevron() end;
 -- Sequence Handling & Behaviour
 
 
---  It's a helper function for the RunActions @aVoN
+-- It's a helper function for the RunActions @aVoN
 local function StartSequence(data) -- Helper-Function
     if(data.f) then
         data.f(unpack(data.v or {}));
@@ -41,7 +41,7 @@ local function StartSequence(data) -- Helper-Function
     end
 end
 
---  Parse the actions and allocate them to a timer @aVoN
+-- Parse the actions and allocate them to a timer @aVoN
 function ENT:RunActions(action)
     local s = "StarGate_"..self.Entity:EntIndex().."_"; -- The uniqueID of the timers
     local delay = 0; -- Timer delay
@@ -111,7 +111,7 @@ function ENT:PauseActions(unpause, target)
     end
 end
 
---  Sets the available or not available status for the stargate @aVoN
+-- Sets the available or not available status for the stargate @aVoN
 function ENT:SetStatus(b,u,do_not_set_wire_active,newactive,fast)
     self.IsOpen = b;
     self.Dialling = u;
@@ -198,7 +198,7 @@ function ENT:HaveEnergy(check,iris,first)
     local consume = distance * self.EnergyConsume;
     if (self.ConnectionSGU) then consume = consume + self.SGUAdd; elseif (self.ConnectionGalaxy) then consume = consume + self.GalaxyAdd; else consume = consume + self.ChevAdd; end
     if(not self.ConnectionSGU and not self.ConnectionGalaxy)then consume = consume / self.ChevConsumption end;
-    --  energy :)
+    -- energy :)
     if (iris) then consume = 500 end
     if(en >= consume)then energy = true else energy = false end;
     if (not check or iris) then
@@ -255,7 +255,7 @@ function ENT:CheckEnergy(dhd, no_consume)
     else
         consume = consume*5;
     end
-    --  energy :)
+    -- energy :)
     if(en >= consume)then energy = true else energy = false end;
     if(dhd and en > 0) then energy = true end;
     if (not no_consume) then
@@ -309,7 +309,7 @@ function ENT:WireGetEnergy(addr,dist)
     else
         consume = consume*5;
     end
-    --  energy :)
+    -- energy :)
     energy = consume;
     if(#address==8 and self:GetClass()!="stargate_supergate") then
         for k,v in pairs(self:FindPowerDHD()) do -- look for other power sources -- look for dhd :)

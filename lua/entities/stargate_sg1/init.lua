@@ -167,8 +167,7 @@ ENT.SymbolsLockConceptGalaxy = {
     D = 351,
 }
 
--- SENT CODE ###############
-
+-- SENT CODE
 -- Init @aVoN
 function ENT:Initialize()
     util.PrecacheModel(self.Models.Base);
@@ -190,7 +189,7 @@ function ENT:Initialize()
     hook.Add("Tick", self, self.RingTickSG1);
 end
 
---  Called when stargate_group_system changed
+-- Called when stargate_group_system changed
 function ENT:ChangeSystemType(groupsystem,reload)
     local delay = 4.0
     if (reload) then delay = 1.5 end
@@ -718,7 +717,7 @@ function ENT:TriggerInput(k,v,mobile,mdhd)
     end
 end
 
---  When getting removed..
+-- When getting removed..
 function ENT:OnRemove()
     StarGate.StopUpdateGateTemperatures(self);
     if timer.Exists("LowPriorityThink"..self:EntIndex()) then timer.Remove("LowPriorityThink"..self:EntIndex()) end
@@ -805,7 +804,7 @@ function ENT:ChevronSound(chev,fast,inbound,wire)
     if(chev == 7 and not inbound) then
         snd = self.Sounds.Lock;
         if(fast) then
-            --    snd = self.Sounds.LockDHD; -- Seems like I haven used that in REALLY really earlier times. Not needed anymore!
+            -- snd = self.Sounds.LockDHD; -- Seems like I haven used that in REALLY really earlier times. Not needed anymore!
         end
     end
     if (self.RingInbound) then

@@ -1,9 +1,9 @@
 -- All lines/sentences what come after "//" is comments and shouldn't be translated!
 
-// Global language name, will be displayed in language settings
+-- Global language name, will be displayed in language settings
 global_lang_name = Français
 
-// Stargate and DHD names
+-- Stargate and DHD names
 stargate_category = Portes et anneaux
 stargate_address = Adresse
 stargate_group = Groupe
@@ -30,7 +30,7 @@ stargate_reload = Système de coordonnees basculé vers: \nLe nouveau systeme es
 stargate_reloaded = Système de Portes redemarré avec succes.
 stargate_reload_start = Redémarrage du système de Portes... Patientez SVP.
 
-// New tool menu on gates (when hold C)
+-- New tool menu on gates (when hold C)
 stargate_c_tool_01 = Activer rotation de l'anneau
 stargate_c_tool_01d = Désactiver rotation de l'anneau
 stargate_c_tool_02 = Activer mode lent
@@ -144,7 +144,7 @@ stargate_vgui_glyphs = Glyphes
 stargate_vgui_blocked = Verrouillée
 stargate_vgui_blockedtip = Les Adresses rouges sont verouillées et ne peuvent pas être contactées.
 
-// Cap DirectX warning message, type CAP_dxlevel in console for get this message manually
+-- Cap DirectX warning message, type CAP_dxlevel in console for get this message manually
 stargate_dxlevel_01 = Carter Addon Pack - Attention
 stargate_dxlevel_02 =[[ Attention: Votre Gmod utilise une version inferieur a DirectX 8.1.
 Cela peut causer des problème de compatibilité avec Carter Addon Pack.

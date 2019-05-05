@@ -153,9 +153,7 @@ end
 
 
 /*
-    ##################################
     Ramp Offset/List file, idea by AlexALX
-    ##################################
     Also you can write stargate_reload (not lua_reloadents) to update ramp offsets (much faster).
     But for reload stools you still need to write restart.
     All models paths must be in LOWER case.

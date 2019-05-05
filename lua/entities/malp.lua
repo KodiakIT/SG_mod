@@ -537,7 +537,7 @@ end
 
 function ENT:Destroy()
     local effectdata = EffectData()
-    effectdata:SetStart(self.Entity:GetPos()) // not sure if we need a start and origin (endpoint) for this effect, but whatever
+    effectdata:SetStart(self.Entity:GetPos()) -- not sure if we need a start and origin (endpoint) for this effect, but whatever
     effectdata:SetOrigin(self.Entity:GetPos())
     effectdata:SetScale(2)
     util.Effect( "HelicopterMegaBomb", effectdata )

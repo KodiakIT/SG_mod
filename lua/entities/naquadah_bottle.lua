@@ -14,8 +14,7 @@ if SERVER then
 -- HEADER #################
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("energy")) then return end
 AddCSLuaFile();
--- SENT CODE ###############
-
+-- SENT CODE
 -- Init @JDM12989
 function ENT:Initialize()
     self.Entity:SetModel("models/sandeno/naquadah_bottle.mdl");

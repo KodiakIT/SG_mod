@@ -18,7 +18,7 @@
 -- FIXME: Todo - Rewrite this using "ANIM" like in "stargate_iris" sent.
 ENT.Sequence = {};
 
---  Milkyway gates - dialling sequence @aVoN
+-- Milkyway gates - dialling sequence @aVoN
 -- ATTENTION: The dialling time takes exactly 7 seconds with my gates (dialled in fast mode). When you code your own gates, make them take 7 seconds too!
 -- You can check a dialling sequence's length with adding "print_r(delay)" to end of the stargate_base's ENT:RunAction() function
 function ENT.Sequence:Dial(inbound,fast,fail,busy)
@@ -267,7 +267,7 @@ function ENT.Sequence:Dial(inbound,fast,fail,busy)
                     action:Add({f=self.ChevronSound,v={self,7},d=dly-0.1}); -- Chevron Locked
                     action:Add({f=self.SetWire,v={self,"Dialing Address",DialAddress},d=0}); -- Wire
                     --if (not inbound and not fast and IsValid(t)) then
-                    --    action:Add({f=self.EmitSound,v={self.Entity,self.Sounds.OpenSlow,90,math.random(98,103)},d=lasts_add});
+                    -- action:Add({f=self.EmitSound,v={self.Entity,self.Sounds.OpenSlow,90,math.random(98,103)},d=lasts_add});
                     --end
                 end
             else

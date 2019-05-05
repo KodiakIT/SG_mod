@@ -1,8 +1,6 @@
 /*
-    ###################################
     StarGate with Groups System
     Created by AlexALX (c) 2011
-    ###################################
 */
 StarGate_Group = StarGate_Group or {};
 

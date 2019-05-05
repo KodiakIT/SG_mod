@@ -100,7 +100,7 @@ function EFFECT:Init(data)
     if(self.Engage and self.LifeTime > 1) then start_alpha = 255 end; -- Only 255 alpha, when it's not a short flicker (less than 1 sec) or when it engages the field (aka starts cloaking)
     self.Entity:SetColor(Color(self.Color.r,self.Color.g,self.Color.b,start_alpha));
     self.Parent = e;
-    self.Entity.NextUse = {TogglePods = CurTime(), ToggleDoor = CurTime(), ToggleBulk = CurTime(), ToggleWeps = CurTime(),}; // Jumper Settings
+    self.Entity.NextUse = {TogglePods = CurTime(), ToggleDoor = CurTime(), ToggleBulk = CurTime(), ToggleWeps = CurTime(),}; -- Jumper Settings
     e.CurrentCloak = self.Entity;
 
     self.Draw = true;
@@ -218,11 +218,11 @@ function EFFECT:CheckJumper()
                         end
 
                     --elseif(cd.BulkHead) then
-                    --    if(cd.Door) then
-                    --        e:ResetSequence(e:LookupSequence("dobulkc"));
-                    --    else
-                    --        e:ResetSequence(e:LookupSequence("dcbulkc"));
-                    --    end
+                    -- if(cd.Door) then
+                    -- e:ResetSequence(e:LookupSequence("dobulkc"));
+                    -- else
+                    -- e:ResetSequence(e:LookupSequence("dcbulkc"));
+                    -- end
                     end
                     self.StartAnim = true;
                 end

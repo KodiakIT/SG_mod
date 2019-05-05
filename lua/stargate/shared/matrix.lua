@@ -1,7 +1,7 @@
 if(MMatrix == nil) then
 
-   --                        Linear algebra Matrix Class v.0.1
-   --                        by aVoN aka System of a pWne!^
+   -- Linear algebra Matrix Class v.0.1
+   -- by aVoN aka System of a pWne!^
 
 
    /*
@@ -138,7 +138,7 @@ if(MMatrix == nil) then
        return self:__AddAndSubstract(m,-1);
    end
 
-   --  For internal usage only - Handles add and substract in one function @aVoN
+   -- For internal usage only - Handles add and substract in one function @aVoN
    function MMatrix:__AddAndSubstract(m,sign)
        local args = {};
        for line=1,self.size[1] do
@@ -149,7 +149,7 @@ if(MMatrix == nil) then
        return MMatrix:New(m.size[1],m.size[2],unpack(args));
    end
 
-   --  For internal usage only - Is it a valid Matrix? @aVoN
+   -- For internal usage only - Is it a valid Matrix? @aVoN
    function MMatrix.__IsMatrix(m)
        if(type(m) == "table" and m.matrix) then return true end;
        return false;
@@ -349,7 +349,7 @@ if(MMatrix == nil) then
        return MMatrix:New(self.size[1]-(ll or 0),self.size[2]-(cc or 0),unpack(args));
    end
 
-   --  Error handler @aVoN
+   -- Error handler @aVoN
    function MMatrix.__error(msg,data)
        local str;
        if(msg == -1) then -- Custom message

@@ -132,8 +132,7 @@ ENT.SymbolsLockGalaxy = {
     X = {280, 35},
 }
 
--- SENT CODE ###############
-
+-- SENT CODE
 function ENT:Initialize()
     self.Entity:SetModel(self.Models.Base);
     self.Entity:PhysicsInit(SOLID_VPHYSICS);
@@ -162,7 +161,7 @@ function ENT:Initialize()
     hook.Add("Tick", self, self.RingTickUniverse);
 end
 
---  Called when stargate_group_system changed
+-- Called when stargate_group_system changed
 function ENT:ChangeSystemType(groupsystem,reload)
     local delay = 4.5
     if (reload) then delay = 2.5 end
@@ -765,8 +764,7 @@ end
 
 
 
---  EVENT  #####################################################
-
+-- EVENT
 
 
 -- Wire input @aVoN
@@ -992,7 +990,7 @@ function ENT:SguRampSetSkin(rampchevlight,rampchevlightoff)
     end
 end
 
---  When getting removed..
+-- When getting removed..
 function ENT:OnRemove()
     StarGate.StopUpdateGateTemperatures(self);
     if timer.Exists("LowPriorityThink"..self:EntIndex()) then timer.Remove("LowPriorityThink"..self:EntIndex()) end

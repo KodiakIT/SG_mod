@@ -12,7 +12,7 @@ if (StarGate==nil or StarGate.KeyBoard==nil or StarGate.KeyBoard.New==nil) then 
 local KBD = StarGate.KeyBoard:New("F302");
 --Navigation
 KBD:SetDefaultKey("FWD",StarGate.KeyBoard.BINDS["+forward"] or "W"); -- Forward
-KBD:SetDefaultKey("SPD",StarGate.KeyBoard.BINDS["+speed"] or "SHIFT"); --  Boost
+KBD:SetDefaultKey("SPD",StarGate.KeyBoard.BINDS["+speed"] or "SHIFT"); -- Boost
 --Roll
 KBD:SetDefaultKey("RL","MWHEELDOWN"); -- Roll left
 KBD:SetDefaultKey("RR","MWHEELUP"); -- Roll right
@@ -21,7 +21,7 @@ KBD:SetDefaultKey("RROLL","MOUSE3"); -- Reset Roll
 KBD:SetDefaultKey("FIRE",StarGate.KeyBoard.BINDS["+attack"] or "MOUSE1"); -- Fire missiles
 KBD:SetDefaultKey("TRACK",StarGate.KeyBoard.BINDS["+attack2"] or "MOUSE2"); -- Track missiles
 --Special Actions
-KBD:SetDefaultKey("CHGATK","R"); --  Toggle Bullets and Missiles
+KBD:SetDefaultKey("CHGATK","R"); -- Toggle Bullets and Missiles
 KBD:SetDefaultKey("WHEELS",StarGate.KeyBoard.BINDS["+duck"] or "CTRL");
 KBD:SetDefaultKey("FLARES","ALT");
 KBD:SetDefaultKey("EJECT","2");

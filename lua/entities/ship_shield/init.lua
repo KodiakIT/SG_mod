@@ -41,8 +41,7 @@ StarGate.Trace:Add("shield",
         end
     end
 );
--- SENT CODE ###############
-
+-- SENT CODE
 -- Init @aVoN
 function ENT:Initialize()
     self.Entity:SetName("Shield Buble");
@@ -512,7 +511,7 @@ function ENT:Hit(e,pos,dmg,normal)
             end
             return true;
         else
-        --    self.Parent:SetOverlayText("Shield (Depleted)\nSize: "..self.Size);
+        -- self.Parent:SetOverlayText("Shield (Depleted)\nSize: "..self.Size);
             self:DrawBubbleEffect(true); -- Set close effect (we are depleted!
             self.Parent:EmitSound(self.Parent.Sounds.Disengage,90,math.random(90,110));
             self.Parent.Depleted = true;

@@ -294,7 +294,7 @@ if (StarGate==nil or StarGate.KeyBoard==nil or StarGate.KeyBoard.New==nil) then 
 local KBD = StarGate.KeyBoard:New("Dart")
 --Navigation
 KBD:SetDefaultKey("FWD",StarGate.KeyBoard.BINDS["+forward"] or "W") -- Forward
-KBD:SetDefaultKey("SPD",StarGate.KeyBoard.BINDS["+speed"] or "SHIFT") --  Boost
+KBD:SetDefaultKey("SPD",StarGate.KeyBoard.BINDS["+speed"] or "SHIFT") -- Boost
 KBD:SetDefaultKey("UP",StarGate.KeyBoard.BINDS["+jump"] or "SPACE")
 KBD:SetDefaultKey("DOWN",StarGate.KeyBoard.BINDS["+duck"] or "CTRL")
 KBD:SetDefaultKey("LEFT",StarGate.KeyBoard.BINDS["+moveleft"] or "A")
@@ -306,7 +306,7 @@ KBD:SetDefaultKey("RROLL","MOUSE3") -- Reset Roll
 --Attack
 KBD:SetDefaultKey("FIRE",StarGate.KeyBoard.BINDS["+attack"] or "MOUSE1") -- Fire
 --Special Actions
-KBD:SetDefaultKey("SUCK","C") --  Cull
+KBD:SetDefaultKey("SUCK","C") -- Cull
 KBD:SetDefaultKey("SPIT","ALT") -- UnCull
 KBD:SetDefaultKey("DHD","R") -- DHD
 --View

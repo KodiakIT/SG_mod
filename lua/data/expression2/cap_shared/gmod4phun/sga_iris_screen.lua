@@ -110,10 +110,10 @@ for (CHEVSTAT = 38,46) {
     EGP:egpSize(CHEVSTAT,12)
 }
 
-###
+
 #}# End of if first or dupefinished
 ##
-###
+
 
 if(Active==1&Inbound==0){
     EGP:egpText(16, "Sequence in Progress", vec2(320,158))

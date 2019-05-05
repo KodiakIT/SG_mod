@@ -37,8 +37,7 @@ ENT.NoAutoClose = true; -- Will not cause an autoclose event on the stargates!
 ENT.CDSIgnore = true; -- CDS Immunity
 function ENT:gcbt_breakactions() end; ENT.hasdamagecase = true; -- GCombat invulnarability!
 
--- SENT CODE ###############
-
+-- SENT CODE
 -- Init @Zup
 function ENT:Initialize()
     self.Entity:SetModel("models/Iziraider/Horizon/warhead.mdl");

@@ -33,7 +33,7 @@ StarGate.Trace:Add("shield_core_buble",
                 -- return true
             -- end
 
-            return true // Fix it!
+            return true -- Fix it!
         else
             return false
         end
@@ -48,7 +48,7 @@ StarGate.Trace:Add("shield_core_buble",
             local own = e;
             if (type(values[3]) == "table") then
                 own = StarGate.GetMultipleOwner(values[3][1]);
-                values[3][1]:SetNWEntity("SC_Owner", own); // for clientside prediction
+                values[3][1]:SetNWEntity("SC_Owner", own); -- for clientside prediction
             else
                 own = StarGate.GetMultipleOwner(values[3]);
                 values[3]:SetNWEntity("SC_Owner", own);

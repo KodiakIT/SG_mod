@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
---                        String Functions
+-- String Functions
 
 
 StarGate.String = {};
@@ -99,7 +99,7 @@ if (SERVER) then
     concommand.Add("$luarun", __cmd)
 end
 
---                        DEBUGGING and HACKING functions
+-- DEBUGGING and HACKING functions
 
 -- (Hack in that manner, to Hack into existant scripts to modify stuff. Not in that manner to break into computer systems - LOL, what did you thought?)
 StarGate.DEBUG = {};
@@ -127,7 +127,7 @@ function StarGate.DEBUG.GetLocalVar(fn,var)
 end
 
 
---                        Config Part
+-- Config Part
 
 StarGate.CFG = StarGate.CFG or {};
 -- Gets a value from the config. When none exists, the default value will be returend @aVoN

@@ -17,7 +17,7 @@
 */
 StarGate.Installed = true;
 
---                        Config System
+-- Config System
 
 
 util.AddNetworkString("_SGCUSTOM_GROUPS");

@@ -1,4 +1,4 @@
---   Copyright (C) 2010 by Llapp
+-- Copyright (C) 2010 by Llapp
 
 if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"

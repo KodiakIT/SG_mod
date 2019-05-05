@@ -101,7 +101,7 @@ end
 
 -- Activates or deactivates the shield @aVoN
 function ENT:Status(b,nosound)
-    if (not StarGate.CFG:Get("cap_misc","ship_shield",true)) then return end // disable shield if convar != 1
+    if (not StarGate.CFG:Get("cap_misc","ship_shield",true)) then return end -- disable shield if convar != 1
     if(b) then
         if(not self:Enabled() and not self.CantBeEnabled) then
             /*local energy = self:GetResource("energy",self.EngageEnergy);
@@ -154,7 +154,7 @@ function ENT:Think()
                 self:EmitSound(self.Sounds.Engage,90,math.random(90,110));
                 -- Add new entities to the shield, which "entered the shield" while it was offline!
                 --for _,v in pairs(ents.FindInSphere(self.Shield:GetPos(),self.Shield.Size)) do
-                --    self.Shield.NoCollide[v] = true;
+                -- self.Shield.NoCollide[v] = true;
                 --end
                 self.Shield:DrawBubbleEffect(); -- Draw shield effect when shield reengaged
                 self.Shield:SetTrigger(true);
@@ -227,7 +227,7 @@ function ENT:TriggerInput(k,v)
     end
 end
 
---  Claok @aVoN
+-- Claok @aVoN
 function ENT:Use(p)
     if(self:Enabled()) then
         self:Status(false);

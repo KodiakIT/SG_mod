@@ -46,7 +46,7 @@ function SWEP:Effects() -- Energy Muzzle and Recoil Effect @RononDex,aVoN
     self.Weapon:SendWeaponAnim(ACT_VM_PRIMARYATTACK);
     -- Shot
     self.Weapon:SetNextPrimaryFire(CurTime()+0.5);
---    return true;
+-- return true;
 end
 
 if CLIENT then

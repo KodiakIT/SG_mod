@@ -34,7 +34,7 @@ function ShieldCoreShouldCollide(ent1, ent2)
      -- if enabled and ((hit ent is player or prop owner in table) or (player or prop owner is immunity))
     if (shield.Enabled and ((table.HasValue(shield.nocollide, hitent) or table.HasValue(shield.nocollide, hitent:GetOwner()))
     or (shield.Parent.Immunity and (shieldown == hitent or shieldown == hitown)) )) then
-        if hitent:IsPlayer() then shield:PlayerPush(hitent) end // ugly but maybe will work:p
+        if hitent:IsPlayer() then shield:PlayerPush(hitent) end -- ugly but maybe will work:p
         return false
     else
         return

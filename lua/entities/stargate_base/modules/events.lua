@@ -74,7 +74,7 @@ function ENT.Sequence:DialFail(instant_stop,play_sound)
     -- Stop all chevrons (if active only!)
     if(self.Entity.Active or play_sound) then
         --if (self.Entity:GetClass() == "stargate_supergate") then
-        --    action:Add({f=self.DisActivateLights,v={self,true},d=0});
+        -- action:Add({f=self.DisActivateLights,v={self,true},d=0});
         --end
 
         action:Add({f=self.ActivateRing,v={self,false},d=0});
@@ -102,7 +102,7 @@ function ENT.Sequence:DialFail(instant_stop,play_sound)
 end
 
 
---  Open the stargate @aVoN
+-- Open the stargate @aVoN
 function ENT.Sequence:OpenGate()
     -- The DHD On/Off is for the random gatejump (to fix it)
     local action = self:New({{f=self.DHDDisable,v={self,0},d=0}}); -- First, disable all DHDs near it (not the DHD which dialled this gate!)
@@ -260,7 +260,7 @@ function ENT:DeactivateStargate(ignore)
     end
 end
 
---  Run the dial process, activate the gate ETC @aVoN
+-- Run the dial process, activate the gate ETC @aVoN
 function ENT:ActivateStargate(inbound,fast)
     local e = self.Target; -- Quick reference (keeps code shorter)
     local fail = false;
@@ -332,7 +332,7 @@ function ENT:ActivateStargate(inbound,fast)
     end
 end
 
---  Run the dial process, activate the gate ETC @aVoN
+-- Run the dial process, activate the gate ETC @aVoN
 function ENT:NoxActivateStargate(inbound)
     if self.Cooldown then return end;
     local e = self.Target; -- Quick reference (keeps code shorter)

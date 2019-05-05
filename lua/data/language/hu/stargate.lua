@@ -1,9 +1,9 @@
 -- All lines/sentences what come after "//" is comments and shouldn't be translated!
 
-// Global language name, will be displayed in language settings
+-- Global language name, will be displayed in language settings
 global_lang_name = Magyar
 
-// Stargate and DHD names
+-- Stargate and DHD names
 stargate_category = Kapuk és Gyűrűk
 stargate_address = Cím
 stargate_group = Csoport
@@ -29,7 +29,7 @@ stargate_galaxy_n = Nem
 stargate_reload = Csillagkapu Tárcsázási Mód Megváltozott:\nAz új tárcsázási módszer: %s.\nA Csillagkapu rendszer újratöltése.
 stargate_reloaded = A Csillagkapu rendszer újratöltve.
 stargate_reload_start = A Csillagkapu rendszer újratöltése.Kérem Várjon.
-// New tool menu on gates (when hold C)
+-- New tool menu on gates (when hold C)
 stargate_c_tool_01 = Forgás Engedélyzése
 stargate_c_tool_01d = Forgás Tiltása
 stargate_c_tool_02 = Lassú Mód Engedélyzése
@@ -66,7 +66,7 @@ stargate_c_tool_18d = Jelek tiltása
 stargate_c_tool_19 = Atlantiszi Típus Engedélyzése
 stargate_c_tool_19d = Atlantiszi Típus Tiltása
 
-// Stargate VGUI menus
+-- Stargate VGUI menus
 stargate_vgui_address = Cím:
 stargate_vgui_address2 = Cím
 stargate_vgui_grouptype = Csoport/típus
@@ -127,7 +127,7 @@ stargate_vgui_glyphs = Jelek
 stargate_vgui_blocked = Blokkolva
 stargate_vgui_blockedtip = A blokkolt kapuk pirosan vannak és nem lehet rákattintani a címükre.
 
-// Cap DirectX warning message, type CAP_dxlevel in console for get this message manually
+-- Cap DirectX warning message, type CAP_dxlevel in console for get this message manually
 stargate_dxlevel_01 = Carter Addon Pack - Figyelmeztetés
 stargate_dxlevel_02 =[[ Figyelem: az ön gmod-ja DirectX 8.1(vagy kisebb) alatt fut.
 Ez kompatibilitási problémát okoz a Carter Addon Pack-el.
@@ -139,26 +139,26 @@ stargate_dxlevel_03 =[[* Nem lesz a kapunak instabill örvénye amikor a kapu me
 stargate_dxlevel_04 =[[Kérem futtassa a gmod-ot DX9-en(vagy jobb-on) (Ajánlott : 9.5).
 Ez megváltoztatható mat_dxlevel convar-ral .]]
 
-// Cap update reminter (for github users), type CAP_Outdated in console for get this message manually
+-- Cap update reminter (for github users), type CAP_Outdated in console for get this message manually
 stargate_updater_01 = Cap Frissítési Emlékeztető
 stargate_updater_02 = Az ön verziója lejárt!\nAz ön verziója: %s Jelenlegi Verzió: %s
 stargate_updater_03 = Kérem Frissítse,Hogy új funciók és kevesebb hibája legyen.
 stargate_updater_04 = Bezárás
 
-// spawn menu info
+-- spawn menu info
 spawninfo_title = Információk
 spawninfo_load = Betöltés...
 spawninfo_news = Újdonságok
 spawninfo_wiki = Wiki
 spawninfo_forum = Támogatási Fórum
 spawninfo_multi = Nyelvek támogatása
-// you can create own language support thread in this forum and replace url with your link
+-- you can create own language support thread in this forum and replace url with your link
 spawninfo_multi_url = http://sg-carterpack.com/forums/forum/support/multi-language-support/
-// if you changed link, then also change "spawninfo_multi" to "Your_Language Support" written in your language.
+-- if you changed link, then also change "spawninfo_multi" to "Your_Language Support" written in your language.
 spawninfo_fp = Facepunch Bejegyzései
 spawninfo_donate = Adakozás
 
-// Stool - Credits tab
+-- Stool - Credits tab
 stargate_credits_01 = Készítők
 stargate_credits_02 = Itt elküldheti a hibákat. Ha nem tudja beírni HTML-Formulákban, látogasd meg %s a böngésződdel.
 stargate_credits_03 = Nem lehet meghatározni az új verziót. Kösse vissza az internetet vagy lépjen kapcsolatba CAP Team.

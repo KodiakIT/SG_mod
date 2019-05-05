@@ -64,8 +64,7 @@ ENT.chevron_poss = {
     Vector(3.5, -38.3754, -105.8053),
 }
 
--- SENT CODE ###############
-
+-- SENT CODE
 -- Init @aVoN,Assassin21
 function ENT:Initialize()
     util.PrecacheModel(self.Models.Base);
@@ -78,7 +77,7 @@ function ENT:Initialize()
     self:AddChevron();
 end
 
---  Called when stargate_group_system changed
+-- Called when stargate_group_system changed
 function ENT:ChangeSystemType(groupsystem,reload)
     self:GateWireInputs(groupsystem);
     self:GateWireOutputs(groupsystem);

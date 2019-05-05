@@ -7,7 +7,7 @@ ENT.Category = "Stargate Carter Addon Pack: Gates and Rings"
 ENT.WireDebugName = "Stargate SG1"
 list.Set("CAP.Entity", ENT.PrintName, ENT);
 
-ENT.IsNewSlowDial = true; // this gate use new slow dial (with chevron lock on symbol)
+ENT.IsNewSlowDial = true; -- this gate use new slow dial (with chevron lock on symbol)
 
 ENT.EventHorizonData = {
     OpeningDelay = 1.5,

@@ -304,7 +304,7 @@ function StarGate.WireRD.GetWire(self,key,default,out)
 end
 
 
---  Resource Distribution Handling
+-- Resource Distribution Handling
 
 
 -- Register a Resource @aVoN
@@ -501,7 +501,7 @@ function StarGate.WireRD.Connected(ent)
 end
 
 
---  Duplicator handling
+-- Duplicator handling
 
 
 local function Environments_ApplyDupeInfo( ent, CreatedEntities, Player ) --add duping for cables
