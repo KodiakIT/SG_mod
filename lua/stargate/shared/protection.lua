@@ -20,7 +20,7 @@
 --                        Protection and Restrictions for entities
 
 
--- ############### Physgun/Gravgun picking up disabler @aVoN
+-- Physgun/Gravgun picking up disabler @aVoN
 function StarGate.Hook.PhysgunPickup(p,e)
     if(IsValid(e) and (e:GetNWBool("GateSpawnerProtected",false) or e.Untouchable) and not DEBUG) then
         return false;
@@ -34,7 +34,7 @@ if (SERVER) then
 hook.Add("GravGunPunt","StarGate.Hook.PhysgunPickup",StarGate.Hook.PhysgunPickup);
 hook.Add("GravGunPickupAllowed","StarGate.Hook.PhysgunPickup",StarGate.Hook.PhysgunPickup);
 
--- ############### Disallow toolgun @aVoN
+-- Disallow toolgun @aVoN
 function StarGate.Hook.CanTool(p,t,m)
     local e = t.Entity;
     if(IsValid(e) and (e.GateSpawnerProtected or e.Untouchable) and not DEBUG) then

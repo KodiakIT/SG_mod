@@ -142,7 +142,7 @@ function ENT:PhysicsCollide( data, physobj )
             end
         end
 
-        -- ######################## The blast
+        -- The blast
         local dir = self.Direction*10;
         local hitsmoke = true;
         if (hitnormal:Length() == 0) then hitsmoke = false end;
@@ -187,7 +187,7 @@ function ENT:PhysicsCollide( data, physobj )
     end
 end
 
--- ########################  TELEPORT
+--  TELEPORT
 function ENT.FixAngles(self,pos,ang,vel,old_pos,old_ang,old_vel,ang_delta)
     self:PhysWake()
     self.Direction = vel:GetNormalized();
@@ -199,7 +199,7 @@ function ENT.FixAngles(self,pos,ang,vel,old_pos,old_ang,old_vel,ang_delta)
 end
 StarGate.Teleport:Add("energy_pulse",ENT.FixAngles);
 
--- ######################## Damage system
+-- Damage system
 function ENT:Blast(effect,pos,ent,norm,smoke,dmg,rad,old_vel)
     local fx = EffectData();
     fx:SetOrigin(pos);
@@ -377,7 +377,7 @@ end
 function ENT:Think()
     local size = self.Entity:GetNWInt("Size", 0);
     self.Sizes={20+size*3,20+size*3,180+size*10}; -- X,Y and shaft-leght!
-    -- ######################## Flyby-light
+    -- Flyby-light
     if(StarGate.VisualsWeapons(self.LightSettings)) then
         local color = self.Entity:GetColor();
         local r,g,b = color.r,color.g,color.b;
@@ -394,7 +394,7 @@ function ENT:Think()
         end
     end
     local time = CurTime();
-    -- ######################## Flyby-noise and screenshake!
+    -- Flyby-noise and screenshake!
     if((time-self.Created >= 0.1 or self.InstantEffect) and time-(self.Last or 0) > 0.3) then
         local p = LocalPlayer();
         local pos = self.Entity:GetPos();

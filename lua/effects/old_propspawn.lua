@@ -45,9 +45,7 @@ end
 
 
 
-/*---------------------------------------------------------
-   Draw the effect
----------------------------------------------------------*/
+
 function EFFECT:Render()
 
     // What fraction towards finishing are we at

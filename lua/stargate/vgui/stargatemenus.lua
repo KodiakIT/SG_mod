@@ -113,7 +113,7 @@ net.Receive("StarGate.VGUI.Menu",function(len)
     end
 end)
 
--- ################# Reset vgui settings @ AlexALX
+-- Reset vgui settings @ AlexALX
 concommand.Add("stargate_reset_menu",function(ply)
     local RVGUI = vgui.Create("Panel");
     RVGUI:SetCookieName("StarGate.SControlePanel");
@@ -136,7 +136,7 @@ concommand.Add("stargate_reset_menu",function(ply)
     RVGUI:Remove();
 end)
 
--- ################# Closes the dialling Dialoge @aVoN
+-- Closes the dialling Dialoge @aVoN
 usermessage.Hook("StarGate.DialMenuDHDClose",
     function(data)
         if(VGUI and VGUI:IsValid()) then
@@ -145,7 +145,7 @@ usermessage.Hook("StarGate.DialMenuDHDClose",
     end
 );
 
--- ################# Screen clicking code @aVoN
+-- Screen clicking code @aVoN
 hook.Add("GUIMousePressed","StarGate.DHD.GUIMousePressed_Group",
     function(_,dir)
         --if(IsValid(DHD)) then
@@ -158,7 +158,7 @@ hook.Add("GUIMousePressed","StarGate.DHD.GUIMousePressed_Group",
                 local btn = DHD:GetCurrentButton(p);
                 if(btn and btn != "IRIS") then
                     p:ConCommand("_StarGate.DHD.AddSymbol_Group "..DHD:EntIndex().." "..btn);
-                    -- ######### Add/Remove symbols
+                    -- Add/Remove symbols
                     if(btn ~= "DIAL") then
                         local chevrons = DHD:GetNWString("ADDRESS",""):upper():TrimExplode(",");
                         btn = tostring(btn):upper();

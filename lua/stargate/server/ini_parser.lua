@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 INIParser = {};
--- ############## Loads an ini file (object) @ aVoN
+-- Loads an ini file (object) @ aVoN
 function INIParser:new(file_,no_autotrim,game_folder,commtype,no_msg)
     local obj = {};
     setmetatable(obj,self);
@@ -60,7 +60,7 @@ function INIParser:new(file_,no_autotrim,game_folder,commtype,no_msg)
     return obj;
 end
 
--- ############## Strips comments from a line(string) @ aVoN
+-- Strips comments from a line(string) @ aVoN
 function INIParser:StripComment(line)
     local found_comment = line:find("[;#]");
     if (self.commtype) then
@@ -72,13 +72,13 @@ function INIParser:StripComment(line)
     return line;
 end
 
--- ############## Strips quotes from a string (when an idiot added them...) (string) @ aVoN
+-- Strips quotes from a string (when an idiot added them...) (string) @ aVoN
 function INIParser:StripQuotes(s)
     -- Replaces accidently added quotes from alphanumerical strings
     return s:gsub("^[\"'](.+)[\"']$","%1"); --" <-- needed, to make my NotePad++ to show the functions below
 end
 
--- ############## Parses the inifile to a table (void) @ aVoN
+-- Parses the inifile to a table (void) @ aVoN
 function INIParser:parse(no_msg)
     local exploded = string.Explode("\n",self.content);
     local nodes = {};
@@ -144,7 +144,7 @@ function INIParser:parse(no_msg)
     end
 end
 
--- ############## Either you index the object directly, when you know, which value to index, or you simply get the full INI content (table) @ aVoN
+-- Either you index the object directly, when you know, which value to index, or you simply get the full INI content (table) @ aVoN
 function INIParser:get()
     return self.nodes;
 end

@@ -760,7 +760,7 @@ function ENT:PressButton(btn, nolightup, no_menu)
     local num = table.getn(self.DialledAddress);
     if ((num==0 or btn!="DIAL") and e.IsOpen) then return end
     local nosound = (self.WireNoSound and no_menu)
-    -- #################  Random gate dialing for concept
+    --  Random gate dialing for concept
     if (btn and btn == "*" and num == 0) then
         if (e:GetClass() == "stargate_universe") then return end
         self:AddChevron(btn, nosound, false, e);
@@ -796,7 +796,7 @@ function ENT:PressButton(btn, nolightup, no_menu)
         self:SetBusy(7);
         return;
     elseif (btn and btn == "*") then return end
-    -- #################  DIAL button features
+    --  DIAL button features
     if (btn and btn == "DIAL") then
         if(e:GetClass()=="stargate_orlin" and e.IsOpen or IsValid(e.Target) and e.Target:GetClass()=="stargate_orlin" and e.Target.IsOpen) then return end
         -- Old gate still opened. Close it
@@ -829,7 +829,7 @@ function ENT:PressButton(btn, nolightup, no_menu)
             return;
         end
     end
-    -- #################  Usual button features
+    --  Usual button features
     local class = self:GetClass();
     local candialg = GetConVar("stargate_candial_groups_dhd"):GetInt()
     if (self:GetClass()=="dhd_city") then candialg = 1; end

@@ -252,7 +252,7 @@ function ENT:Think()
         next_think = self.reloadtime;
     end
     self.DronesLeft = math.Clamp(self.MaxDrones-self.DroneCount,0,math.floor((energy/self.energy_drain)));
-    -- ######################## Handle wire
+    -- Handle wire
     self:SetWire("Drones Remaining",self.DronesLeft);
     self:ShowOutput();
     self.Entity:NextThink(CurTime()+next_think);

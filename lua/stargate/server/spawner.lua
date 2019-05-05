@@ -47,7 +47,7 @@ StarGate.GateSpawner.Doors = {};
 StarGate.GateSpawner.DoorButtons = {};
 StarGate.GateSpawner.Console = {};
 
--- ############### Load config @aVoN
+-- Load config @aVoN
 function StarGate.GateSpawner.LoadConfig()
     local map = game.GetMap();
     local file = "lua/data/gatespawner_maps/"..map..".lua"
@@ -98,7 +98,7 @@ local function GateSpawner_CheckModule(class,model)
     return false;
 end  */
 
--- ############### Spawning function @aVoN
+-- Spawning function @aVoN
 function StarGate.GateSpawner.Spawn(v,protect,k,k2)
     if (StarGate.GateSpawner.Block) then return nil end
     if(v.position and v.classname) then
@@ -447,7 +447,7 @@ function StarGate.GateSpawner.Spawn(v,protect,k,k2)
     return nil;
 end
 
--- ############### Reset gatespawner by AlexALX
+-- Reset gatespawner by AlexALX
 function StarGate.GateSpawner.Reset()
     StarGate.GateSpawner.Props = {};
     StarGate.GateSpawner.Gates = {}; -- Gates
@@ -473,7 +473,7 @@ function StarGate.GateSpawner.Reset()
     StarGate.GateSpawner.Console = {};
 end
 
--- ############### Initial spawn handling @aVoN
+-- Initial spawn handling @aVoN
 function StarGate.GateSpawner.InitialSpawn(reload)
     if (not StarGate.GateSpawner.Block) then
         -- First, remove all previous gate_spawner gates.
@@ -562,7 +562,7 @@ function StarGate.GateSpawner.InitialSpawn(reload)
     end
 end
 
--- ############### Auto Respawner @aVoN
+-- Auto Respawner @aVoN
 function StarGate.GateSpawner.AutoRespawn()
     -- FIXME: Add config for enabled/disabled again
     -- Ok, fixed after 10 years :D @ AlexALX
@@ -583,7 +583,7 @@ function StarGate.GateSpawner.AutoRespawn()
     end
 end
 
--- ############### Init @aVoN
+-- Init @aVoN
 timer.Simple(2,function() StarGate.GateSpawner.InitialSpawn() end); -- Spawn them, 2 seconds after the map start
 timer.Create("StarGate.GateSpawner.AutoRespawn",3,0,function() StarGate.GateSpawner.AutoRespawn() end); -- Check for existance every 3 seconds
 
@@ -598,7 +598,7 @@ timer.Create("StarGate.GateSpawner.AutoRespawn",3,0,function() StarGate.GateSpaw
 -- Now your gates will autospawn on that specific map
 -- YOU NEED TO BE ADMIN TO PERFORM THIS COMMAND!
 
--- ############### Gatespawner creation command @aVoN
+-- Gatespawner creation command @aVoN
 function StarGate.GateSpawner.CreateFile(p)
     if(not IsValid(p) or p:IsAdmin()) then
         local f = "[gatespawner]\nversion = 3\n\n\n";

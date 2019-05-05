@@ -134,9 +134,7 @@ function EFFECT:Init( data )
 end
 
 
-/*---------------------------------------------------------
-   THINK
----------------------------------------------------------*/
+
 function EFFECT:Think( )
     return false
 end
@@ -184,8 +182,6 @@ function ParticleThink( part )
     part:SetNextThink( CurTime() + 0.1 )
 end
 
-/*---------------------------------------------------------
-   Draw the effect
----------------------------------------------------------*/
+
 function EFFECT:Render()
 end

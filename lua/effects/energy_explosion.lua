@@ -33,9 +33,9 @@ function EFFECT:Init(data)
     -- HitSound
     sound.Play("ambient/explosions/explode_"..math.random(1,5)..".wav",pos,90,math.random(80,120));
     local em = ParticleEmitter(pos)
-    -- ######################## Draw smoke
+    -- Draw smoke
     if(StarGate.VisualsWeapons("cl_staff_smoke")) then
-        -- ######################## Smoke "AI" - do not add too much of long lasting smoke!
+        -- Smoke "AI" - do not add too much of long lasting smoke!
         local time = CurTime();
         local draw_smoke = true;
         for k,v in pairs(self.LastPos) do
@@ -77,7 +77,7 @@ function EFFECT:Init(data)
             pt:SetColor(c.r,c.g,c.b);
         end
     end
-    -- ######################## Flame/Explosion
+    -- Flame/Explosion
     for i=0,50 do
         local pt = em:Add("particles/flamelet"..math.random(1,5),pos+n*math.random(20,40));
         pt:SetVelocity(VectorRand()*math.random(30,50)+n*math.random(40,80));
@@ -95,7 +95,7 @@ function EFFECT:Init(data)
     if(StarGate.VisualsWeapons("cl_staff_scorch")) then
         util.Decal("Scorch",pos+n*10,pos-n*10);
     end
-    -- ######################## Dynamic light
+    -- Dynamic light
     if(StarGate.VisualsWeapons("cl_staff_dynlights")) then
         local dynlight = DynamicLight(0);
         dynlight.Pos = pos;

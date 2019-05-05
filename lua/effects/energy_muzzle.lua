@@ -46,7 +46,7 @@ function EFFECT:Init(data)
     if(color ~= Angle(0,0,0)) then
         self.Color = Color(color.p,color.y,color.r);
     end
-    -- ######################## Dynamic light
+    -- Dynamic light
     -- Gets the visual-setting's name according to the weapon.
     local e = self.Parent;
     local class = e:GetClass();

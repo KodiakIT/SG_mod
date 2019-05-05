@@ -22,7 +22,7 @@ if(MMatrix == nil) then
        along with this program.  If not, see <http://www.gnu.org/licenses/>.
    */
 
-   -- ################# USAGE
+   -- USAGE
    --[[
    You simply create a new Matrix by either calling
    A = MMatrix:New(3,2,
@@ -73,7 +73,7 @@ if(MMatrix == nil) then
    MMatrix = {};
    setmetatable(MMatrix,{__call = function(t,...) return t:New(unpack(arg)) end});
 
-   -- ################# Matrix constructor @aVoN
+   -- Matrix constructor @aVoN
    function MMatrix:New(m,n,...)
        local t = {}
        self.__index = self;
@@ -111,7 +111,7 @@ if(MMatrix == nil) then
        return t;
    end
 
-   -- ################# Copies a matrix and returns a new one @aVoN
+   -- Copies a matrix and returns a new one @aVoN
    function MMatrix:Copy()
        local args = {};
        for line=1,self.size[1] do
@@ -122,7 +122,7 @@ if(MMatrix == nil) then
        return MMatrix:New(self.size[1],self.size[2],unpack(args));
    end
 
-   -- ################# Adds a matrix to another @aVoN
+   -- Adds a matrix to another @aVoN
    --http://en.wikipedia.org/wiki/Matrix_addition
    function MMatrix:Add(m)
        if(not (self and self.matrix)) then MMatrix.__error(0,{1,"MMatrix.Add","MMatrix",self}) return end;
@@ -130,7 +130,7 @@ if(MMatrix == nil) then
        return self:__AddAndSubstract(m,1);
    end
 
-   -- ################# Subtracts a matrix from another @aVoN
+   -- Subtracts a matrix from another @aVoN
    --http://en.wikipedia.org/wiki/Matrix_addition
    function MMatrix:Sub(m)
        if(not MMatrix.__IsMatrix(self)) then MMatrix.__error(0,{1,"MMatrix.Sub","MMatrix",self}) return end;
@@ -138,7 +138,7 @@ if(MMatrix == nil) then
        return self:__AddAndSubstract(m,-1);
    end
 
-   -- #################  For internal usage only - Handles add and substract in one function @aVoN
+   --  For internal usage only - Handles add and substract in one function @aVoN
    function MMatrix:__AddAndSubstract(m,sign)
        local args = {};
        for line=1,self.size[1] do
@@ -149,13 +149,13 @@ if(MMatrix == nil) then
        return MMatrix:New(m.size[1],m.size[2],unpack(args));
    end
 
-   -- #################  For internal usage only - Is it a valid Matrix? @aVoN
+   --  For internal usage only - Is it a valid Matrix? @aVoN
    function MMatrix.__IsMatrix(m)
        if(type(m) == "table" and m.matrix) then return true end;
        return false;
    end
 
-   -- ################# Multiply a matrix @aVoN
+   -- Multiply a matrix @aVoN
    --http://en.wikipedia.org/wiki/Matrix_multiplication
    function MMatrix:Multiply(m)
        if(MMatrix.__IsMatrix(self)) then -- First argument is a Matrix
@@ -203,13 +203,13 @@ if(MMatrix == nil) then
            if(type(self) == "number") then
                return MMatrix.Multiply(m,self);
            elseif(type(self) == "Vector") then
-               -- ################# FIXME: It seems like, garrys mod's inbuild __multiply metatable for vectors is interfering here...
+               -- FIXME: It seems like, garrys mod's inbuild __multiply metatable for vectors is interfering here...
            end
        end
        MMatrix.__error(0,{1,"MMatrix.Multiply","MMatrix/number/Vector",self}); -- No valid datatype for multiply
    end
 
-   -- ################# Divide a matrix @aVoN
+   -- Divide a matrix @aVoN
    function MMatrix:Divide(m)
        if(type(m) == "number") then
            if(m == 0) then
@@ -221,7 +221,7 @@ if(MMatrix == nil) then
        MMatrix.__error(0,{2,"MMatrix.Divide","number",m});
    end
 
-   -- ################# Pow's a matrix @aVoN
+   -- Pow's a matrix @aVoN
    --http://en.wikipedia.org/wiki/Matrix_exponential
    -- Define some global vars for tranpose
    if(not t) then t = "TRANSPOSE" end;
@@ -265,7 +265,7 @@ if(MMatrix == nil) then
        MMatrix.__error(0,{2,"MMatrix.Pow","number",n});
    end
 
-   -- ################# Calculates the trace of a Matrix @aVoN
+   -- Calculates the trace of a Matrix @aVoN
    function MMatrix:Trace()
        if(self.size[1] ~= self.size[2]) then MMatrix.__error(-1,"MMatrix.Trace: can only calc the trace of a quadratic matrix") return end;
        local trace = 0;
@@ -275,7 +275,7 @@ if(MMatrix == nil) then
        return trace;
    end
 
-   -- ################# Inverts a matrix @aVoN
+   -- Inverts a matrix @aVoN
    --http://en.wikipedia.org/wiki/Inverse_matrix
    function MMatrix:Invert()
        if(self.size[1] ~= self.size[2]) then MMatrix.__error(-1,"MMatrix.Invert: can't invert - matrix not quadratic") end;
@@ -287,7 +287,7 @@ if(MMatrix == nil) then
        MMatrix.__error(-1,"MMatrix.Invert: Can't invert matrix - Has not full rank");
    end
 
-   -- ################# Transposes a quadractic matrix @aVoN
+   -- Transposes a quadractic matrix @aVoN
    --http://en.wikipedia.org/wiki/Transpose
    function MMatrix:Transpose()
        if(self.size[1] ~= self.size[2]) then MMatrix.__error(-1,"MMatrix.Transpose: can only transpose quadratic matrices") return end;
@@ -300,7 +300,7 @@ if(MMatrix == nil) then
        return MMatrix:New(self.size[1],self.size[2],unpack(args));
    end
 
-   -- ################# Adjugates a matrix @aVoN
+   -- Adjugates a matrix @aVoN
    -- http://en.wikipedia.org/wiki/Adjugate
    function MMatrix:Adjugate()
        local args = {};
@@ -314,7 +314,7 @@ if(MMatrix == nil) then
        return MMatrix:New(self.size[1],self.size[2],unpack(args)):Transpose();
    end
 
-   -- ################# Determinant of a matrix @aVoN
+   -- Determinant of a matrix @aVoN
    --http://en.wikipedia.org/wiki/Determinant
    function MMatrix:Determinant()
        if(self.size[1] ~= self.size[2]) then MMatrix.__error(-1,"MMatrix.Determinant: can only calc the determinant of a quadratic matrix") return end;
@@ -334,7 +334,7 @@ if(MMatrix == nil) then
        end
    end
 
-   -- ################# Creates a stroken Matrix - When ll or cc is nil or 0, either the line and/or collumn isn't stroken @aVoN
+   -- Creates a stroken Matrix - When ll or cc is nil or 0, either the line and/or collumn isn't stroken @aVoN
    function MMatrix:Stroke(ll,cc)
        local args = {};
        for line=1,self.size[1] do
@@ -349,7 +349,7 @@ if(MMatrix == nil) then
        return MMatrix:New(self.size[1]-(ll or 0),self.size[2]-(cc or 0),unpack(args));
    end
 
-   -- #################  Error handler @aVoN
+   --  Error handler @aVoN
    function MMatrix.__error(msg,data)
        local str;
        if(msg == -1) then -- Custom message
@@ -365,7 +365,7 @@ if(MMatrix == nil) then
        error(str);
    end
 
-   -- ################# Creates a 3D rotation matrix around a given Axis and angle @aVoN
+   -- Creates a 3D rotation matrix around a given Axis and angle @aVoN
    function MMatrix.RotationMatrix(vector,angle)
        local a; -- Axis to rotate around
        -- Gmod10 Vector input
@@ -400,7 +400,7 @@ if(MMatrix == nil) then
        );
    end
 
-   -- ################# 3D Euler Rotation matrix @aVoN
+   -- 3D Euler Rotation matrix @aVoN
    function MMatrix.EulerRotationMatrix(pitch,yaw,roll)
        -- Yaw
        local z = MMatrix:New(3,1,0,0,1);
@@ -414,7 +414,7 @@ if(MMatrix == nil) then
        return M;
    end
 
-   -- ################# ALIASES for Quick-Reference
+   -- ALIASES for Quick-Reference
    MMatrix.Det = MMatrix.Determinant;
    MMatrix.Adj = MMatrix.Adjugate;
    MMatrix.Trans = MMatrix.Transpose;

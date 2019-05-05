@@ -212,9 +212,7 @@ function SWEP:Think()
     self:IronSight()
 end
 
-/*---------------------------------------------------------
-Initialize
----------------------------------------------------------*/
+
 
 local sndZoomIn = Sound("Weapon_AR2.Special1")
 local sndZoomOut = Sound("Weapon_AR2.Special2")
@@ -307,9 +305,7 @@ if CLIENT then
         SWEP.WepSelectIcon = surface.GetTextureID("VGUI/weapons/P90_inventory.vmt")
     end
 end
-/*---------------------------------------------------------
-Sensibility
----------------------------------------------------------*/
+
 local LastViewAng = false
 
 local function SimilarizeAngles (ang1, ang2)
@@ -344,9 +340,7 @@ end
 
 hook.Add ("CreateMove", "RSS", ReduceScopeSensitivity)
 
-/*---------------------------------------------------------
-Reload
----------------------------------------------------------*/
+
 function SWEP:Reload()
 
     if ( self.Reloadaftershoot and self.Reloadaftershoot > CurTime() ) then return end
@@ -437,9 +431,7 @@ function SWEP:Reload()
     return true
 end
 
-/*---------------------------------------------------------
-Deploy
----------------------------------------------------------*/
+
 function SWEP:Deploy()
     -- Dont mind the animation names, I had to re-name them in the .mdl of the gun so they match the Source Engine ACT_ enums :D
 
@@ -509,9 +501,7 @@ function SWEP:Deploy()
     return true
 end
 
-/*---------------------------------------------------------
-    PrimaryAttack
----------------------------------------------------------*/
+
 function SWEP:PrimaryAttack()
 
     if self.Weapon:GetNextPrimaryFire()>CurTime() then return end
@@ -575,9 +565,7 @@ function SWEP:PrimaryAttack()
     end
 end
 
-/*---------------------------------------------------------
-SecondaryAttack
----------------------------------------------------------*/
+
 function SWEP:SecondaryAttack()
 
     if self.NextSecondaryAttack > CurTime() or self.OwnerIsNPC then return end
@@ -955,9 +943,7 @@ function SWEP:RecoilPower()
     end
 end
 
-/*---------------------------------------------------------
-ShootBullet
----------------------------------------------------------*/
+
 function SWEP:CSShootBullet(dmg, recoil, numbul, cone)
 
     numbul         = numbul or 1

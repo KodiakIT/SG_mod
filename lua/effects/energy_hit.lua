@@ -31,9 +31,9 @@ function EFFECT:Init(data)
     self.Color = Color(color.p,color.y,color.r);
     local norm = data:GetNormal();
     local em = ParticleEmitter(pos);
-    -- ######################## Sound
+    -- Sound
     sound.Play("weapons/mortar/mortar_explode"..math.random(1,3)..".wav",pos,80,math.random(80,120));
-    -- ######################## Glowing particles
+    -- Glowing particles
     for i=1,128 do
         local pt = em:Add("sprites/gmdm_pickups/light",pos+VectorRand()*math.random(4,6)*scale);
         pt:SetVelocity(norm*math.random(50,100)+VectorRand()*math.random(20,80)*scale+vel/10);
@@ -56,14 +56,14 @@ function EFFECT:Init(data)
         pt:SetColor(self.Color.r,self.Color.g,self.Color.b);
         --pt:VelocityDecay(false);
     end
-    -- ######################## Decal on the wall
+    -- Decal on the wall
     if(StarGate.VisualsWeapons("cl_staff_scorch")) then
         util.Decal("RedGlowFade",pos+norm*10,pos-norm*10);
         util.Decal("SmallScorch",pos+norm*10,pos-norm*10);
     end
-    -- ######################## Smoke
+    -- Smoke
     if(data:GetMagnitude() ~= -1 and StarGate.VisualsWeapons("cl_staff_smoke")) then
-        -- ######################## Smoke "AI" - do not add too much of long lasting smoke!
+        -- Smoke "AI" - do not add too much of long lasting smoke!
         local time = CurTime();
         local draw_smoke = true;
         for k,v in pairs(self.LastPos) do
@@ -104,7 +104,7 @@ function EFFECT:Init(data)
         end
     end
     --em:Finish();
-    -- ######################## Dynamic light
+    -- Dynamic light
     if(StarGate.VisualsWeapons("cl_staff_dynlights")) then
         local dynlight = DynamicLight(0);
         dynlight.Pos = pos;

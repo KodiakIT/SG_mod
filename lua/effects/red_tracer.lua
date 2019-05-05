@@ -1,9 +1,7 @@
 
 EFFECT.Mat = Material( "effects/spark" )
 
-/*---------------------------------------------------------
-   Init( data table )
----------------------------------------------------------*/
+
 function EFFECT:Init( data )
 
     self.StartPos     = data:GetStart()
@@ -21,9 +19,7 @@ function EFFECT:Init( data )
 
 end
 
-/*---------------------------------------------------------
-   THINK
----------------------------------------------------------*/
+
 function EFFECT:Think( )
 
     if ( CurTime() > self.DieTime ) then
@@ -44,9 +40,7 @@ function EFFECT:Think( )
 
 end
 
-/*---------------------------------------------------------
-   Draw the effect
----------------------------------------------------------*/
+
 function EFFECT:Render( )
 
     local fDelta = (self.DieTime - CurTime()) / self.TracerTime

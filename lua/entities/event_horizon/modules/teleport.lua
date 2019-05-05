@@ -160,7 +160,7 @@ function ENT:PrepareTeleport(t)
     -- We need this for length calculation, so props wont get stuck after teleportation in a wall on the other side
     local fwd = self.Entity:GetForward()*4096; -- You should never have any bigger props - If yes, you seriously fail at using the gates
     local lenght = self:GetEntityLenght(e,p[1],fwd,0);
-    -- ######### Calculate new positions,angles and velocity for attached
+    -- Calculate new positions,angles and velocity for attached
     for _,v in pairs(t.Attached) do
         local vel = v:GetVelocity();
         local ang = v:GetAngles();
@@ -185,9 +185,9 @@ function ENT:PrepareTeleport(t)
         lenght = self:GetEntityLenght(v,pos,fwd,lenght);
         table.insert(ret.Attached,data);
     end
-    -- ######### Calculate new positions,angles and velocity for constraints
+    -- Calculate new positions,angles and velocity for constraints
     -- No we don't do. Why? I found out, constraints are at the same placer - always. so, don't change them
-    -- ######### Now change the base-entity itself
+    -- Now change the base-entity itself
     local rotation_matrix = MMatrix.RotationMatrix(g[2]:GetUp(),180); -- It will rotate the new positions and velocity correctly to the enter/exit positions.
     local vel = e:GetVelocity();
     local ang = e:GetAngles();
@@ -209,7 +209,7 @@ function ENT:PrepareTeleport(t)
         },
         Bones=self:GetBones(e,p[1]),
     }
-    -- ######### Calculate the heigh of the object, so it won't get stuck on the other sides ground
+    -- Calculate the heigh of the object, so it won't get stuck on the other sides ground
     -- FIXME: Seemed sometimes not to work properly. Invent a new check!
     local height = g[1]:BoundingRadius();
     local dir = Vector(0,0,height);
@@ -223,7 +223,7 @@ function ENT:PrepareTeleport(t)
         local add_height = 5 + (1 - 2*trace[2].Fraction + trace[1].Fraction)*height;
         ret.Entity.Position.New = ret.Entity.Position.New + Vector(0,0,add_height);
     end
-    -- ######### Calculate the lenght offset
+    -- Calculate the lenght offset
     -- Do a similar thing now for the length/size of our "thing" we put into the eventhorizon, or it might get stuck on the other side (what we seriously do not want). - I hade some bad experiences with my puddle jumper getting stucked in a wall
     local dir = g[2]:GetForward();
     local trace = util.QuickTrace(p[3]-20*dir,-4096*dir,g[2]:GetTraceIgnoredEntities()); -- The -20*dir is a sort of "grace"-offset to make sure it does not collide really with anything
@@ -310,7 +310,7 @@ function ENT:TeleportEntity(t,base,basedata)
         vel.New = base:LocalToWorld(vel.New)-base:GetPos();
         --pos.New = LocalToWorld(pos.New,basedata.Angles.New,basedata.Position.New,basedata.Angles.New);
     end
-    -- ######### Player teleport
+    -- Player teleport
     if(e:IsPlayer()) then
         -- Start teleport effect
         umsg.Start("StarGate.CalcView.TeleportEffectStart",e);
@@ -328,7 +328,7 @@ function ENT:TeleportEntity(t,base,basedata)
         e:SetPos(pos.New);
         e:SetEyeAngles(e:GetAimVector():Angle() + Angle(0,ang.Delta.y+180,0));
         e:SetVelocity(vel.New-vel.Old);
-    -- ######### Vehicle teleport
+    -- Vehicle teleport
     elseif(e:IsVehicle()) then
         local ang = ang.New + Angle(0,180,0);
         -- This is a workaround: Vehicles should never have a pitch or roll if entering or exiting a gate (prevents them from spawning in ground and bug around)
@@ -338,16 +338,16 @@ function ENT:TeleportEntity(t,base,basedata)
         e.___dir = 1;
         e:SetPos(pos.New);
         e:SetAngles(ang);
-        -- ######### Move the bones of the entity
+        -- Move the bones of the entity
         if(bones) then
             for _,v in pairs(bones) do
                 v.Entity:SetPos(e:LocalToWorld(v.Position));
                 v.Entity:SetVelocity(e:LocalToWorld(v.Velocity)-e:GetPos());
             end
         end
-    -- ######### normal Entity teleport (The "rest")
+    -- normal Entity teleport (The "rest")
     else
-        -- ######### Some special entity behaviour
+        -- Some special entity behaviour
         local class = e:GetClass();
         local immunity = e.__StargateTeleport;
         e = StarGate.Teleport:__Run(class,e,pos.New,ang.New,vel.New,pos.Old,ang.Old,vel.Old,ang.Delta);
@@ -356,7 +356,7 @@ function ENT:TeleportEntity(t,base,basedata)
         self:CleanBufferVars(e)
         e.___dir = 1;
         local phys = e:GetPhysicsObject();
-        -- ######### Teleport
+        -- Teleport
         if(e:GetClass()=="puddle_jumper") then
             if(not self:GetParent().IsSupergate) then
                 e:SetPos(self.Target:GetPos());
@@ -375,7 +375,7 @@ function ENT:TeleportEntity(t,base,basedata)
             timer.Simple(0.05,function() if phys:IsValid() then phys:ApplyForceCenter(vel.New*ma) end end); -- Apply power so it has velocity again
         end
 
-        -- ######### Move the bones of the entity
+        -- Move the bones of the entity
         if(bones) then
             for _,v in pairs(bones) do
                 v.Entity:SetPos(e:LocalToWorld(v.Position));

@@ -44,7 +44,7 @@ function ENT:Draw()
     if self:GetNetworkedBool("Disabled",false) then return end
 
     local a = self.Entity:GetAngles();
-    -- ################# Get the chevrons
+    -- Get the chevrons
     local address = self.Entity:GetNetworkedString("ADDRESS"):TrimExplode(",");
 
     local ChevronPositions
@@ -67,7 +67,7 @@ function ENT:Draw()
 
     local buttonsmode = self.Entity:GetNetworkedBool("ButtonsMode",false)
 
-    -- ################# Draw keyboard - Idea of how to use the cam3D2D stuff comes from Night-Eagles Computer SENT. Thank god, you coded it ;)
+    -- Draw keyboard - Idea of how to use the cam3D2D stuff comes from Night-Eagles Computer SENT. Thank god, you coded it ;)
     local btn;
     if((LocalPlayer():GetShootPos() - self.Entity:LocalToWorld(ChevronPositions.DIAL)):Length() <= 90) then
         btn = self:GetCurrentButton(LocalPlayer());
@@ -82,7 +82,7 @@ function ENT:Draw()
             btns = self:GetCurrentButton(LocalPlayer(),button_angle);
         end
     end
-    -- ################# Lower the alpha for buttons when 6 are dialled to make the user clear to press chevron 7 now
+    -- Lower the alpha for buttons when 6 are dialled to make the user clear to press chevron 7 now
     local alpha = 60;
     if self.IsCityDHD then alpha = 180; end
     if(not buttonsmode and count >= 6) then
@@ -103,7 +103,7 @@ function ENT:Draw()
             table.insert(btns,{button=tonumber(v) or v,angle=0});
         end
     end
-    -- ################# Draw buttons
+    -- Draw buttons
     local candialg = self.Entity:GetNetworkedInt("CANDIAL_GROUP_DHD");
     local allowed_symbols = 9
     if (not self.IsCityDHD and (candialg==0 or self.Entity:GetNetworkedBool("Locale")==true)) then
@@ -138,14 +138,14 @@ function ENT:Draw()
                         if (self.IsCityDHD) then color.a = 180 end
                     end
                     if (self.IsCityDHD) then allowed_symbols = 8 end
-                    -- ################# Highlight current button aimed at orange or gray when already dialled
+                    -- Highlight current button aimed at orange or gray when already dialled
                     if(v.button == btn and (buttonsmode or count <= allowed_symbols)) then
                         if(count < allowed_symbols or buttonsmode or self.IsCityDHD and (v.button == "#" or v.button == "@")) then
                             local sel = false;
                             if(table.HasValue(address,tostring(btn))) then
                                 sel = true;
                             end
-                            -- ################# Button already dialled - Make it white
+                            -- Button already dialled - Make it white
                             if(sel) then
                                 color = Color(255,255,255,60);
                                 if (self.IsCityDHD) then color.a = 180 end
@@ -160,7 +160,7 @@ function ENT:Draw()
                             end
                         end
                     end
-                    -- ################# Make C7 blink!
+                    -- Make C7 blink!
                     if(not buttonsmode and count >= 6 and count <= 8 and not table.HasValue(address,"#")) then
                         if(v.button == "#") then
                             self.StartedBlinking = self.StartedBlinking or CurTime();
@@ -169,7 +169,7 @@ function ENT:Draw()
                     else
                         self.StartedBlinking = nil;
                     end
-                    -- ################# Draw the buttons
+                    -- Draw the buttons
                     d:Normalize()
                     cam.Start3D2D(p+d*0.5,a,.05);
                         draw.SimpleText(v.button,"DHD_font",0,0,color,1,1);

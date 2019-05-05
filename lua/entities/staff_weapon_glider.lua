@@ -89,7 +89,7 @@ function ENT:FireWeapon()
     local energy = self:GetResource("energy",self.energy_drain);
     if(energy < self.energy_drain) then return end;
     self:ConsumeResource("energy",self.energy_drain);
-    -- ####### Shooting Effects
+    -- Shooting Effects
     self.Entity:EmitSound(Sound("pulse_weapon/staff_weapon.mp3"),90,math.random(90,110));
     local vel = self.Entity:GetVelocity();
     local up = self.Entity:GetUp()*self.ShootDirection;
@@ -117,7 +117,7 @@ function ENT:FireWeapon()
     fx:SetEntity(self.Entity);
     fx:SetAngles(Angle(self.Color.r,self.Color.g,self.Color.b));
     util.Effect("energy_muzzle",fx,true,true);
-    -- ######################## The shot
+    -- The shot
     local e = ents.Create("energy_pulse");
     e:PrepareBullet(up, 10, 12000, 10, {self.Entity});
     e:SetPos(pos); -- damn, why getpos if there is fixed pos variable? fix by AlexALX
@@ -130,7 +130,7 @@ function ENT:FireWeapon()
     self.NextFire = CurTime()+self.Delay;
     self.Shots[e] = true;
     self:UpdateOverlayText();
-    -- ####### Next shots - And handle wire
+    -- Next shots - And handle wire
     self:SetWire("Can Fire",0);
     self:SetWire("Shots Remaining",math.floor((energy/self.energy_drain)-1));
 end

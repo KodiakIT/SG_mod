@@ -367,7 +367,7 @@ end
 function ENT:Think()
     self.Flying = self.Entity:GetNetworkedBool("DrawEngines", false);
     local time = CurTime();
-    -- ######################## Flyby-noise and screenshake!
+    -- Flyby-noise and screenshake!
     if((time-self.Created >= 0.1) and time-(self.Last or 0) > 0.3) then
         if self.Flying then
             local p = LocalPlayer();

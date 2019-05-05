@@ -52,7 +52,7 @@ function EFFECT:Init(data)
         p.LastZatHitPos = pos;
         p.LastZatSound = CurTime();
     end
-    -- ######################## Dynamic light
+    -- Dynamic light
     if(StarGate.VisualsWeapons("cl_zat_dynlights")) then
         local dynlight = DynamicLight(0);
         dynlight.Pos = data:GetOrigin();

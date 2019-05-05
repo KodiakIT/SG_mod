@@ -331,7 +331,7 @@ end
 -- Think (From StaffWeapon flyby code) @aVoN
 function ENT:Think()
     if(self.Entity:GetNWBool("turn_off")) then return end;
-    -- ######################## Flyby-noise
+    -- Flyby-noise
     if((self.Last or 0)+0.6 <= CurTime() and (CurTime()-self.Created) >= 0.05) then
         local v = self.Entity:GetVelocity();
         local v_len = v:Length();

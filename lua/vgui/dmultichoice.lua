@@ -25,9 +25,7 @@ end
 
 hook.Add( "VGUIMousePressed", "DMultiChoice.TextEntryLoseFocus", TextEntryLoseFocus )
 
-/*---------------------------------------------------------
 
----------------------------------------------------------*/
 function PANEL:Init()
 
     self.DropButton = vgui.Create( "DButton", self )
@@ -78,9 +76,7 @@ function PANEL:IsMenuOpen()
 end
 --end
 
-/*---------------------------------------------------------
-   Name: Clear
----------------------------------------------------------*/
+
 function PANEL:Clear()
 
     self.TextEntry:SetText( "" )
@@ -94,36 +90,28 @@ function PANEL:Clear()
 
 end
 
-/*---------------------------------------------------------
-   Name: SetText
----------------------------------------------------------*/
+
 function PANEL:SetText( text )
 
     self.TextEntry:SetText( text )
 
 end
 
-/*---------------------------------------------------------
-   Name: GetOptionText
----------------------------------------------------------*/
+
 function PANEL:GetOptionText( id )
 
     return self.Choices[ id ]
 
 end
 
-/*---------------------------------------------------------
-   Name: PerformLayout
----------------------------------------------------------*/
+
 function PANEL:PerformLayout()
 
     derma.SkinHook( "Layout", "MultiChoice", self )
 
 end
 
-/*---------------------------------------------------------
-   Name: ChooseOption
----------------------------------------------------------*/
+
 function PANEL:ChooseOption( value, index )
 
     if ( self.Menu ) then
@@ -138,9 +126,7 @@ function PANEL:ChooseOption( value, index )
 
 end
 
-/*---------------------------------------------------------
-   Name: ChooseOptionID
----------------------------------------------------------*/
+
 function PANEL:ChooseOptionID( index )
 
     if ( self.Menu ) then
@@ -158,18 +144,14 @@ end
 
 
 
-/*---------------------------------------------------------
-   Name: OnSelect
----------------------------------------------------------*/
+
 function PANEL:OnSelect( index, value, data )
 
     // For override
 
 end
 
-/*---------------------------------------------------------
-   Name: AddChoice
----------------------------------------------------------*/
+
 function PANEL:AddChoice( value, data )
 
     local i = table.insert( self.Choices, value )
@@ -182,9 +164,7 @@ function PANEL:AddChoice( value, data )
 
 end
 
-/*---------------------------------------------------------
-   Name: OpenMenu
----------------------------------------------------------*/
+
 function PANEL:OpenMenu( pControlOpener )
 
     if ( pControlOpener ) then
@@ -219,36 +199,28 @@ function PANEL:OpenMenu( pControlOpener )
 
 end
 
-/*---------------------------------------------------------
-   Name: SetConVar
----------------------------------------------------------*/
+
 function PANEL:SetConVar( cvar )
 
     self.TextEntry:SetConVar( cvar )
 
 end
 
-/*---------------------------------------------------------
-   Name: SetEditable
----------------------------------------------------------*/
+
 function PANEL:SetEditable( b )
 
     self.TextEntry:SetEditable( b )
 
 end
 
-/*---------------------------------------------------------
-   Name: OnMousePressed
----------------------------------------------------------*/
+
 function PANEL:OnMousePressed( button, mcode )
 
     self:OpenMenu()
 
 end
 
-/*---------------------------------------------------------
-   Name: GenerateExample
----------------------------------------------------------*/
+
 function PANEL:GenerateExample( ClassName, PropertySheet, Width, Height )
 
     local ctrl = vgui.Create( ClassName )

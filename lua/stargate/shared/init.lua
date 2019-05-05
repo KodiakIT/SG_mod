@@ -101,7 +101,7 @@ end
 
 -- print_r function by aVoN - use it anywhere you want - Dumps data from all datatypes into console
 
--- ########## Recursive print @aVoN
+-- Recursive print @aVoN
 local function do_print_r(arg,spaces,passed)
     local t = type(arg);
     --Recursion
@@ -134,7 +134,7 @@ local function do_print_r(arg,spaces,passed)
     end
 end
 
--- ########## print_r @aVoN
+-- print_r @aVoN
 function print_r(...)
     local arg = {...};
     -- Single data input
@@ -161,7 +161,7 @@ end
     All models paths must be in LOWER case.
 */
 
--- ################### For stools ###################
+-- For stools ###################
 -- For reloading the stools require writen restart.
 -- All models paths must be in LOWER case.
 
@@ -226,7 +226,7 @@ StarGate.Ramps.Ring = {
     ["models/boba_fett/ramps/ring_ramps/ring_ramp3.mdl"] = {},
 }
 
--- ################### Offsets ###################
+-- Offsets ###################
 -- You can write stargate_reload (not lua_reloadents) to update ramp offsets (much faster).
 -- All model paths must be in LOWER case.
 

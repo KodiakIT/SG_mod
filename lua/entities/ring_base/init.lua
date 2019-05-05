@@ -464,13 +464,13 @@ function ENT:StartSequence(address)
     self.Other:DoRings()
 end
 
--- #############################################################
+--
 -- Wire port, first done by Meeces, implemented by Catdaemon, and now rewritten by aVoN
--- #############################################################
+--
 
 
 
--- ################### This uses my Wire class @aVoN
+-- This uses my Wire class @aVoN
 function ENT:Think()
     self:SetWire("Usable",not self.Busy);
 
@@ -480,7 +480,7 @@ function ENT:Think()
     end
 end
 
--- ################### Slightly improved wireinput version @aVoN
+-- Slightly improved wireinput version @aVoN
 function ENT:TriggerInput(name,value)
     local b = util.tobool(value);
     if(name == "Dial Closest") then
@@ -545,7 +545,7 @@ function ENT:StartLaser()
 
 end
 
--- ################### This function originally has been added to the ring_panel. But my "ring caller" swep sets Player.RingDialEnt to the actual ring_base rather than the ring_panel entity so we need it here again to avoid lua errors @aVoN
+-- This function originally has been added to the ring_panel. But my "ring caller" swep sets Player.RingDialEnt to the actual ring_base rather than the ring_panel entity so we need it here again to avoid lua errors @aVoN
 function ENT:DoCallback(range,address)
     local ranger;
     if(range == "1") then

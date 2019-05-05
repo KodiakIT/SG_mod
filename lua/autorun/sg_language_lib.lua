@@ -39,7 +39,7 @@ if (Gmod13Lib==nil) then
 end
 
 LANGParser = {};
--- ############## Loads an ini file (object) @ aVoN
+-- Loads an ini file (object) @ aVoN
 function LANGParser:new(file_,no_autotrim)
     local obj = {};
     setmetatable(obj,self);
@@ -65,7 +65,7 @@ function LANGParser:new(file_,no_autotrim)
     return obj;
 end
 
--- ############## Strips comments from a line(string) @ aVoN
+-- Strips comments from a line(string) @ aVoN
 function LANGParser:StripComment(line)
     local found_comment = line:find("[/][/]");
     if(found_comment) then
@@ -77,13 +77,13 @@ function LANGParser:StripComment(line)
     return line;
 end
 
--- ############## Strips quotes from a string (when an idiot added them...) (string) @ aVoN
+-- Strips quotes from a string (when an idiot added them...) (string) @ aVoN
 function LANGParser:StripQuotes(s)
     -- Replaces accidently added quotes from alphanumerical strings
     return s:gsub("^[\"'](.+)[\"']$","%1"); --" <-- needed, to make my NotePad++ to show the functions below
 end
 
--- ############## Parses the inifile to a table (void) @ aVoN
+-- Parses the inifile to a table (void) @ aVoN
 function LANGParser:parse()
     local exploded = string.Explode("\n",self.content);
     local nodes = {};
@@ -152,7 +152,7 @@ function LANGParser:parse()
     --Msg("LANGParser:parse - File "..self.file.. " successfully parsed\n");
 end
 
--- ############## Either you index the object directly, when you know, which value to index, or you simply get the full INI content (table) @ aVoN
+-- Either you index the object directly, when you know, which value to index, or you simply get the full INI content (table) @ aVoN
 function LANGParser:get()
     return self.nodes;
 end

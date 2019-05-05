@@ -28,7 +28,7 @@ ENT.Color = {
 -- The directionvectors, relativly from the EntPos to to the chevrons pos - The numbers and chars behind it will aquire a human readable adress like 1B3D5F-Chevron7 - Chevron7 will always be "�", because the gmod10 servers are on earth :D
 ENT.ChevronPositionsGroup2 = {
     ["*"] = Vector(-9.13, 20.55, 37.84),    -- Both changed for galaxy and universe, using crystal for it
-    ["@"] = Vector(-4.07, 20.52, 37.85),    -- # is included with DIAL
+    ["@"] = Vector(-4.07, 20.52, 37.85),    -- is included with DIAL
     [0] = Vector(14.292, 2.177, 37.8),  -- Random dialing
     IRIS = Vector(9.45, -22.05, 35.56), -- Toggle iris, crystal
 
@@ -78,7 +78,7 @@ ENT.ChevronPositionsGroup2 = {
 
 ENT.ChevronPositionsGalaxy2 = {
     ["!"] = Vector(-9.13, 20.55, 37.84),    -- Both changed for galaxy and universe, using lights for it
-    ["@"] = Vector(-4.07, 20.52, 37.85),    -- # is included with DIAL
+    ["@"] = Vector(-4.07, 20.52, 37.85),    -- is included with DIAL
     ["*"] = Vector(14.292, 2.177, 37.8),  -- Random dialing
     IRIS = Vector(9.45, -22.05, 35.56), -- Toggle iris, crystal
 
