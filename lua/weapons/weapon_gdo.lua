@@ -10,9 +10,7 @@ SWEP.AutoSwitchFrom = false
 
 end
 
-------------------------------------------------
 --Author Info
-------------------------------------------------
 SWEP.Author             = "Rothon"
 SWEP.Contact            = "steven@facklerfamily.org"
 SWEP.Purpose            = "Sends IDC through stargates"
@@ -21,7 +19,6 @@ if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 SWEP.PrintName = SGLanguage.GetMessage("weapon_misc_gdo");
 SWEP.Category = SGLanguage.GetMessage("weapon_misc_cat");
 end
-------------------------------------------------
 
 list.Set("CAP.Weapon", SWEP.PrintName or "", SWEP);
 -- First person Model

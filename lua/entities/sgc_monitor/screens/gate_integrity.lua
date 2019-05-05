@@ -1,8 +1,6 @@
----------------------
 -- Screen: IDC s1 --
 -- Author: glebqip --
 -- ID: 2 --
----------------------
 
 local SCR = {
   Name = "Gate integrity monitor",

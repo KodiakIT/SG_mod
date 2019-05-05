@@ -74,7 +74,6 @@ function ENT:DrawScreen(x,y,w,h,s)
     cam.End3D2D()
 end
 
--------------------------------------
 
 surface.CreateFont("SGC_SG1", {font="Stargate Address Glyphs Concept", size=35, weight=400, antialias=true, additive=false})
 surface.CreateFont("SGC_ABS", {font="Stargate Address Glyphs Concept", size=19, weight=400, antialias=true, additive=false})

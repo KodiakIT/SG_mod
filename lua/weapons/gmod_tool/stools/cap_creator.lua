@@ -18,30 +18,22 @@ function TOOL:LeftClick( trace, attach )
     local name    = self:GetClientInfo( "name",    0 )
     local arg    = self:GetClientInfo( "arg",    0 )
 
-    --
     -- type 0 = sent
-    --
     if ( SERVER && type == 0 ) then
         CAP_Spawn_SENT( self:GetOwner(), name, trace )
     end
 
-    --
     -- type 1 = vehicle
-    --
     if ( SERVER && type == 1 ) then
         Spawn_Vehicle( self:GetOwner(), name, trace )
     end
 
-    --
     -- type 2 = npc
-    --
     if ( SERVER && type == 2 ) then
         CAP_Spawn_NPC( self:GetOwner(), name, arg, trace )
     end
 
-    --
     -- type 3 = weapons
-    --
     if ( SERVER && type == 3 ) then
         CAP_Spawn_Weapon( self:GetOwner(), name, trace )
     end

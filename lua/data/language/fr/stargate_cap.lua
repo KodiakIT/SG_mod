@@ -264,7 +264,6 @@ atl_tp_group = Groupe
 atl_tp_name = Nom
 
 -- Misc
---
 kawoosh_hurt = Vortex instable
 event_horizon = Horizon des êvénements
 gate_nuke = Radiation

@@ -252,9 +252,7 @@ function ENT:TriggerInput(iname, value)
     end
 end
 
----------------------------------------------
 -- Server/Client crossover stuff
----------------------------------------------
 
 local function ReceiveCodes(len, player)
     local ent = net.ReadEntity()
@@ -284,9 +282,7 @@ local function ReceiveCodes(len, player)
 end
 net.Receive("gdopc_sendinfo", ReceiveCodes)
 
----------------------------------------------
 -- Gate Stuff
----------------------------------------------
 
 function ENT:FindGate()  -- from aVoN's DHD
     local gate

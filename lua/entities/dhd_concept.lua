@@ -20,7 +20,6 @@ ENT.Color = {
 
 -- The directionvectors, relativly from the EntPos to to the chevrons pos - The numbers and chars behind it will aquire a human readable adress like 1B3D5F-Chevron7 - Chevron7 will always be "�", because the gmod10 servers are on earth :D
 ENT.ChevronPositionsGroup = {
-    --
     [0] = Vector(48.5569, -30.4505, 56.1191),
     [1] = Vector(49.5642, -25.8098, 57.2148),
     [2] = Vector(50.2756, -20.8445, 57.9749),
@@ -31,7 +30,6 @@ ENT.ChevronPositionsGroup = {
     [7] = Vector(50.2451, 20.9936, 58.0682),
     [8] = Vector(49.0729, 25.9128, 56.8758),
     [9] = Vector(48.2129, 30.8747, 55.8424),
-    --
     A = Vector(52.0142, -30.6008, 52.5906),
     B = Vector(53.1413, -25.6796, 53.6922),
     C = Vector(54.1025, -20.6430, 54.3428),
@@ -58,7 +56,6 @@ ENT.ChevronPositionsGroup = {
     X = Vector(62.3360, -15.6191, 47.8105),
     Y = Vector(62.1660, 15.7282, 47.7411),
     Z = Vector(61.1725, 20.9851, 47.1436),
-    --
     ["@"] = Vector(60.2137, 25.9327, 46.1211),
     ["*"] = Vector(59.2734, 30.8548, 44.7939),
     ["#"] = Vector(52.1807, 0.0444, 59.7953),
@@ -68,7 +65,6 @@ ENT.ChevronPositionsGroup = {
 }
 
 ENT.ChevronPositionsGalaxy = {
-    --
     ["!"] = Vector(48.5569, -30.4505, 56.1191),
     [1] = Vector(49.5642, -25.8098, 57.2148),
     [2] = Vector(50.2756, -20.8445, 57.9749),
@@ -79,7 +75,6 @@ ENT.ChevronPositionsGalaxy = {
     [7] = Vector(50.2451, 20.9936, 58.0682),
     [8] = Vector(49.0729, 25.9128, 56.8758),
     [9] = Vector(48.2129, 30.8747, 55.8424),
-    --
     A = Vector(52.0142, -30.6008, 52.5906),
     B = Vector(53.1413, -25.6796, 53.6922),
     C = Vector(54.1025, -20.6430, 54.3428),
@@ -106,7 +101,6 @@ ENT.ChevronPositionsGalaxy = {
     X = Vector(62.3360, -15.6191, 47.8105),
     Y = Vector(62.1660, 15.7282, 47.7411),
     Z = Vector(61.1725, 20.9851, 47.1436),
-    --
     ["@"] = Vector(60.2137, 25.9327, 46.1211),
     ["*"] = Vector(59.2734, 30.8548, 44.7939),
     ["#"] = Vector(52.1807, 0.0444, 59.7953),

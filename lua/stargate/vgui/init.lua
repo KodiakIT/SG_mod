@@ -422,11 +422,9 @@ hook.Add("Initialize","SKeyboardKey.Initialize",OnInitialize);
 
 vgui.Register("SKeyboardKey",PANEL,"Panel");
 
---
 -- prop_generic is the base for all other properties.
 -- All the business should be done in :Setup using inline functions.
 -- So when you derive from this class - you should ideally only override Setup.
---
 
 local PANEL = {}
 

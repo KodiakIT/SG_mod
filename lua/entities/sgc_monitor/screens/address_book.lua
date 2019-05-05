@@ -1,8 +1,6 @@
----------------------
 -- Screen: IDC s1 --
 -- Author: glebqip --
 -- ID: 2 --
----------------------
 
 local SCR = {
   Name = "Address book",
@@ -46,7 +44,6 @@ if SERVER then
     self:SetMonitorInt("ABSelected",self.Selected)
     --self:SetMonitorBool("ABScrolling", self.OldScroll ~= self.Scroll)
     --self.OldScroll = self.Scroll
-    --
   end
   function SCR:Trigger(curr,key,value)
     if not curr then return end

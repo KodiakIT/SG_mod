@@ -428,7 +428,6 @@ stool_sgcscreen_fulldesc =[[This is the SGC Screens from tv series.
 Author: glebqip
 Improvements and stool by AlexALX
 
----------
 
 How to use:
 

@@ -6,11 +6,9 @@ hook.Add("SetupPlayerVisibility","ScreenPVSChecks",function(ply)
     end
   end
 end)
----------------------
 -- Screen: IDC s1 --
 -- Author: glebqip --
 -- ID: 2 --
----------------------
 local SCR = {
   Name = "MALP Screen",
   ID = 11,

@@ -1,8 +1,6 @@
 if GetRTManager then return end
-------------------------------------------------------------
 -- RenderTarget manager, copied from WireMod's WireGPU.  --
 -- By Mijyuoon.                                          --
-------------------------------------------------------------
 local RT_Manager = {}
 RT_Manager.__index = RT_Manager
 

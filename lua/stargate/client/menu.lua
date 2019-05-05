@@ -247,9 +247,7 @@ spawnmenu.AddContentType( "cap_weapon", function( container, obj )
 end )
 
 local function StargateAddTab(Categorised, pnlContent, tree, node)
-    --
     -- Add a tree node for each category
-    --
     for CategoryName, v in SortedPairs( Categorised ) do
         -- Add a node to the tree
         local icon = "icon16/bricks.png";

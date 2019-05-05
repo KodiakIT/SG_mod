@@ -274,7 +274,6 @@ function ENT:Destroy()
     self.Entity:SetCollisionGroup(COLLISION_GROUP_NONE);
     self.Entity:SetMoveType(MOVETYPE_NONE);
     self.Entity:SetSolid(SOLID_NONE);
-    --
     self.PhysicsCollide = function() end; -- Dummy
     self.Touch = self.PhysicsCollide;
     self.StartTouch = self.Touch;

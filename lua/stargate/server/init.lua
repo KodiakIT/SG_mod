@@ -543,16 +543,12 @@ local function InternalSpawnNPC( Player, Position, Normal, Class, Equipment )
 
     local bDropToFloor = false
 
-    --
     -- This NPC has to be spawned on a ceiling ( Barnacle )
-    --
     if ( NPCData.OnCeiling && Vector( 0, 0, -1 ):Dot( Normal ) < 0.95 ) then
         return nil
     end
 
-    --
     -- This NPC has to be spawned on a floor ( Turrets )
-    --
     if ( NPCData.OnFloor && Vector( 0, 0, 1 ):Dot( Normal ) < 0.95 ) then
         return nil
     else
@@ -561,9 +557,7 @@ local function InternalSpawnNPC( Player, Position, Normal, Class, Equipment )
 
     if ( NPCData.NoDrop ) then bDropToFloor = false end
 
-    --
     -- Offset the position
-    --
     local Offset = NPCData.Offset or 32
     Position = Position + Normal * Offset
 
@@ -594,47 +588,35 @@ local function InternalSpawnNPC( Player, Position, Normal, Class, Equipment )
 
     NPC:SetAngles( Angles )
 
-    --
     -- This NPC has a special model we want to define
-    --
     if ( NPCData.Model ) then
         NPC:SetModel( NPCData.Model )
     end
 
-    --
     -- This NPC has a special texture we want to define
-    --
     if ( NPCData.Material ) then
         NPC:SetMaterial( NPCData.Material )
     end
 
-    --
     -- Spawn Flags
-    --
     local SpawnFlags = bit.bor( SF_NPC_FADE_CORPSE, SF_NPC_ALWAYSTHINK )
     if ( NPCData.SpawnFlags ) then SpawnFlags = bit.bor( SpawnFlags, NPCData.SpawnFlags ) end
     if ( NPCData.TotalSpawnFlags ) then SpawnFlags = NPCData.TotalSpawnFlags end
     NPC:SetKeyValue( "spawnflags", SpawnFlags )
 
-    --
     -- Optional Key Values
-    --
     if ( NPCData.KeyValues ) then
         for k, v in pairs( NPCData.KeyValues ) do
             NPC:SetKeyValue( k, v )
         end
     end
 
-    --
     -- This NPC has a special skin we want to define
-    --
     if ( NPCData.Skin ) then
         NPC:SetSkin( NPCData.Skin )
     end
 
-    --
     -- What weapon should this mother be carrying
-    --
 
     -- Check if this is a valid entity from the list, or the user is trying to fool us.
     local valid = false

@@ -75,7 +75,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateAddress", "wl:", "Returns stargate address." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateSetAddress", "e:s", "",
 [[
@@ -92,7 +91,6 @@ if IsValid(@value 1) and @value 1.IsStargate and @value 1:CAP_CanModify(Context.
 end
 ]])
 Component:AddFunctionHelper( "stargateSetAddress", "wl:s", "Sets stargate address." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateGroup", "e:", "s",
 [[@define result = ""
@@ -109,7 +107,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateGroup", "wl:", "Returns stargate group." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateSetGroup", "e:s", "",
 [[
@@ -126,7 +123,6 @@ if IsValid(@value 1) and @value 1.IsStargate and @value 1:CAP_CanModify(Context.
 end
 ]])
 Component:AddFunctionHelper( "stargateSetGroup", "wl:s", "Sets stargate group." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateName", "e:", "s",
 [[@define result = ""
@@ -143,7 +139,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateName", "wl:", "Returns stargate name." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateSetName", "e:s", "",
 [[
@@ -160,7 +155,6 @@ if IsValid(@value 1) and @value 1.IsStargate and @value 1:CAP_CanModify(Context.
 end
 ]])
 Component:AddFunctionHelper( "stargateSetName", "wl:s", "Sets stargate name." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargatePrivate", "e:", "n",
 [[@define result = -1
@@ -177,7 +171,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargatePrivate", "wl:", "Returns stargate private state." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateSetPrivate", "e:n", "",
 [[
@@ -194,7 +187,6 @@ if IsValid(@value 1) and @value 1.IsStargate and @value 1:CAP_CanModify(Context.
 end
 ]])
 Component:AddFunctionHelper( "stargateSetPrivate", "wl:n", "Sets stargate private state." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateLocal", "e:", "n",
 [[@define result = -1
@@ -211,7 +203,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateLocal", "wl:", "Returns stargate local state." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateSetLocal", "e:n", "",
 [[
@@ -228,7 +219,6 @@ if IsValid(@value 1) and @value 1.IsStargate and @value 1:CAP_CanModify(Context.
 end
 ]])
 Component:AddFunctionHelper( "stargateSetLocal", "wl:n", "Sets stargate local state." )
--------------------------------------------------------------------------
 
 
 Component:AddPreparedFunction( "stargateBlocked", "e:", "n",
@@ -246,7 +236,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateBlocked", "wl:", "Returns stargate blocked state." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateSetBlocked", "e:n", "",
 [[
@@ -263,7 +252,6 @@ if IsValid(@value 1) and @value 1.IsStargate and @value 1:CAP_CanModify(Context.
 end
 ]])
 Component:AddFunctionHelper( "stargateSetBlocked", "wl:n", "Sets stargate blocked state." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateGalaxy", "e:", "n",
 [[@define result = -1
@@ -280,7 +268,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateGalaxy", "wl:", "Returns stargate galaxy mode." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateSetGalaxy", "e:n", "",
 [[
@@ -297,7 +284,6 @@ if IsValid(@value 1) and @value 1.IsStargate and @value 1:CAP_CanModify(Context.
 end
 ]])
 Component:AddFunctionHelper( "stargateSetGalaxy", "wl:n", "Sets stargate galaxy mode." )
--------------------------------------------------------------------------
 /*
 Component:AddPreparedFunction( "stargateTarget", "e:", "e",
 [[@define result = nil
@@ -319,7 +305,6 @@ end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateTarget", "wl:", "Returns stargate target gate entity." )
 */
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateOpen", "e:", "n",
 [[@define result = -1
@@ -336,7 +321,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateOpen", "wl:", "Returns stargate open state." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateInbound", "e:", "n",
 [[@define result = -1
@@ -353,7 +337,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateInbound", "wl:", "Returns stargate inbound state." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateActive", "e:", "n",
 [[@define result = -1
@@ -370,7 +353,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateActive", "wl:", "Returns stargate active state." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateUnstable", "e:", "n",
 [[@define result = -1
@@ -387,7 +369,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateUnstable", "wl:", "Returns EH unstable state." )
--------------------------------------------------------------------------
 
 Component:AddVMFunction( "stargateGetRingAngle", "e:", "n",function( Context, Trace, Entity )
     if not IsValid(Entity) or not Entity.IsStargate or not EXPADV.PPCheck(Context,Entity) then return -1 end
@@ -435,7 +416,6 @@ Component:AddVMFunction( "stargateGetRingAngle", "wl:", "n", function( Context, 
 end)
 
 Component:AddFunctionHelper( "stargateGetRingAngle", "wl:", "Returns stargate ring angle." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateOverload", "e:", "n",
 [[@define result = -1
@@ -452,7 +432,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateOverload", "wl:", "Returns stargate overload state." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateOverloadPerc", "e:", "n",
 [[@define result = -1
@@ -475,7 +454,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateOverloadPerc", "wl:", "Returns stargate overload percent." )
--------------------------------------------------------------------------
 
 Component:AddVMFunction( "stargateOverloadTime", "e:", "n",function( Context, Trace, Entity )
     if not IsValid(Entity) or not Entity.IsStargate or not EXPADV.PPCheck(Context,Entity) then return -1 end
@@ -517,7 +495,6 @@ Component:AddVMFunction( "stargateOverloadTime", "wl:", "n", function( Context, 
 end)
 
 Component:AddFunctionHelper( "stargateOverloadTime", "wl:", "Returns stargate overload time." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateAsuranBeam", "e:", "n",
 [[@define result = -1
@@ -534,7 +511,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateAsuranBeam", "wl:", "Returns stargate asuran beam firing state." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateDial", "e:s", "",
 [[
@@ -551,7 +527,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]])
 Component:AddFunctionHelper( "stargateDial", "wl:s", "Dials stargate slowly." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateDial", "e:s,n", "",
 [[
@@ -568,7 +543,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]])
 Component:AddFunctionHelper( "stargateDial", "wl:s,n", "Dials stargate with mode selection." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateClose", "e:", "",
 [[
@@ -585,7 +559,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]])
 Component:AddFunctionHelper( "stargateClose", "wl:", "Closes stargate." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateIrisActive", "e:", "n",
 [[@define result = -1
@@ -602,7 +575,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateIrisActive", "wl:", "Returns stargate iris state." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateIrisToggle", "e:", "",
 [[
@@ -619,7 +591,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]])
 Component:AddFunctionHelper( "stargateIrisToggle", "wl:", "Toggles iris." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateDHDPressButton", "e:s", "",
 [[
@@ -636,7 +607,6 @@ if IsValid(@value 1) and @value 1.IsDHD then
 end
 ]])
 Component:AddFunctionHelper( "stargateDHDPressButton", "wl:s", "Pressing button on DHD." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateGetEnergyFromAddress", "e:s", "n",
 [[@define result = -2
@@ -653,7 +623,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateGetEnergyFromAddress", "wl:s", "Get required energy value to dial address." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateGetDistanceFromAddress", "e:s", "n",
 [[@define result = -2
@@ -670,7 +639,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateGetDistanceFromAddress", "wl:s", "Get distance to stargate." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateAddressList", "e:", "ar",
 [[@define result = {__type = "t"}
@@ -690,7 +658,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateAddressList", "wl:", "Returns stargate address list." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateRandomAddress", "e:n", "",
 [[
@@ -707,7 +674,6 @@ if IsValid(@value 1) and @value 1.IsStargate and @value 1:CAP_CanModify(Context.
 end
 ]])
 Component:AddFunctionHelper( "stargateRandomAddress", "wl:n", "Sets random stargate address." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateTransferEnergy", "e:n", "n",
 [[@define result = -1
@@ -724,7 +690,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateTransferEnergy", "wl:n", "Transfer energy between two connected stargates. Use negative value to retrieve energy. Returns transferred amount of energy if successful." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateTransferResource", "e:s,n", "n",
 [[@define result = -1
@@ -756,10 +721,8 @@ Component:AddVMFunction( "stargateRandomAddress", "wl:n", "", function( Context,
 end)
 Component:AddFunctionHelper( "stargateRandomAddress", "wl:n", "Sets random stargate address." )
 ]]--
--------------------------------------------------------------------------
 Component:AddInlineFunction( "stargateSystemType", "", "n","$GetConVar(\"stargate_group_system\"):GetBool() and 1 or 0")
 Component:AddFunctionHelper( "stargateSystemType", "", "Returns type of used stargate system." )
--------------------------------------------------------------------------
 
 Component:AddVMFunction( "stargateIsInJamming", "v", "n", function( Context, Trace, Vec )
     local radius = 1024; -- max range of jamming, we will adjust it later
@@ -778,7 +741,6 @@ Component:AddVMFunction( "stargateIsInJamming", "v", "n", function( Context, Tra
 end)
 
 Component:AddFunctionHelper( "stargateIsInJamming", "v", "Returns position is jammed." )
--------------------------------------------------------------------------
 
 Component:AddVMFunction( "stargateIsInJamming", "v,e", "n", function( Context, Trace, Vec, Ply )
     if (not IsValid(Ply) or not Ply:IsPlayer()) then return -1 end
@@ -798,7 +760,6 @@ Component:AddVMFunction( "stargateIsInJamming", "v,e", "n", function( Context, T
 end)
 
 Component:AddFunctionHelper( "stargateIsInJamming", "v,e", "Returns position is jammed." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateTransmit", "e:s", "n",
 [[@define result = -2
@@ -815,7 +776,6 @@ if IsValid(@value 1) and @value 1.IsStargate then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateTransmit", "wl:s", "Transmit string to remote SG." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateRingAddress", "e:", "s",
 [[@define result = ""
@@ -832,7 +792,6 @@ if IsValid(@value 1) and @value 1.IsRings then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateRingAddress", "wl:", "Returns ring address." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateRingSetAddress", "e:s", "",
 [[
@@ -849,7 +808,6 @@ if IsValid(@value 1) and @value 1.IsRings and @value 1:CAP_CanModify(Context.pla
 end
 ]])
 Component:AddFunctionHelper( "stargateRingSetAddress", "wl:s", "Sets ring address." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateRingDial", "e:s", "",
 [[
@@ -874,7 +832,6 @@ if IsValid(@value 1) and @value 1.IsRings and not @value 1.Busy then
 end
 ]])
 Component:AddFunctionHelper( "stargateRingDial", "wl:s", "Dials rings." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateRingDialClosest", "e:", "",
 [[
@@ -891,7 +848,6 @@ if IsValid(@value 1) and @value 1.IsRings and not @value 1.Busy then
 end
 ]])
 Component:AddFunctionHelper( "stargateRingDialClosest", "wl:", "Dials closest rings." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateAsgardTeleport", "e:v,v,n", "",
 [[
@@ -910,7 +866,6 @@ if IsValid(@value 1) and @value 1:GetClass() == "transporter" then
 end
 ]])
 Component:AddFunctionHelper( "stargateAsgardTeleport", "wl:v,v,n", "Uses asgard teleporter." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateAtlantisTPGetName", "e:", "s",
 [[@define result = ""
@@ -927,7 +882,6 @@ if IsValid(@value 1) and @value 1.IsAtlTP then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateAtlantisTPGetName", "wl:", "Returns atlantis teleport name." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateAtlantisTPSetName", "e:s", "",
 [[
@@ -944,7 +898,6 @@ if IsValid(@value 1) and @value 1.IsAtlTP and @value 1:CAP_CanModify(Context.pla
 end
 ]])
 Component:AddFunctionHelper( "stargateAtlantisTPSetName", "wl:s", "Sets atlantis teleport name." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateAtlantisTPGetGroup", "e:", "s",
 [[@define result = ""
@@ -961,7 +914,6 @@ if IsValid(@value 1) and @value 1.IsAtlTP then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateAtlantisTPGetGroup", "wl:", "Returns atlantis teleport group." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateAtlantisTPSetGroup", "e:s", "",
 [[
@@ -978,7 +930,6 @@ if IsValid(@value 1) and @value 1.IsAtlTP and @value 1:CAP_CanModify(Context.pla
 end
 ]])
 Component:AddFunctionHelper( "stargateAtlantisTPSetGroup", "wl:s", "Sets atlantis teleport group." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateAtlantisTPGetPrivate", "e:", "n",
 [[@define result = -1
@@ -995,7 +946,6 @@ if IsValid(@value 1) and @value 1.IsAtlTP then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateAtlantisTPGetPrivate", "wl:", "Returns atlantis teleport private state." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateAtlantisTPSetPrivate", "e:n", "",
 [[
@@ -1012,7 +962,6 @@ if IsValid(@value 1) and @value 1.IsAtlTP and @value 1:CAP_CanModify(Context.pla
 end
 ]])
 Component:AddFunctionHelper( "stargateAtlantisTPSetPrivate", "wl:n", "Sets atlantis teleport private state." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateAtlantisTPGetLocal", "e:", "n",
 [[@define result = -1
@@ -1029,7 +978,6 @@ if IsValid(@value 1) and @value 1.IsAtlTP then
 end
 ]], "@result" )
 Component:AddFunctionHelper( "stargateAtlantisTPGetLocal", "wl:", "Returns atlantis teleport local state." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateAtlantisTPSetLocal", "e:n", "",
 [[
@@ -1046,7 +994,6 @@ if IsValid(@value 1) and @value 1.IsAtlTP and @value 1:CAP_CanModify(Context.pla
 end
 ]])
 Component:AddFunctionHelper( "stargateAtlantisTPSetLocal", "wl:n", "Sets atlantis teleport local state." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateAtlantisTPTeleport", "e:s", "",
 [[
@@ -1065,7 +1012,6 @@ if IsValid(@value 1) and @value 1.IsAtlTP then
 end
 ]])
 Component:AddFunctionHelper( "stargateAtlantisTPTeleport", "wl:s", "Uses atlantis teleport." )
--------------------------------------------------------------------------
 
 Component:AddPreparedFunction( "stargateAtlantisTPAddressList", "e:", "ar",
 [[@define result = {}
@@ -1084,7 +1030,6 @@ end
 @result.__type = "s"
 ]], "@result" )
 Component:AddFunctionHelper( "stargateAtlantisTPAddressList", "wl:", "Returns atlantis teleports list." )
--------------------------------------------------------------------------
 
 EXPADV.SharedOperators()
 Component:AddPreparedFunction( "stargateGetRingAngle2", "e:", "n",
@@ -1103,5 +1048,4 @@ end
 ]], "@result" )
 
 Component:AddFunctionHelper( "stargateGetRingAngle2", "wl:", "Returns stargate ring angle. Available both clientside and serverside." )
--------------------------------------------------------------------------
 

@@ -464,9 +464,7 @@ function ENT:StartSequence(address)
     self.Other:DoRings()
 end
 
---
 -- Wire port, first done by Meeces, implemented by Catdaemon, and now rewritten by aVoN
---
 
 
 

@@ -58,7 +58,6 @@ end
 
 /*---------------------------------------------------------
 Muzzle Effect - Perhaps in a later rev
----------------------------------------------------------
 SWEP.MuzzleEffect            = "rg_muzzle_hmg" -- This is an extra muzzleflash effect
  --Available muzzle effects: rg_muzzle_grenade, rg_muzzle_highcal, rg_muzzle_hmg, rg_muzzle_pistol, rg_muzzle_rifle, rg_muzzle_silenced, none
 
@@ -128,9 +127,7 @@ function SWEP.data.auto.Init(self)
     self.Weapon:SetNetworkedInt("firemode", 1)
 end
 
----------------------------
 -- Red Dot Sight --
----------------------------
 
 
 SWEP.IronSightsPos             = Vector (4.5658, -10.4639, 2.0097)

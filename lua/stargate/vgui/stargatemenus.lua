@@ -1,9 +1,7 @@
 /*
     New stargate vgui menus
-    -----------------------
     For Garry's Mod 13
     (c) 2014 by AlexALX
-    -----------------------
     Based on old avon menus
     Copyright (C) 2007  aVoN
 
@@ -2130,7 +2128,6 @@ function PANEL:SetSettings(entity,groupsystem,candialg,hidedialmode)
                 elseif(text:sub(7,7) == "@")then text = text:sub(1,7);
                 else text = text:sub(1,6) end;
                 if (self.MaxSymbols==6) then text = text:sub(1,6); end -- if can't dial 8-9 chevrons by convars
-                --
                 TextEntry:SetText(text);
                 TextEntry:SetCaretPos(math.Clamp(pos - (len-#letters),0,text:len())); -- Reset the caretpos!
                 if(self.Data.Address ~= text and self.OnTextChanged) then

@@ -424,7 +424,6 @@ stool_sgcscreen_fulldesc =[[SGC Экраны с тв сериала.
 Автор: glebqip
 Улучшения и тул - AlexALX
 
----------
 
 Как использовать:
 

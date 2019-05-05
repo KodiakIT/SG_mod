@@ -1117,7 +1117,6 @@ local function SGC_Codes_Mgr(otbl,ent)
         desc:SetText(descSs)
     end
 
-    ---------------------------------------------------------------
 
     local codeLabel = vgui.Create("DLabel" , DermaPanel )
     codeLabel:SetPos(270,185)

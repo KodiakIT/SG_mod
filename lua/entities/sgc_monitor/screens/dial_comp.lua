@@ -1,8 +1,6 @@
----------------------
 -- Screen: Dial --
 -- Author: glebqip --
 -- ID: 1 --
----------------------
 local SCR = {
   Name = "Dialing computer",
   ID = 1,
