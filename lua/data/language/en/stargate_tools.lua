@@ -1,8 +1,8 @@
-// Attention! For see changes in-game you need fully restart gmod!
-// Reload languages or map will not update this messages!
-// This happens because gmod cache stool names/desc until close game.
+-- Attention! For see changes in-game you need fully restart gmod!
+-- Reload languages or map will not update this messages!
+-- This happens because gmod cache stool names/desc until close game.
 
-// Ramps
+-- Ramps
 stool_ramp_spawner = Ramp Spawner
 stool_ramp_create = Creates a Ramp
 stool_ramp_desc = Left click, to spawn a Ramp
@@ -12,7 +12,7 @@ stool_ramp_cleaned = Removed all Ramps
 stool_ramp_limit = Hit the Ramp limit
 stool_ramp_anim_limit = Anim ramp limit reached!
 
-// Ashen defence
+-- Ashen defence
 stool_ashen_defence_spawner = Ashen Defence System Spawner
 stool_ashen_defence_create = Creates an Ashen Defence System
 stool_ashen_defence_desc = Left click to create the system
@@ -21,7 +21,7 @@ stool_ashen_defence_cleanup = Ashen Defence Systems
 stool_ashen_defence_cleaned = Removed all Ashen Defence Systems
 stool_ashen_defence_limit = Maximum number of Ashen Defence Systems created
 
-// Asuran ZPM Hub
+-- Asuran ZPM Hub
 stool_asuran_zpm_hub_spawner = Asuran ZPM Hub Spawner
 stool_asuran_zpm_hub_create = Creates an Asuran ZPM Hub
 stool_asuran_zpm_hub_desc = Left click to spawn an Asuran ZPM Hub
@@ -41,7 +41,7 @@ stool_atlantis_zpm_hub_cleaned = Removed all Atlantis ZPM Hubs
 stool_atlantis_zpm_hub_limit = Hit the Atlantis ZPM Hub limit
 stool_atlantis_zpm_hub_fulldesc = This is the Atlantis ZPM Hub. This tool requires SpaceBuild or the Environments addon. If you don't have it, this ZPM Hub is quite useless to you.
 
-// Gate Bearing
+-- Gate Bearing
 stool_bearing_spawner = Bearing Spawner
 stool_bearing_create = Creates a Bearing
 stool_bearing_desc = Left click, to spawn a Bearing
@@ -53,7 +53,7 @@ stool_bearing_fulldesc = The Gate bearing hangs from the ceiling of the gate roo
 stool_bearing_err = Target is not a Stargate Universe!
 stool_bearing_exs = Bearing is exist on this Stargate!
 
-// Braziers
+-- Braziers
 stool_braziers_spawner = Braziers Spawner
 stool_braziers_create = Creates a Brazier
 stool_braziers_desc = Left click, to spawn Brazier
@@ -62,7 +62,7 @@ stool_braziers_cleanup = Braziers
 stool_braziers_cleaned = Removed all Braziers
 stool_braziers_limit = Hit the Braziers limit
 
-// Door Controller
+-- Door Controller
 stool_cap_door_contr_spawner = Door Controller Spawner
 stool_cap_door_contr_create = Creates a Door Controller
 stool_cap_door_contr_desc = Left click, to spawn Door Controller
@@ -71,7 +71,7 @@ stool_cap_door_contr_cleanup = Door Controllers
 stool_cap_door_contr_cleaned = Removed all Door Controllers
 stool_cap_door_contr_limit = Hit the Door Controllers limit
 
-// Doors
+-- Doors
 stool_cap_doors_spawner = Doors Spawner
 stool_cap_doors_create = Creates a Doors
 stool_cap_doors_desc = Left click, to spawn Doors
@@ -82,7 +82,7 @@ stool_cap_doors_limit = Hit the Doors limit
 stool_cap_doors_redt = Red Texture on Atlantis frame
 stool_cap_doors_short = Use shorter frame for door3 model
 
-// Console
+-- Console
 stool_cappanel_spawner = Console Spawner
 stool_cappanel_create = Creates a Console
 stool_cappanel_desc = Left click, to spawn Console
@@ -91,7 +91,7 @@ stool_cappanel_cleanup = Consoles
 stool_cappanel_cleaned = Removed all Consoles
 stool_cappanel_limit = Hit the Consoles limit
 
-// Control Panel
+-- Control Panel
 stool_controlpanel_spawner = Control Panel Spawner
 stool_controlpanel_create = Creates a Control Panel
 stool_controlpanel_desc = Left click, to spawn Control Panel
@@ -100,7 +100,7 @@ stool_controlpanel_cleanup = Control Panels
 stool_controlpanel_cleaned = Removed all Control Panels
 stool_controlpanel_limit = Hit the Control Panels limit
 
-// Drones
+-- Drones
 stool_drones_spawner = Drone Launcher Spawner
 stool_drones_create = Spawns a drone launcher
 stool_drones_desc = Left click, to spawn a drone launcher
@@ -113,7 +113,7 @@ stool_drones_kill = Kill Drones:
 stool_drones_track = Track Target:
 stool_drones_eye_track = Eye Track:
 
-// Floor Chevron
+-- Floor Chevron
 stool_floorchevron_spawner = Floor Chevron Spawner
 stool_floorchevron_create = Creates a Floor Chevron
 stool_floorchevron_desc = Left click, to spawn a Floor Chevron
@@ -125,7 +125,7 @@ stool_floorchevron_fulldesc = Chevron on the Floor that turns on when the last S
 stool_floorchevron_err = Target is not a Stargate Universe!
 stool_floorchevron_exs = Floor Chevron is exist on this Stargate!
 
-// Goauld Iris
+-- Goauld Iris
 stool_goauld_iris_spawner = Goauld Iris Spawner
 stool_goauld_iris_create = Creates a Goauld Iris
 stool_goauld_iris_desc = Left click, to spawn or update a Goauld Iris
@@ -134,7 +134,7 @@ stool_goauld_iris_cleanup = Goauld Iris
 stool_goauld_iris_cleaned = Removed all Goauld Irises
 stool_goauld_iris_limit = Hit the Goauld Iris limit
 
-// Gravity Controller
+-- Gravity Controller
 stool_gravitycontroller_spawner = Gravity Controller Creator
 stool_gravitycontroller_create = Build Starships without hoverballs, or simply use it for stabilizing your stuff
 stool_gravitycontroller_desc = Click where you would like to create a Gravity Controller, click on one to update it.
@@ -169,7 +169,7 @@ stool_gravitycontroller_lbd = Local Brake Description
 stool_gravitycontroller_lbd_desc = If you enable that, the GC will brake seperate on every axis. If you set every but one axis to 100, it will 'slide' along that axis. So if you want your ship not to brake as hard forward as it should sideways or upwards, this is for you!
 stool_gravitycontroller_sga = SGA Powernode Mode
 
-// Jamming Device
+-- Jamming Device
 stool_jamming_spawner = Jamming Device Spawner
 stool_jamming_create = Creates a Jamming Device
 stool_jamming_desc = Left click, to spawn or update a Jamming Device
@@ -179,7 +179,7 @@ stool_jamming_cleaned = Removed all Jamming Devices
 stool_jamming_limit = Hit the Jamming Device limit
 stool_jamming_imm_desc = Note: Immunity allows you to beam even if jamming is online
 
-// Naquadah Bottle
+-- Naquadah Bottle
 stool_naq_bottle_spawner = Naquadah bottle Spawner
 stool_naq_bottle_create = Creates a Naquadah bottle
 stool_naq_bottle_desc = Left click, to spawn a Naquadah bottle
@@ -192,14 +192,14 @@ stool_naq_bottle_fulldesc = This is the Naquadah bottle, this tool requires Spac
 // Naquada Generator MK1/MK2
 stool_naq_gen_mks_spawner = Naquada Generator Spawner
 stool_naq_gen_mks_create = Creates a Naquada Generator
-stool_naq_gen_mks_desc = Left click, to spawn a Naquada Generator. Right ñlick - refill 25%% (once in 30 seconds).
+stool_naq_gen_mks_desc = Left click, to spawn a Naquada Generator. Right ï¿½lick - refill 25%% (once in 30 seconds).
 stool_naq_gen_mks_undone = Naquada Generator removed
 stool_naq_gen_mks_cleanup = Naquada Generator
 stool_naq_gen_mks_cleaned = Removed all Naquada Generators
 stool_naq_gen_mks_limit = Naquadah generator limit reached!
 stool_naq_gen_mks_fulldesc = This tool is the Naquadah Generator tool. The tool will provide you with a Mark 1 or Mark 2 Naquadah Generator, because the MK1 got less power than the MK2 its still useful. This tool requires SpaceBuild or the Environments addon. If you don't have it, this generators is quite useless for you.
 
-// Naquadah Bomb
+-- Naquadah Bomb
 stool_naqbomb_spawner = Naquadah Bomb Spawner
 stool_naqbomb_create = Creates a naquadah-powered explosive device
 stool_naqbomb_desc = Left click to create the bomb
@@ -208,7 +208,7 @@ stool_naqbomb_cleanup = Naquadah Bombs
 stool_naqbomb_cleaned = Removed all naquadah bombs
 stool_naqbomb_limit = Maximum number of naquadah bombs created
 
-// Ring Ramps
+-- Ring Ramps
 stool_ring_ramps_spawner = RingRamp Spawner
 stool_ring_ramps_create = Creates a RingRamp
 stool_ring_ramps_desc = Left click, to spawn a RingRamp
@@ -217,7 +217,7 @@ stool_ring_ramps_cleanup = RingRamp
 stool_ring_ramps_cleaned = Removed all Ramps
 stool_ring_ramps_limit = Hit the RingRamp limit
 
-// SGC ZPM Hub
+-- SGC ZPM Hub
 stool_sgc_zpm_hub_spawner = SGC ZPM Hub Spawner
 stool_sgc_zpm_hub_create = Creates a SGC ZPM Hub
 stool_sgc_zpm_hub_desc = Left click to spawn a SGC ZPM Hub
@@ -298,7 +298,7 @@ stool_stargate_shield_co_desc = Enable this to keep things inside a shield inste
 stool_stargate_shield_an = Anti Noclip
 stool_stargate_shield_an_desc = People can't noclip in the shield?
 
-// Shield identifier
+-- Shield identifier
 stool_stargate_shield_ident_spawner = Shield Identifier Spawner
 stool_stargate_shield_ident_create = Creates a Shield Identifier
 stool_stargate_shield_ident_desc = Left click, to spawn a Shield Identifier
@@ -319,7 +319,7 @@ Weapon frequencies:
 325 - all other cap energy weapons (player weapons, destiny turrets etc)
 ]]
 
-//Atlantis Light
+--Atlantis Light
 stool_atlantis_light_colour = Light Colour
 stool_atlantis_light_spawner = Atlantis Light Spawner
 stool_atlantis_light_create = Spawns an Atlantis Light
@@ -328,7 +328,7 @@ stool_atlantis_light_undone = Atlantis Light removed
 stool_atlantis_light_cleanup = Atlantis Lights
 stool_atlantis_light_cleaned = Removed all Atlantis Lights
 
-// Supergate DHD
+-- Supergate DHD
 stool_supergate_dhd_spawner = Supergate DHD Spawner
 stool_supergate_dhd_create = Creates a Supergate DHD
 stool_supergate_dhd_desc = Left click, to spawn a Supergate DHD
@@ -339,7 +339,7 @@ stool_supergate_dhd_limit = Hit the Supergate DHD limit
 stool_supergate_dhd_err = You are not pointing at a Supergate!
 stool_supergate_dhd_exs = Supergate DHD is already exist on this Supergate!
 
-// Tampered ZPM
+-- Tampered ZPM
 stool_tampered_zpm_spawner = Tampered ZPM Spawner
 stool_tampered_zpm_create = Creates a Tampered ZPM
 stool_tampered_zpm_desc = Left click, to spawn a Tampered ZPM
@@ -350,7 +350,7 @@ stool_tampered_zpm_limit = Hit the Tampered ZPM limit
 stool_tampered_zpm_fulldesc = This is the Tampered Zpm, this tool requires SpaceBuild or the Environments addon. If you don't have it, this Tampered Zpm is quite useless for you.
 stool_tampered_zpm_fulldesc2 = Camulus discovered a ZPM in an Ancient outpost. Unable to use it himself, he coated it with a volatile compound that would react explosively to an electrical charge. He led the Tau'ri to it in the hopes that they would destroy themselves. Bill Lee discovered the compound by mistake when it became necessary to flood the base with gamma radiation. The estimated blast radius of the ZPM, which held a roughly 50%% charge, could have possibly encompassed the entire solar system, and at the very least would have completely destroyed Earth. (SG1: "Zero Hour") Efforts were made to remove the compound, but the first test of the ZPM destroyed it and the planet it was on.
 
-// Tokra Shield Emmiter
+-- Tokra Shield Emmiter
 stool_tokra_shield_emmiter_spawner = Tokra Shield Emmiter Spawner
 stool_tokra_shield_emmiter_create = Creates a Tokra Shield Emmiter
 stool_tokra_shield_emmiter_desc = Left click, to spawn Tokra Shield Emmiter
@@ -359,7 +359,7 @@ stool_tokra_shield_emmiter_cleanup = Tokra Shield Emmiters
 stool_tokra_shield_emmiter_cleaned = Removed all Tokra Shield Emmiters
 stool_tokra_shield_emmiter_limit = Hit the Tokra Shield Emmiters limit
 
-// Tokra Shield Controller
+-- Tokra Shield Controller
 stool_tokra_shield_key_spawner = Tokra Shield Controller Spawner
 stool_tokra_shield_key_create = Creates a Tokra Shield Controller
 stool_tokra_shield_key_desc = Left click, to spawn Tokra Shield Controller
@@ -368,7 +368,7 @@ stool_tokra_shield_key_cleanup = Tokra Shield Controllers
 stool_tokra_shield_key_cleaned = Removed all Tokra Shield Controllers
 stool_tokra_shield_key_limit = Hit the Tokra Shield Controllers limit
 
-// Tollan Weapon Disabler
+-- Tollan Weapon Disabler
 stool_tollan_disabler_spawner = Tollan Weapon Disabler Spawner
 stool_tollan_disabler_create = Creates a Weapon Disabler
 stool_tollan_disabler_desc = Left click, to spawn or update a Weapon Disabler
@@ -378,7 +378,7 @@ stool_tollan_disabler_cleaned = Removed all Weapon Disablers
 stool_tollan_disabler_limit = Hit the Weapon Disabler limit
 stool_tollan_disabler_imm = Note: Immunity allows you to use your weapons, if disabler is online
 
-// Wraith Stun Bomb
+-- Wraith Stun Bomb
 stool_wraith_bomb_spawner = Wraith Bomb Spawner
 stool_wraith_bomb_create = Creates a Wraith Stun Bomb
 stool_wraith_bomb_desc = Left click to create the bomb
@@ -390,7 +390,7 @@ stool_wraith_bomb_yield = Yield
 stool_wraith_bomb_timer = Timer
 stool_wraith_bomb_power = Power
 
-// Harvester
+-- Harvester
 stool_wraith_harvester_spawner = Wraith Harvester
 stool_wraith_harvester_create = Spawns a harvester which can suck up people
 stool_wraith_harvester_desc = Left click, to spawn or update a harvester
@@ -402,7 +402,7 @@ stool_wraith_harvester_suck = Suck:
 stool_wraith_harvester_spit = Spit:
 stool_wraith_harvester_beam = Beam Always Straigth Down
 
-// ZPM MK III
+-- ZPM MK III
 stool_zpm_mk3_spawner = ZPM MK III Spawner
 stool_zpm_mk3_create = Creates a Zero Point Module
 stool_zpm_mk3_desc = Left click, to spawn a ZPM MK III

@@ -1,4 +1,4 @@
-// cap error notifications
+-- cap error notifications
 sg_err_title = Carter Addon Pack - Ошибка
 sg_err_html_t = Carter Addon Pack Ошибка:
 sg_err_n = Ошибка

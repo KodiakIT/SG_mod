@@ -1,4 +1,4 @@
-// Gyűrűk
+-- Gyűrűk
 ring_ancient = Gyűrűk (Ős)
 ring_goauld = Gyűrűk(Goauld)
 ring_ori = Gyűrűk (Ori)
@@ -10,7 +10,7 @@ ring_dial = Célállomás (Csak számok!):
 ring_dialb = Tárcsázás
 ring_error = Már létezik ilyen nevű gyűrű!
 
-// Weapon Entities
+-- Weapon Entities
 entity_weapon_cat = Fegyverek
 entity_ag3 = AG-3 Műhold
 entity_asgard_beam = Asgard Sugár-Fegyver
@@ -32,13 +32,13 @@ entity_shiprail = Hajó sínágyúja
 entity_stat_railgun = Statikus Fegyver
 entity_staff_weapon = Statikus Botfegyver
 
-//Shaped Charge
+--Shaped Charge
 entity_directional_nuke = Irányított töltet
 directional_nuke_menu_t = Időzítő
 directional_nuke_menu_d = Másdoperc a robbanásig:
 directional_nuke_menu_c = Mégse
 
-// Ship Entities
+-- Ship Entities
 entity_ships_cat = Űrhajók
 entity_daedalus = BC-304 Daedalus
 entity_control_chair = A szék
@@ -50,7 +50,7 @@ entity_jumper = Ugró
 entity_teltak = TelTak
 entity_dart = Lidérc dárda
 
-// Main Entities
+-- Main Entities
 entity_main_cat = Eszközök
 entity_obelisk = Ős-obeliszk
 entity_antiprior = Anti-hírnök eszköz
@@ -75,18 +75,18 @@ entity_stone_tablet = Kőtábla
 entity_telchak = Telchak Gyógyító eszköz
 entity_atlantist = Atlantisz Transzportere
 
-// Sodan obelisk
+-- Sodan obelisk
 entity_sodan_obelisk = Sodan Obeliszk
 sodan_obelisk_menu = Állítsa be az obeliszk jelszavát (Csak számok 1-től 6-ig!):
 
-// Npcs
+-- Npcs
 npc_cat = Emberek
 npc_wraith = Lidérc
 npc_prior = Hírnök
 npc_goauld = Goauld
 npc_soldier = Katona
 
-// Player Weapons
+-- Player Weapons
 weapon_cat = Játékos Fegyverek
 weapon_asuran = Asurai Fegyver
 weapon_hand_device = Goauld Kézi-Fegyver
@@ -100,7 +100,7 @@ weapon_wraith = Lidérc kezek
 weapon_wraith_blaster = Lidérc kábítófegyver
 weapon_tac = Sokkológránát
 
-// Player Misc Weapons
+-- Player Misc Weapons
 weapon_misc_cat = Mellékes
 weapon_misc_atanik = Atanik karvédő
 weapon_misc_virus = AGV
@@ -118,7 +118,7 @@ weapon_misc_nox_desc = Bal kattintás: Tárcsázó Menü, Jobb kattintás: Bará
 weapon_misc_adrenaline = Adrenaline
 weapon_misc_atl_medkit = Atlantisz elsősegélydoboz
 
-// Stools Cats
+-- Stools Cats
 stool_cat = Csillagkapu
 stool_cat_config = Beállítások
 stool_cat_tech = Technológia
@@ -127,19 +127,19 @@ stool_cat_weapons = Fegyverek
 stool_cat_keys = Billentyűk
 stool_cat_ramps = Rámpák
 
-// Stools Updater
+-- Stools Updater
 stool_update_01 = Az ön Carter Addon Pack-je lejárt.
 stool_update_02 = Jelenlegi verzió:
 stool_update_03 = Ha szerveren kapja ezt az üzenetet, mondja meg az admin-nak hogy frissítse a CAP-et.
 
-// Stool Names - Beállítások
+-- Stool Names - Beállítások
 stool_credits = Készítők
 stool_settings = Beállítások/Nyelv
 stool_weapvis = Fegyverek Vizuális effektusai
 stool_miscvis = Egyéb Vizuális effektusok
 stool_shipvis = Hajók Vizuális effektusai
 
-// Stool Names - Technika
+-- Stool Names - Technika
 stool_brazier = Fáklyák
 stool_bearing = Kapu csapágya
 stool_door_c = Ajtó távirányítója
@@ -160,7 +160,7 @@ stool_tolland = Tollan Fegyver-kikapcsoló eszköz
 stool_harvester = Lidérc-sugár
 stool_controlpanel = Vezérlőpult
 
-// Stool Names - Energia
+-- Stool Names - Energia
 stool_asuran_hub = Asurai ZPM Központ
 stool_atlantis_hub = Atlantiszi ZPM Központ
 stool_naq_gen = Naquadah Generátor MK1/MK2
@@ -168,19 +168,19 @@ stool_sgc_hub = CSKP ZPM Központ
 stool_zpm_mk3 = ZPM MK III
 stool_naq_bottle = Naquadah palack
 
-// Stool Names - Fegyverek
+-- Stool Names - Fegyverek
 stool_drones = Drónok
 stool_naq_bomb = Naquadah Bomba
 stool_staff = Botfegyver
 stool_tzpm = Szabotált ZPM
 stool_wh_bomb = Lidérc kábító Bomba
 
-// Stool Names - Rámpák
+-- Stool Names - Rámpák
 stool_anim_ramps = Animált Rámpák
 stool_nanim_ramps = Nem-animált Rámpák
 stool_ring_ramps = Gyűrű Rámpák
 
-// Stool Names - Hajók Billentyűinek beállítása
+-- Stool Names - Hajók Billentyűinek beállítása
 stool_key_daedalus = Daedalus
 stool_key_dart = Lidérc dárda
 stool_key_glider = Kapu-Sikló
@@ -191,7 +191,7 @@ stool_key_malp =Malp
 stool_key_dest =Végzet Kompja
 stool_key_teltak =Teltak
 
-// Stool Global
+-- Stool Global
 stool_autoweld = Auto-hegesztés
 stool_autolink = Auto-összekötés
 stool_autolink_desc = Auto-összekötés a forrás-csomóponttal entitások használatával?
@@ -206,7 +206,7 @@ stool_activate = Aktiválás:
 stool_deactivate = Deaktiválás:
 stool_immunity = Immunitás
 stool_help = Segítség
-// Naquadah bomb menu
+-- Naquadah bomb menu
 entity_naq_bomb = Naquadah Bomba
 naq_bomb_menu_01 = Írja be a detonáló kódot
 naq_bomb_menu_02 = Detonációs kód:
@@ -222,7 +222,7 @@ naq_stool_menu_a_d = Bomba hegesztése valamiyen tárgyhoz. Ha kosárral rakja b
 naq_stool_menu_code = Ajda meg a bomba detonáláshoz használt kódot.
 naq_stool_menu_abort = Ajda meg a bomba detonáció megszakításához használt kódot.
 
-// Dakara
+-- Dakara
 ancient_control_panel = Ősi Irányító Pult
 dakara_energy_kill = Dakara Energia Hullám
 dakara_panel = Dakara Vezérlő Pultja
@@ -241,7 +241,7 @@ dakara_menu_10 = Emberek Dezintegrálásának Beállítása.
 dakara_menu_11 = Bezárás
 dakara_menu_12 = Indítás
 
-// Atlantis transporter
+-- Atlantis transporter
 atl_tp_01 = Transzporter neve:
 atl_tp_02 = Célállomás neve:
 atl_tp_03 = Mentés
@@ -251,7 +251,7 @@ atl_tp_06 = Személyes
 atl_tp_07 = A személyes transzporterek nincsenek a menüben, de lehet tárcsázni őket!
 atl_tp_error = A név már használatban van!
 
-// Misc
+-- Misc
 kawoosh_hurt = Instabill örvény
 event_horizon = Eseményhorizont
 gate_nuke = Elégetett
@@ -289,7 +289,7 @@ cap_disabled_tool = Ez az ezköz le van tiltva a szerveren!
 iris_gatespawner = Nem tudod átírni a gatespawner iris-ét! Rakj be egy iris számítógépet hogy tudd irányítani.
 cap_disabled_npc = Ez az npc le van tiltva a szerveren!
 iris_protection = Iris sikeresen hozzáadva a gatespawner kapujához. Rakj be egy iris számítógépet hogy tudd irányítani.
-// gatespawner
+-- gatespawner
 sg_gtsp_title = Gatespawner Készítő
 sg_stsp_text =[[<h2>Gatespawner sikeresen elkészítve!</h2>
 Fájl: <u>garrysmod\data\%s.txt</u>
@@ -301,7 +301,7 @@ Fájl: <u>garrysmod\data\%s.txt</u>
 <br>Ha nem tudja hogyan kell használja a <b>Google-t</b>.
 ]]
 
-// iris computer
+-- iris computer
 iriscomp_title = Iris Számítógép menüje
 iriscomp_code = Iris kódja
 iriscomp_desc = Leírás
@@ -315,7 +315,7 @@ iriscomp_cancel = Mégse
 iriscomp_toggle = Iris-BE/KI
 iriscomp_ok = Mentés
 
-// destiny timer
+-- destiny timer
 destimer_title = Végzet időzítője
 destimer_time = Idő:
 destimer_autostart = Auto-indítás
@@ -334,7 +334,7 @@ destimer_stop = Számláló leállítása
 destimer_reset = Számláló visszaállítása
 destimer_close = Kapu bezárása
 destimer_error = Nem lehet elindítani a számlálót ha a kapu be van zárva Auto-visszaállítás lehetőséggel!
-// asgard transporter
+-- asgard transporter
 asgardtp_title = Asgard transzporter
 asgardtp_target = Célpont
 asgardtp_target_desc = Válaszd ki a teleportálni kívánt célpontot
@@ -361,7 +361,7 @@ asgardtp_error = Hibás célpont vagy célállomás!(lista újratöltése?)
 asgardtp_jamming = Nem lehet ezekkel a koordinátákkal teleportálni-aktív zavaradó.
 asgardtp_succ = Sikeres teleportálás.
 
-// huds
+-- huds
 hud_status = Állapot
 hud_energy = Energia
 hud_capacity = Kapacitás
@@ -372,10 +372,10 @@ hud_sts_inactive = Inaktív
 hud_sts_connected = Csatlakozva
 hud_sts_disconnected = Nincs csatlakoztatva
 hud_sts_depleted = Lemerült
-// jumper hud
+-- jumper hud
 jumper_hud_dial = Tárcsázás:
 
-// visual settings
+-- visual settings
 vis_fps_high = Robbanás FPS-e: Magas
 vis_fps_medium = Robbanás FPS-e: Közepes
 vis_fps_low = Robbanás FPS-e: Alacsony
@@ -423,7 +423,7 @@ vis_sm_laser = Kis lézerek
 vis_charge_up = Gyűrűk feltöltése
 vis_refl_sphere = Környezeti villanások
 
-// keybinder
+-- keybinder
 key_move_title = Járás
 key_move_forward = Előre
 key_move_left = Balra
@@ -481,7 +481,7 @@ key_cam_down = Kamera le
 key_cam_reset = Kamera visszaállítása
 key_rocket_title = Rakéta irányító
 key_rocket = Rakéta
-// Limits reached
+-- Limits reached
 entity_limit_ag3 = AG-3 Műhold-Korlát Elérve!
 entity_limit_anc_obelisk = Ős Obeliszk-Korlát Elérve!
 entity_limit_app_core = Vezérlő Interfész-Korlát Elérve!

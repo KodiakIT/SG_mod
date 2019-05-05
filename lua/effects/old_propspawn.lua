@@ -9,8 +9,8 @@ local matLight     = Material( "models/spawn_effect2" )
 ---------------------------------------------------------*/
 function EFFECT:Init( data )
 
-    // This is how long the spawn effect
-    // takes from start to finish.
+    -- This is how long the spawn effect
+    -- takes from start to finish.
     self.Time = 1.5
     self.LifeTime = CurTime() + self.Time
 
@@ -48,14 +48,14 @@ end
 
 function EFFECT:Render()
 
-    // What fraction towards finishing are we at
+    -- What fraction towards finishing are we at
     local Fraction = (self.LifeTime - CurTime()) / self.Time
     local ColFrac = (Fraction-0.5) * 2
 
     Fraction = math.Clamp( Fraction, 0, 1 )
     ColFrac =  math.Clamp( ColFrac, 0, 1 )
 
-    // Change our model's alpha so the texture will fade out
+    -- Change our model's alpha so the texture will fade out
     self:SetColor( Color(255, 255, 255, 1 + 254 * (ColFrac)) )
 
     // Place the camera a tiny bit closer to the entity.

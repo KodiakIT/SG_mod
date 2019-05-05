@@ -201,14 +201,14 @@ function StarGate.Trace:New(start,dir,ignore)
                             hit2 = StarGate.RayPhysicsPluckerIntersect(trace, dir2, e, a);
                         end
                     elseif (class == "tokra_shield") then // go ahead with my method @Mad
-                        //if StarGate.IsRayBoxIntersect(start, trace.HitPos, e) then // check, if we intersecting bounding box - save cpu if we are not
-                            //local a = not in_box;
-                            ////local dir2 = dir;
-                            //if in_box then dir2 = -1*dir end // fix shoting if we are inside, and not shape - to get hitpos on right side (not opposite)
-                            //if (e.ShShap == 2) then a = in_box end // small fix for box shape, i fucked triangles directions
+                        --if StarGate.IsRayBoxIntersect(start, trace.HitPos, e) then // check, if we intersecting bounding box - save cpu if we are not
+                            --local a = not in_box;
+                            --local dir2 = dir;
+                            --if in_box then dir2 = -1*dir end // fix shoting if we are inside, and not shape - to get hitpos on right side (not opposite)
+                            --if (e.ShShap == 2) then a = in_box end // small fix for box shape, i fucked triangles directions
                             hit2 = StarGate.RayPhysicsPluckerIntersect(trace, dir, e, true);
-                            // this code not working, need something to do @ AlexALX
-                        //end
+                            -- this code not working, need something to do @ AlexALX
+                        --end
                     else
                         if(norm.x ~= 0) then
                             hit = self:CheckCoordinate("x",pos,norm,v.Min,v.Max,len,in_box);

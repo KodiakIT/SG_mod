@@ -1,4 +1,4 @@
-//Initial effect
+--Initial effect
 function EFFECT:Init( data )
 
     local NumParticles = 64
@@ -48,11 +48,11 @@ function EFFECT:Init( data )
 
 end
 
-//Not used
+--Not used
 function EFFECT:Think( )
     return false
 end
 
-//Not used
+--Not used
 function EFFECT:Render()
 end

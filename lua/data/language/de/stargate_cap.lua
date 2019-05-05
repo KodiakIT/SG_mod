@@ -1,4 +1,4 @@
-// Rings
+-- Rings
 ring_ancient = Ringe (Antiker)
 ring_goauld = Ringe (Goauld)
 ring_ori = Ringe (Ori)
@@ -10,7 +10,7 @@ ring_dial = Gebe Zieladresse ein (nur Nummern!):
 ring_dialb = Wähle
 ring_error = Ein Ring mit dieser Adresse existiert schon!
 
-// Weapon Entities
+-- Weapon Entities
 entity_weapon_cat = Waffen
 entity_ag3 = AG-3 Satellit
 entity_asgard_beam = Asgard Strahlenwaffe
@@ -32,13 +32,13 @@ entity_shiprail = Shiff-Railgun
 entity_stat_railgun = Stationäre Railgun
 entity_staff_weapon = Stationäre Stabwaffe
 
-//Gerichtete Gatebombe
+--Gerichtete Gatebombe
 entity_directional_nuke = Gerichtete Gatebombe
 directional_nuke_menu_t = Gerichtete Gatebombe Timer
 directional_nuke_menu_d = Zeit bis Explosion:
 directional_nuke_menu_c = Abbrechen
 
-// Shiff Entities
+-- Shiff Entities
 entity_ships_cat = Schiffe
 entity_daedalus = BC-304 Daedalus
 entity_control_chair = Kontrollstuhl
@@ -50,7 +50,7 @@ entity_jumper = Puddle Jumper
 entity_teltak = TelTak
 entity_dart = Wraith Dart
 
-// Haupt Entities
+-- Haupt Entities
 entity_main_cat = Misc Devices
 entity_obelisk = Antiker Obelisk
 entity_antiprior = Anti Prior Gerät
@@ -75,18 +75,18 @@ entity_stone_tablet = Stein Tablett
 entity_telchak = Telchak Heilgerät
 entity_atlantist = Atlantis Transporter
 
-// Sodaner Obelisk
+-- Sodaner Obelisk
 entity_sodan_obelisk = Sodaner Obelisk
 sodan_obelisk_menu = Legt Obelisk Passwort fest (nur Nummern von 1 bis 6!):
 
-// Npcs
+-- Npcs
 npc_cat = NPCs
 npc_wraith = Wraith
 npc_prior = Prior
 npc_goauld = Goauld
 npc_soldier = Soldat
 
-// Spieler Waffen
+-- Spieler Waffen
 weapon_cat = Player Waffen
 weapon_asuran = Asuraner Waffe
 weapon_hand_device = Hand Modul

@@ -1995,8 +1995,8 @@ function PANEL:SetSettings(entity,groupsystem,candialg,hidedialmode)
         self.VGUI.Width = 80;
         self.VGUI.AddressListView:AddColumn(SGLanguage.GetMessage("stargate_vgui_name2"));
     end
-    //self.VGUI.AddressListView:SortByColumn(1,true);
-    //self:SortColumns()
+    --self.VGUI.AddressListView:SortByColumn(1,true);
+    --self:SortColumns()
     self.VGUI.AddressListView.OnRowSelected = function(ListView,Row)
         local selected = ListView:GetSelectedLine();
         if (ListView:GetLine(selected).Blocked) then ListView:GetLine(selected):SetSelected(false); self.LastSelected = 0; return end

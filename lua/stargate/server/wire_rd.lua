@@ -531,7 +531,7 @@ local function Environments_ApplyDupeInfo( ent, CreatedEntities, Player ) --add 
             end
             ent.EntityMods.EnvDupeInfo = nil
 
-            //set the player/owner
+            --set the player/owner
             --ent:SetPlayer(Player)
         end
     end

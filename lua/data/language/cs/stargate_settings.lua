@@ -129,7 +129,7 @@ stargate_cap_sbox_26 = Modul Nulového Bodu - ZPM MK3
 stargate_cap_sbox_27 = DHD Superbrány
 stargate_cap_sbox_28 = Goauldská Iris
 
-// Config Editor Tab
+-- Config Editor Tab
 stargate_cfg_reload = Znovu načíst konfigurace
 stargate_cfg_reloaded = Konfigurace znovu načteny!
 stargate_cfg_save = Uložit a znovu načíst
@@ -201,14 +201,14 @@ stargate_cfg_grp_reloaded = Skupiny bran znovu ůspěšně načteny!
 stargate_cfg_grp_save = Uložit skupiny a znovu načíst
 stargate_cfg_grp_saved = Skupiny bran byly ůspěšně načteny!
 
-// Stargate Config Editor
+-- Stargate Config Editor
 sg_sets_global[damage] = Poškození
 sg_sets_global[damage][desc] = Množství poškození
 sg_sets_global[radius] = Dosah
 sg_sets_global[radius][desc] = Dosah poškození
 sg_sets_global[delay] = Spoždění
 
-// Stargate
+-- Stargate
 sg_sets[stargate] = Brána
 sg_sets[stargate][autoclose] = Automatické zavření
 sg_sets[stargate][autoclose][desc] = Automaticky zavřít bránu, když jste jí nechali bejt?
@@ -225,24 +225,24 @@ sg_sets[stargate][wormholejump][desc] = Kolik poškození třeba pro skok červ�
 sg_sets[stargate][water_noclose] = Nezavření ve vodě
 sg_sets[stargate][water_noclose][desc] = Vypnout automatické uzavření, pokud je brána ponořená ve vodě?
 
-// DHD
+-- DHD
 sg_sets[dhd] = DHD (Zadávací Panel)
 sg_sets[dhd][range] = Dosah
 sg_sets[dhd][range][desc] = Maximální dosah od brány pro použití?
 
-// Staffweapon
+-- Staffweapon
 sg_sets[staff] = Tyčová Zbraň
 sg_sets[staff][maxpasses] = Maximální počet průchodů
 sg_sets[staff][maxpasses][desc] = Přes kolik objektů může výstřel projít, a pak zanikne?
 
-// Staff stationary
+-- Staff stationary
 sg_sets[staff_stationary] = Stacionární Tyčová Zbraň
 sg_sets[staff_stationary][energy_per_shot] = Energie při výstřelu
 sg_sets[staff_stationary][energy_per_shot][desc] = Kolik energie se ubere při výstřelu? (Life Support - Podpora Života)
 sg_sets[staff_stationary][maxpasses] = Maximální počet průchodů
 sg_sets[staff_stationary][maxpasses][desc] = Přes kolik objektů může výstřel projít, a pak zanikne?
 
-// ZPM
+-- ZPM
 sg_sets[zpm_mk3] = ZPM MK3 (Modul Nulového Bodu Mark III)
 sg_sets[zpm_mk3][desc] = Poznámka: změna těchto hodnot může pokazit vyrovnání energie při zadávání 8. a 9. chevronu.
 sg_sets[zpm_mk3][capacity] = Kapacita
@@ -250,19 +250,19 @@ sg_sets[zpm_mk3][capacity][desc] = Kolik "energie bodu nula" může ZPM udržet?
 sg_sets[zpm_mk3][energy_capacity] = Kapacita energie
 sg_sets[zpm_mk3][energy_capacity][desc] = Kolik "energie bodu nula" může ZPM přeměnit na "normální" energií?
 
-// Tampered ZPM
+-- Tampered ZPM
 sg_sets[tampered_zpm] = Manipulované ZPM
 sg_sets[tampered_zpm][energy_capacity] = Kapacita energie
 sg_sets[tampered_zpm][energy_capacity][desc] = Kolik "energie bodu nula" může ZPM přeměnit na "normální" energií?
 
-// Naquadah Bottle
+-- Naquadah Bottle
 sg_sets[naquadah_bottle] = Naquadahová Láhev
 sg_sets[naquadah_bottle][capacity] = Kapacita
 sg_sets[naquadah_bottle][capacity][desc] = Kolik naquadahu láhev udrží?
 sg_sets[naquadah_bottle][energy_capacity] = Kapacita energie
 sg_sets[naquadah_bottle][energy_capacity][desc] = Kolik "naquadahu" může láhev přeměnit na "normální" energií?
 
-// Zat'nik'tel
+-- Zat'nik'tel
 sg_sets[zat] = Zat'ňak'tel
 sg_sets[zat][max_size] = Maximální velikost
 sg_sets[zat][max_size][desc] = Maximální velikost objektu, který má být rozložen?
@@ -272,7 +272,7 @@ sg_sets[zat][dissolve_distance] = Maximální vzdálenost pro rozložení
 sg_sets[zat][dissolve_distance][desc] = Objekt ve specifikované vzdálenosti od objektu který je zasáhnutý bude taky rozložen.
 sg_sets[zat][dissolve] = Povolit rozložení objektů
 
-// Shield
+-- Shield
 sg_sets[shield] = Štít (pomůcka - stool)
 sg_sets[shield][multiple_shields] = Povolit více štítů
 sg_sets[shield][multiple_shields][desc] = Povolit více štítu na stejném míste ve stejný čas?
@@ -295,7 +295,7 @@ sg_sets[shield][max_size][desc] = Nastaví maximální velikost štítu. Nenasta
 sg_sets[shield][stationary_shield_multiplier] = Násobitel pevného štítu
 sg_sets[shield][stationary_shield_multiplier][desc] = Když se štít nehýbe, tento násobitel ho udělá X krát silnější než štít v pohybu (například štít na lodích).
 
-// Drone launcher
+-- Drone launcher
 sg_sets[drone] = Vypouštěč střel (pomůcka - stool)
 sg_sets[drone][auto_track] = Povolit automatické zaměření
 sg_sets[drone][auto_track][desc] = Funguje to jenom pro automatické zaměřování když nemáte vypouštěč připojen přes Wire k něčemu, čím ho ovládáte.
@@ -311,7 +311,7 @@ sg_sets[drone][energy_per_shot][desc] = Kolik energie se mine při vypuštění 
 sg_sets[drone][maxspeed] = Maximální rychlost
 sg_sets[drone][maxspeed][desc] = Maximální rychlost střely. Hodnota vyšší než 6000 způsobí spadnutí hry. A střely pak budou létat divně.
 
-// Harvester
+-- Harvester
 sg_sets[harvester] = Wraitský Sklízeč (pomůcka - stool)
 sg_sets[harvester][max_ents] = Maximální obsah
 sg_sets[harvester][max_ents][desc] = Maximální počet věcí, kolik může sklízeč držet v sobě.
@@ -325,7 +325,7 @@ sg_sets[harvester][allow_frozen][desc] = Může sklízeč sklízet zmražené v�
 sg_sets[harvester][disallowed_entities] = Zakázáné entity
 sg_sets[harvester][disallowed_entities][desc] = Tyhle Entity se nikdy nepodaří sklidit.
 
-// Cloaking Device
+-- Cloaking Device
 sg_sets[cloaking] = Generátor Maskování (pomůcka - stool)
 sg_sets[cloaking][energy] = Energie za sekundu
 sg_sets[cloaking][energy][desc] = Nastaví, kolik energie za sekundu zpotřebuje generátor, když je zapnutý.
@@ -336,31 +336,31 @@ sg_sets[cloaking][exceptions][desc] = Tyhle Entity budou mít ALPHA (průhlednos
 sg_sets[cloaking][max_size] = Maximální velikost
 sg_sets[cloaking][max_size][desc] = Jaké veliké může být Maskovací Pole? Příliš veliké hodnoty způsobí spadnutí GModu!
 
-// Mobile DHDs
+-- Mobile DHDs
 sg_sets[mobile_dhd] = Přenosné DHDs
 sg_sets[mobile_dhd][range] = Dosah
 sg_sets[mobile_dhd][range][desc] = Maximální dosah od brány, ve kterým je DHD použitelné?
 
-// RononDex Gun
+-- RononDex Gun
 sg_sets[dexgun] = Rononova Zbraň
 sg_sets[dexgun][maxpasses] = Maximální počet průchodů
 sg_sets[dexgun][maxpasses][desc] = Přes kolik objektů může výstřel projít, a pak zanikne?
 
-// Asgard Transporter
+-- Asgard Transporter
 sg_sets[asgard_transporter] = Asgardský Transportér
 sg_sets[asgard_transporter][classnames] = Zakázáné entity
 sg_sets[asgard_transporter][classnames][desc] = Tyto Entity nelze transportovat.
 sg_sets[asgard_transporter][busy_time] = Čas mezi transportmi
 sg_sets[asgard_transporter][busy_time][desc] = Kolik sekund je třeba počkat, aby se transportér mohl znovu použít?
 
-// Black Hole Cache
+-- Black Hole Cache
 sg_sets[black_hole] = Černá Díra
 sg_sets[black_hole][amount] = Množství zdrojů
 sg_sets[black_hole][resources] = Typy zdrojů
 sg_sets[black_hole][disallow] = Zakázáné entity
 sg_sets[black_hole][disallow][desc] = Tyto Entity nebudou "sežrány" černou dírou.
 
-// Naquadah generator mk1
+-- Naquadah generator mk1
 sg_sets[naq_gen_mk1] = Naquadahový Generátor MARK I
 sg_sets[naq_gen_mk1][naquadah] = Množství Naquadahu
 sg_sets[naq_gen_mk1][naquadah][desc] = Kolik Naquadahu Generátor obsahuje?
@@ -368,11 +368,11 @@ sg_sets[naq_gen_mk1][energy] = Uskladnení Energie
 sg_sets[naq_gen_mk1][energy][desc] = Kolik energie může Generátor uskladnit?
 sg_sets[naq_gen_mk1][generate] = Výroba energie
 sg_sets[naq_gen_mk1][generate][desc] = Kolik naquadahu se zpotřebuje za sekundu? (+/- 5%% random)
-// double %% will be displayed like one %, one percent symbol will make lua error.
+-- double %% will be displayed like one %, one percent symbol will make lua error.
 sg_sets[naq_gen_mk1][multiplier] = Násobitel výroby energie
 sg_sets[naq_gen_mk1][multiplier][desc] = Násobitel pro výrobu energie. (Vzorec je: energetický zdroj = výroba*násobitel).
 
-// Naquadah generator mk2
+-- Naquadah generator mk2
 sg_sets[naq_gen_mk2] = Naquadahový Generátor MARK II
 sg_sets[naq_gen_mk2][naquadah] = Množství Naquadahu
 sg_sets[naq_gen_mk2][naquadah][desc] = Kolik Naquadahu Generátor obsahuje?
@@ -385,36 +385,36 @@ sg_sets[naq_gen_mk2][multiplier][desc] = Násobitel pro výrobu energie. (Vzorec
 sg_sets[naq_gen_mk2][nuke_explode] = Naquadahový výbuch
 sg_sets[naq_gen_mk2][nuke_explode][desc] = Když se Generátor přetíží/poškodí, vybuouchne jako Naquadahová bomba. Pokud je funkce vypnutá, nastane jenom malá exploze.
 
-// Rings
+-- Rings
 sg_sets[ring] = Transportní Kruhy
 sg_sets[ring][classnames] = Zakázáné entity
 sg_sets[ring][classnames][desc] = Tyto Entity nelze transportovat.
 
-// Ring panels
+-- Ring panels
 sg_sets[ring_panel] = Panely kruhů
 sg_sets[ring_panel][menu] = Zobrazit menu
 sg_sets[ring_panel][menu][desc] = Zobrazit Menu po smáčknutí E pří pohledu na panel?
 
-// Atlantis transporter
+-- Atlantis transporter
 sg_sets[atlantis_transporter] = Transportér z Atlantídy
 sg_sets[atlantis_transporter][classnames] = Zakázáné entity
 sg_sets[atlantis_transporter][classnames][desc] = Tyto Entity nelze transportovat.
 
-// Stargate Overloader
+-- Stargate Overloader
 sg_sets[gate_overloader] = Přetěžovač brány
 sg_sets[gate_overloader][energyCapacity] = Kapacita energie
 sg_sets[gate_overloader][energyCapacity][desc] = Menší hodnota = rychlejší přetížení, vyšší hodnota = pomalejší přetížení.
 sg_sets[gate_overloader][coolingPerCycle] = Chlazení počas cyklu
 sg_sets[gate_overloader][coolingPerCycle][desc] = Jak rychle se brána chladí?
 
-// MCD
+-- MCD
 sg_sets[mcd] = MCD (Molekulový Stavitel)
 sg_sets[mcd][allow_tzmp] = Povolit vytvoření TZPM
 sg_sets[mcd][allow_tzmp][desc] = Povolit tvoření Manipulovaných ZPM (náhodně, s nastavením šance).
 sg_sets[mcd][tzmp_chance] = Pravděpodobnost vytvoření TZPM
 sg_sets[mcd][tzmp_chance][desc] = Když pravděpodobnost = 2, pak šance je 50%%, 3 je 33%%, atd. 1 = vždy bude TZPM.
 
-// TAC
+-- TAC
 sg_sets[tac] = TAC (Tacluchnatagamuntoron)
 sg_sets[tac][shoot_interval] = Interval mezi výstřelmi
 sg_sets[tac][shoot_interval][desc] = V sekundách.
@@ -424,18 +424,18 @@ sg_sets[tac][max_shoots] = Maximální počet výstřelů
 sg_sets[tac][max_shoots][desc] = Maximálni počet výstřelů v režimu pro zabití, před zničením, 0 - bez omezení.
 sg_sets[tac][range] = Dosah cíle
 
-// Kino dispenser
+-- Kino dispenser
 sg_sets[kino_dispenser] = Automat na Kino
 sg_sets[kino_dispenser][max_kino] = Maximální počet 
 sg_sets[kino_dispenser][max_kino][desc] = Maximální počet, kolik KIN může mít jeden hráč
 
-// AG-3
+-- AG-3
 sg_sets[ag_3] = AG-3 Satelit
 sg_sets[ag_3][health] = Životnost satelitu
 sg_sets[ag_3][recharge_time] = Čas nabíjení satelitu
 sg_sets[ag_3][recharge_time][desc] = V sekundách.
 
-// Ori Satellite
+-- Ori Satellite
 sg_sets[ori_satellite] = Orájský Satelit
 sg_sets[ori_satellite][health] = Životnost satelitu
 sg_sets[ori_satellite][recharge_time] = Čas nabíjení satelitu
@@ -443,22 +443,22 @@ sg_sets[ori_satellite][recharge_time][desc] = V sekundách.
 sg_sets[ori_satellite][shield_time] = Čas znovunabití štítu
 sg_sets[ori_satellite][shield_time][desc] = V sekundách.
 
-// Ship railgun
+-- Ship railgun
 sg_sets[ship_railgun] = Lodní Kulomety
 
-// Stationary railgun
+-- Stationary railgun
 sg_sets[stationary_railgun] = Stacionární Kulomet
 
-// Shield core
+-- Shield core
 sg_sets[shield_core] = Jádro Štítu Destiny
 sg_sets[shield_core][atlantis_hit] = Násobitel Energie Atlantského Štítu
 sg_sets[shield_core][atlantis_hit][desc] = Násobitel požírání energie v Atlantském módu.
 
-// Ashen defence
+-- Ashen defence
 sg_sets[ashen_defence] = Ashenský Obranný Systém
 sg_sets[ashen_defence][req_energy] = Potřebuje energii
 
-// Cap misc
+-- Cap misc
 sg_sets[cap_misc] = Ostatní Nastavení CAP
 sg_sets[cap_misc][allow_drop_weapons] = Povolit odhazování zbraní
 sg_sets[cap_misc][allow_drop_weapons][desc] = Povolit hráčům odhazovat jejich zbraně?

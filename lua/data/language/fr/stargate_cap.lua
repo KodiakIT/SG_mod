@@ -1,4 +1,4 @@
-// Rings
+-- Rings
 ring_ancient = Anneaux (Ancien)
 ring_goauld = Anneaux (Goauld)
 ring_ori = Anneaux (Ori)
@@ -79,7 +79,7 @@ entity_atlantist = Téléporteur d'Atlantis
 entity_sodan_obelisk = Obélisque Sodan
 sodan_obelisk_menu = Mot de passe de l'obélisque (seulement de 1 à 6!):
 
-// Npcs
+-- Npcs
 npc_cat = NPCs
 npc_wraith = Wraith
 npc_prior = Prêcheur
@@ -121,7 +121,7 @@ weapon_misc_atl_medkit = Kit de soin d'Atlantis
 weapon_misc_lucian_door_opener = Ouvre-porte Lucian
 weapon_misc_lucian_door_opener_desc = Ouvre les portes du Destinée\n\nClique gauche pour placer l'appareil
 
-// Stools Cats
+-- Stools Cats
 stool_cat = Portes des étoiles
 stool_cat_config = Config
 stool_cat_tech = Technologie
@@ -130,7 +130,7 @@ stool_cat_weapons = Armes
 stool_cat_keys = Assignation touches
 stool_cat_ramps = Rampes
 
-// Stools Updater
+-- Stools Updater
 stool_update_01 = Votre version du CAP est dépassée.
 stool_update_02 = Dernière version:
 stool_update_03 = Si ce message apparait sur un serveur, Dites à l'admin de mettre le mod à jour.
@@ -166,7 +166,7 @@ stool_controlpanel = Panneau de Contrôle
 stool_sgcscreen = Écran du SGC
 stool_sgcscreen_srv = Serveur du SGC
 
-// Stool Names - Energy
+-- Stool Names - Energy
 stool_asuran_hub = Hub E2PZ Asuran
 stool_atlantis_hub = Hub E2PZ Atlante
 stool_naq_gen = gén. à Naquadah MK1/MK2
@@ -174,14 +174,14 @@ stool_sgc_hub = Hub E2PZ SGC
 stool_zpm_mk3 = E2PZ MK III
 stool_naq_bottle = Flacon de Naquadah
 
-// Stool Names - Weapons
+-- Stool Names - Weapons
 stool_drones = Drones
 stool_naq_bomb = Bombe au Naquadah
 stool_staff = Lance Jaffa
 stool_tzpm = E2PZ Altéré
 stool_wh_bomb = Bombe Wraith Paralysante
 
-// Stool Names - Ramps
+-- Stool Names - Ramps
 stool_anim_ramps = Rampes animées
 stool_nanim_ramps = Rampes non animées
 stool_ring_ramps = Plateforme d'anneaux
@@ -214,7 +214,7 @@ stool_deactivate = Desactiver:
 stool_immunity = Immunité
 stool_help = Aide
 
-// Naquadah bomb menu
+-- Naquadah bomb menu
 entity_naq_bomb = Bombe au Naquadah
 naq_bomb_menu_01 = Entrez le code de détonation
 naq_bomb_menu_02 = Code de détonation:
@@ -249,7 +249,7 @@ dakara_menu_10 = Désintégrera les NPCs.
 dakara_menu_11 = Fermer
 dakara_menu_12 = Lancer
 
-// Atlantis transporter
+-- Atlantis transporter
 atl_tp_01 = Saisir le nom de ce téléporteur:
 atl_tp_02 = Nom du téléporteur de destination:
 atl_tp_03 = Sauvegarder
@@ -263,8 +263,8 @@ atl_tp_local = Locale
 atl_tp_group = Groupe
 atl_tp_name = Nom
 
-// Misc
-//
+-- Misc
+--
 kawoosh_hurt = Vortex instable
 event_horizon = Horizon des êvénements
 gate_nuke = Radiation
@@ -356,7 +356,7 @@ destimer_reset = Remetre à zéro le compteur
 destimer_close = Fermer la Porte des Étoiles
 destimer_error = On ne peut pas démarer le timeur quand la porte des étoiles est fermée avec l'option de remise à zéro automatique!
 
-// asgard transporter
+-- asgard transporter
 asgardtp_title = Téléporteur Asgard
 asgardtp_target = Cible
 asgardtp_target_desc = Choose target what you want to teleport
@@ -417,7 +417,7 @@ sgcscreen_rcode = Code de réinitialisation
 sgcscreen_desc = Description
 sgcscreen_save = Sauvegarder
 sgcscreen_cancel = Annuler
-// make sure to check this field, change \n positions to fit in menu
+-- make sure to check this field, change \n positions to fit in menu
 sgcscreen_info = Exige deux joueurs pour démarrer/annuler l'auto-destruction.\nDans ce cas, vous devez saisir deux codes différents.
 
 // huds

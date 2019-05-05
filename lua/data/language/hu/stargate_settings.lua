@@ -129,7 +129,7 @@ stargate_cap_sbox_25 = Lidérc Sugár
 stargate_cap_sbox_26 = ZPM MK3
 stargate_cap_sbox_27 = Szuperkapu Tárcsázó
 stargate_cap_sbox_28 = Goauld Iris
-// Config Editor Tab
+-- Config Editor Tab
 stargate_cfg_reload = Konfigurációk újratöltése
 stargate_cfg_reloaded = Konfigurációk sikeresen újratöltve!
 stargate_cfg_save = Mentés és újratöltés
@@ -201,14 +201,14 @@ stargate_cfg_grp_reloaded = Csillagkapu csoportok újratöltve!
 stargate_cfg_grp_save = Csoportok mentése újratöltése
 stargate_cfg_grp_saved = Csillagkapu csoportok mentve!
 
-// Stargate Config Editor
+-- Stargate Config Editor
 sg_sets_global[damage] = Sérülés
 sg_sets_global[damage][desc] = Sérülés mértéke
 sg_sets_global[radius] = Hatósugár
 sg_sets_global[radius][desc] = Sérülés hatósugára
 sg_sets_global[delay] = Késleltetés
 
-// Stargate
+-- Stargate
 sg_sets[stargate] = Csillagkapu
 sg_sets[stargate][autoclose] = Kapuk Auto-bezárása
 sg_sets[stargate][autoclose][desc] = Kapuk Auto-bezárása, ha elhagyja?
@@ -225,24 +225,24 @@ sg_sets[stargate][wormholejump][desc] = Mennyi sérülés kell mielőtt átugorn
 sg_sets[stargate][water_noclose] = Vízben-Auto-bezárás
 sg_sets[stargate][water_noclose][desc] = Kikapcsolja az Auto-bezárást ha a kaou víz alatt van
 
-// DHD
+-- DHD
 sg_sets[dhd] = Tárcsázó
 sg_sets[dhd][range] = Hatósugár
 sg_sets[dhd][range][desc] = Milyen távolságra használható?
 
-// Staffweapon
+-- Staffweapon
 sg_sets[staff] = Botfegyver
 sg_sets[staff][maxpasses] = Max áthaladás
 sg_sets[staff][maxpasses][desc] = Mennyiszer mehet át a bot impulzusa a törékeny objektumokon amíg meg nem semmisül?
 
-// Staff stationary
+-- Staff stationary
 sg_sets[staff_stationary] = Statikus botfegyver
 sg_sets[staff_stationary][energy_per_shot] = Eneria lövésenként
 sg_sets[staff_stationary][energy_per_shot][desc] = Energia lecsapolása lövésenként? (Life Support)
 sg_sets[staff_stationary][maxpasses] = Max áthaladás
 sg_sets[staff_stationary][maxpasses][desc] = Mennyiszer mehet át a bot impulzusa a törékeny objektumokon amíg meg nem semmisül?
 
-// ZPM
+-- ZPM
 sg_sets[zpm_mk3] = ZPM MK3 (Zero Pont Modul)
 sg_sets[zpm_mk3][desc] = Figyelem: az érték cseréje tönkreteheti az energia balanszt a 8 és a 9-edik ékzár tárcsázásakor.
 sg_sets[zpm_mk3][capacity] = Kapacitás
@@ -250,19 +250,19 @@ sg_sets[zpm_mk3][capacity][desc] = Mennyi Zero-Poin-Energia tud a ZPM fentartani
 sg_sets[zpm_mk3][energy_capacity] = Energia kapacitás
 sg_sets[zpm_mk3][energy_capacity][desc] = Mennyi Zero-Poin-Energiát tud a ZPM átalakítani "normál" energiára?
 
-// Tampered ZPM
+-- Tampered ZPM
 sg_sets[tampered_zpm] = Szabotált ZPM
 sg_sets[tampered_zpm][energy_capacity] = Energia kapacitás
 sg_sets[tampered_zpm][energy_capacity][desc] = Mennyi Zero-Poin-Energiát tud a ZPM átalakítani "normál" energiára?
 
-// Naquadah Bottle
+-- Naquadah Bottle
 sg_sets[naquadah_bottle] = Naquadah palack
 sg_sets[naquadah_bottle][capacity] = Kapacitás
 sg_sets[naquadah_bottle][capacity][desc] = Mennyi naquadah-át lehet tárolni a palckban?
 sg_sets[naquadah_bottle][energy_capacity] = Energia kapacitás
 sg_sets[naquadah_bottle][energy_capacity][desc] = Mennyi naquadah-át tud a ZPM átalakítani "normál" energiára?
 
-// Zat'nik'tel
+-- Zat'nik'tel
 sg_sets[zat] = Zat'nik'tel
 sg_sets[zat][max_size] = Maximum méret
 sg_sets[zat][max_size][desc] = Maximum mérete az objektumnak vagy szerkezetnek amit dezintegrálhat?
@@ -272,7 +272,7 @@ sg_sets[zat][dissolve_distance] = Maximum dezintegrálási távolság
 sg_sets[zat][dissolve_distance][desc] = Amikor eltalálja a szerkezetet és a "fények" mozognak a szerkezeten, az entitás ami a távolság alatt van az eredeti eltalálási helytől dezintegrálódik.
 sg_sets[zat][dissolve] = Dezintegrálás engedélyzése
 
-// Shield
+-- Shield
 sg_sets[shield] = Pajzs (stool)
 sg_sets[shield][multiple_shields] = Többszörös Pajzs Engedélyzése
 sg_sets[shield][multiple_shields][desc] = Többszörös pajzs engedélyzése egy helyen és egy időben?
@@ -295,7 +295,7 @@ sg_sets[shield][max_size][desc] = Milyen nagy lehet a pajzs mérete? Vigyázzon 
 sg_sets[shield][stationary_shield_multiplier] = Statikus szorzó
 sg_sets[shield][stationary_shield_multiplier][desc] = Ha a pajzs statikus (nem mozog), akkor ez  x-szer erősebbre teszi a mozgó pajzshoz képest (pl: hajókon stb.)
 
-// Drone launcher
+-- Drone launcher
 sg_sets[drone] = Drón vető (stool)
 sg_sets[drone][auto_track] = Célpontok auto-bemérése
 sg_sets[drone][auto_track][desc] = Ha Wire-vel használja, akkor ennek nincs hatása - Csak akkor mér be automatikusan ha nincs Wire kimenete
@@ -311,7 +311,7 @@ sg_sets[drone][energy_per_shot][desc] = Lecsapolt energia lövésenként?(Life S
 sg_sets[drone][maxspeed] = Maximum gyorsaság
 sg_sets[drone][maxspeed][desc] = Drón maximum gyorsasága. Ha többre állítja mint 6000 meghibásodik és lefagyasztja a játékot.Ez szintén okozza a drónok csúnya repülését.
 
-// Harvester
+-- Harvester
 sg_sets[harvester] = Lidérc sugár (stool)
 sg_sets[harvester][max_ents] = Maxmimum entitások
 sg_sets[harvester][max_ents][desc] = Maxmimum entitások száma amiket beszippanthat
@@ -325,7 +325,7 @@ sg_sets[harvester][allow_frozen][desc] = Felszippanthatja a sugár a megdermeszt
 sg_sets[harvester][disallowed_entities] = Tiltott entitások
 sg_sets[harvester][disallowed_entities][desc] = Ezeket nem fogja felszippantani
 
-// Cloaking Device
+-- Cloaking Device
 sg_sets[cloaking] = Álcázó eszköz (stool)
 sg_sets[cloaking][energy] = Energia másodpercenként
 sg_sets[cloaking][energy][desc] = Mennyi energiát fogyaszt másodpercenként?
@@ -336,31 +336,31 @@ sg_sets[cloaking][exceptions][desc] = Ezeknek az entitásoknak 1 van 0 helyett, 
 sg_sets[cloaking][max_size] = Maximum méret
 sg_sets[cloaking][max_size][desc] = Milyen maximum távolságra hasson az álcamező? Vigyázzon hogy nehogy túl nagyra állítja, mert LEFAGYHAT a garrysmod!
 
-// Mobile DHDs
+-- Mobile DHDs
 sg_sets[mobile_dhd] = Mobil tárcsázó
 sg_sets[mobile_dhd][range] = Távolság
 sg_sets[mobile_dhd][range][desc] = Milyen távolságra használható?
 
-// RononDex Gun
+-- RononDex Gun
 sg_sets[dexgun] = RononDex Fegyvere
 sg_sets[dexgun][maxpasses] = Max áthaladás
 sg_sets[dexgun][maxpasses][desc] = Mennyiszer mehet át a dexfegyver impulzusa a törékeny objektumokon amíg meg nem semmisül?
 
-// Asgard Transporter
+-- Asgard Transporter
 sg_sets[asgard_transporter] = Asgard Transzporter
 sg_sets[asgard_transporter][classnames] = Tiltott entitások
 sg_sets[asgard_transporter][classnames][desc] = Ezek az entitás típusok nem fognak teleportálódni
 sg_sets[asgard_transporter][busy_time] = Teleportálás ídőközei
 sg_sets[asgard_transporter][busy_time][desc] = Teleportálások között eltelt idő,másodpercekben
 
-// Black Hole Cache
+-- Black Hole Cache
 sg_sets[black_hole] = Feketelyuk Tároló
 sg_sets[black_hole][amount] = Erőforrások száma
 sg_sets[black_hole][resources] = Erőforrások típusai
 sg_sets[black_hole][disallow] = Tiltott entitások
 sg_sets[black_hole][disallow][desc] = Ezek az entitás típusok nem fognak megsemmisülni a feketelyuk közelében
 
-// Naquadah generator mk1
+-- Naquadah generator mk1
 sg_sets[naq_gen_mk1] = Naquadah Generátor MK1
 sg_sets[naq_gen_mk1][naquadah] = Naquadah száma
 sg_sets[naq_gen_mk1][naquadah][desc] = Mennyi naquadah-ja legyen
@@ -371,7 +371,7 @@ sg_sets[naq_gen_mk1][generate][desc] = Mennyi naquadah-át fogyaszt másodpercen
 sg_sets[naq_gen_mk1][multiplier] = Átalakítási szorzó
 sg_sets[naq_gen_mk1][multiplier][desc] = Energia átalakítási szorzója (energia erőforrás = generálás*szorzó)
 
-// Naquadah generator mk2
+-- Naquadah generator mk2
 sg_sets[naq_gen_mk2] = Naquadah Generátor MK2
 sg_sets[naq_gen_mk2][naquadah] = Naquadah száma
 sg_sets[naq_gen_mk2][naquadah][desc] = Mennyi naquadah-ja legyen
@@ -384,36 +384,36 @@ sg_sets[naq_gen_mk2][multiplier][desc] = Energia átalakítási szorzója (energ
 sg_sets[naq_gen_mk2][nuke_explode] = Atom robbanás
 sg_sets[naq_gen_mk2][nuke_explode][desc] = Atom robbanás amikor túltöltődik/megsérül? Ha le van tiltva csak kicsi robbanás lesz.
 
-// Rings
+-- Rings
 sg_sets[ring] = Gyűrűk
 sg_sets[ring][classnames] = Tiltott entitások
 sg_sets[ring][classnames][desc] = Ezek az entitások nem fognak teleportálódni
 
-// Ring panels
+-- Ring panels
 sg_sets[ring_panel] = Ring panelek
 sg_sets[ring_panel][menu] = Menü megjelenítése
 sg_sets[ring_panel][menu][desc] = Menü megjelenítése ha megnyomjuk az E betűt a panelen (és nem a gombon)
 
-// Atlantis transporter
+-- Atlantis transporter
 sg_sets[atlantis_transporter] = Atlantisz Transzportere
 sg_sets[atlantis_transporter][classnames] = Tiltott entitások
 sg_sets[atlantis_transporter][classnames][desc] = Ezek az entitások nem fognak teleportálódni
 
-// Stargate Overloader
+-- Stargate Overloader
 sg_sets[gate_overloader] = Csillagkapu túltöltő
 sg_sets[gate_overloader][energyCapacity] = Energia kapacitás
 sg_sets[gate_overloader][energyCapacity][desc] = kisebb érték - gyorsabb túltöltés, nagyobb érték = lassabb túltöltés
 sg_sets[gate_overloader][coolingPerCycle] = Hűtés ciklusonként
 sg_sets[gate_overloader][coolingPerCycle][desc] = Milyen gyors legyen a kapu hűtése ciklusonként
 
-// MCD
+-- MCD
 sg_sets[mcd] = MCD (Molekuláris Szerkeztő Eszköz)
 sg_sets[mcd][allow_tzmp] = Szabotált ZPM Engedélyzése
 sg_sets[mcd][allow_tzmp][desc] = Szabotált ZPM lerakásának Engedélyzése (véletlenszerű esélyekkel beállítás).
 sg_sets[mcd][tzmp_chance] = Véletlenszerű esélyek
 sg_sets[mcd][tzmp_chance][desc] = ha az esély = 2, akkor ez 50 százalék,a 3  33 százalék, .... 1 = mindig.
 
-// TAC
+-- TAC
 sg_sets[tac] = TAC (Sokkoló gránát)
 sg_sets[tac][shoot_interval] = Lövési időköz
 sg_sets[tac][shoot_interval][desc] = Időközök a lövések között,másodpercekben
@@ -423,18 +423,18 @@ sg_sets[tac][max_shoots] = Maximum lövések
 sg_sets[tac][max_shoots][desc] = Maximális lövések ölési módban mielőtt megsemmisülne, 0 - korlátlan.
 sg_sets[tac][range] = Célpont megtaláló hatósugára
 
-// Kino dispenser
+-- Kino dispenser
 sg_sets[kino_dispenser] = Kino Adagoló
 sg_sets[kino_dispenser][max_kino] = Maximum kinók
 sg_sets[kino_dispenser][max_kino][desc] = Maximum kinók játékosonként
 
-// AG-3
+-- AG-3
 sg_sets[ag_3] = AG-3 Műhold
 sg_sets[ag_3][health] = Életereje
 sg_sets[ag_3][recharge_time] = Töltés ideje
 sg_sets[ag_3][recharge_time][desc] = Töltés ideje,másodpercekben.
 
-// Ori Satellite
+-- Ori Satellite
 sg_sets[ori_satellite] = Ori Műhold
 sg_sets[ori_satellite][health] = Életereje
 sg_sets[ori_satellite][recharge_time] = Töltés ideje
@@ -442,22 +442,22 @@ sg_sets[ori_satellite][recharge_time][desc] = Töltés ideje,másodpercekben.
 sg_sets[ori_satellite][shield_time] = Pajzs újratöltésének ideje
 sg_sets[ori_satellite][shield_time][desc] = Pajzs töltésének ideje,másodpercekben.
 
-// Ship railgun
+-- Ship railgun
 sg_sets[ship_railgun] = Hajó Sínágyúja
 
-// Stationary railgun
+-- Stationary railgun
 sg_sets[stationary_railgun] = Statikus Sínágyú
 
-// Shield core
+-- Shield core
 sg_sets[shield_core] = Pajzs Generátor
 sg_sets[shield_core][atlantis_hit] = Atlantiszi Pajzs Energiája
 sg_sets[shield_core][atlantis_hit][desc] = Atlantiszi Pajzs Energia fogyasztási szorzója eltaláláskor.
 
-// Ashen defence
+-- Ashen defence
 sg_sets[ashen_defence] = Ashen Védelmi Rendszer
 sg_sets[ashen_defence][req_energy] = Energiaszükséglet
 
-// Cap misc
+-- Cap misc
 sg_sets[cap_misc] = Cap Vegyes
 sg_sets[cap_misc][allow_drop_weapons] = Fegyverek Eldobása
 sg_sets[cap_misc][allow_drop_weapons][desc] = Játékos Fegyverek Eldobása?

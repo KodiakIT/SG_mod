@@ -171,7 +171,7 @@ function ENT:Think(ply)
 
     if (not self.Duped) then return end
 
-    // abort, if no valid parts!
+    -- abort, if no valid parts!
     if not (IsValid(self.Stand) and IsValid(self.Turn) and IsValid(self.Cann)) then
         self.Entity:OnRemove();
         return
@@ -183,12 +183,12 @@ function ENT:Think(ply)
 
     if not (IsValid(self.StandPhys) and IsValid(self.TurnPhys) and IsValid(self.TurnPhys)) then return end
 
-    //physics can be frozen but cannot sleep!!
+    --physics can be frozen but cannot sleep!!
     self.TurnPhys:Wake();
     self.StandPhys:Wake();
     self.CannPhys:Wake();
 
-    // get player in the chair
+    -- get player in the chair
 
     if IsValid(self.APC) then
         self.APCply = self.APC:GetPassenger(0)
@@ -208,14 +208,14 @@ function ENT:PhysicsUpdate( phys, deltatime )
 
     if (not self.Duped) then return end
 
-    // abort, if no valid parts!
+    -- abort, if no valid parts!
     if not (IsValid(self.Stand) and IsValid(self.Turn) and IsValid(self.Cann)) then
         self.Entity:OnRemove();
         return
     end
     if not (IsValid(self.StandPhys) and IsValid(self.TurnPhys) and IsValid(self.CannPhys)) then return end
 
-    // calculate new angles for parts
+    -- calculate new angles for parts
     local newpitch = math.Clamp(self.Pitch, self.DownClamp, self.UpClamp);
     local CannAng = self.Stand:LocalToWorldAngles(Angle(newpitch ,self.Yaw,0));
     local TurnAng = self.Stand:LocalToWorldAngles(Angle(0,self.Yaw,0));
@@ -223,7 +223,7 @@ function ENT:PhysicsUpdate( phys, deltatime )
     self.Turn:SetAngles(TurnAng);
     self.Cann:SetAngles(CannAng);
 
-    // find a target
+    -- find a target
     local TargetPos = nil;
 
     if IsValid(self.APCply) then
@@ -244,7 +244,7 @@ function ENT:PhysicsUpdate( phys, deltatime )
         end
     end
 
-    // calculate local angles for target
+    -- calculate local angles for target
     if TargetPos then
         local world_oob = self.Cann:LocalToWorld(self.Cann:OBBCenter());
         local ShootAngle = (TargetPos - world_oob):Angle();

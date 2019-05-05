@@ -206,7 +206,7 @@ function ENT:PhysicsSimulate(phys,deltatime)-- Flight code@ RononDex
 
 
             FlightPhys.deltatime = deltatime;
-            //self.Pilot:SetPos(self:GetPos());
+            --self.Pilot:SetPos(self:GetPos());
             phys:ComputeShadowControl(FlightPhys);
 
 

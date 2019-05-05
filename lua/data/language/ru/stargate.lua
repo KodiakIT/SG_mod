@@ -26,7 +26,7 @@ stargate_reload = Изменён тип системы звёздных врат
 stargate_reloaded = Система звёздных врат успешно перезапущена.
 stargate_reload_start = Начинаем перезагрузку системы звёздных врат... Пожалуйста подождите.
 
-// New tool menu on gates (when hold C)
+-- New tool menu on gates (when hold C)
 stargate_c_tool_01 = Включить вращение кольца
 stargate_c_tool_01d = Выключить вращение кольца
 stargate_c_tool_02 = Включить медленный режим
@@ -81,7 +81,7 @@ stargate_c_tool_23c = Отмена
 stargate_c_tool_24 = Режим 9 шевронов
 stargate_c_tool_24d = Выключить режим 9 шевронов
 
-// Stargate VGUI menus
+-- Stargate VGUI menus
 stargate_vgui_address = Адрес:
 stargate_vgui_address2 = Адрес
 stargate_vgui_grouptype = Группа/тип
@@ -142,7 +142,7 @@ stargate_vgui_glyphs = Символы
 stargate_vgui_blocked = Заблокированные
 stargate_vgui_blockedtip = Заблокированные адреса показываются красным цветом и на них нельзя нажать.
 
-// Cap DirectX warning message, type CAP_dxlevel in console for get this message manually
+-- Cap DirectX warning message, type CAP_dxlevel in console for get this message manually
 stargate_dxlevel_01 = Carter Addon Pack - Внимание!
 stargate_dxlevel_02 =[[ Внимание: ваш гмод запущен под DirectX 8.1 или ниже.
 Это вызывает проблемы совместимости с Carter Addon Pack.
@@ -154,13 +154,13 @@ stargate_dxlevel_03 =[[* Нет нестабильной червоточины 
 stargate_dxlevel_04 =[[Пожалуста запустите gmod под dxlevel 90 или выше (95 рекомендуется).
 Это можно изменить через консольную переменную mat_dxlevel.]]
 
-// Cap update reminter (for github users), type CAP_Outdated in console for get this message manually
+-- Cap update reminter (for github users), type CAP_Outdated in console for get this message manually
 stargate_updater_01 = Carter Addon Pack - Вышло обновление!
 stargate_updater_02 = Ваш Carter Addon Pack устарел!\nВаша ревизия: %s Последняя ревизия: %s
 stargate_updater_03 = Пожалуйста обновитесь для получ. новых возм. и баг фиксов!
 stargate_updater_04 = Закрыть
 
-// spawn menu info
+-- spawn menu info
 spawninfo_title = Информация
 spawninfo_load = Загрузка...
 spawninfo_news = Новости
@@ -171,7 +171,7 @@ spawninfo_multi_url = http://sg-carterpack.com/forums/topic/russian-support/
 spawninfo_fp = Тема на Facepunch
 spawninfo_donate = Пожертвование
 
-// Stool - Credits tab
+-- Stool - Credits tab
 stargate_credits_01 = Копирайты
 stargate_credits_02 = Здесь вы можете сообщить об ошибках. Если вы не можете использовать HTML-формы, посетите %s в своём браузере.
 stargate_credits_03 = Не могу определить последний билд. Убедитесь что вы соеденены с интернетом или свяжитесь с командой CAP.

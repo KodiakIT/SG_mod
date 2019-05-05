@@ -708,12 +708,12 @@ function SWEP:DrawHUD()
 
         surface.DrawText(self.data[self.mode].FireMode)
     end
-    // No crosshair when ironsights is on
+    -- No crosshair when ironsights is on
     if ( !self.Owner.Crosshair ) then return end
 
     local x, y
 
-    // If we're drawing the local player, draw the crosshair where theyre aiming,
+    -- If we're drawing the local player, draw the crosshair where theyre aiming,
     // instead of in the center of the screen.
     if ( self.Owner == LocalPlayer() && self.Owner:ShouldDrawLocalPlayer() ) then
 

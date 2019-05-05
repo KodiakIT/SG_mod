@@ -1,6 +1,6 @@
 global_lang_name = Svenska
 
-// Stargate VGUI menus
+-- Stargate VGUI menus
 stargate_vgui_address = Adress:
 stargate_vgui_address2 = Adress
 stargate_vgui_grouptype = Grupp/typ

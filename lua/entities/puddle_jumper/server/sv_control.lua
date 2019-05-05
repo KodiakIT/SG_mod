@@ -51,7 +51,7 @@ function ENT:ExitJumper() -- Get out the jumper@RononDex
             self.Door:SetSolid(SOLID_NONE);
         end
         self:SpawnOpenedDoor(self.Owner);
-        //self:SpawnSeats();
+        --self:SpawnSeats();
 
         self:ToggleRotorwash(false);
 
@@ -77,7 +77,7 @@ function ENT:AutoPilot(b)
                 if(Dist < 600) then Dist = 600 end;
                 self.AutoAlignPos = gate:GetPos()+gate:GetForward()*Dist;
 
-                //self.AutoAlignAng = Angle(0,0,0)
+                --self.AutoAlignAng = Angle(0,0,0)
 
                 local gateRoll = gate:GetAngles().r;
                 self.AutoAlignAng = gate:GetAngles() + Angle(180,0,-180-gateRoll*2);

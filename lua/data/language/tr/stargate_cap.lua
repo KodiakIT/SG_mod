@@ -1,4 +1,4 @@
-// Rings
+-- Rings
 ring_ancient = Halkalar (Kadim)
 ring_goauld = Halkalar (Goa'uld)
 ring_ori = Halkalar (Ori)
@@ -10,7 +10,7 @@ ring_dial = Hedef Adresi Girin (Sadece rakam!):
 ring_dialb = Çevir
 ring_error = Bu adres geçerli değil !
 
-// Weapon Entities
+-- Weapon Entities
 entity_weapon_cat = Silahlar
 entity_ag3 = AG-3 Satellite
 entity_asgard_beam = Asgard Enerji Silahi
@@ -32,13 +32,13 @@ entity_shiprail = Ship Railgun
 entity_stat_railgun = Sabit Railgun
 entity_staff_weapon = Sabit Staff Silahı
 
-//Shaped Charge
+--Shaped Charge
 entity_directional_nuke = Shaped Şarj
 directional_nuke_menu_t = Shaped Şarj Süresi
 directional_nuke_menu_d = Patlama Süresi:
 directional_nuke_menu_c = İptal
 
-// Ship Entities
+-- Ship Entities
 entity_ships_cat = Gemiler
 entity_daedalus = BC-304 Daedalus
 entity_control_chair = Kontrol Koltugu
@@ -50,7 +50,7 @@ entity_jumper = Dalgic
 entity_teltak = TelTak
 entity_dart = Wraith Dart
 
-// Main Entities
+-- Main Entities
 entity_main_cat = Çeşitli Cihazlar
 entity_obelisk = Kadim Obelisk
 entity_antiprior = Anti Rahip Cihazı
@@ -75,11 +75,11 @@ entity_stone_tablet = Taş tablet
 entity_telchak = Telchak healing device
 entity_atlantist = Atlantis Taşıyıcısı
 
-// Sodan obelisk
+-- Sodan obelisk
 entity_sodan_obelisk = Sodan Obelisk
 sodan_obelisk_menu = Set obelisk password (only numbers from 1 to 6!):
 
-// Npcs
+-- Npcs
 npc_cat = NPC
 npc_wraith = Wraith
 npc_prior = Rahip
@@ -99,7 +99,7 @@ weapon_zat = Zat'nik'tel
 weapon_wraith = Wraith Elleri
 weapon_wraith_blaster = Wraith Blaster
 
-// Player Misc Weapons
+-- Player Misc Weapons
 weapon_misc_cat = Çeşitli Silahlar
 weapon_misc_atanik = Atanik Armband
 weapon_misc_virus = AGV
@@ -117,7 +117,7 @@ weapon_misc_nox_desc = Sol Tıklama: Stargate çeviri menüsü, Sağ Tıklama: A
 weapon_misc_adrenaline = Adrenalin Vurusu
 weapon_misc_atl_medkit = Atlantis Ilk Yardim Kiti
 
-// Stools Cats
+-- Stools Cats
 stool_cat = Stargate
 stool_cat_config = Ayarlar
 stool_cat_tech = Tech
@@ -126,7 +126,7 @@ stool_cat_weapons = Silahlar
 stool_cat_keys = Keybinders
 stool_cat_ramps = Rampalar
 
-// Stools Updater
+-- Stools Updater
 stool_update_01 = Carter Addon Pack versionun eski.
 stool_update_02 = En Son Sürüm:
 stool_update_03 = Bir sunucuda bu mesaji aliyorsaniz, admine cap'i guncellemesini soyleyin.
@@ -226,7 +226,7 @@ dakara_menu_10 = NPC Lerin amına korur.
 dakara_menu_11 = Çıkış
 dakara_menu_12 = Ateşle
 
-// Atlantis transporter
+-- Atlantis transporter
 atl_tp_01 = Taşıyıcıya isim ver:
 atl_tp_02 = Hedefteki taşıyıcı ismi:
 atl_tp_03 = Kaydet
@@ -236,7 +236,7 @@ atl_tp_06 = Özel
 atl_tp_07 = Özel taşıyıcılar çevirme listesinde gözükmez, ama halen çevrilebilir!
 atl_tp_error = Bu isim zaten kullanılıyor!
 
-// Misc
+-- Misc
 kawoosh_hurt = Unstable Vortex
 gate_nuke = Incinerated
 drone_kill = Dron
@@ -286,7 +286,7 @@ iriscomp_cancel = İptal
 iriscomp_toggle = Irisi Aç
 iriscomp_ok = Ok
 
-// huds
+-- huds
 hud_status = Statü
 hud_energy = Enerji
 hud_capacity = Capacity
@@ -298,7 +298,7 @@ hud_sts_connected = Bağlandi
 hud_sts_disconnected = Bağlantı Kesildi
 hud_sts_depleted = Tükendi
 
-// visual settings
+-- visual settings
 vis_fps_high = Kare Kalitesi: Yüksek Panpa
 vis_fps_medium = Kare Kalitesi: Ortasi Yeter
 vis_fps_low = Kare Kalitesi: Kasiyo Düşük

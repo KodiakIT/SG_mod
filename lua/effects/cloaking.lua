@@ -217,12 +217,12 @@ function EFFECT:CheckJumper()
                             e:ResetSequence(e:LookupSequence("dcbulkc"));
                         end
 
-                    //elseif(cd.BulkHead) then
-                    //    if(cd.Door) then
-                    //        e:ResetSequence(e:LookupSequence("dobulkc"));
-                    //    else
-                    //        e:ResetSequence(e:LookupSequence("dcbulkc"));
-                    //    end
+                    --elseif(cd.BulkHead) then
+                    --    if(cd.Door) then
+                    --        e:ResetSequence(e:LookupSequence("dobulkc"));
+                    --    else
+                    --        e:ResetSequence(e:LookupSequence("dcbulkc"));
+                    --    end
                     end
                     self.StartAnim = true;
                 end

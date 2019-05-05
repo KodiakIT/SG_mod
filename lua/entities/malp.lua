@@ -591,7 +591,7 @@ function ENT:Sense()
         end
         --self.SignalLost2 = math.random(0,1)
     end
-    //self.gravity2 = self.gravity2 * 100
+    --self.gravity2 = self.gravity2 * 100
 end
 
 function ENT:PreEntityCopy()

@@ -1,4 +1,4 @@
-// Rings
+-- Rings
 ring_ancient = Rings (Ancient)
 ring_goauld = Rings (Goauld)
 ring_ori = Rings (Ori)
@@ -10,7 +10,7 @@ ring_dial = Enter destination address (numbers only!):
 ring_dialb = Dial
 ring_error = A Ring with this address already exists!
 
-// Weapon Entities
+-- Weapon Entities
 entity_weapon_cat = Weapons
 entity_ag3 = AG-3 Satellite
 entity_asgard_beam = Asgard Beam Weapon
@@ -32,13 +32,13 @@ entity_shiprail = Ship Railgun
 entity_stat_railgun = Stationary Railgun
 entity_staff_weapon = Stationary Staff Weapon
 
-// Shaped Charge
+-- Shaped Charge
 entity_directional_nuke = Shaped Charge
 directional_nuke_menu_t = Shaped Charge Timer
 directional_nuke_menu_d = Seconds to explosion:
 directional_nuke_menu_c = Cancel
 
-// Ship Entities
+-- Ship Entities
 entity_ships_cat = Ships
 entity_daedalus = BC-304 Daedalus
 entity_control_chair = Control Chair
@@ -50,7 +50,7 @@ entity_jumper = Puddle Jumper
 entity_teltak = TelTak
 entity_dart = Wraith Dart
 
-// Main Entities
+-- Main Entities
 entity_main_cat = Misc devices
 entity_obelisk = Ancient Obelisk
 entity_antiprior = Anti-Prior Device
@@ -75,18 +75,18 @@ entity_stone_tablet = Stone Tablet
 entity_telchak = Telchak healing device
 entity_atlantist = Atlantis Transporter
 
-// Sodan obelisk
+-- Sodan obelisk
 entity_sodan_obelisk = Sodan Obelisk
 sodan_obelisk_menu = Set obelisk password (only numbers from 1 to 6!):
 
-// Npcs
+-- Npcs
 npc_cat = NPCs
 npc_wraith = Wraith
 npc_prior = Prior
 npc_goauld = Goauld
 npc_soldier = Soldier
 
-// Player Weapons
+-- Player Weapons
 weapon_cat = Player Weapons
 weapon_asuran = Asuran Gun
 weapon_hand_device = Hand Device
@@ -302,7 +302,7 @@ cap_disabled_npc = This npc is disabled on server!
 iris_gatespawner = You can't override the gatespawner's iris! Spawn an iris computer to control it.
 iris_protection = Iris has been successfully added to the gatespawner's stargate, spawn an iris computer to control it.
 
-// gatespawner
+-- gatespawner
 sg_gtsp_title = Gatespawner Creator
 sg_stsp_text =[[<h2>Gatespawner successfully created!</h2>
 File: <u>garrysmod\data\%s.txt</u>
@@ -314,7 +314,7 @@ File: <u>garrysmod\data\%s.txt</u>
 <br>If you're unfamiliar about this process please make use of <b>Google</b>.
 ]]
 
-// iris computer
+-- iris computer
 iriscomp_title = Iris Computer Menu
 iriscomp_code = Iris Code
 iriscomp_desc = Description
@@ -356,7 +356,7 @@ destimer_reset = Reset counter
 destimer_close = Close stargate
 destimer_error = Can't start counter when stargate is closed with auto-reset option!
 
-// asgard transporter
+-- asgard transporter
 asgardtp_title = Asgard transporter
 asgardtp_target = Target
 asgardtp_target_desc = Choose target what you want to teleport
@@ -484,7 +484,7 @@ vis_charge_up = Charge up rings
 vis_refl_sphere = Refraction spheres
 vis_reset_menu = Reset stargate menu
 
-// keybinder
+-- keybinder
 key_move_title = Movement
 key_move_forward = Move forward
 key_move_left = Move Left (Strafe)
@@ -546,7 +546,7 @@ key_rocket_title = Missiles control
 key_rocket = Missile
 
 
-// Limits reached
+-- Limits reached
 entity_limit_ag3 = AG-3 Satellites limit reached!
 entity_limit_anc_obelisk = Ancient Obelisk limit reached!
 entity_limit_app_core = Apple Core limit reached!

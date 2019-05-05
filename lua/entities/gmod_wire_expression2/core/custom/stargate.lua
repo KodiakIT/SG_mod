@@ -18,7 +18,7 @@ end
 local LuaTablesToArrayOfTables = function ( tbl )
     local Array, n, ntypes, size = {}, {}, {}, 0
     for _,data in pairs(tbl) do
-        // This code works fine, but use array in table shorter and faster
+        -- This code works fine, but use array in table shorter and faster
         /*local n2, ntypes2, size2 = {}, {}, 1
         for _,v in pairs(data) do
             local Type
@@ -43,8 +43,8 @@ local LuaTablesToArrayOfTables = function ( tbl )
             end
         end*/
 
-        // only string indexes works with foreach in e2, but then order of array lost :( so old code is not compatible, sorry, blame wiremod devs
-        n[size] = data //{n=n2,ntypes=ntypes2,s={},stypes={},size=size2}
+        -- only string indexes works with foreach in e2, but then order of array lost :( so old code is not compatible, sorry, blame wiremod devs
+        n[size] = data --{n=n2,ntypes=ntypes2,s={},stypes={},size=size2}
         ntypes[size] = "r"
         size = size+1
     end

@@ -100,7 +100,7 @@ function ENT:Initialize()
         self.MenuData = args[1].." "..args[2].." "..args[3].." "..args[4].." "..args[5];
         self.Entity:SetNetworkedString("MenuData", self.MenuData);
 
-        // for tracelines
+        -- for tracelines
         self.Shield:SetNetworkedBool("Immunity",self.Immunity);
         self.Shield:SetNetworkedEntity("Own",self.Owner);
 
@@ -244,7 +244,7 @@ function ENT:TrueUse(ply)
             fx:SetEntity(self.Entity);
         util.Effect("shield_core_preview",fx,true,true);
 
-        //self.Entity:SetNetworkedVector("Col", Vector(170,189,255)); // shield dont want to accept colors after menu creation, lets fix it here
+        --self.Entity:SetNetworkedVector("Col", Vector(170,189,255)); // shield dont want to accept colors after menu creation, lets fix it here
     end
 end
 

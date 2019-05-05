@@ -26,7 +26,7 @@ stargate_reload = Promjenjen način biranja Stargate-a:\nNovi sistem biranja: %s
 stargate_reloaded = Sistem Stargate-a uspješno ažuriran.
 stargate_reload_start = Kreće ažuriranje Stargate-a... Molimo pričekajte.
 
-// Stargate VGUI menus
+-- Stargate VGUI menus
 stargate_vgui_address = Adresa:
 stargate_vgui_address2 = Adresa
 stargate_vgui_grouptype = Grupa/tip
@@ -86,13 +86,13 @@ stargate_vgui_glyphs = Glifovi
 stargate_vgui_blocked = Blikiran
 stargate_vgui_blockedtip = Blokirana adresa je u crvenom i nemože biti potvrđena.
 
-// Cap update reminter (for github users), type CAP_Outdated in console for get this message manually
+-- Cap update reminter (for github users), type CAP_Outdated in console for get this message manually
 stargate_updater_01 = Cap ažuriranje
 stargate_updater_02 = Tvoj CAP je zastario!\nTvoja revizija: %s Zadnja revizija: %s
 stargate_updater_03 = Molim ažuriraj CAP za nove stvari i manje "bugova"
 stargate_updater_04 = Zatvori
 
-// Stool - Settings/Language tab
+-- Stool - Settings/Language tab
 stargate_settings_03 = podržani jezici:
 stargate_settings_05 = If you want translate something to your language:
 stargate_settings_06 = Enter your language:

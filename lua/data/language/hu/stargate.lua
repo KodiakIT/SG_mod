@@ -1,4 +1,4 @@
-// All lines/sentences what come after "//" is comments and shouldn't be translated!
+-- All lines/sentences what come after "//" is comments and shouldn't be translated!
 
 // Global language name, will be displayed in language settings
 global_lang_name = Magyar
@@ -175,7 +175,7 @@ stargate_credits_13 = Hibák
 stargate_credits_14 = Hogy ha szereted ezt a játékmódot és szeretnéd támogatni a készítőket akkor itt megteheted:
 stargate_credits_15 = Adakozás
 
-// Stool - Settings/Language tab
+-- Stool - Settings/Language tab
 stargate_settings_01 = Beállítások menü
 stargate_settings_02 = Honlap Meglátogatása
 stargate_settings_02t = Hogyan kell lefordítani a CAP-ot

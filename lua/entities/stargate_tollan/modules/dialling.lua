@@ -297,7 +297,7 @@ function ENT.Sequence:InstantOpen(action,delay,instant,inbound,slow,nox,fail)
             action:Add({f=self.EmitSound,v={self.Entity,self.Sounds.OnButtonLock,90,math.random(98,103)},d=delay});
         else*/
             action:Add({f=self.FakeDelay,v={self},d=delay});
-        //end
+        --end
     end
     return action;
 end

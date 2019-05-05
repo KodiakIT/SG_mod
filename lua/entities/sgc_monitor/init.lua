@@ -8,7 +8,7 @@ ENT.ClientVer = 1
 include("shared.lua")
 
 function ENT:Initialize()
-  //self:SetModel(self.Model or "models/props_lab/monitor01a.mdl")
+  --self:SetModel(self.Model or "models/props_lab/monitor01a.mdl")
   self:PhysicsInit(SOLID_VPHYSICS)
   self:SetMoveType(MOVETYPE_VPHYSICS)
   self:SetSolid(SOLID_VPHYSICS)

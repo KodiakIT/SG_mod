@@ -88,7 +88,7 @@ function StarGate.IsInAltantisoid(pos, ent, dimension)
     local pos2 = ent:WorldToLocal(pos);
     local is_in;
 
-    // if its higher than 2/5 c
+    -- if its higher than 2/5 c
     if (pos2.z > (2*dimension.z/5)) then
         is_in = StarGate.IsInEllipsoid(pos, ent, dimension);
     else
@@ -120,7 +120,7 @@ function StarGate.RayPhysicsPluckerIntersect(trace, dir, ent, in_shape)
     local LA = ent:WorldToLocal(trace.StartPos);
     local LB = ent:WorldToLocal(trace.HitPos)
 
-    // Plucker ray coefs.
+    -- Plucker ray coefs.
     local r0 = LA.x*LB.y - LB.x*LA.y;
     local r1 = LA.x*LB.z - LB.x*LA.z;
     local r2 = LA.x      - LB.x;
@@ -130,7 +130,7 @@ function StarGate.RayPhysicsPluckerIntersect(trace, dir, ent, in_shape)
 
     local hit; //imaginary variable
 
-    // ran over every triangle in physics
+    -- ran over every triangle in physics
     for i=1, table.getn(ent.RayModel), 3 do
 
         if in_shape then // if in shield then counter clock wise order
@@ -143,7 +143,7 @@ function StarGate.RayPhysicsPluckerIntersect(trace, dir, ent, in_shape)
             TC = ent.RayModel[i];
         end
 
-        // Plucker triangle coefs.
+        -- Plucker triangle coefs.
         a0 = TA.x*TB.y - TB.x*TA.y;
         a1 = TA.x*TB.z - TB.x*TA.z;
         a2 = TA.x      - TB.x;
@@ -162,11 +162,11 @@ function StarGate.RayPhysicsPluckerIntersect(trace, dir, ent, in_shape)
         c1 = TC.x*TA.z - TA.x*TC.z;
         c3 = TC.y*TA.z - TA.y*TC.z;
 
-        // helper coefs.
+        -- helper coefs.
         A = r0 * a4 + r1 * a5 + r3 * a2;
         B = r0 * b4 + r1 * b5 + r3 * b2;
 
-        // calculate intersection (only true, false)
+        -- calculate intersection (only true, false)
         if (A + r2 * a3 + r4 * a0 + r5 * a1 < 0) then hit = false;
         elseif (B + r2 * b3 + r4 * b0 + r5 * b1 < 0) then hit = false;
         elseif (r2 * c3 + r4 * c0 + r5 * c1 - A - B < 0) then hit = false;
@@ -175,14 +175,14 @@ function StarGate.RayPhysicsPluckerIntersect(trace, dir, ent, in_shape)
             local bb = ent:LocalToWorld(TB);
             local cc = ent:LocalToWorld(TC);
 
-            // calculate intersection point for our triangle, there will be just one triangle so dont worry
+            -- calculate intersection point for our triangle, there will be just one triangle so dont worry
             hitted, hitpos, hitnorm, fraction = StarGate.RayTriangleIntersect(trace.StartPos, dir, aa, bb, cc);
             break;
         end
 
     end
 
-    //return data or nil
+    --return data or nil
     if hitted then
         return {HitPos=hitpos, Fraction=fraction, HitNormal=hitnorm};
     else
@@ -194,26 +194,26 @@ function StarGate.RayTriangleIntersect(start, dir, v1, v2, v3)
     local norm = (v2-v1):Cross(v3-v2):GetNormal(); // get normal of the triangle
     local dot = norm:DotProduct(v2-v1); // get dot product for further use
 
-    // Now find plane (defined by DISTANCE, NORMAL) from three points
+    -- Now find plane (defined by DISTANCE, NORMAL) from three points
     local dist = -1*(v1:DotProduct(norm));
 
-    // Find line/plane intersection
+    -- Find line/plane intersection
     local den = norm:DotProduct(dir);
 
-    // If den is 0 line is parallel to plane
+    -- If den is 0 line is parallel to plane
     if (den == 0) then return false end
 
-    // trace fraction
+    -- trace fraction
     local t = (-1*(norm:DotProduct(start) + dist)) / den;
 
-    // and our point
+    -- and our point
     local p = start+dir*t;
 
     debugoverlay.Line(v1, v2, 2, Color(255,255,255), true);
     debugoverlay.Line(v2, v3, 2, Color(255,255,255), true);
     debugoverlay.Line(v1, v3, 2, Color(255,255,255), true);
 
-    //is it really intersecting?
+    --is it really intersecting?
     if StarGate.PointInTriangle(p, v1,v2,v3) then
         norm = (v2-v1):Cross(v3-v2):GetNormal(); // do one more time jsut to be sure
         return true, p, norm, t;
@@ -236,27 +236,27 @@ end
 function StarGate.IsRayBoxIntersect(start, hit, ent)
     local box_size = ent:GetTraceSize();
 
-    // Put line in box space
+    -- Put line in box space
     local new_start = ent:WorldToLocal(start);
     local new_end = ent:WorldToLocal(hit);
 
-    // Get line midpoint and extent
+    -- Get line midpoint and extent
     local LMid = (new_start + new_end) / 2;
     local L = (new_start - LMid);
     local LExt = Vector(math.abs(L.x), math.abs(L.y), math.abs(L.z));
 
-    // Use Separating Axis Test
-    // Separation vector from box center to line center is LMid, since the line is in box space
+    -- Use Separating Axis Test
+    -- Separation vector from box center to line center is LMid, since the line is in box space
     if (math.abs(LMid.x) > (box_size.x + LExt.x)) then return false end
     if (math.abs(LMid.y) > (box_size.y + LExt.y)) then return false end
     if (math.abs(LMid.z) > (box_size.z + LExt.z)) then return false end
 
-    // Crossproducts of line and each axis
+    -- Crossproducts of line and each axis
     if (math.abs(LMid.y*L.z - LMid.z*L.y)  >  (box_size.y*LExt.z + box_size.z*LExt.y) ) then return false end
     if (math.abs(LMid.x*L.z - LMid.z*L.x)  >  (box_size.x*LExt.z + box_size.z*LExt.x) ) then return false end
     if (math.abs(LMid.x*L.y - LMid.y*L.x)  >  (box_size.x*LExt.y + box_size.y*LExt.x) ) then return false end
 
-    // No separating axis, the line intersects
+    -- No separating axis, the line intersects
     return true;
 end
 
@@ -296,13 +296,13 @@ end)
 
 local function InitPostEntity( )
 
-    // get existing
+    -- get existing
     local settings = physenv.GetPerformanceSettings();
 
-    // change velocity for bullets
+    -- change velocity for bullets
     settings.MaxVelocity = 20000;
 
-    // set
+    -- set
     physenv.SetPerformanceSettings( settings );
 
 

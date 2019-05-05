@@ -1,4 +1,4 @@
-// All lines/sentences what come after "//" is comments and shouldn't be translated!
+-- All lines/sentences what come after "//" is comments and shouldn't be translated!
 
 // Global language name, will be displayed in language settings
 global_lang_name = English

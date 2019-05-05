@@ -1206,7 +1206,7 @@ function BUFFER:StartTouch(EventHorizon,e)
             e:SetNWInt("PhysBufferedDir",e.dir);
             e:SetNWEntity("PhysEntity",e.gate);
         end
-        //e:SetNWEntity("PhysEntityGate",e.gate.agate);
+        --e:SetNWEntity("PhysEntityGate",e.gate.agate);
     end
 
     umsg.Start("StarGate.EventHorizon.ClipStart");
@@ -1307,7 +1307,7 @@ function ENT:CleanBufferVars(e)
     e:SetNWInt("PhysBufferedDir",0);
     e.gate = nil;
     e:SetNWEntity("PhysEntity",NULL);
-    //e:SetNWEntity("PhysEntityGate",NULL);
+    --e:SetNWEntity("PhysEntityGate",NULL);
     /*if(not nograv and IsValid(e:GetPhysicsObject())) then
         e:GetPhysicsObject():EnableGravity(true);
     end*/
@@ -1341,7 +1341,7 @@ function BUFFER:EndTouch(EventHorizon,e,ignore,tdir)
         end
     end
 
-    //print_r(EventHorizon.ClipBuffer)
+    --print_r(EventHorizon.ClipBuffer)
     --if (attached==false) then return end
     if(attached and not ignore) then
         for _,v in pairs(attached.Attached) do
@@ -1414,7 +1414,7 @@ function BUFFER:EndTouch(EventHorizon,e,ignore,tdir)
     e:SetNWInt("PhysBufferedDir",0);
     e.gate = nil;
     e:SetNWEntity("PhysEntity",NULL);
-    //e:SetNWEntity("PhysEntityGate",NULL);
+    --e:SetNWEntity("PhysEntityGate",NULL);
     --e.dir = nil;
 
     e.___dir = nil;

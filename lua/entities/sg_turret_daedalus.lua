@@ -41,7 +41,7 @@ end
 
 
 function ENT:Aim(target)
-    // calculate local angles for target
+    -- calculate local angles for target
     local ShootAngle = (target - self:GetPos()):Angle();
     ShootAngle = self:WorldToLocalAngles(ShootAngle);
 

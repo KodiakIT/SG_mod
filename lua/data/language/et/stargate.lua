@@ -26,7 +26,7 @@ stargate_reload = Tähevärava numbri valimise süsteemi tüüp muudetud:\nUue n
 stargate_reloaded = Tähevärava süsteem edukalt laetud.
 stargate_reload_start = Tähevärava süsteemi laadimise alustamine... Palun oodake.
 
-// Stargate VGUI menus
+-- Stargate VGUI menus
 stargate_vgui_address = Aadress:
 stargate_vgui_address2 = Aadress
 stargate_vgui_grouptype = Grupp/tüüp
@@ -87,13 +87,13 @@ stargate_vgui_glyphs = Glüüfid
 stargate_vgui_blocked = Blokeeritud
 stargate_vgui_blockedtip = Blokeeritud aadress näitab punases ja ei saa ühendada sellega.
 
-// Cap update reminter (for github users), type CAP_Outdated in console for get this message manually
+-- Cap update reminter (for github users), type CAP_Outdated in console for get this message manually
 stargate_updater_01 = Cap Uuenduste meeldetuletaja
 stargate_updater_02 = Su CAPi pakk ei ole uundatud!\nSu revisjon: %s Uueim Revisionjon: %s
 stargate_updater_03 = Palun uuenda Carter Pack, et saada uued uuendused ja parandused!
 stargate_updater_04 = sulge
 
-// Stool - Credits tab
+-- Stool - Credits tab
 stargate_credits_01 = Autorid
 stargate_credits_02 = Siin sa saad teatada vigadest. Kui sa ei saa trükkida HTML-Formulaadis, siis külasta %s koos sinu veebiprogrammiga.
 stargate_credits_03 = Ei saa kindlaks määrata kõige uuemat uuendust. Ole kindel, et sa oled ühendatud Internetiga või võta ühendust CAP Team.

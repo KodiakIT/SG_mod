@@ -473,7 +473,7 @@ local function gdopc_menuhook(len)
     end
 
     local DermaPanel = vgui.Create( "DFrame" )
-       //DermaPanel:SetPos(ScrW()/2-175, ScrH()/2-100)
+       --DermaPanel:SetPos(ScrW()/2-175, ScrH()/2-100)
        DermaPanel:SetSize(400, 305)
     DermaPanel:Center()
     --DermaPanel:SetTitle( SGLanguage.GetMessage("iriscomp_title") )

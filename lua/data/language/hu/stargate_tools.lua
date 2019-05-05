@@ -1,4 +1,4 @@
-// Ramps
+-- Ramps
 stool_ramp_spawner = Rámpa Berakó
 stool_ramp_create = Rámpát készít
 stool_ramp_desc = Bal kattintás a rámpa berakásáért
@@ -8,7 +8,7 @@ stool_ramp_cleaned = Összes Rámpa Törlése
 stool_ramp_limit = Rámpa korlát elérve
 stool_ramp_anim_limit = Animált rámpa korlát elérve!
 
-// Ashen defence
+-- Ashen defence
 stool_ashen_defence_spawner = Ashen Védelmi Rendszer Berakó
 stool_ashen_defence_create = Ashen Védelmi Rendszert Készít
 stool_ashen_defence_desc = Bal kattintás a rendszer készítéséért
@@ -17,7 +17,7 @@ stool_ashen_defence_cleanup = Ashen Védelmi Rendszerek
 stool_ashen_defence_cleaned = Ashen Védelmi Rendszerek Törölve
 stool_ashen_defence_limit = Maximum Ashen Védelmi Rendszerek Száma
 
-// Asuran ZPM Hub
+-- Asuran ZPM Hub
 stool_asuran_zpm_hub_spawner = Asurai ZPM Központ Berakó
 stool_asuran_zpm_hub_create = Asurai ZPM Központot Készít
 stool_asuran_zpm_hub_desc = Bal kattintás-Asurai ZPM Központ Készítése
@@ -27,7 +27,7 @@ stool_asuran_zpm_hub_cleaned = Asurai ZPM Központok törölve
 stool_asuran_zpm_hub_limit = Asurai ZPM Központ korlát elérve
 stool_asuran_zpm_hub_fulldesc = Ez az Asurai ZPM Központ.Ez az eszköz igényli a SpaceBuild-et vagy az Environments addont.Ha nincs meg önnek,akkor a ZPM központ haszontalan önnek.
 
-// Atlantis ZPM Hub
+-- Atlantis ZPM Hub
 stool_atlantis_zpm_hub_spawner = Atlantisz ZPM Központ Berakó
 stool_atlantis_zpm_hub_create = Atlantisz ZPM Központot készít
 stool_atlantis_zpm_hub_desc = Bal kattintás-Atlantisz ZPM Központ Készítése
@@ -37,7 +37,7 @@ stool_atlantis_zpm_hub_cleaned = Atlantisz ZPM Központok törölve
 stool_atlantis_zpm_hub_limit = Atlantisz ZPM Központ korlát elérve
 stool_atlantis_zpm_hub_fulldesc = Ez az Atlantisz ZPM Központ.Ez az eszköz igényli a SpaceBuild-et vagy az Environments addont.Ha nincs meg önnek,akkor a ZPM központ haszontalan önnek.
 
-// Gate Bearing
+-- Gate Bearing
 stool_bearing_spawner = Csapágy Berakó
 stool_bearing_create = Csapágyat készít
 stool_bearing_desc = Bal kattintás-csapágy készítése
@@ -49,7 +49,7 @@ stool_bearing_fulldesc = A kapu csapágy a kapu terem mennyezetéről lóg a vé
 stool_bearing_err = A célpont nem egy Csillagkapu Univerzum!
 stool_bearing_exs = Már van egy csapágy a csillagkapun!
 
-// Braziers
+-- Braziers
 stool_braziers_spawner = Fáklya Berakó
 stool_braziers_create = Fáklyát készít
 stool_braziers_desc = Bal kattintás-fáklya készítése
@@ -58,7 +58,7 @@ stool_braziers_cleanup = Fáklyák
 stool_braziers_cleaned = Fáklyák törölve
 stool_braziers_limit = Fáklya korlát elérve
 
-// Door Controller
+-- Door Controller
 stool_cap_door_contr_spawner = Ajtó Távírányító Berakó
 stool_cap_door_contr_create = Ajtó Távírányítót Készít
 stool_cap_door_contr_desc = Bal kattintás-Ajtó Távírányítót Készít
@@ -67,7 +67,7 @@ stool_cap_door_contr_cleanup = Ajtó Távírányítók
 stool_cap_door_contr_cleaned = Ajtó Távírányítók Törölve
 stool_cap_door_contr_limit = Ajtó Távírányítók korlát elérve
 
-// Doors
+-- Doors
 stool_cap_doors_spawner = Ajtó Berakó
 stool_cap_doors_create = Ajtót Készít
 stool_cap_doors_desc = Bal kattintás-ajtó berakása
@@ -77,7 +77,7 @@ stool_cap_doors_cleaned = Ajtók törölve
 stool_cap_doors_limit = Ajtók korlát elérve
 stool_cap_doors_redt = Piros textúra az Atlatiszi Vázon
 
-// Console
+-- Console
 stool_cappanel_spawner = Konzol Berakó
 stool_cappanel_create = Konzolt Készít
 stool_cappanel_desc = Bal kattintás,konzol berakása
@@ -86,7 +86,7 @@ stool_cappanel_cleanup = Konzolok
 stool_cappanel_cleaned = Konzolok tölrése
 stool_cappanel_limit = Konzol korlát elérve
 
-// Control Panel
+-- Control Panel
 stool_controlpanel_spawner = Irányító Pult Berakó
 stool_controlpanel_create = Irányító Pultot készít
 stool_controlpanel_desc = Bal kattintás, Irányító Pult Berakása
@@ -95,7 +95,7 @@ stool_controlpanel_cleanup = Irányító Pultok
 stool_controlpanel_cleaned = Irányító Pultok törölve
 stool_controlpanel_limit = Irányító Pult korlát elérve
 
-// Drones
+-- Drones
 stool_drones_spawner = Drón Vető Berakó
 stool_drones_create = Drón Vetőt készít
 stool_drones_desc = Bal kattintás, Drón Vető berakása
@@ -108,7 +108,7 @@ stool_drones_kill = Drónok Kikapcsolása:
 stool_drones_track = Célpont Bemérése:
 stool_drones_eye_track = Nézet Bemérés:
 
-// Floor Chevron
+-- Floor Chevron
 stool_floorchevron_spawner = Padló Ékzár Berakó
 stool_floorchevron_create = Padló Ékzárat Készít
 stool_floorchevron_desc = Bal kattintás,Padló Ékzár berakása
@@ -120,7 +120,7 @@ stool_floorchevron_fulldesc = Ekzár a padlón ami az utolsó szimbólum kódol�
 stool_floorchevron_err = A célpont nem egy Csillagkapu Univerzum!
 stool_floorchevron_exs = Már van Padló Ékzár a csillagkapun!
 
-// Goauld Iris
+-- Goauld Iris
 stool_goauld_iris_spawner = Goauld Iris Berakó
 stool_goauld_iris_create = Goauld Iris-t készít
 stool_goauld_iris_desc = Bal kattintás,Goauld Iris berakása vagy frissítése
@@ -129,7 +129,7 @@ stool_goauld_iris_cleanup = Goauld Iris
 stool_goauld_iris_cleaned = Goauld Irisek törölve
 stool_goauld_iris_limit = Goauld Iris korlát elérve
 
-// Gravity Controller
+-- Gravity Controller
 stool_gravitycontroller_spawner = Anti-gravitációs eszköz Berakó
 stool_gravitycontroller_create = Építsen űrhajót lebegőgömbök nélkül,vagy egyszerűen használja stabilizátorként dolgai számára
 stool_gravitycontroller_desc = Kattitntson ahová akarja rakni az Anti-Gravitációs Eszközt,kattitntson eggyen a frissítésért.
@@ -164,7 +164,7 @@ stool_gravitycontroller_lbd = Helyi Fék Leírása
 stool_gravitycontroller_lbd_desc = Ha bekapcsolja,Az Anti-G.E minden tengelyen fékezni fog.Ha úgy állítsa be hogy mindegyik de egy tengelyt 100-ra,akkor csúszni fog a tengelyen. Tehát ha a hajóját úgy akarja hogy ne fékezzen keményen előre,hanem hogy oldalra kelljen vagy felfele,ez önnek van!
 stool_gravitycontroller_sga = Csillagkapu Atlantisz Stabilizátor
 
-// Jamming Device
+-- Jamming Device
 stool_jamming_spawner = Zavaradó Berakó
 stool_jamming_create = Zavaradót készít
 stool_jamming_desc = Bal kattintás,Zavaradó berakása vagy frissítése
@@ -174,7 +174,7 @@ stool_jamming_cleaned = Zavaradók törölve
 stool_jamming_limit = Zavaradó korlát elérve
 stool_jamming_imm_desc = Az immunitás engedélyzi önnek a teleportálást amikor a zavaradó aktív
 
-// Naquadah Bottle
+-- Naquadah Bottle
 stool_naq_bottle_spawner = Naquadah Palack Berakó
 stool_naq_bottle_create = Naquadah Palackot Készít
 stool_naq_bottle_desc = Bal kattintás,Naquadah Palack berakása
@@ -184,7 +184,7 @@ stool_naq_bottle_cleaned = Naquadah Palackok törölve
 stool_naq_bottle_limit = Naquadah Palack korlát elérve
 stool_naq_bottle_fulldesc = Ez itt a Naquadah Palack,Ez az eszköz igényli a SpaceBuild-et vagy az Environments addont.Ha nincs meg önnek,akkor a Naquadah Palack haszontalan önnek.
 
-// Naquada Generator MK1/MK2
+-- Naquada Generator MK1/MK2
 stool_naq_gen_mks_spawner = Naquada Generátor Berakó
 stool_naq_gen_mks_create = Naquada Generátort Készít
 stool_naq_gen_mks_desc = Bal kattintás,Naquada Generátor berakása. Jobb kattintás - újratöltés 25%% (egyszer 30 másodperc alatt).
@@ -194,7 +194,7 @@ stool_naq_gen_mks_cleaned = Naquada Generátorok törölve
 stool_naq_gen_mks_limit = Naquada Generátor korlát elérve!
 stool_naq_gen_mks_fulldesc = Ez itt a Naquada Generátor eszköz.Az eszköz ellátja önt a Mark 1 és Mark 2 Naquada Generátorral, mert az MK1 kevesebb energiát ad a MK2-nél.Ez az eszköz igényli a SpaceBuild-et vagy az Environments addont.Ha nincs meg önnek,akkor a Naquadah Generátorok haszontalanok önnek.
 
-// Naquadah Bomb
+-- Naquadah Bomb
 stool_naqbomb_spawner = Naquadah Bomba Berakó
 stool_naqbomb_create = Naquadah-val hajtott robbanó eszközt készít
 stool_naqbomb_desc = Bal kattintás,bomba készítése
@@ -203,7 +203,7 @@ stool_naqbomb_cleanup = Naquadah Bombák
 stool_naqbomb_cleaned = Naquadah Bombák törölve
 stool_naqbomb_limit = Maximum naquadah bombák elkészítve
 
-// Ring Ramps
+-- Ring Ramps
 stool_ring_ramps_spawner = Gyűrű Rámpa Berakó
 stool_ring_ramps_create = Gyűrű Rámpát készít
 stool_ring_ramps_desc = Bal kattintás,Gyűrű Rámpa Berakása
@@ -212,7 +212,7 @@ stool_ring_ramps_cleanup = Gyűrű Rámpa
 stool_ring_ramps_cleaned = Rámpák Törölve
 stool_ring_ramps_limit = Gyűrű Rámpa korlát elérve
 
-// SGC ZPM Hub
+-- SGC ZPM Hub
 stool_sgc_zpm_hub_spawner = CSKP ZPM Központ Berakó
 stool_sgc_zpm_hub_create = CSKP ZPM Központot Készít
 stool_sgc_zpm_hub_desc = Bal kattintás,CSKP ZPM Központ berakása
@@ -222,7 +222,7 @@ stool_sgc_zpm_hub_cleaned = CSKP ZPM Központok Törölve
 stool_sgc_zpm_hub_limit = CSKP ZPM Központ korlát elérve
 stool_sgc_zpm_hub_fulldesc = Ez a Csillagkapu Parancsnokság ZPM Központja. Ez az eszköz igényli a SpaceBuild-et vagy az Environments addont.Ha nincs meg önnek,akkor a ZPM Központ haszontalan önnek.
 
-// Staff Weapon
+-- Staff Weapon
 stool_staff_weapon_spawner = Botfegyver Berakó
 stool_staff_weapon_create = Statikus Botfegyvert Rak Be
 stool_staff_weapon_desc = Bal kattintás,Botfegyver berakása
@@ -235,7 +235,7 @@ stool_staff_weapon_explode = Robbantás:
 stool_staff_weapon_color = Szín:
 stool_staff_weapon_explosion = Robbanás
 
-// Cloaking
+-- Cloaking
 stool_stargate_cloaking_spawner = Álcázó Berakó
 stool_stargate_cloaking_create = Álcázó Generátor készítése
 stool_stargate_cloaking_desc = Bal kattintás,Álcázó Generátor berakása
@@ -251,7 +251,7 @@ stool_stargate_cloaking_nc_desc = Ütközéstelenné teszi az álcázott dolgoka
 stool_stargate_cloaking_ca = Összecsatolt Álcázó
 stool_stargate_cloaking_ca_desc = Ha ki van választva, minden dolog ami össze van kötve ezzel álcázva lesz (Úgy működik mint a Többszörösítő), ha nincs akkor csak egy a hatósugárban
 
-// Mobile DHD
+-- Mobile DHD
 stool_stargate_dhd_spawner = Mobil Tárcsázó Berakó
 stool_stargate_dhd_create = Mobil Tárcsázót készít
 stool_stargate_dhd_desc = Bal kattintás,Mobil Tárcsázó berakása
@@ -260,7 +260,7 @@ stool_stargate_dhd_cleanup = Mobil Tárcsázók
 stool_stargate_dhd_cleaned = Mobil Tárcsázók törölve
 stool_stargate_dhd_limit = Mobil Tárcsázó korlát elérve
 
-// Iris
+-- Iris
 stool_stargate_iris_spawner = Iris Berakó
 stool_stargate_iris_create = Iris-t vagy Pajzsot készít a csillagkapunak
 stool_stargate_iris_desc = Bal kattintás Iris vagy Pajzs Berakása
@@ -271,7 +271,7 @@ stool_stargate_iris_limit = Iris/Pajzs korlát elérve
 stool_stargate_iris_err = A célpont nem Csillagkapu!
 stool_stargate_iris_err2 = Nem lehet rárakni az Iris-t a Szuperkapura vagy az orlin kapura!
 
-// Shield
+-- Shield
 stool_stargate_shield_spawner = Pajzs Berakó
 stool_stargate_shield_create = Pajzsot Készít
 stool_stargate_shield_desc = Bal kattintás,Pajzs berakása
@@ -292,7 +292,7 @@ stool_stargate_shield_co_desc = Kapcsolja be ha valamit bent akar tartani a pajz
 stool_stargate_shield_an = Anti Noclip
 stool_stargate_shield_an_desc = Az emberek nem tudnak átrepülni a pajzson?
 
-// Supergate DHD
+-- Supergate DHD
 stool_supergate_dhd_spawner = Szuperkapu-Tárcsázó Berakó
 stool_supergate_dhd_create = Szuperkapu-Tárcsázót készít
 stool_supergate_dhd_desc = Bal kattintás,Szuperkapu-Tárcsázó berakása
@@ -303,7 +303,7 @@ stool_supergate_dhd_limit = Szuperkapu-Tárcsázó korlát elérve
 stool_supergate_dhd_err = Nem egy Szuperkapura Mutat!
 stool_supergate_dhd_exs = Már van Szuperkapu-Tárcsázó a Szuperkapun!
 
-// Tampered ZPM
+-- Tampered ZPM
 stool_tampered_zpm_spawner = Szabotált ZPM Berakó
 stool_tampered_zpm_create = Szabotált ZPM-et készít
 stool_tampered_zpm_desc = Bal kattintás,Szabotált ZPM berakása

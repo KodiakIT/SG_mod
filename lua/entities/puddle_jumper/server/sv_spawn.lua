@@ -100,7 +100,7 @@ function ENT:SpawnToggleButton(p)
         end
         e[i]:SetRenderMode(RENDERMODE_TRANSALPHA);
         e[i].Parent = self;
-        //constraint.Weld(e[i],self,0,0,0,true);
+        --constraint.Weld(e[i],self,0,0,0,true);
         e[i].JumperPart = true;
         self.Buttons[i] = e[i]
         if(i==1) then

@@ -82,7 +82,7 @@ function ENT:SpawnFunction(pl, tr) -- Pretty useless unless we can spawn it @Ron
     e:SpawnRingPanel(pl);
     e:SpawnDoor(pl)
     e:SpawnButtons(pl);
-    //e:ToggleDoors("out")
+    --e:ToggleDoors("out")
     e:SetWire("Health",e:GetNetworkedInt("health"));
     pl:Give("weapon_ringcaller");
     pl:AddCount("CAP_ships", e)
@@ -333,7 +333,7 @@ function ENT:Exit(kill)
     self.HyperspaceDist = 0;
     self.Charging = false;
     self.PreviousPilot = self.Pilot:SteamID();
-    //self:IntertialDampning(false);
+    --self:IntertialDampning(false);
     self.BaseClass.Exit(self,kill);
 end
 
@@ -344,7 +344,7 @@ function ENT:SpawnButtons(p)
         e[i] = ents.Create("teltak_button");
         e[i]:Spawn();
         e[i]:Activate();
-        //constraint.Weld(e[i],self,0,0,0,true);
+        --constraint.Weld(e[i],self,0,0,0,true);
         e[i]:SetParent(self);
         e[i]:SetRenderMode(RENDERMODE_TRANSALPHA);
         e[i].Parent = self;
@@ -530,7 +530,7 @@ function ENT:Use(p)
         ) then
             self.CanUse = true;
 
-            //self:IntertialDampning(true);
+            --self:IntertialDampning(true);
 
             self:Enter(p);
             if(self.Open) then
@@ -822,7 +822,7 @@ function ENT:Initialize()
     self.Vehicle = "Teltak";
     self.NextPress = CurTime();
     self.FPV = 0;
-    //MaxCharge = LocalPlayer():GetNWInt("MaxCharge") or 15000;
+    --MaxCharge = LocalPlayer():GetNWInt("MaxCharge") or 15000;
     MaxCharge = StarGate.CFG:Get("teltak","jump_distance",15000);
 end
 

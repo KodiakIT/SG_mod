@@ -34,8 +34,8 @@ function ENT:Initialize()
     self:SetMoveType(MOVETYPE_VPHYSICS)
     self:PhysicsInit(SOLID_VPHYSICS)
 
-    //self:AddResource("Naquadah",500000)
-    //self:SupplyResource("Naquadah",500000)
+    --self:AddResource("Naquadah",500000)
+    --self:SupplyResource("Naquadah",500000)
     self.Naquadah = StarGate.CFG:Get("naq_gen_mk2","naquadah",500000);
     self.MaxEnergy = StarGate.CFG:Get("naq_gen_mk2","naquadah",500000);
     self:AddResource("energy",StarGate.CFG:Get("naq_gen_mk2","energy",75000));
@@ -65,10 +65,10 @@ function ENT:Think()
     if(not self.HasResourceDistribution) then return end;
 
     if(self.Active) then
-        //self.ActiveTime = math.Approach(self.ActiveTime,60,1)
+        --self.ActiveTime = math.Approach(self.ActiveTime,60,1)
         if(self.Naquadah>0 and self:GetResource("energy")<self:GetNetworkCapacity("energy")) then
             self.Detonation=self.Detonation-1
-            //self.ActiveTime=math.Clamp(self.ActiveTime+1,1,60);
+            --self.ActiveTime=math.Clamp(self.ActiveTime+1,1,60);
             local rnd = math.Round(self.Generate*math.Rand(0.95,1.05)); -- just for better visual consume
             if (self:GetResource("energy")+rnd*self.GenMulti>self:GetNetworkCapacity("energy")) then
                 local en = self:GetNetworkCapacity("energy")-self:GetResource("energy");
@@ -83,7 +83,7 @@ function ENT:Think()
                 self.Naquadah = self.Naquadah-rnd;
             end
         elseif (self.Naquadah>0 and self:GetResource("energy")>=self:GetNetworkCapacity("energy") and not self.Overloaded and self.Detonation>5) then
-            //self.ActiveTime=math.Clamp(self.ActiveTime-1,1,54);
+            --self.ActiveTime=math.Clamp(self.ActiveTime-1,1,54);
             self.Detonation=math.Clamp(self.Detonation+1,6,60);
         end
 
@@ -92,7 +92,7 @@ function ENT:Think()
             if (not self.Overloaded) then
                 self.Active=false
                 self.ActiveTime=0
-                //self.Detonation=-1
+                --self.Detonation=-1
                 self:SetSkin(0)
             end
         end
@@ -120,8 +120,8 @@ function ENT:Think()
         self:SetWire("Energy",self:GetResource("energy"));
         self:SetWire("Countdown",self.Detonation)
         self.Detonation=math.Clamp(self.Detonation+3,6,60);
-        //self:SupplyResource("energy",0)
-        //self:ConsumeResource("Naquadah",0)
+        --self:SupplyResource("energy",0)
+        --self:ConsumeResource("Naquadah",0)
     end
 
     if (not self.depleted) then
@@ -172,12 +172,12 @@ function ENT:Use(p) -- Activate or deactivate @RononDex
     if(not(self.Active)) then
         self.Active=true
         self:SetSkin(1)
-        //self.Detonation=10
+        --self.Detonation=10
     else
         if(not(self.Overloaded)) then
             self.Active=false
             self.ActiveTime=0
-            //self.Detonation=60
+            --self.Detonation=60
             self:SetSkin(0)
         else
             p:ChatPrint("System's aren't responding! Explosion is imminent")
@@ -192,12 +192,12 @@ function ENT:TriggerInput(k,v)
             if(not(self.Active)) then
                 self.Active=true
                 self:SetSkin(1)
-                //self.Detonation=60
+                --self.Detonation=60
             else
                 if(not(self.Overloaded)) then
                     self.Active=false
                     self.ActiveTime=0
-                    //self.Detonation=60
+                    --self.Detonation=60
                     self:SetSkin(0)
                 end
             end

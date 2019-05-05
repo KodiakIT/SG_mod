@@ -26,7 +26,7 @@ stargate_reload = Stargate ceviri islem tipi degisti:\nYeni ceviri tipi: %s.\nSt
 stargate_reloaded = Stargate sistemi basariyla yeniden baslatildi.
 stargate_reload_start = Stargate sistemi yeniden Başlatılıyor... Lütfen Bekleyin.
 
-// New tool menu on gates (when hold C)
+-- New tool menu on gates (when hold C)
 stargate_c_tool_01 = Halka rotasını atkif et
 stargate_c_tool_01d = Halka rotasını kapat.
 stargate_c_tool_02 = Yavaş modu aç
@@ -63,7 +63,7 @@ stargate_c_tool_18d = Disable Glyphs
 stargate_c_tool_19 = Atlantis Tipi
 stargate_c_tool_19d = Atlantis Tipini Kapat
 
-// Stargate VGUI menus
+-- Stargate VGUI menus
 stargate_vgui_address = Adres:
 stargate_vgui_address2 = Adres
 stargate_vgui_grouptype = Grup/tip
@@ -124,7 +124,7 @@ stargate_vgui_glyphs = Adres
 stargate_vgui_blocked = Engelle
 stargate_vgui_blockedtip = Engellenen adres kırmızı renkte gösterir ve taklim edilemez.
 
-// Cap DirectX warning message, type CAP_dxlevel in console for get this message manually
+-- Cap DirectX warning message, type CAP_dxlevel in console for get this message manually
 stargate_dxlevel_01 = Carter Addon Pack - Uyarı
 stargate_dxlevel_02 =[[ Uyarı: DirectX 8.1 Yada daha düşük bir directx sürümü kullanıyorsunuz.
 Carter Addon Pack'da bazı problemlere yol açabilir.
@@ -136,7 +136,7 @@ stargate_dxlevel_03 =[[* Stargate açılma effekti.
 stargate_dxlevel_04 =[[Gmodu dxlevel 90 veya daha yüksek (95) ayarda açın.
 Bununla birlikte değişti mat_dxlevel.]]
 
-// Cap update reminter (for github users), type CAP_Outdated in console for get this message manually
+-- Cap update reminter (for github users), type CAP_Outdated in console for get this message manually
 stargate_updater_01 = Cap Güncelleştirmesi
 stargate_updater_02 = Cap versiyonun eskimiş\nSenin Versionun: %s Yeni version: %s
 stargate_updater_03 = Bugların(Hataların) düzeltilmesi ve yenilikler için  Lüften Carter Pack'i güncelleyin.

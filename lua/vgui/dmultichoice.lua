@@ -177,7 +177,7 @@ function PANEL:OpenMenu( pControlOpener )
     if ( #self.Choices == 0 ) then return end
 
     // If the menu still exists and hasn't been deleted
-    // then just close it and don't open a new one.
+    -- then just close it and don't open a new one.
     if ( self.Menu ) then
         self.Menu:Remove()
         self.Menu = nil

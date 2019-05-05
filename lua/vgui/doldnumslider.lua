@@ -144,7 +144,7 @@ end
 function PANEL:OnValueChanged( val )
 
 
-    // For override
+    -- For override
 
 end
 

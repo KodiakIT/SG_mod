@@ -158,7 +158,7 @@ function ENT:ToggleLight()
                     SafeRemoveEntity(self.Flashlight[i])
                     if i == 2 then
                         self.FlashOn = false;
-                        //return;
+                        --return;
                     end
                 end
             end

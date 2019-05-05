@@ -418,7 +418,7 @@ function ENT:OnTakeDamage(dmg)
         end
     end
 
-    // WormholeJump call is in gate_nuke
+    -- WormholeJump call is in gate_nuke
 end
 
 function ENT:SubFlicker(target,jump,super,dly)

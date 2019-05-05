@@ -26,7 +26,7 @@ stargate_reload = Gruppen Wählsystemtyp verändert:\nneues Wählsystem ist: %s.
 stargate_reloaded = Gruppen System erfolgreich geladen.
 stargate_reload_start = Starte das Laden des Gruppen Systems... Bitte warten.
 
-// New tool menu on gates (when hold C)
+-- New tool menu on gates (when hold C)
 stargate_c_tool_01 = Aktiviere Ring Rotation
 stargate_c_tool_01d = Deaktiviere Ring Rotation
 stargate_c_tool_02 = Aktiviere langsamen Modus
@@ -57,7 +57,7 @@ stargate_c_tool_15d = Deaktiviere klassischen Modus
 stargate_c_tool_16 = Aktiviere Chevron-Licht
 stargate_c_tool_16d = Deaktiviere Chevron-Licht
 
-// Stargate VGUI menus
+-- Stargate VGUI menus
 stargate_vgui_address = Adresse:
 stargate_vgui_address2 = Adresse
 stargate_vgui_grouptype = Gruppe/Typ
@@ -118,7 +118,7 @@ stargate_vgui_glyphs = Glyphen
 stargate_vgui_blocked = Blockiert
 stargate_vgui_blockedtip = Blockierte Adresse wird in roter Farbe angezeigt und kann nicht angeklickt werden.
 
-// Cap DirectX warning message, type CAP_dxlevel in console for get this message manually
+-- Cap DirectX warning message, type CAP_dxlevel in console for get this message manually
 stargate_dxlevel_01 = Carter Addon Pack - Warnung
 stargate_dxlevel_02 =[[ Warnung: Dein Gmod nutzt DirectX 8.1 oder tiefer.
 Das führt zu Kompatiblitätsproblemen mit Carter Addon Pack.
@@ -130,13 +130,13 @@ stargate_dxlevel_03 =[[* Kein Kawoosh wenn sich ein Gate öffnet.
 stargate_dxlevel_04 =[[Bitte starte Gmod mit dxlevel 90 oder höher. (95 empfohlen).
 Es kann mit der ConVar mat_dxlevel verändert werden.]]
 
-// Cap update reminter (for github users), type CAP_Outdated in console for get this message manually
+-- Cap update reminter (for github users), type CAP_Outdated in console for get this message manually
 stargate_updater_01 = Cap Update Erinnerung
 stargate_updater_02 = Dein Build von CAP ist nicht aktuell!\nDeine Revision: %s Neuste Revision: %s
 stargate_updater_03 = Bitte aktualisiere Carter Pack für\n neue Features und Fehlerbehebungen!
 stargate_updater_04 = Schließen
 
-// Stool - Credits tab
+-- Stool - Credits tab
 stargate_credits_01 = Credits
 stargate_credits_02 = Hier kannst du Bugs reporten. Falls du nicht in HTML-Formularen schreiben kannst, besuche %s mit deinem Browser.
 stargate_credits_03 = Konnte neustes BUILD nicht ermitteln. Stellen Sie sicher, dass sie mit dem Internet verbunden sind oder kontaktieren sie CAP Team.

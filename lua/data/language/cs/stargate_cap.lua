@@ -1,4 +1,4 @@
-﻿// Rings
+﻿-- Rings
 ring_ancient = Kruhy (Antické)
 ring_goauld = Kruhy (Goualdské)
 ring_ori = Kruhy (Orájské)
@@ -10,7 +10,7 @@ ring_dial = Zadejte adresu (pouze čísla!):
 ring_dialb = Zadat
 ring_error = Kruhy s touto adresou již existují!
 
-// Weapon Entities
+-- Weapon Entities
 entity_weapon_cat = Zbraně
 entity_ag3 = Satelit AG-3
 entity_asgard_beam = Asgardský Paprsek
@@ -32,13 +32,13 @@ entity_shiprail = Lodní Kulomety
 entity_stat_railgun = Stacionární Kulomet
 entity_staff_weapon = Stacionární Tyčová Zbraň
 
-// Shaped Charge
+-- Shaped Charge
 entity_directional_nuke = Směrovaná nálož
 directional_nuke_menu_t = Časovač nálože
 directional_nuke_menu_d = Čas do výbuchu:
 directional_nuke_menu_c = Zrušit
 
-// Ship Entities
+-- Ship Entities
 entity_ships_cat = Vesmírné Lodě
 entity_daedalus = BC-304 Daedalus
 entity_control_chair = Antické Křeslo
@@ -50,7 +50,7 @@ entity_jumper = Puddle Jumper
 entity_teltak = TelTak
 entity_dart = Wraitská Šipka
 
-// Main Entities
+-- Main Entities
 entity_main_cat = Různé zařízení
 entity_obelisk = Antický Obelisk
 entity_antiprior = Proti-Převorská Rušička
@@ -75,18 +75,18 @@ entity_stone_tablet = Tablet pro Antické Kameny
 entity_telchak = Hojící Zařízení Telchak
 entity_atlantist = Transportér z Atlantídy
 
-// Sodan obelisk
+-- Sodan obelisk
 entity_sodan_obelisk = Sodanský Obelisk
 sodan_obelisk_menu = Nastavit heslo obelisku (Jen čísla od 1 do 6!):
 
-// Npcs
+-- Npcs
 npc_cat = Postavy
 npc_wraith = Wraith
 npc_prior = Převor
 npc_goauld = Goauld
 npc_soldier = Vojak
 
-// Player Weapons
+-- Player Weapons
 weapon_cat = Hlavní zbraně pro hráče
 weapon_asuran = Asuranská Zbraň
 weapon_hand_device = Řuční Zařízení
@@ -100,7 +100,7 @@ weapon_wraith = Wraitské Ruce
 weapon_wraith_blaster = Wraitský Omračovač
 weapon_tac = Tac
 
-// Player Misc Weapons
+-- Player Misc Weapons
 weapon_misc_cat = Různé zbraně pro hráče
 weapon_misc_atanik = Náramek Ataniků
 weapon_misc_virus = AGV
@@ -118,7 +118,7 @@ weapon_misc_nox_desc = Levý Klik: Otevře Zadávací Menu, Pravý Klik: Vyléč
 weapon_misc_adrenaline = Injecke Adrenalínu
 weapon_misc_atl_medkit = Lékárnička z Atlantídy
 
-// Stools Cats
+-- Stools Cats
 stool_cat = Hvězdná Brána
 stool_cat_config = Nastavení
 stool_cat_tech = Technologie
@@ -127,19 +127,19 @@ stool_cat_weapons = Zbraně
 stool_cat_keys = Klávesové Zkratky
 stool_cat_ramps = Rampy
 
-// Stools Updater
+-- Stools Updater
 stool_update_01 = Tvá verze CAP je zastaralá.
 stool_update_02 = Nejnovější verze:
 stool_update_03 = Jestli jsi obdržel tuto zprávu na serveru, informuj admina aby aktualizoval CAP.
 
-// Stool Names - Config
+-- Stool Names - Config
 stool_credits = Zásluhy
 stool_settings = Nastavení/Jazyk
 stool_weapvis = Vizualizace Zbraní
 stool_miscvis = Vizualizace Ostatního
 stool_shipvis = Vizualizace Lodí
 
-// Stool Names - Tech
+-- Stool Names - Tech
 stool_brazier = Pochodně
 stool_bearing = Ložisko Brány
 stool_door_c = Ovládání Dveří
@@ -160,7 +160,7 @@ stool_tolland = Tollanská Rušička Zbraní
 stool_harvester = Wraitský Sklízeč
 stool_controlpanel = Ovládací Panel
 
-// Stool Names - Energy
+-- Stool Names - Energy
 stool_asuran_hub = Asuranský ZPM HUB
 stool_atlantis_hub = Atlantský ZPM HUB
 stool_naq_gen = Naquadahové Generátory
@@ -168,19 +168,19 @@ stool_sgc_hub = SGC ZPM HUB
 stool_zpm_mk3 = ZPM MK3
 stool_naq_bottle = Flaštička s Naquadahem
 
-// Stool Names - Weapons
+-- Stool Names - Weapons
 stool_drones = Střely
 stool_naq_bomb = Naquadahová Bomba
 stool_staff = Tyčová Zbraň
 stool_tzpm = Manipulované ZPM
 stool_wh_bomb = Wraitská Omračovací Bomba
 
-// Stool Names - Ramps
+-- Stool Names - Ramps
 stool_anim_ramps = Animované Rampy Bran
 stool_nanim_ramps = Neanimované Rampy Bran
 stool_ring_ramps = Rampy Kruhů
 
-// Stool Names - Keybinders
+-- Stool Names - Keybinders
 stool_key_daedalus = Nastavení Daedalusu
 stool_key_dart = Nastavení Wraitské Šipky
 stool_key_glider = Nastavení Bránového Kluzáků
@@ -191,7 +191,7 @@ stool_key_malp = Nastavení MALPu
 stool_key_dest = Nastavení Raketoplánu Destiny
 stool_key_teltak = Nastavení Teltaku
 
-// Stool Global
+-- Stool Global
 stool_autoweld = Autoweld
 stool_autolink = Autolink
 stool_autolink_desc = Automaticky připojí k nejbližšímu Resource Nodu (nebo HUBu).
@@ -207,7 +207,7 @@ stool_deactivate = Deaktivovat:
 stool_immunity = Imunita
 stool_help = Pomoc
 
-// Naquadah bomb menu
+-- Naquadah bomb menu
 entity_naq_bomb = Naquadahová Bomba
 naq_bomb_menu_01 = Zadejte Aktivační Kód
 naq_bomb_menu_02 = Aktivační Kód:
@@ -223,7 +223,7 @@ naq_stool_menu_a_d = Autoweldovat Bombu.
 naq_stool_menu_code = Zadejte kód pro detonaci bomby.
 naq_stool_menu_abort = Zadejte kód pro zrušení detonace bomby.
 
-// Dakara
+-- Dakara
 ancient_control_panel = Antický Ovládací Panel
 dakara_energy_kill = Dakarská Energetická Vlna
 dakara_panel = Dakarský Ovládací Panel
@@ -242,7 +242,7 @@ dakara_menu_10 = Nastavit rozložení NPC
 dakara_menu_11 = Zavřít
 dakara_menu_12 = Spustit
 
-// Atlantis transporter
+-- Atlantis transporter
 atl_tp_01 = Nastavit název tohto transportéru:
 atl_tp_02 = Název cílového transportéru:
 atl_tp_03 = Uložit
@@ -252,7 +252,7 @@ atl_tp_06 = Soukromý
 atl_tp_07 = Soukromé transportéry se neobjeví v menu, ale stále se dají použít!
 atl_tp_error = Název se již používa!
 
-// Misc
+-- Misc
 kawoosh_hurt = Nestabilní Vir
 event_horizon = Horizont Událostí
 gate_nuke = Spálen
@@ -291,7 +291,7 @@ cap_disabled_npc = Tato NPC je na serveru zakázána!
 iris_gatespawner = Nemůžeš obejít Iris GateSpawneru! Spawni Ovládací Počítač Iris a použij ho.
 iris_protection = Na GateSpawner bránu byla ůspěšne daná Iris. Spawni Ovládací Počítač Iris a použij ho.
 
-// gatespawner
+-- gatespawner
 sg_gtsp_title = Vytvoření GateSpawneru
 sg_stsp_text =[[<h2>Gatespawner byl úspěšně vytvořen!</h2>
 Soubor: <u>garrysmod\data\%s.txt</u>
@@ -303,7 +303,7 @@ Soubor: <u>garrysmod\data\%s.txt</u>
 <br>Pokud nevíš jak, použij strejdu <b>Google</b>.
 ]]
 
-// iris computer
+-- iris computer
 iriscomp_title = Menu počítače Iris
 iriscomp_code = Kód k Iris
 iriscomp_desc = Popis
@@ -317,7 +317,7 @@ iriscomp_cancel = Zrušit
 iriscomp_toggle = Otevřít/Zavřít Iris
 iriscomp_ok = Uložit
 
-// destiny timer
+-- destiny timer
 destimer_title = Časomíra Destiny
 destimer_time = Nastavit čas:
 destimer_autostart = Auto-zapnutí
@@ -337,7 +337,7 @@ destimer_reset = Resetovat časomíru
 destimer_close = Zavřít bránu
 destimer_error = Nelze spustit časomíru při otevřené bráně se zapnutým auto-reset nastavením!
 
-// asgard transporter
+-- asgard transporter
 asgardtp_title = Asgardský Transportér
 asgardtp_target = Cíl
 asgardtp_target_desc = Vybrat cíl který chceš teleportovat
@@ -364,7 +364,7 @@ asgardtp_error = Špatný cíl nebo destinatinace! (skus obnovit seznam?)
 asgardtp_jamming = Nemůžeš se tam teleportovat - rušička je zapnutá.
 asgardtp_succ = Úspešne teleportováno.
 
-// huds
+-- huds
 hud_status = Status
 hud_energy = Energie
 hud_capacity = Kapacita
@@ -376,10 +376,10 @@ hud_sts_connected = Připojeno
 hud_sts_disconnected = Odpojeno
 hud_sts_depleted = Vybité
 
-// jumper hud
+-- jumper hud
 jumper_hud_dial = Dialling:
 
-// visual settings
+-- visual settings
 vis_fps_high = Frame Burst: Vysoký
 vis_fps_medium = Frame Burst: Střední
 vis_fps_low = Frame Burst: Nizký
@@ -427,7 +427,7 @@ vis_sm_laser = Malé lasery
 vis_charge_up = Kruhy při nabíjení
 vis_refl_sphere = Koule s lomem světla
 
-// keybinder
+-- keybinder
 key_move_title = Pohyb
 key_move_forward = Pohyb vpřed
 key_move_left = Pohyb Doleva
@@ -486,7 +486,7 @@ key_cam_reset = Resetovat kameru
 key_rocket_title = Ovládání rakety
 key_rocket = Raketa
 
-// Limits reached
+-- Limits reached
 entity_limit_ag3 = Dosáhli ste limit pro AG-3 Satelit!
 entity_limit_anc_obelisk = Dosáhli ste limit pro Antický Obelisk!
 entity_limit_app_core = Dosáhli ste limit pro Ovládací rozhraní Destiny!

@@ -69,10 +69,10 @@ function VGUI:Init()
        DermaPanel:MakePopup()
     DermaPanel.Paint = function()
 
-        // Thanks Overv, http://www.facepunch.com/threads/1041686-What-are-you-working-on-V4-John-Lua-Edition
+        -- Thanks Overv, http://www.facepunch.com/threads/1041686-What-are-you-working-on-V4-John-Lua-Edition
 
         local x, y = self:ScreenToLocal(0, 0)
-        // Background
+        -- Background
         surface.SetMaterial( matBlurScreen )
         surface.SetDrawColor( 255, 255, 255, 255 )
 
@@ -84,7 +84,7 @@ function VGUI:Init()
         surface.SetDrawColor( 100, 100, 100, 150 )
         surface.DrawRect( 0, 0, ScrW(), ScrH() )
 
-        // Border
+        -- Border
         surface.SetDrawColor( 50, 50, 50, 255 )
         surface.DrawOutlinedRect( 0, 0, DermaPanel:GetWide(), DermaPanel:GetTall() )
 
@@ -100,7 +100,7 @@ function VGUI:Init()
     Button_color:SetSize(195, 75);
     Button_color.Paint = function() draw.RoundedBox( 6, 0, 0, 195, 75, Color( 170, 170, 170, 255)); end
 
-    /////// TABS
+    -- TABS
 
     local Sheet = vgui.Create("DPropertySheet", DermaPanel);
     Sheet:SetPos(25, 40);
@@ -141,7 +141,7 @@ function VGUI:Init()
     Sheet:AddSheet("Visual", Sheet_Visual, "icon16/user.png", false, false, "Model and color of the buble.");
     Sheet:AddSheet("Other", Sheet_Other, "icon16/user.png", false, false, "Other settings.");
 
-    //////// Const
+    -- Const
 
     local Slider_pos_x  = 25;
     local Slider_pos_y1 = 20;
@@ -153,7 +153,7 @@ function VGUI:Init()
     local Button_size_x = 75;
     local Button_size_y = 25;
 
-    //////// SIZE
+    -- SIZE
 
     local Size_x = vgui.Create( "DNumSlider" , Sheet_Size );
     Size_x:SetPos(Slider_pos_x, Slider_pos_y1);
@@ -203,7 +203,7 @@ function VGUI:Init()
             LocalPlayer():ConCommand("SC_Size"..e:EntIndex().." "..VGUI.Size_x:GetValue().." "..VGUI.Size_y:GetValue().." "..VGUI.Size_z:GetValue());
     end
 
-    //////// ANGLE
+    -- ANGLE
 
     local Angle_x = vgui.Create( "DNumSlider" , Sheet_Ang )
     Angle_x:SetPos(Slider_pos_x, Slider_pos_y1)
@@ -253,7 +253,7 @@ function VGUI:Init()
             LocalPlayer():ConCommand("SC_Angle"..e:EntIndex().." "..VGUI.Angle_x:GetValue().." "..VGUI.Angle_y:GetValue().." "..VGUI.Angle_z:GetValue());
     end
 
-    //////// POSITION
+    -- POSITION
 
     local Pos_x = vgui.Create( "DNumSlider" , Sheet_Pos )
     Pos_x:SetPos(Slider_pos_x, Slider_pos_y1)
@@ -303,7 +303,7 @@ function VGUI:Init()
             LocalPlayer():ConCommand("SC_Pos"..e:EntIndex().." "..VGUI.Pos_x:GetValue().." "..VGUI.Pos_y:GetValue().." "..VGUI.Pos_z:GetValue());
     end
 
-    //////// COLOR
+    -- COLOR
 
     local Col = vgui.Create( "DColorMixer" , Sheet_Visual);
     Col:SetSize( 160, 160);
@@ -348,7 +348,7 @@ function VGUI:Init()
     col_b:SetText("B: "..tostring(Col:GetColor().b));
     col_b:SizeToContents();  */
 
-    /////// MODEL
+    -- MODEL
 
     local Model_box = vgui.Create( "DComboBox", Sheet_Visual)
     Model_box:SetPos( 200, 20 )
@@ -375,7 +375,7 @@ function VGUI:Init()
         LocalPlayer():ConCommand("SC_Visual_Model"..e:EntIndex().." "..index);
     end
 
-    ///// Variables
+    -- Variables
 
     VGUI.col_r=col_r
     VGUI.col_g=col_g
@@ -390,7 +390,7 @@ function VGUI:Init()
     VGUI.Pos_y=Pos_y
     VGUI.Pos_z=Pos_z
 
-    /////// OTHER
+    -- OTHER
 
     local menudata = string.Explode(" ", e:GetNWString("MenuData", "0 0 0 0 5"));
 
@@ -433,7 +433,7 @@ function VGUI:Init()
     NumPad:SetLabel1( "Activate shield" )
     NumPad:SetSize(100,50);
 
-    ////////// BUTTONS
+    -- BUTTONS
 
     local MenuButtonClose = vgui.Create("DButton");
     MenuButtonClose:SetParent( DermaPanel );

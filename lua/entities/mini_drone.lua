@@ -288,7 +288,7 @@ function ENT:Initialize()
     self.Created = CurTime();
 end
 
-// Draws model
+-- Draws model
 
 -- Draw @aVoN
 function ENT:Draw()

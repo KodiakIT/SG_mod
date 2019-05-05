@@ -174,7 +174,7 @@ end
 
 -- Overwrite base code, we dont want flicker
 function ENT:OnTakeDamage(dmg)
-    // WormholeJump call is in gate_nuke
+    -- WormholeJump call is in gate_nuke
 end
 
 -- @Madman07,Assassin21 Light Effect

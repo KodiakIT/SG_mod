@@ -1,8 +1,8 @@
-// Attention! For see changes in-game you need fully restart gmod!
-// Reload languages or map will not update this messages!
-// This happens because gmod cache stool names/desc until close game.
+-- Attention! For see changes in-game you need fully restart gmod!
+-- Reload languages or map will not update this messages!
+-- This happens because gmod cache stool names/desc until close game.
 
-// Ramps
+-- Ramps
 stool_ramp_spawner = Créateur de Rampes
 stool_ramp_create = Créer une Rampe
 stool_ramp_desc = Clique gauche pour créer une Rampe
@@ -12,7 +12,7 @@ stool_ramp_cleaned = Toutes les Rampes sont supprimées
 stool_ramp_limit = Limite de Rampes atteinte !
 stool_ramp_anim_limit = Limite de Rampes animée atteinte !
 
-// Ashen defence
+-- Ashen defence
 stool_ashen_defence_spawner = Créateur du Système de Défense Ashen
 stool_ashen_defence_create = Créer un Système de Défense Ashen
 stool_ashen_defence_desc = Clique gauche pour créer le Système
@@ -21,7 +21,7 @@ stool_ashen_defence_cleanup = Système de Défense Ashen
 stool_ashen_defence_cleaned = Tous les Systèmes de Défense Ashen sont supprimés
 stool_ashen_defence_limit = Nombre maximum de Système de Défense Ashen créer
 
-// Asuran ZPM Hub
+-- Asuran ZPM Hub
 stool_asuran_zpm_hub_spawner = Créateur du Hub d'E2PZ Asuran
 stool_asuran_zpm_hub_create = Créer un Hub d'E2PZ Asuran
 stool_asuran_zpm_hub_desc = Clique gauche pour créer un Hub d'E2PZ Asuran
@@ -31,7 +31,7 @@ stool_asuran_zpm_hub_cleaned = Tous les Hub d'E2PZ Asuran sont supprimés
 stool_asuran_zpm_hub_limit = Limite d'Hub d'E2PZ Asuran atteinte
 stool_asuran_zpm_hub_fulldesc = Ceci est un Hub d'E2PZ Asuran. Il requière le SpaceBuild ou l'addon d'environnement. Si vous ne l'avez pas, ce Hub à E2PZ est inutile pour vous.
 
-// Atlantis ZPM Hub
+-- Atlantis ZPM Hub
 stool_atlantis_zpm_hub_spawner = Créateur du Hub d'E2PZ d'Atlantis
 stool_atlantis_zpm_hub_create = Créer un Hub d'E2PZ d'Atlantis
 stool_atlantis_zpm_hub_desc = Clique gauche pour créer un Hub d'E2PZ d'Atlantis
@@ -41,7 +41,7 @@ stool_atlantis_zpm_hub_cleaned = Tous les Hub d'E2PZ d'Atlantis sont supprimés
 stool_atlantis_zpm_hub_limit = Limite d'Hub d'E2PZ d'Atlantis atteinte
 stool_atlantis_zpm_hub_fulldesc = Ceci est un Hub d'E2PZ d'Atlantis. Il requière le SpaceBuild ou l'addon d'environnement. Si vous ne l'avez pas, ce Hub à E2PZ est inutile pour vous.
 
-// Gate Bearing
+-- Gate Bearing
 stool_bearing_spawner = Crétaeur de Surmonteur de Porte
 stool_bearing_create = Créer un Surmonteur de Porte
 stool_bearing_desc = Clique gauche pour créer un Surmonteur de Porte
@@ -53,7 +53,7 @@ stool_bearing_fulldesc = Le Surmonteur de Porte est suspendu au plafond de la sa
 stool_bearing_err = La cible n'est pas une porte des étoiles de Univers !
 stool_bearing_exs = Le Surmonteur de Porte existe déja sur cette porte !
 
-// Braziers
+-- Braziers
 stool_braziers_spawner = Créateur de Brasier
 stool_braziers_create = Créer un Brasier
 stool_braziers_desc = Clique gauche pour créer un Brasier
@@ -62,7 +62,7 @@ stool_braziers_cleanup = Brasiers
 stool_braziers_cleaned = Tous les Brasiers sont supprimés
 stool_braziers_limit = Limite de Brasier atteinte
 
-// Door Controller
+-- Door Controller
 stool_cap_door_contr_spawner = Créateur de Bouton de Porte
 stool_cap_door_contr_create = Créer un Bouton de Porte
 stool_cap_door_contr_desc = Clique gauche pour créer un Bouton de Porte
@@ -71,7 +71,7 @@ stool_cap_door_contr_cleanup = Boutonde Porte
 stool_cap_door_contr_cleaned = Tous les Boutons de Portes sont supprimés
 stool_cap_door_contr_limit = Limite de Bouton de Porte atteinte
 
-// Doors
+-- Doors
 stool_cap_doors_spawner = Créateur de Portes
 stool_cap_doors_create = Créer une Porte
 stool_cap_doors_desc = Clique gauche pour créer une Porte
@@ -124,7 +124,7 @@ stool_floorchevron_fulldesc = Le Chevron au Sol s'allume quand le dernier symbol
 stool_floorchevron_err = La cible n'est pas une porte des étoiles de Univers !
 stool_floorchevron_exs = Un Chevron au Sol existe déja sur cette porte
 
-// Goauld Iris
+-- Goauld Iris
 stool_goauld_iris_spawner = Créateur d'Iris Goauld
 stool_goauld_iris_create = Créer un Iris Goauld
 stool_goauld_iris_desc = Clique gauche pour créer ou mettre à jour un Iris Goauld
@@ -133,7 +133,7 @@ stool_goauld_iris_cleanup = Iris Goauld
 stool_goauld_iris_cleaned = Tous les Iris Goauld sont supprimés
 stool_goauld_iris_limit = Limite d'Iris Goauld atteinte
 
-// Gravity Controller
+-- Gravity Controller
 stool_gravitycontroller_spawner = Créateur de Contrôleur de gravité
 stool_gravitycontroller_create = Construisez des vaisseaux sans hoverballs, ou utilisez-les simplement pour stabiliser vos objets
 stool_gravitycontroller_desc = Cliquez sur l'endroit où vous souhaitez créer un contrôleur de gravité, cliquez sur un contrôleur pour le mettre à jour.
@@ -168,7 +168,7 @@ stool_gravitycontroller_lbd = LDescription du frein local
 stool_gravitycontroller_lbd_desc = Si vous activez cela, le CG se freinera séparément sur chaque axe. Si vous placez tous les axes, sauf un, sur 100, il glisse le long de cet axe. Donc, si vous voulez que votre navire ne freine pas aussi fort que prévu, il est pour vous!
 stool_gravitycontroller_sga = Mode d'alimentation de SGA
 
-// Jamming Device
+-- Jamming Device
 stool_jamming_spawner = Créateur de Brouilleur
 stool_jamming_create = Créer un Brouilleur
 stool_jamming_desc = Click gauche pour créer ou mettre à jour un Brouilleur
@@ -178,7 +178,7 @@ stool_jamming_cleaned = Tous les brouilleurs sont supprimés
 stool_jamming_limit = Limite de Brouilleur atteinte
 stool_jamming_imm_desc = Note: Immunity vous permet de vous téléporter même si le brouillage est actif
 
-// Naquadah Bottle
+-- Naquadah Bottle
 stool_naq_bottle_spawner = Créateur de Flacon de Naquadah
 stool_naq_bottle_create = Créer un Flacon de Naquadah
 stool_naq_bottle_desc = Clique gauche pour créer un Flacon de Naquadah
@@ -198,7 +198,7 @@ stool_naq_gen_mks_cleaned = Tous les Générateurs à Naquadah sont supprimés
 stool_naq_gen_mks_limit = Limite de Générateur à Naquadah atteinte !
 stool_naq_gen_mks_fulldesc = Cet outil est le Générateur à Naquadah. L'outil vous fournira un Générateur à Naquadah Mark 1 ou Mark 2, parce que le MK1 fournit moins d'énergie que le MK2. Cet outil nécessite SpaceBuild ou l'addon d'environnements. Si vous ne l'avez pas, ce Générateur est tout à fait inutile pour vous.
 
-// Naquadah Bomb
+-- Naquadah Bomb
 stool_naqbomb_spawner = Créateur de Bombe au Naquadah
 stool_naqbomb_create = Créer un dispositif explosif au Naquadah
 stool_naqbomb_desc = Clique gauche pour créer la bombe
@@ -207,7 +207,7 @@ stool_naqbomb_cleanup = Bombe au Naquadah
 stool_naqbomb_cleaned = Toutes les Bombes au Naquadah sont supprimées
 stool_naqbomb_limit = Nombre maximum de Bombe au Naquadah crée
 
-// Ring Ramps
+-- Ring Ramps
 stool_ring_ramps_spawner = Créateur de Plateforme d'anneaux
 stool_ring_ramps_create = Créer une Plateforme d'anneaux
 stool_ring_ramps_desc = Clique gauche pour créer une Plateforme d'anneaux
@@ -226,7 +226,7 @@ stool_sgc_zpm_hub_cleaned = Tous les Hubs d'E2PZ SGC sont supprimés
 stool_sgc_zpm_hub_limit = Limite d'Hub d'E2PZ SGC atteinte
 stool_sgc_zpm_hub_fulldesc = Il s'agit du Hub d'E2PZ du SGC. Cet outil nécessite le SpaceBuild ou l'addon d'environnements. Si vous ne l'avez pas, ce hub d'E2PZ est assez inutile pour vous.
 
-// Staff Weapon
+-- Staff Weapon
 stool_staff_weapon_spawner = Créateur de Lance Jaffa
 stool_staff_weapon_create = Créer une lance Jaffa stationnaire
 stool_staff_weapon_desc = Clique gauche pour créer une Lance Jaffa
@@ -239,7 +239,7 @@ stool_staff_weapon_explode = Exploser:
 stool_staff_weapon_color = Couleur:
 stool_staff_weapon_explosion = Explosion
 
-// Cloaking
+-- Cloaking
 stool_stargate_cloaking_spawner = Créateur de Camouflage
 stool_stargate_cloaking_create = Créer un Générateur de Camouflage
 stool_stargate_cloaking_desc = Clique gauche pour créer un Générateur de Camouflage
@@ -255,7 +255,7 @@ stool_stargate_cloaking_nc_desc = Rend tous les accessoires cachés nocollide av
 stool_stargate_cloaking_ca = Camouflage caché
 stool_stargate_cloaking_ca_desc = Si elle est sélectionnée, tous les objets attachées à celle-ci obtiendront un camouflage (fonctionne comme le Duplicator), si non seulement ceux-ci sont dans le rayon
 
-// Mobile DHD
+-- Mobile DHD
 stool_stargate_dhd_spawner = Créateur de DHD Mobile
 stool_stargate_dhd_create = Créer un DHD Mobile
 stool_stargate_dhd_desc = Clique gauche pour créer un DHD Mobile
@@ -264,7 +264,7 @@ stool_stargate_dhd_cleanup = DHDs Mobile
 stool_stargate_dhd_cleaned = Tous les DHDs Mobiles sont supprimés
 stool_stargate_dhd_limit = Limite de DHD Mobile atteinte
 
-// Iris
+-- Iris
 stool_stargate_iris_spawner = Créateur d'Iris
 stool_stargate_iris_create = Créer un Iris ou un Bouclier pour la porte des étoiles
 stool_stargate_iris_desc = Clique gaucher pour créer un Iris ou un Bouclier
@@ -297,7 +297,7 @@ stool_stargate_shield_co_desc = Permet de garder les choses à l'intérieur d'un
 stool_stargate_shield_an = Anti Noclip
 stool_stargate_shield_an_desc = Les gens ne peuvent pas noclip dans le bouclier ?
 
-// Shield identifier
+-- Shield identifier
 stool_stargate_shield_ident_spawner = Créateur de Shield Identifier
 stool_stargate_shield_ident_create = Créer un Shield Identifier
 stool_stargate_shield_ident_desc = Clique gauche pour créer un Shield Identifier
@@ -317,7 +317,7 @@ Fréquence des armes:
 325 - Toutes les autres armes d'énergie du CAP (armes de joueur, tourelles du Destiné, etc...)
 ]]
 
-//Atlantis Light
+--Atlantis Light
 stool_atlantis_light_colour = Couleur de la lumière
 stool_atlantis_light_spawner = Créateur de Lampe d'Atlantis
 stool_atlantis_light_create = Créer une Lampe d'Atlantis
@@ -326,7 +326,7 @@ stool_atlantis_light_undone = Lampe d'Atlantis supprimée
 stool_atlantis_light_cleanup = Lampes d'Atlantis
 stool_atlantis_light_cleaned = Toutes les Lampes d'Atlantis sont supprimées
 
-// Supergate DHD
+-- Supergate DHD
 stool_supergate_dhd_spawner = Créateur de DHD pour Superporte
 stool_supergate_dhd_create = Créer un DHD pour Superporte
 stool_supergate_dhd_desc = Clique gauche pour créer un DHD pour Superporte
@@ -337,7 +337,7 @@ stool_supergate_dhd_limit = Lmite de DHD pour Superporte atteinte
 stool_supergate_dhd_err = Vous ne pointez pas vers une Superporte
 stool_supergate_dhd_exs = Un DHD pour Superporte existe déjà sur cette Superporte !
 
-// Tampered ZPM
+-- Tampered ZPM
 stool_tampered_zpm_spawner = Créateur d'E2PZ Altéré
 stool_tampered_zpm_create = Créer un E2PZ Altéré
 stool_tampered_zpm_desc = Clique gauche pour créer un E2PZ Altéré
@@ -348,7 +348,7 @@ stool_tampered_zpm_limit = Limite d'E2PZ Altéré atteinte
 stool_tampered_zpm_fulldesc = Il s'agit d'un E2PZ falsifié, cet outil nécessite SpaceBuild ou l'addon d'environnements. Si vous ne l'avez pas, cette E2PZ altéré est tout à fait inutile pour vous.
 stool_tampered_zpm_fulldesc2 = Camulus a découvert un E2PZ dans un avant-poste ancient. Incapable de l'utiliser lui-même, il l'a enduit d'un composé volatil qui réagirait explosivement à une charge électrique. Il conduisit les Tau'ri dans l'espoir qu'ils se détruiraient eux-mêmes. Bill Lee a découvert le composé par erreur quand il est devenu nécessaire d'inonder la base avec le rayonnement gamma. Le rayon de souffle estimé de l'E2PZ, qui détenait une charge d'environ 50 %%, aurait pu englober tout le système solaire, et à tout le moins aurait complètement détruit la Terre. (SG1: "Heure H") Des efforts ont été faits pour éliminer le composé, mais le premier test de l'E2PZ l'a détruit et la planète sur laquelle il était.
 
-// Tokra Shield Emmiter
+-- Tokra Shield Emmiter
 stool_tokra_shield_emmiter_spawner = Créateur d'Emeteur de Bouclier Tokra
 stool_tokra_shield_emmiter_create = Créer un Emeteur de Bouclier Tokra
 stool_tokra_shield_emmiter_desc = Clique gauche pour créer un Emeteur de Bouclier Tokra
@@ -357,7 +357,7 @@ stool_tokra_shield_emmiter_cleanup = Emeteurs de Bouclier Tokra
 stool_tokra_shield_emmiter_cleaned = Tous les Emeteurs de Bouclier Tokra sont supprimés
 stool_tokra_shield_emmiter_limit = Limite d'Emeteur de Bouclier Tokra atteinte
 
-// Tokra Shield Controller
+-- Tokra Shield Controller
 stool_tokra_shield_key_spawner = Créateur de Contrôleur de Bouclier Tokra
 stool_tokra_shield_key_create = Créer un Contrôleur de Bouclier Tokra
 stool_tokra_shield_key_desc = Clique gauche pour créer un Contrôleur de Bouclier Tokra
@@ -366,7 +366,7 @@ stool_tokra_shield_key_cleanup = Contrôleurs de Bouclier Tokra
 stool_tokra_shield_key_cleaned = Tous les Contrôleurs de Bouclier Tokra sont supprimés
 stool_tokra_shield_key_limit = Limite de Contrôleur de Bouclier Tokra atteinte
 
-// Tollan Weapon Disabler
+-- Tollan Weapon Disabler
 stool_tollan_disabler_spawner = Tollan Weapon Disabler Spawner
 stool_tollan_disabler_create = Creates a Weapon Disabler
 stool_tollan_disabler_desc = Left click, to spawn or update a Weapon Disabler
@@ -376,7 +376,7 @@ stool_tollan_disabler_cleaned = Removed all Weapon Disablers
 stool_tollan_disabler_limit = Hit the Weapon Disabler limit
 stool_tollan_disabler_imm = Note: Immunity allows you to use your weapons, if disabler is online
 
-// Wraith Stun Bomb
+-- Wraith Stun Bomb
 stool_wraith_bomb_spawner = Créateur de Bombe Wraith
 stool_wraith_bomb_create = Créer une Bombe étourdissante Wraith
 stool_wraith_bomb_desc = Clique gauche pour créer la bombe
@@ -388,7 +388,7 @@ stool_wraith_bomb_yield = Production
 stool_wraith_bomb_timer = Temps
 stool_wraith_bomb_power = Puissance
 
-// Harvester
+-- Harvester
 stool_wraith_harvester_spawner = Créateur de Téléporteur Wraith
 stool_wraith_harvester_create = Créer un Téléporteur Wraith qui stocke les gens
 stool_wraith_harvester_desc = Clique gauche pour créer ou mettre à jour un Téléporteur Wraith
@@ -400,7 +400,7 @@ stool_wraith_harvester_suck = Stocker:
 stool_wraith_harvester_spit = Rematérialiser:
 stool_wraith_harvester_beam = Rayon toujours vers la bas
 
-// ZPM MK III
+-- ZPM MK III
 stool_zpm_mk3_spawner = Créateur E2PZ MK III
 stool_zpm_mk3_create = Créer un E2PZ MK III
 stool_zpm_mk3_desc = Clique gauche pour créer un E2PZ MK III

@@ -7,10 +7,10 @@ function ShieldCoreShouldCollide(ent1, ent2)
     local shield;
     local hitent;
 
-    // fast check, if we hitted other shield core (prevent errors)
+    -- fast check, if we hitted other shield core (prevent errors)
     if ((ent1:GetClass() == class) and (ent2:GetClass() == class)) then return false end
 
-    // fast check, if we hitted other prop (here was a bug!)
+    -- fast check, if we hitted other prop (here was a bug!)
     if (ent1:GetClass() == ent2:GetClass()) then return end
 
     if (ent1:GetClass() == class) then
@@ -28,10 +28,10 @@ function ShieldCoreShouldCollide(ent1, ent2)
     local shieldown = shield.Parent:GetOwner();
     local hitown = hitent:GetOwner();
 
-    // smal check for not colliding with world, shield generator
+    -- smal check for not colliding with world, shield generator
     if (hitclass == world or shield.Parent == hitent) then return false end
 
-     // if enabled and ((hit ent is player or prop owner in table) or (player or prop owner is immunity))
+     -- if enabled and ((hit ent is player or prop owner in table) or (player or prop owner is immunity))
     if (shield.Enabled and ((table.HasValue(shield.nocollide, hitent) or table.HasValue(shield.nocollide, hitent:GetOwner()))
     or (shield.Parent.Immunity and (shieldown == hitent or shieldown == hitown)) )) then
         if hitent:IsPlayer() then shield:PlayerPush(hitent) end // ugly but maybe will work:p

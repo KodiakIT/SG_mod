@@ -48,7 +48,7 @@ AddCSLuaFile();
 
 SWEP.CanThrow = true;
 SWEP.WepMode = 1;
-//self:SetNWInt("Mode",self.WepMode);
+--self:SetNWInt("Mode",self.WepMode);
 SWEP.NextUse = CurTime();
 SWEP.Kill = true;
 SWEP.Stun = false;
@@ -93,8 +93,8 @@ function SWEP:ThrowGrenade()
     vRight = pPlayer:GetRight();
     local vecSrc = vecEye + vForward * 18.0 + vRight * 8.0;
     vecSrc = self:CheckThrowPosition( pPlayer, vecEye, vecSrc );
-//    vForward.x = vForward.x + 0.1;
-//    vForward.y = vForward.y + 0.1;
+--    vForward.x = vForward.x + 0.1;
+--    vForward.y = vForward.y + 0.1;
 
     local vecThrow;
     vecThrow = pPlayer:GetVelocity();

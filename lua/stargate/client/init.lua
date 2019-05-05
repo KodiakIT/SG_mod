@@ -240,10 +240,10 @@ function StarGate.ShowCapMotd(title,text)
     --TACFrame:Center();
     TACFrame.Paint = function()
 
-        // Thanks Overv, http://www.facepunch.com/threads/1041686-What-are-you-working-on-V4-John-Lua-Edition
+        -- Thanks Overv, http://www.facepunch.com/threads/1041686-What-are-you-working-on-V4-John-Lua-Edition
         local matBlurScreen = Material( "pp/blurscreen" )
 
-        // Background
+        -- Background
         surface.SetMaterial( matBlurScreen )
         surface.SetDrawColor( 255, 255, 255, 255 )
 
@@ -255,7 +255,7 @@ function StarGate.ShowCapMotd(title,text)
         surface.SetDrawColor( 100, 100, 100, 150 )
         surface.DrawRect( 0, 0, ScrW(), ScrH() )
 
-        // Border
+        -- Border
         surface.SetDrawColor( 50, 50, 50, 255 )
         surface.DrawOutlinedRect( 0, 0, TACFrame:GetWide(), TACFrame:GetTall() )
 

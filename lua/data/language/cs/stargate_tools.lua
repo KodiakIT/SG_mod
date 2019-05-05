@@ -1,4 +1,4 @@
-﻿// Ramps
+﻿-- Ramps
 stool_ramp_spawner = Spawner Ramp
 stool_ramp_create = Vytvoří Rampu pro bránu
 stool_ramp_desc = Levý klik pro vytvoření
@@ -8,7 +8,7 @@ stool_ramp_cleaned = Smazány všechny Rampy
 stool_ramp_limit = Limit pro Rampy byl dosažen!
 stool_ramp_anim_limit = Limit pro Animované Rampy byl dosažen!
 
-// Ashen defence
+-- Ashen defence
 stool_ashen_defence_spawner = Spawner Ashenského Obranného Systému
 stool_ashen_defence_create = Vytvoří Ashenský Obranný Systém
 stool_ashen_defence_desc = Levý klik pro vytvoření
@@ -17,7 +17,7 @@ stool_ashen_defence_cleanup = Ashenské Obranné Systémy
 stool_ashen_defence_cleaned = Smazány všechny Ashenské Obranné Systémy
 stool_ashen_defence_limit = Limit pro Ashenské Obranné Systémy byl dosažen!
 
-// Asuran ZPM Hub
+-- Asuran ZPM Hub
 stool_asuran_zpm_hub_spawner = Spawner Asuranského ZPM Hub-u
 stool_asuran_zpm_hub_create = Vytvoří Asuranský ZPM Hub
 stool_asuran_zpm_hub_desc = Levý klik pro vytvoření
@@ -27,7 +27,7 @@ stool_asuran_zpm_hub_cleaned = Smazány všechny Asuranské ZPM Hub-y
 stool_asuran_zpm_hub_limit = Limit pro Asuranské ZPM Hub-y byl dosažen!
 stool_asuran_zpm_hub_fulldesc = Tohle je Hub pro ZPM. Potřebuje taky addon SpaceBuild nebo Environments. Pokud ani jeden nemáte, ZPM Hub je vám k ničemu.
 
-// Atlantis ZPM Hub
+-- Atlantis ZPM Hub
 stool_atlantis_zpm_hub_spawner = Spawner Atlantského ZPM Hub-u
 stool_atlantis_zpm_hub_create = Vytvoří Atlantský ZPM Hub
 stool_atlantis_zpm_hub_desc = Levý klik pro vytvoření
@@ -37,7 +37,7 @@ stool_atlantis_zpm_hub_cleaned = Smazány všechny Atlantské ZPM Hub-y
 stool_atlantis_zpm_hub_limit = Limit pro Atlantské ZPM Hub-y byl dosažen!
 stool_atlantis_zpm_hub_fulldesc = Tohle je Hub pro ZPM. Potřebuje taky addon SpaceBuild nebo Environments. Pokud ani jeden nemáte, ZPM Hub je vám k ničemu.
 
-// Gate Bearing
+-- Gate Bearing
 stool_bearing_spawner = Spawner Ložiska Brány
 stool_bearing_create = Vytvoří ložisko pro bránu Universe
 stool_bearing_desc = Levý klik pro vytvoření
@@ -49,7 +49,7 @@ stool_bearing_fulldesc = Ložisko visí ze stropu nad bránou v místností s br
 stool_bearing_err = Cíl není Brána Universe!
 stool_bearing_exs = Tahle brána už ložisko má!
 
-// Braziers
+-- Braziers
 stool_braziers_spawner = Spawner Pochodní
 stool_braziers_create = Vytvoří Pochodeň
 stool_braziers_desc = Levý klik pro vytvoření
@@ -58,7 +58,7 @@ stool_braziers_cleanup = Pochodně
 stool_braziers_cleaned = Smazány všechny Pochodně
 stool_braziers_limit = Limit pro Pochodně byl Dosažen!
 
-// Door Controller
+-- Door Controller
 stool_cap_door_contr_spawner = Spawner Ovládání Dveří
 stool_cap_door_contr_create = Vytvoří Ovládání Dveří
 stool_cap_door_contr_desc = Levý klik pro vytvoření
@@ -67,7 +67,7 @@ stool_cap_door_contr_cleanup = Ovládádání Dveří
 stool_cap_door_contr_cleaned = Smazány všechny Ovládádání Dveří
 stool_cap_door_contr_limit = Limit pro Ovládání Dveří byl dosažen!
 
-// Doors
+-- Doors
 stool_cap_doors_spawner = Spawner Dveří
 stool_cap_doors_create = Vytvoří Dveře
 stool_cap_doors_desc = Levý klik pro vytvoření
@@ -77,7 +77,7 @@ stool_cap_doors_cleaned = Smazány všechny Dveře
 stool_cap_doors_limit = Limit pro Dveře byl dosažen!
 stool_cap_doors_redt = Červená textura při Atlantském rámu 
 
-// Console
+-- Console
 stool_cappanel_spawner = Spawner Konzolí
 stool_cappanel_create = Vytvoří Konzoli
 stool_cappanel_desc = Levý klik pro vytvoření
@@ -86,7 +86,7 @@ stool_cappanel_cleanup = Konzole
 stool_cappanel_cleaned = Smazány všechny Konzole
 stool_cappanel_limit = Limit pro Konzole byl dosažen!
 
-// Control Panel
+-- Control Panel
 stool_controlpanel_spawner = Spawner Ovládacího Panelu
 stool_controlpanel_create = Vytvoří Ovládací Panel
 stool_controlpanel_desc = Levý klik pro vytvoření
@@ -95,7 +95,7 @@ stool_controlpanel_cleanup = Ovládací Panely
 stool_controlpanel_cleaned = Smazány všechny Ovládací Panely
 stool_controlpanel_limit = Limit pro Ovládací Panely byl dosažen!
 
-// Drones
+-- Drones
 stool_drones_spawner = Spawner Vypouštěče Střel
 stool_drones_create = Vytvoří Vypouštěč Střel
 stool_drones_desc = Levý klik pro vytvoření
@@ -108,7 +108,7 @@ stool_drones_kill = Zničit Střely:
 stool_drones_track = Sledovat cíl:
 stool_drones_eye_track = Oční ovládání:
 
-// Floor Chevron
+-- Floor Chevron
 stool_floorchevron_spawner = Spawner Podlažního Chevronu
 stool_floorchevron_create = Vytvoří Podlažní Chevron
 stool_floorchevron_desc = Levý klik pro vytvoření
@@ -120,7 +120,7 @@ stool_floorchevron_fulldesc = Chevron na podlaze před bránou který se rozsví
 stool_floorchevron_err = Cíl není Brána Universe!
 stool_floorchevron_exs = Tato brána už Podlažní Chevron má!
 
-// Goauld Iris
+-- Goauld Iris
 stool_goauld_iris_spawner = Spawner Goauldské Iris
 stool_goauld_iris_create = Vytvoří Goauldskou Iris
 stool_goauld_iris_desc = Levý klik pro vytvoření
@@ -129,7 +129,7 @@ stool_goauld_iris_cleanup = Goauldské Iris
 stool_goauld_iris_cleaned = Smazány všechny Goauldské Iris
 stool_goauld_iris_limit = Limit pro Goauldskou Iris byl dosažen!
 
-// Gravity Controller
+-- Gravity Controller
 stool_gravitycontroller_spawner = Spawner Gravitačního Stabilizéru
 stool_gravitycontroller_create = Postavte vesmírné lodě bez použití HoverBall, nebo prostě stabilizujte věci.
 stool_gravitycontroller_desc = Klikněte kde by jste chtěli spawnout Stabilizér, kliknutím na existující Stabilizér ho aktualizujete.

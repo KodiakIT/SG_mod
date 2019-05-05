@@ -83,7 +83,7 @@ if SERVER then
                                                 if (allow==nil or allow) then
                                                     self:StunEnt(ent);
                                                     self.Stun = false;
-                                                    //timer.Simple(10, function() self:Remove() end);
+                                                    --timer.Simple(10, function() self:Remove() end);
                                                     self:ResetSwep();
                                                     self:Remove();
                                                 end

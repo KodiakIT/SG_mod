@@ -179,7 +179,7 @@ if(SERVER) then
 end
 
 function TOOL:ControlsPanel(Panel)
-    //Panel:NumSlider(SGLanguage.GetMessage("stool_sgcs_fps"),"sgc_screen_fps",1,100,0);
+    --Panel:NumSlider(SGLanguage.GetMessage("stool_sgcs_fps"),"sgc_screen_fps",1,100,0);
     Panel:Button(SGLanguage.GetMessage("stool_sgcscreen_menu"),"sgc_screen_menu");
 
     Panel:CheckBox(SGLanguage.GetMessage("stool_autoweld"),"sgc_screen_autoweld");

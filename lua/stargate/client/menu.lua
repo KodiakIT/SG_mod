@@ -468,7 +468,7 @@ hook.Add( "StargateTab", "AddEntityContent", function( pnlContent, tree, node )
         {SGLanguage.GetMessage("spawninfo_news"),StarGate.HTTP.NEWS,"icon16/newspaper.png"},
         {SGLanguage.GetMessage("spawninfo_wiki"),StarGate.HTTP.WIKI,"icon16/page_white_text.png"},
         {SGLanguage.GetMessage("spawninfo_forum"),StarGate.HTTP.FORUM,"icon16/group.png"},
-        //{SGLanguage.GetMessage("spawninfo_multi"),multi_url,"icon16/user_go.png"},
+        --{SGLanguage.GetMessage("spawninfo_multi"),multi_url,"icon16/user_go.png"},
         {SGLanguage.GetMessage("spawninfo_fp"),StarGate.HTTP.FACEPUNCH,"icon16/transmit_blue.png"},
         {SGLanguage.GetMessage("spawninfo_donate"),StarGate.HTTP.DONATE,"icon16/money_add.png"},
     }
@@ -786,10 +786,10 @@ function CAP_Outdated()
         UpdateFrame:MakePopup();
         UpdateFrame.Paint = function()
 
-            // Thanks Overv, http://www.facepunch.com/threads/1041686-What-are-you-working-on-V4-John-Lua-Edition
+            -- Thanks Overv, http://www.facepunch.com/threads/1041686-What-are-you-working-on-V4-John-Lua-Edition
             local matBlurScreen = Material( "pp/blurscreen" )
 
-            // Background
+            -- Background
             surface.SetMaterial( matBlurScreen )
             surface.SetDrawColor( 255, 255, 255, 255 )
 
@@ -801,7 +801,7 @@ function CAP_Outdated()
             surface.SetDrawColor( 100, 100, 100, 150 )
             surface.DrawRect( 0, 0, ScrW(), ScrH() )
 
-            // Border
+            -- Border
             surface.SetDrawColor( 50, 50, 50, 255 )
             surface.DrawOutlinedRect( 0, 0, UpdateFrame:GetWide(), UpdateFrame:GetTall() )
 
@@ -1065,10 +1065,10 @@ function CAP_NotLegal()
         LegalFrame:MakePopup();
         LegalFrame.Paint = function()
 
-            // Thanks Overv, http://www.facepunch.com/threads/1041686-What-are-you-working-on-V4-John-Lua-Edition
+            -- Thanks Overv, http://www.facepunch.com/threads/1041686-What-are-you-working-on-V4-John-Lua-Edition
             local matBlurScreen = Material( "pp/blurscreen" )
 
-            // Background
+            -- Background
             surface.SetMaterial( matBlurScreen )
             surface.SetDrawColor( 255, 255, 255, 255 )
 
@@ -1080,7 +1080,7 @@ function CAP_NotLegal()
             surface.SetDrawColor( 100, 100, 100, 150 )
             surface.DrawRect( 0, 0, ScrW(), ScrH() )
 
-            // Border
+            -- Border
             surface.SetDrawColor( 50, 50, 50, 255 )
             surface.DrawOutlinedRect( 0, 0, LegalFrame:GetWide(), LegalFrame:GetTall() )
 

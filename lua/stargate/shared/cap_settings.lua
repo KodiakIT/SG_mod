@@ -641,9 +641,9 @@ local function SG_Settings_OpenNet()
     local AdminFrame = vgui.Create("DPanel");
     AdminFrame.Paint = function(self)
 
-        // Thanks Overv, http://www.facepunch.com/threads/1041686-What-are-you-working-on-V4-John-Lua-Edition
+        -- Thanks Overv, http://www.facepunch.com/threads/1041686-What-are-you-working-on-V4-John-Lua-Edition
 
-        // Background
+        -- Background
         /*surface.SetMaterial( matBlurScreen )
         surface.SetDrawColor( 255, 255, 255, 255 )
 
@@ -656,11 +656,11 @@ local function SG_Settings_OpenNet()
         surface.SetDrawColor( 100, 100, 100, 150 )
         surface.DrawRect( 0, 0, ScrW(), ScrH() )
 
-        // Border
+        -- Border
         surface.SetDrawColor( 50, 50, 50, 255 )
         surface.DrawOutlinedRect( 0, 0, CapConvarFrame:GetWide(), CapConvarFrame:GetTall() )
              */
-        // Small frames
+        -- Small frames
         local alpha = self:GetAlpha();
         local col = Color( 170, 170, 170, alpha);
         local col2 = Color( 100, 100, 100, alpha);
@@ -748,7 +748,7 @@ local function SG_Settings_OpenNet()
     local GroupConvarFrame = vgui.Create("DPanel");
     GroupConvarFrame.Paint = function(self)
 
-        // Small frames
+        -- Small frames
         local alpha = self:GetAlpha();
         local col = Color( 170, 170, 170, alpha);
         local col2 = Color( 100, 100, 100, alpha);
@@ -777,7 +777,7 @@ local function SG_Settings_OpenNet()
 
     local frame = vgui.Create("DPanel",GroupConvarFrame);
     frame.Paint = function(self)
-        // Small frames
+        -- Small frames
         local alpha = self:GetAlpha();
         local col = Color( 170, 170, 170, alpha);
         local col2 = Color( 100, 100, 100, alpha);
@@ -818,7 +818,7 @@ local function SG_Settings_OpenNet()
 
     local frame = vgui.Create("DPanel",GroupConvarFrame);
     frame.Paint = function(self)
-        // Small frames
+        -- Small frames
         local alpha = self:GetAlpha();
         local col = Color( 170, 170, 170, alpha);
         local col2 = Color( 100, 100, 100, alpha);
@@ -1144,7 +1144,7 @@ local function SG_Settings_OpenNet()
 
     local CapConvarFrame = vgui.Create("DPanel");
     CapConvarFrame.Paint = function(self)
-        // Small frames
+        -- Small frames
         local alpha = self:GetAlpha();
         local col = Color( 170, 170, 170, alpha);
         local col2 = Color( 100, 100, 100, alpha);
@@ -2225,7 +2225,7 @@ local function SG_Settings_OpenNet()
 
     local BackupFrame = vgui.Create("DPanel");
     BackupFrame.Paint = function(self)
-        // Small frames
+        -- Small frames
         local alpha = self:GetAlpha();
         local col = Color( 170, 170, 170, alpha);
         local col2 = Color( 100, 100, 100, alpha);
@@ -2376,7 +2376,7 @@ local function SG_Settings_OpenNet()
         if (CapPanel.lastCfgView and IsValid(CapPanel.lastCfgView) and CapPanel.lastCfgView.Remove) then CapPanel.lastCfgView:Remove() end
         local edit = vgui.Create("DFrame",BackupFrame);
         edit:SetSize(550,350);
-        //edit:SetPos(sizew/2-200,sizeh/2-200);
+        --edit:SetPos(sizew/2-200,sizeh/2-200);
         edit:SetTitle(name);
         edit:Center()
         edit:RequestFocus();

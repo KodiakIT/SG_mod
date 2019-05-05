@@ -89,8 +89,8 @@ function SWEP:ThrowGrenade()
     vRight = pPlayer:GetRight();
     local vecSrc = vecEye + vForward * 18.0 + vRight * 8.0;
     vecSrc = self:CheckThrowPosition( pPlayer, vecEye, vecSrc );
-//    vForward.x = vForward.x + 0.1;
-//    vForward.y = vForward.y + 0.1;
+--    vForward.x = vForward.x + 0.1;
+--    vForward.y = vForward.y + 0.1;
 
     local vecThrow;
     vecThrow = pPlayer:GetVelocity();
@@ -175,8 +175,8 @@ function SWEP:SecondaryAttack()
             local p = e:GetPhysicsObject()
             if (IsValid(p)) then
                 p:Wake()
-                //p:AddAngleVelocity(Vector(100,50,200))
-                //p:SetVelocity(self.Owner:GetAimVector()*Vector(250,250,0));
+                --p:AddAngleVelocity(Vector(100,50,200))
+                --p:SetVelocity(self.Owner:GetAimVector()*Vector(250,250,0));
             end
             --if(IsValid(self.Owner) and self.Owner:IsPlayer()) then self:TakePrimaryAmmo(1) end; -- Take one Ammo
             self.Ammo = self.Ammo - 1;

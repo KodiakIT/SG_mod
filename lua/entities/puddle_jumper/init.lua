@@ -78,7 +78,7 @@ function ENT:SpawnFunction(pl, tr)
     e:SpawnBulkHeadDoor(nil,pl)
     e:SpawnToggleButton(pl)
     e:SpawnShieldGen(pl)
-    //e:SpawnOpenedDoor();
+    --e:SpawnOpenedDoor();
     e.Owner = pl;
 
     pl:AddCount("CAP_ships",e)
@@ -94,7 +94,7 @@ function ENT:HangarSpawn(pl)
     self:SpawnBulkHeadDoor(nil,pl)
     self:SpawnToggleButton(pl)
     self:SpawnShieldGen(pl)
-    //e:SpawnOpenedDoor();
+    --e:SpawnOpenedDoor();
 end
 
 -- Over filled Init function @ RononDex

@@ -344,7 +344,7 @@ function StarGate.GateSpawner.Spawn(v,protect,k,k2)
                     local phys = e:GetPhysicsObject(); -- hey, unfreeze me!
                     if IsValid(phys) then phys:SetMass(200); phys:EnableMotion(true); end
 
-                    // weld to the gates
+                    -- weld to the gates
                     for _,sg in pairs(ents.FindInSphere(pos, 200)) do
                         if (IsValid(sg) and sg.IsStargate) then
                             local const=constraint.Weld(e, sg, 0, 0, 0, false)

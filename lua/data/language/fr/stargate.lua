@@ -1,4 +1,4 @@
-// All lines/sentences what come after "//" is comments and shouldn't be translated!
+-- All lines/sentences what come after "//" is comments and shouldn't be translated!
 
 // Global language name, will be displayed in language settings
 global_lang_name = Français
@@ -83,7 +83,7 @@ stargate_c_tool_23a = Appliquer
 stargate_c_tool_23r = Réinitialiser
 stargate_c_tool_23c = Annuler
 
-// Stargate VGUI menus
+-- Stargate VGUI menus
 stargate_vgui_address = Adresse:
 stargate_vgui_address2 = Adresse
 stargate_vgui_grouptype = Groupe/Type
@@ -156,13 +156,13 @@ stargate_dxlevel_03 =[[* Pas de kawoosh quand les Portes s'ouvrent.
 stargate_dxlevel_04 =[[SVP lancer Gmod en dessous du dxlevel 90 ou superieur (95 recommander).
 Ceci peut-etre changer avec la variable mat_dxlevel]]
 
-// Cap update reminter (for github users), type CAP_Outdated in console for get this message manually
+-- Cap update reminter (for github users), type CAP_Outdated in console for get this message manually
 stargate_updater_01 = Rappel de MàJ du CAP
 stargate_updater_02 = Votre Version du CAP est dépassée!\nVotre Version: %s Dernière version: %s
 stargate_updater_03 = Veuillez mettre à jour le CAP pour obtenir\nles nouvelles fonctionnalités et corrections de bugs!
 stargate_updater_04 = Fermer
 
-// spawn menu info
+-- spawn menu info
 spawninfo_title = Information
 spawninfo_load = Chargement...
 spawninfo_news = Nouvelles
@@ -175,7 +175,7 @@ spawninfo_multi_url = http://sg-carterpack.com/forums/forum/support/multi-langua
 spawninfo_fp = Fil d'actualité Facepunch
 spawninfo_donate = Faire un don
 
-// Stool - Credits tab
+-- Stool - Credits tab
 stargate_credits_01 = Crédits
 stargate_credits_02 = Ici, Vous pouvez rapporter tout bugs. si vous ne pouvez taper dans la zone de texte html, visitez %s avec votre navigateur.
 stargate_credits_03 = Impossible de déterminer la dernière version. Verifiez que vous êtes connectés à internet ou contactez CAP Team.
@@ -192,7 +192,7 @@ stargate_credits_13 = Bugs
 stargate_credits_14 = Si vous aimez ce que nous avons proposé ici et que vous voulez soutenir les développeurs, vous pouvez faire un don ici:
 stargate_credits_15 = Faire un don
 
-// Stool - Settings/Language tab
+-- Stool - Settings/Language tab
 stargate_settings_01 = Paramètres
 stargate_settings_02 = Visiter la page
 stargate_settings_02t = Comment traduire le Carter Addon Pack

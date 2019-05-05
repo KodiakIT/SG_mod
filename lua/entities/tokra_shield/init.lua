@@ -117,9 +117,9 @@ end
     local class = e:GetClass();
     local phys = e:GetPhysicsObject();
 
-    //Props
+    --Props
     if(phys:IsValid() and not (IS_NPC or e:IsPlayer())) then
-        //Anyone holds this object (Makes theses MingeBags unavailable to move props with physgun into the shield with the intention to exploit it)
+        --Anyone holds this object (Makes theses MingeBags unavailable to move props with physgun into the shield with the intention to exploit it)
         if(e:IsPlayerHolding()) then
             local id = e:EntIndex();
             phys:EnableMotion(false);
@@ -135,11 +135,11 @@ end
             );
             return;
         end
-        //Removes all old velocity from it before
+        --Removes all old velocity from it before
         phys:EnableMotion(false);
         phys:EnableMotion(true);
         phys:Wake();
-        //Now apply force!
+        --Now apply force!
         phys:ApplyForceOffset(normal*phys:GetMass()*1000,pos-20*normal);
     else
         local old_vel = e:GetVelocity():Length();

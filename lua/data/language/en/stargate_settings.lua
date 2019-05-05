@@ -131,7 +131,7 @@ stargate_cap_sbox_26 = ZPM MK III
 stargate_cap_sbox_27 = Supergate DHD
 stargate_cap_sbox_28 = Goauld Iris
 
-// Config Editor Tab
+-- Config Editor Tab
 stargate_cfg_reload = Reload config
 stargate_cfg_reloaded = Сonfig successfully reloaded!
 stargate_cfg_save = Save and reload
@@ -203,7 +203,7 @@ stargate_cfg_grp_reloaded = Stargate groups successfully reloaded!
 stargate_cfg_grp_save = Save groups and reload
 stargate_cfg_grp_saved = Stargate groups successfully saved!
 
-// Config Backups
+-- Config Backups
 stargate_cfg_backup_title = Config Backups Manager
 stargate_cfg_backup_file = File name
 stargate_cfg_backup_loading = Loading...
@@ -216,14 +216,14 @@ stargate_cfg_backup_desc_con = Do you want to restore the values from %s file?\n
 stargate_cfg_backup_cancel = Cancel
 stargate_cfg_backup_ok = Restore
 
-// Stargate Config Editor
+-- Stargate Config Editor
 sg_sets_global[damage] = Damage
 sg_sets_global[damage][desc] = Amount of damage
 sg_sets_global[radius] = Radius
 sg_sets_global[radius][desc] = Damage radius
 sg_sets_global[delay] = Delay
 
-// Stargate
+-- Stargate
 sg_sets[stargate] = Stargate
 sg_sets[stargate][autoclose] = Autoclose gates
 sg_sets[stargate][autoclose][desc] = Autoclose gates, after you left it?
@@ -254,7 +254,7 @@ sg_sets[stargate][res_trans_interval][desc] = Resource transfer cycle inteval in
 sg_sets[stargate][res_classes] = Allowed resource classes
 sg_sets[stargate][res_classes][desc] = Allowed resource classes to transfer, separate by comma, keep empty to allow any resources\nexample usage: water,oxygen,heavy water
 
-// Stargate gatespawner config
+-- Stargate gatespawner config
 sg_sets[gatespawner] = Gatespawner
 sg_sets[gatespawner][spawn_iris] = Spawn iris on gatespawner gates
 sg_sets[gatespawner][spawn_iris][desc] = Allow spawn iris on gatespawner gates by players
@@ -267,24 +267,24 @@ sg_sets[gatespawner][sv_save_props][desc] = Allow save welded props to gates/rin
 sg_sets[gatespawner][auto_respawn] = Auto respawn on removal
 sg_sets[gatespawner][auto_respawn][desc] = Auto restore gatespawner spawned entities if it was removed
 
-// DHD
+-- DHD
 sg_sets[dhd] = DHD (Dial Home Device)
 sg_sets[dhd][range] = Range
 sg_sets[dhd][range][desc] = How long is the range you can use it?
 
-// Staffweapon
+-- Staffweapon
 sg_sets[staff] = Staff Weapon
 sg_sets[staff][maxpasses] = Max passes
 sg_sets[staff][maxpasses][desc] = How much can a staff pulse go through breakable objects until it shall die?
 
-// Staff stationary
+-- Staff stationary
 sg_sets[staff_stationary] = Staff Stationary
 sg_sets[staff_stationary][energy_per_shot] = Energy per shot
 sg_sets[staff_stationary][energy_per_shot][desc] = Drained Energy per Shot? (Life Support)
 sg_sets[staff_stationary][maxpasses] = Max passes
 sg_sets[staff_stationary][maxpasses][desc] = How much can a staff pulse go through breakable objects until it shall die?
 
-// ZPM
+-- ZPM
 sg_sets[zpm_mk3] = ZPM MK3 (Zero Point Module)
 sg_sets[zpm_mk3][desc] = Note: changing this values may break energy balance for stargate 8 and 9 chevron dialling.
 sg_sets[zpm_mk3][capacity] = Capacity
@@ -292,19 +292,19 @@ sg_sets[zpm_mk3][capacity][desc] = How much Zero-Point-Energy can the ZPM hold? 
 sg_sets[zpm_mk3][energy_capacity] = Energy capacity
 sg_sets[zpm_mk3][energy_capacity][desc] = How much Zero-Point-Energy can a ZPM convert to "normal" energy?
 
-// Tampered ZPM
+-- Tampered ZPM
 sg_sets[tampered_zpm] = Tampered ZPM
 sg_sets[tampered_zpm][energy_capacity] = Energy capacity
 sg_sets[tampered_zpm][energy_capacity][desc] = How much Zero-Point-Energy can a ZPM convert to "normal" energy?
 
-// Naquadah Bottle
+-- Naquadah Bottle
 sg_sets[naquadah_bottle] = Naquadah Bottle
 sg_sets[naquadah_bottle][capacity] = Capacity
 sg_sets[naquadah_bottle][capacity][desc] = How much naquadah can the hold bottle?
 sg_sets[naquadah_bottle][energy_capacity] = Energy capacity
 sg_sets[naquadah_bottle][energy_capacity][desc] = How much naquadah from bottle can be converted to "normal" energy?
 
-// Zat'nik'tel
+-- Zat'nik'tel
 sg_sets[zat] = Zat'nik'tel
 sg_sets[zat][max_size] = Maximum size
 sg_sets[zat][max_size][desc] = Maximum size of an object or contraption to get dissolved?
@@ -314,7 +314,7 @@ sg_sets[zat][dissolve_distance] = Maximum dissolve distance
 sg_sets[zat][dissolve_distance][desc] = When you hit a contraption and the "flashes" move on the contraption, a entity which is below that distance away from the original hit position will get dissolved.
 sg_sets[zat][dissolve] = Allow dissolve
 
-// Shield
+-- Shield
 sg_sets[shield] = Shield (stool)
 sg_sets[shield][multiple_shields] = Allow multiple shields
 sg_sets[shield][multiple_shields][desc] = Allow multiple shields at the same position enabled at one time?
@@ -353,7 +353,7 @@ sg_sets[drone][energy_per_shot][desc] = Drained Energy per Shot? (Life Support)
 sg_sets[drone][maxspeed] = Maximum speed
 sg_sets[drone][maxspeed][desc] = Maxspeed of the drone. Setting this above 6000 will fail and/or crash your game. It also makes the drones fly ugly.
 
-// Harvester
+-- Harvester
 sg_sets[harvester] = Harvester (stool)
 sg_sets[harvester][max_ents] = Maxmimum entities
 sg_sets[harvester][max_ents][desc] = Maxmimum ammounts of entities to suck up
@@ -479,12 +479,12 @@ sg_sets[teltak][jump_distance][desc] = The Maximum Jump Distance
 sg_sets[teltak][allow_beam_weapon] = Ring Beam Weapon
 sg_sets[teltak][allow_beam_weapon][desc] = Allow Ring Beam Weapon
 
-// Atlantis Light
+-- Atlantis Light
 sg_sets[atlantis_light] = Atlantis Light
 sg_sets[atlantis_light][max_brightness] = Max brightness
 sg_sets[atlantis_light][max_size] = Max size
 
-// Wraith Grenade
+-- Wraith Grenade
 sg_sets[wraith_grenade] = Wraith Grenade
 sg_sets[wraith_grenade][blast_range] = Blast Range
 sg_sets[wraith_grenade][blast_range][desc] = How far the Blast can kill people?
@@ -492,18 +492,18 @@ sg_sets[wraith_grenade][detect_range] = Detect Range
 sg_sets[wraith_grenade][detect_range][desc] = How far will the grenade detect people when in Mine mode?
 sg_sets[wraith_grenade][blast_damage] = Blast damage
 
-// Kino dispenser
+-- Kino dispenser
 sg_sets[kino_dispenser] = Kino Dispenser
 sg_sets[kino_dispenser][max_kino] = Maximum kinos
 sg_sets[kino_dispenser][max_kino][desc] = Maximum kinos per player
 
-// AG-3
+-- AG-3
 sg_sets[ag_3] = AG-3 Satellite
 sg_sets[ag_3][health] = Health
 sg_sets[ag_3][recharge_time] = Charge time
 sg_sets[ag_3][recharge_time][desc] = Charge time, in seconds.
 
-// Ori Satellite
+-- Ori Satellite
 sg_sets[ori_satellite] = Ori Satellite
 sg_sets[ori_satellite][health] = Health
 sg_sets[ori_satellite][recharge_time] = Charge time
@@ -511,22 +511,22 @@ sg_sets[ori_satellite][recharge_time][desc] = Charge time, in seconds.
 sg_sets[ori_satellite][shield_time] = Shield recharge time
 sg_sets[ori_satellite][shield_time][desc] = Shield charge time, in seconds.
 
-// Ship railgun
+-- Ship railgun
 sg_sets[ship_railgun] = Ship Railgun
 
-// Stationary railgun
+-- Stationary railgun
 sg_sets[stationary_railgun] = Stationary Railgun
 
-// Shield core
+-- Shield core
 sg_sets[shield_core] = Shield Core
 sg_sets[shield_core][atlantis_hit] = Atlantis Shield Energy
 sg_sets[shield_core][atlantis_hit][desc] = Atlantis Shield Energy consumption multiplier on hit.
 
-// Ashen defence
+-- Ashen defence
 sg_sets[ashen_defence] = Ashen Defence
 sg_sets[ashen_defence][req_energy] = Require energy
 
-// Cap misc
+-- Cap misc
 sg_sets[cap_misc] = Cap Miscellaneous
 sg_sets[cap_misc][allow_drop_weapons] = Allow drop weapons
 sg_sets[cap_misc][allow_drop_weapons][desc] = Allow drop player weapons?

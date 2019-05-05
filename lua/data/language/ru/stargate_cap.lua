@@ -1,4 +1,4 @@
-// Rings
+-- Rings
 ring_ancient = Кольца (Древних)
 ring_goauld = Кольца (Гоаулдов)
 ring_ori = Кольца (Орай)
@@ -10,7 +10,7 @@ ring_dial = Введите адрес назначения (только циф�
 ring_dialb = Вызвать
 ring_error = Кольца с таким адресом уже существуют!
 
-// Weapon Entities
+-- Weapon Entities
 entity_weapon_cat = Оружие
 entity_ag3 = AG-3 Спутник
 entity_asgard_beam = Лучевое Оружие Азгардов
@@ -32,13 +32,13 @@ entity_shiprail = Корабельная пушка
 entity_stat_railgun = Стационарная пушка
 entity_staff_weapon = Стационарное орудие джаффа
 
-// Shaped Charge
+-- Shaped Charge
 entity_directional_nuke = Кумулятивный заряд
 directional_nuke_menu_t = Кумулятивный заряд - Таймер
 directional_nuke_menu_d = Время до взрыва:
 directional_nuke_menu_c = Отмена
 
-// Ship Entities
+-- Ship Entities
 entity_ships_cat = Корабли
 entity_daedalus = BC-304 Дедал
 entity_control_chair = Кресло управления
@@ -50,7 +50,7 @@ entity_jumper = Падл-джампер
 entity_teltak = TelTak
 entity_dart = Стрела Рейфов
 
-// Main Entities
+-- Main Entities
 entity_main_cat = Прочие устройства
 entity_obelisk = Обелиск Древних
 entity_antiprior = Устройство Анти-Приор
@@ -75,18 +75,18 @@ entity_stone_tablet = База коммуникационных камней
 entity_telchak = Устройство исцеления Telchak
 entity_atlantist = Телепорт Атлантиса
 
-// Sodan obelisk
+-- Sodan obelisk
 entity_sodan_obelisk = Содан Обелиск
 sodan_obelisk_menu = Установите пароль для обелиска (только цифры от 1 до 6!):
 
-// Npcs
+-- Npcs
 npc_cat = Персонажи
 npc_wraith = Рейф
 npc_prior = Приор
 npc_goauld = Гоаулд
 npc_soldier = Солдат
 
-// Player Weapons
+-- Player Weapons
 weapon_cat = Оружие игрока
 weapon_asuran = Пистолет Асуран
 weapon_hand_device = Нарукавное устройство
@@ -101,7 +101,7 @@ weapon_wraith_blaster = Бластер рейфов
 weapon_tac = Tac
 weapon_wraith_grenade = Граната рейфов
 
-// Player Misc Weapons
+-- Player Misc Weapons
 weapon_misc_cat = Прочее оружие
 weapon_misc_atanik = Atanik Armband
 weapon_misc_virus = AGV
@@ -121,7 +121,7 @@ weapon_misc_atl_medkit = Аптечка Атлантиды
 weapon_misc_lucian_door_opener = Люсианский открыватель дверей
 weapon_misc_lucian_door_opener_desc = Открывет двери вселенной\n\nЛевый клик для размещения устройства
 
-// Stools Cats
+-- Stools Cats
 stool_cat = Звёздные Врата
 stool_cat_config = Настройки
 stool_cat_tech = Технологии
@@ -130,19 +130,19 @@ stool_cat_weapons = Оружие
 stool_cat_keys = Управление кнопками
 stool_cat_ramps = Рампы
 
-// Stools Updater
+-- Stools Updater
 stool_update_01 = Ваша версия CAP устарела.
 stool_update_02 = Последняя версия:
 stool_update_03 = Если вы получаете это сообщение на интернет сервере, тогда скажите админам обновить аддон.
 
-// Stool Names - Config
+-- Stool Names - Config
 stool_credits = Авторы
 stool_settings = Настройки/Язык
 stool_weapvis = Визуальные (Оружие)
 stool_miscvis = Визуальные
 stool_shipvis = Визуальные (Корабли)
 
-// Stool Names - Tech
+-- Stool Names - Tech
 stool_brazier = Мангалы
 stool_bearing = Подшипник врат
 stool_door_c = Дверной контроллер
@@ -166,7 +166,7 @@ stool_controlpanel = Панель управления
 stool_sgcscreen = SGC Экраны
 stool_sgcscreen_srv = SGC Сервера
 
-// Stool Names - Energy
+-- Stool Names - Energy
 stool_asuran_hub = Асуран МНТ Хаб
 stool_atlantis_hub = Атлантис МНТ Хаб
 stool_naq_gen = Наквадах Генератор MK1/MK2
@@ -174,19 +174,19 @@ stool_sgc_hub = SGC МНТ Хаб
 stool_zpm_mk3 = МНТ 3 поколение
 stool_naq_bottle = Наквадах бутылка
 
-// Stool Names - Weapons
+-- Stool Names - Weapons
 stool_drones = Дроны
 stool_naq_bomb = Наквадах Бомба
 stool_staff = Посох джаффа
 stool_tzpm = Поддельный МНТ
 stool_wh_bomb = Бомба Рейфов
 
-// Stool Names - Ramps
+-- Stool Names - Ramps
 stool_anim_ramps = Анимированые Рампы
 stool_nanim_ramps = Статистические Рампы
 stool_ring_ramps = Рампы для колец
 
-// Stool Names - Keybinders
+-- Stool Names - Keybinders
 stool_key_daedalus = Дедал Настройки
 stool_key_dart = Стрела Рейфов Настройки
 stool_key_glider = Gate Glider Настройки
@@ -197,7 +197,7 @@ stool_key_malp = MALP Настройки
 stool_key_dest = Шатл Судьбы Настройки
 stool_key_teltak = Teltak Настройки
 
-// Stool Global
+-- Stool Global
 stool_autoweld = Авто-сварка
 stool_autolink = Авто-линк
 stool_autolink_desc = Автоматически прилинковать объект к ресурс ноду при спавне на нём?
@@ -214,7 +214,7 @@ stool_deactivate = Деактивировать:
 stool_immunity = Иммунитет
 stool_help = Помощь
 
-// Naquadah bomb menu
+-- Naquadah bomb menu
 entity_naq_bomb = Наквадах Бомба
 naq_bomb_menu_01 = Введите Код Детонации
 naq_bomb_menu_02 = Код Детонации:
@@ -230,7 +230,7 @@ naq_stool_menu_a_d = Автоматическая сварка бомбы с о�
 naq_stool_menu_code = Введите код который вы хотите использовать для детонации бомбы.
 naq_stool_menu_abort = Введите код который вы хотите использовать для отмены детонации бомбы.
 
-// Dakara
+-- Dakara
 ancient_control_panel = Панель управления Древних
 dakara_energy_kill = Дакара Энергетическая Волна
 dakara_panel = Панель управления Дакара
@@ -249,7 +249,7 @@ dakara_menu_10 = Установить дезинтеграцию NPCs.
 dakara_menu_11 = Закрыть
 dakara_menu_12 = Запуск
 
-// Atlantis transporter
+-- Atlantis transporter
 atl_tp_01 = Атлантис Транспортер - Настройки
 atl_tp_02 = Название пункта назначения:
 atl_tp_03 = Сохранить
@@ -263,7 +263,7 @@ atl_tp_local = Локальный
 atl_tp_group = Группа
 atl_tp_name = Название
 
-// Misc
+-- Misc
 kawoosh_hurt = Нестабильная Червоточина
 event_horizon = Горизонт Событий
 gate_nuke = Сгорел

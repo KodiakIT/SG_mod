@@ -283,7 +283,7 @@ function ENT:Think(ply)
 
     if (not self.Duped) then return end
 
-    // abort, if no valid parts!
+    -- abort, if no valid parts!
     if not (IsValid(self.Stand) and IsValid(self.Turn) and IsValid(self.Cann1) and IsValid(self.Cann2) and IsValid(self.Cann3)) then
         self.Entity:OnRemove();
         return
@@ -297,14 +297,14 @@ function ENT:Think(ply)
 
     if not (IsValid(self.StandPhys) and IsValid(self.TurnPhys) and IsValid(self.CannPhys1) and IsValid(self.CannPhys2) and IsValid(self.CannPhys3)) then return end
 
-    //physics can be frozen but cannot sleep!!
+    --physics can be frozen but cannot sleep!!
     self.TurnPhys:Wake();
     self.StandPhys:Wake();
     self.CannPhys1:Wake();
     self.CannPhys2:Wake();
     self.CannPhys3:Wake();
 
-    // get player in the chair
+    -- get player in the chair
     if IsValid(self.APC) then
         self.APCply = self.APC:GetPassenger(0)
         if IsValid(self.APCply) then
@@ -320,14 +320,14 @@ function ENT:PhysicsUpdate( phys, deltatime )
 
     if (not self.Duped) then return end
 
-    // abort, if no valid parts!
+    -- abort, if no valid parts!
     if not (IsValid(self.Stand) and IsValid(self.Turn) and IsValid(self.Cann1) and IsValid(self.Cann2) and IsValid(self.Cann3)) then
         self.Entity:OnRemove();
         return
     end
     if not (IsValid(self.StandPhys) and IsValid(self.TurnPhys) and IsValid(self.CannPhys1) and IsValid(self.CannPhys2) and IsValid(self.CannPhys3)) then return end
 
-    // calculate new angles for parts
+    -- calculate new angles for parts
     local newpitch = math.Clamp(self.Pitch, self.DownClamp, self.UpClamp);
     local CannAng = self.Stand:LocalToWorldAngles(Angle(-newpitch, 180+self.Yaw,0));
     local TurnAng = self.Stand:LocalToWorldAngles(Angle(0,self.Yaw,0));
@@ -337,7 +337,7 @@ function ENT:PhysicsUpdate( phys, deltatime )
     self.Cann2:SetAngles(CannAng);
     self.Cann3:SetAngles(CannAng);
 
-    // find a target
+    -- find a target
     local TargetPos = nil;
 
     if IsValid(self.APCply) then
@@ -358,7 +358,7 @@ function ENT:PhysicsUpdate( phys, deltatime )
         end
     end
 
-    // calculate local angles for target
+    -- calculate local angles for target
     if TargetPos then
         local world_oob = self.Cann2:LocalToWorld(self.Cann2:OBBCenter());
         local ShootAngle = (TargetPos - world_oob):Angle();
