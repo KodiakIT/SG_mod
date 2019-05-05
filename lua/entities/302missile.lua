@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
--- HEADER #################
+-- HEADER
 if SERVER then
 
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("ship")) then return end
@@ -41,7 +41,7 @@ ENT.AdminSpawnable = false
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
     language.Add("302missile",SGLanguage.GetMessage("entity_f302"));
 end
 

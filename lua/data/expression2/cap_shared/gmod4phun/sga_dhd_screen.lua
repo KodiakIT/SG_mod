@@ -172,7 +172,7 @@ Orange = 1
 if (GlyphColor == 1){
     GlyphColorActive = vec(255,130,0) #Orange
 }
-elseif (GlyphColor != 1){
+elseif (GlyphColor ~= 1){
     GlyphColorActive = vec(0,180,255) #Light Blue
 }
 GCA = GlyphColorActive
@@ -386,7 +386,7 @@ Yes = 1
 if (ShowAuthor == 1){
     EGP:egpText(81, "Made by Gmod4phun", vec2(348,488))
 }
-elseif (ShowAuthor !=1){
+elseif (ShowAuthor ~=1){
     EGP:egpText(81, "", vec2(348,488))
 }
 

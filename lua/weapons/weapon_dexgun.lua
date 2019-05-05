@@ -17,7 +17,7 @@
 */
 
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("weapon")) then return end
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 SWEP.PrintName = SGLanguage.GetMessage("weapon_ronongun");
 SWEP.Category = SGLanguage.GetMessage("weapon_cat");
 end
@@ -182,7 +182,7 @@ end
 if(file.Exists("materials/VGUI/weapons/dexgun_killicon.vmt","GAME")) then
     killicon.Add("weapon_dexgun","VGUI/weapons/dexgun_killicon",Color(255,255,255));
 end
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("HelicopterGun_ammo",SGLanguage.GetMessage("energy_cell"));
 language.Add("weapon_dexgun",SGLanguage.GetMessage("weapon_ronongun"));
 end

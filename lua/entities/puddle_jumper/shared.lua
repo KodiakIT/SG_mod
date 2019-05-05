@@ -1,4 +1,4 @@
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 
 ENT.RenderGroup = RENDERGROUP_OPAQUE
 ENT.Base = "base_anim"

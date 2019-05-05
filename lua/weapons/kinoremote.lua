@@ -20,7 +20,7 @@
 */
 
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("extra")) then return end
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 SWEP.PrintName = SGLanguage.GetMessage("weapon_misc_kino");
 SWEP.Category = SGLanguage.GetMessage("weapon_misc_cat");
 end
@@ -455,7 +455,7 @@ function SWEP:Think()
         local kino = ply:GetNWEntity("Kino", ply);
 
         local dlight = DynamicLight( LocalPlayer():EntIndex() )
-        if  (dlight and IsValid(kino) and kino != ply) then
+        if  (dlight and IsValid(kino) and kino ~= ply) then
             local r, g, b, a = 255, 255, 255, 255
             dlight.Pos = kino:GetPos()
             dlight.r = r

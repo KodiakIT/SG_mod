@@ -3,7 +3,7 @@
     Copyright (C) 2011  Llapp
 */
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"
 ENT.Base = "base_gmodentity" --gmodentity
 ENT.PrintName = "CFD"
@@ -15,7 +15,7 @@ list.Set("CAP.Entity", ENT.PrintName, ENT);
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.Category = SGLanguage.GetMessage("entity_main_cat");
 ENT.PrintName = SGLanguage.GetMessage("entity_cfd");
 language.Add("call_forwarding_device",SGLanguage.GetMessage("entity_cfd_full"));

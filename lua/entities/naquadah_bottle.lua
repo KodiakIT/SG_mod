@@ -1,4 +1,4 @@
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end -- When you need to add LifeSupport and Wire capabilities, you NEED TO CALL this before anything else or it wont work!
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end -- When you need to add LifeSupport and Wire capabilities, you NEED TO CALL this before anything else or it wont work!
 ENT.Type = "anim"
 ENT.Base = "base_gmodentity"
 ENT.PrintName = "Naquadah Bottle"
@@ -11,7 +11,7 @@ ENT.AdminSpawnable = false
 
 if SERVER then
 
--- HEADER #################
+-- HEADER
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("energy")) then return end
 AddCSLuaFile();
 -- SENT CODE
@@ -168,7 +168,7 @@ end
 if CLIENT then
 
 ENT.RenderGroup = RENDERGROUP_BOTH; -- This FUCKING THING avoids the clipping bug I have had for ages since stargate BETA 1.0. DAMN!
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("naquadah_bottle",SGLanguage.GetMessage("stool_naq_bottle"));
 end
 

@@ -3,7 +3,7 @@
     Copyright (C) 2012 by AlexALX
 */
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"
 ENT.PrintName = "Control Panel"
 ENT.Author    = "AlexALX"
@@ -46,7 +46,7 @@ ENT.ButtonPosAncient = {
 
 function ENT:ButtonPos(butt)
     if (self.ButtonPosVal) then
-        if (butt!=nil) then
+        if (butt~=nil) then
             return self.ButtonPosVal[butt];
         else
             return self.ButtonPosVal;
@@ -54,21 +54,21 @@ function ENT:ButtonPos(butt)
     end
     if (self.Entity:GetModel()=="models/zsdaniel/ori-ringpanel/panel.mdl") then
         self.ButtonPosVal = self.ButtonPosOri;
-        if (butt!=nil) then
+        if (butt~=nil) then
             return self.ButtonPosVal[butt];
         else
             return self.ButtonPosVal;
         end
     elseif (self.Entity:GetModel()=="models/madman07/ring_panel/ancient_panel.mdl") then
         self.ButtonPosVal = self.ButtonPosAncient;
-        if (butt!=nil) then
+        if (butt~=nil) then
             return self.ButtonPosVal[butt];
         else
             return self.ButtonPosVal;
         end
     end
     self.ButtonPosVal = self.ButtonPosGoauld;
-    if (butt!=nil) then
+    if (butt~=nil) then
         return self.ButtonPosVal[butt];
     else
         return self.ButtonPosVal;
@@ -122,7 +122,7 @@ function ENT:Draw()
     local eye = self.Entity:WorldToLocal(LocalPlayer():GetEyeTrace().HitPos)
     local len = (eye - self.Entity:Middle()):Length()
 
-    if (len <= 20 or address != "") then
+    if (len <= 20 or address ~= "") then
 
         local restalpha = 0;
         if (len <= 20) then restalpha = 50; end

@@ -17,7 +17,7 @@
 
 ]]--
 include('shared.lua');
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.Category = SGLanguage.GetMessage("entity_ships_cat");
 ENT.PrintName = SGLanguage.GetMessage("entity_daedalus");
 end
@@ -115,7 +115,7 @@ local function KeyPress()
 
     local p = LocalPlayer();
     local daedalus = p:GetNetworkedEntity("Daedalus");
-    if (IsValid(daedalus) and key != "") then
+    if (IsValid(daedalus) and key ~= "") then
         p:ConCommand("Daedalus_FireRocket "..daedalus:EntIndex().." "..key);
     end
 end

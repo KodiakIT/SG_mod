@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
--- HEADER #################
+-- HEADER
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("extra")) then return end
 -- Include
 AddCSLuaFile("cl_init.lua");
@@ -81,7 +81,7 @@ function ENT:Initialize()
         block:Activate();
         block:SetParent(ent);
         block:SetDerive(ent);
-        if (i!=0) then
+        if (i~=0) then
             block:SetColor(ent.Segments[1]:GetColor())
         end
         --block.CAP_NotSave = true;
@@ -156,7 +156,7 @@ function ENT:OnRemove()
             ent:Remove();
         end
     end
-    if self.Entity.Target != nil then
+    if self.Entity.Target ~= nil then
         if self.Entity.Target:IsValid() and self.Entity.Target.IsOpen == true then
             self.Entity.Target:Close()
         end

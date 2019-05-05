@@ -20,7 +20,7 @@
     (c) 2010 by http://alex-php.net/
 */
 
--- HEADER #################
+-- HEADER
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("extra")) then return end
 -- Include
 AddCSLuaFile("cl_init.lua");
@@ -188,7 +188,7 @@ ENT.SymbolsLockConceptGalaxy = {
     D = 351,
 }
 
--- SENT CODE ###############
+-- SENT CODE
 
 -- Init @aVoN
 function ENT:Initialize()
@@ -269,9 +269,9 @@ function ENT:ChangeSystemType(groupsystem,reload)
         self.SymbolsLockConcept = self.SymbolsLockConceptGalaxy;
         self.WireCharters = "A-Z1-9@#!";
         if (self:GetGateAddress():find("[0]")) then self:SetGateAddress("");
-        elseif (self:GetGateAddress()!="") then
+        elseif (self:GetGateAddress()~="") then
             for _,v in pairs(ents.FindByClass("stargate_*")) do
-                if (self.Entity != v.Entity and v.IsStargate and v:GetClass()!="stargate_supergate" and v:GetGateAddress()!="") then
+                if (self.Entity ~= v.Entity and v.IsStargate and v:GetClass()~="stargate_supergate" and v:GetGateAddress()~="") then
                     local address, a = self:GetGateAddress(), string.Explode("",v:GetGateAddress());
                     if (address:find(a[1]) and address:find(a[2]) and address:find(a[3]) and address:find(a[4]) and address:find(a[5]) and address:find(a[6])) then self:SetGateAddress(""); end
                 end
@@ -384,7 +384,7 @@ function ENT:ActivateRing(b,classic,loop,fast,dir)
             end
         end
         self:ActivateRingSound(pitch);
-        if (not dir or self.RingDir!=dir) then
+        if (not dir or self.RingDir~=dir) then
             if (self.RingDir==1) then self.RingDir = -1; else self.RingDir = 1 end
             self.Ring:Fire("Reverse","",0); -- Reverse direction first
         end
@@ -464,7 +464,7 @@ end
 function ENT:RingTickMovie()
     --for _,self in pairs(ents.FindByClass("stargate_movie")) do
         if (IsValid(self.Ring)) then
-            if (self.Outbound and self.Ring.Moving and self.DiallingSymbol != "" and self.DiallingChevron != "") then
+            if (self.Outbound and self.Ring.Moving and self.DiallingSymbol ~= "" and self.DiallingChevron ~= "") then
                 local angle = tonumber(math.NormalizeAngle(self.Ring.Entity:GetLocalAngles().r))+3;
                 local isconcept = self.IsConcept;
                 if (angle<0) then angle = angle+360; end
@@ -519,17 +519,17 @@ function ENT:RingTickMovie()
                             reset2 = false;
                         end
                     end
-                    if (reset and self.RingSymbol != "") then
+                    if (reset and self.RingSymbol ~= "") then
                         self.Entity:SetWire("Ring Symbol",""); -- Wire
                         self.RingSymbol = "";
                     end
-                    if (reset2 and self.RingSymbol7Chev != "") then
+                    if (reset2 and self.RingSymbol7Chev ~= "") then
                         self.Entity:SetWire("Ring Chev7 Symbol",""); -- Wire
                         self.RingSymbol7Chev = "";
                     end
                 end
             end
-            if (self.Ring.WireMoving and (self.WireEncodeSymbol!="" or self.WireLockSymbol!="")) then
+            if (self.Ring.WireMoving and (self.WireEncodeSymbol~="" or self.WireLockSymbol~="")) then
                 local angle = tonumber(math.NormalizeAngle(self.Ring.Entity:GetLocalAngles().r))--+3;
                 local isconcept = self.IsConcept;
                 if (angle<0) then angle = angle+360; end
@@ -538,12 +538,12 @@ function ENT:RingTickMovie()
                 if (isconcept) then symbols = self.SymbolsLockConcept; end
                 local nsym = self.WireEncodeSymbol;
                 local lock = false;
-                if (self.WireLockSymbol!="") then nsym = self.WireLockSymbol; lock = true; end
+                if (self.WireLockSymbol~="") then nsym = self.WireLockSymbol; lock = true; end
                 local need = tonumber(symbols[tonumber(nsym) or nsym]);
                 if (!need) then self:AbortDialling(); self.Ring.Moving = false; else
                     --need = need+3;
                     local chevron = 1;
-                    if (self.DiallingChevron!="") then
+                    if (self.DiallingChevron~="") then
                         if (self.Outbound and self.Ring.Moving) then
                             chevron = tonumber(self.DiallingChevron);
                         else
@@ -620,11 +620,11 @@ function ENT:RingTickMovie()
                             reset2 = false;
                         end
                     end
-                    if (reset and self.RingSymbol != "") then
+                    if (reset and self.RingSymbol ~= "") then
                         self.Entity:SetWire("Ring Symbol",""); -- Wire
                         self.RingSymbol = "";
                     end
-                    if (reset2 and self.RingSymbol7Chev != "") then
+                    if (reset2 and self.RingSymbol7Chev ~= "") then
                         self.Entity:SetWire("Ring Chev7 Symbol",""); -- Wire
                         self.RingSymbol7Chev = "";
                     end
@@ -635,7 +635,7 @@ function ENT:RingTickMovie()
                 if (angle<0) then angle = angle+360; end
                 local angle2 = angle;
                 local chevron = 1;
-                if (self.DiallingChevron!="") then
+                if (self.DiallingChevron~="") then
                     if (self.Outbound and self.Ring.Moving) then
                         chevron = tonumber(self.DiallingChevron);
                     else
@@ -672,11 +672,11 @@ function ENT:RingTickMovie()
                         reset2 = false;
                     end
                 end
-                if (reset and self.RingSymbol7Chev != "") then
+                if (reset and self.RingSymbol7Chev ~= "") then
                     self.Entity:SetWire("Ring Chev7 Symbol",""); -- Wire
                     self.RingSymbol7Chev = "";
                 end
-                if (reset2 and self.RingSymbol != "") then
+                if (reset2 and self.RingSymbol ~= "") then
                     self.Entity:SetWire("Ring Symbol",""); -- Wire
                     self.RingSymbol = "";
                 end
@@ -786,7 +786,7 @@ function ENT:TriggerInput(k,v,mobile,mdhd)
             end
         end
     elseif(k == "Activate chevron numbers" and not self.NewActive and not self.WireManualDial) then
-        if (v != "" and self:CheckEnergy(true,true)) then
+        if (v ~= "" and self:CheckEnergy(true,true)) then
             local chevs = v:gsub("[^0-9]",""):TrimExplode("");
             local sound = true;
             local act = false;
@@ -808,7 +808,7 @@ function ENT:TriggerInput(k,v,mobile,mdhd)
                 end
             end
             self:RunActions(action);
-            if (v!="000000000") then
+            if (v~="000000000") then
                 self.Entity:SetNWBool("ActChevronsL",true);
             else
                 self.Entity:SetNWBool("ActChevronsL",false);
@@ -851,7 +851,7 @@ function ENT:TriggerInput(k,v,mobile,mdhd)
             self:ApplyClassic()
         end
     elseif(k == "Encode Symbol" and not self.Active and (not self.NewActive or self.WireManualDial) and not self.WireBlock) then
-        if (v != "" and v:len()==1 and not self.Ring.WireMoving) then
+        if (v ~= "" and v:len()==1 and not self.Ring.WireMoving) then
             if (self:GetWire("Chevron",0,true)==0) then
                 self.WireManualDial = true;
                 local action = self.Sequence:New();
@@ -865,7 +865,7 @@ function ENT:TriggerInput(k,v,mobile,mdhd)
             self.Entity:SetWire("Dialing Symbol",v);
         end
     elseif(k == "Lock Symbol" and not self.Active and (not self.NewActive or self.WireManualDial) and not self.WireBlock) then
-        if (v != "" and v:len()==1 and not self.Ring.WireMoving) then
+        if (v ~= "" and v:len()==1 and not self.Ring.WireMoving) then
             if (self:GetWire("Chevron",0,true)==0) then
                 self.WireManualDial = true;
                 local action = self.Sequence:New();
@@ -907,7 +907,7 @@ end
 function ENT:ActivateChevron(chev,b,inbound,nosound)
     if(not (self and self.Chevron)) then return end;
     if(self.Chevron[chev]) then
-        if(b and self.Chevron[chev]:GetNetworkedString("ChevAnim") != "chevlocked") then
+        if(b and self.Chevron[chev]:GetNetworkedString("ChevAnim") ~= "chevlocked") then
             if (not IsValid(self.Chevron[chev])) then
                 self.Entity:Sparks(chev);
                 timer.Simple(0.1, function()

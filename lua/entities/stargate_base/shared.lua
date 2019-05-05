@@ -15,8 +15,8 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end -- When you need to add LifeSupport and Wire capabilities, you NEED TO CALL this before anything else or it wont work!
--- HEADER #################
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end -- When you need to add LifeSupport and Wire capabilities, you NEED TO CALL this before anything else or it wont work!
+-- HEADER
 ENT.Type = "anim";
 ENT.Author = "aVoN, AlexALX";
 ENT.PrintName = "stargate_base_entity";
@@ -53,7 +53,7 @@ StarGate.RegisterEventHorizon("sg1",{
 ENT.DialSlowDelay = 1.0
 ENT.DialFastTime = 7.0
 
--- SENT CODE ###############
+-- SENT CODE
 -- Defines
 -- Stores the chevron positions for the dyn-lights
 ENT.chev_pos = {

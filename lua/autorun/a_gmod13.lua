@@ -1,7 +1,7 @@
 -- Support for gmod13 by AlexALX
 -- This lib still needed for fix some problems and add removed functions
 
-if (Gmod13Lib!=nil) then return end -- prevent calling this file twice
+if (Gmod13Lib~=nil) then return end -- prevent calling this file twice
 
 if (SERVER) then
     AddCSLuaFile();

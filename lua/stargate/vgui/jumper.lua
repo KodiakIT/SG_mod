@@ -234,7 +234,7 @@ function PANEL:Paint()
                         surface.DrawText(SGLanguage.GetMessage("stargate_vgui_group").." "..v:GetGateGroup());
                     end
                 end
-                if(v:GetDialledAddress()!="") then
+                if(v:GetDialledAddress()~="") then
                     surface.SetTextPos(sX+60,sY-posy-(pos/75));
                     if (v:GetDialledAddress():find("?")) then
                         surface.DrawText(SGLanguage.GetMessage("jumper_hud_dial").." "..string.rep("*",v:GetDialledAddress():len()));

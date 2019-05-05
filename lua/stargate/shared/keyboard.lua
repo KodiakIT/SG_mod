@@ -265,7 +265,7 @@ if (CLIENT) then
                     end
                 end
                 local lang = "";
-                if (SGLanguage!=nil and SGLanguage.GetClientLanguage!=nil) then lang = SGLanguage.GetClientLanguage(); end
+                if (SGLanguage~=nil and SGLanguage.GetClientLanguage~=nil) then lang = SGLanguage.GetClientLanguage(); end
                 local os = 0;
                 if system.IsLinux() then
                     os = 1;

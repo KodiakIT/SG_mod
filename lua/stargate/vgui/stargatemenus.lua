@@ -156,7 +156,7 @@ hook.Add("GUIMousePressed","StarGate.DHD.GUIMousePressed_Group",
                 DHD = trace.Entity;
                 if (DHD:GetPos():Distance(p:GetPos()) > 110) then return end
                 local btn = DHD:GetCurrentButton(p);
-                if(btn and btn != "IRIS") then
+                if(btn and btn ~= "IRIS") then
                     p:ConCommand("_StarGate.DHD.AddSymbol_Group "..DHD:EntIndex().." "..btn);
                     -- Add/Remove symbols
                     if(btn ~= "DIAL") then
@@ -247,7 +247,7 @@ function PANEL:SetSettings(entity,groupsystem,alternatemenu,candialg)
     }
 
     self.blocked_allowed = true;
-    if (entity:GetNetworkedInt("SG_BLOCK_ADDRESS")<=0 or entity:GetNetworkedInt("SG_BLOCK_ADDRESS")==1 and self.Class!="stargate_universe" or self.Class=="stargate_supergate") then
+    if (entity:GetNetworkedInt("SG_BLOCK_ADDRESS")<=0 or entity:GetNetworkedInt("SG_BLOCK_ADDRESS")==1 and self.Class~="stargate_universe" or self.Class=="stargate_supergate") then
         self.blocked_allowed = false;
     end
 
@@ -263,7 +263,7 @@ function PANEL:SetSettings(entity,groupsystem,alternatemenu,candialg)
         pos = {103,129,130};
     elseif (self.GroupSystem) then
         self.VGUI.LocaleCheckbox = vgui.Create("DCheckBoxLabel",self);
-    elseif (self.Class!="stargate_universe") then
+    elseif (self.Class~="stargate_universe") then
         pos = {103,142,130,160};
         if (not self.blocked_allowed) then
             pos[2] = 136;
@@ -311,7 +311,7 @@ function PANEL:SetSettings(entity,groupsystem,alternatemenu,candialg)
                 timer.Remove("_StarGate.RefreshAddressList");
                 timer.Create("_StarGate.RefreshAddressList",0.25,1,
                     function()
-                        if(self!=nil and self.VGUI!=nil) then
+                        if(self~=nil and self.VGUI~=nil) then
                             self.VGUI.AddressSelect:RefreshList(true);
                         end
                     end
@@ -364,7 +364,7 @@ function PANEL:SetSettings(entity,groupsystem,alternatemenu,candialg)
         end
     end
 
-    if (self.Class!="stargate_supergate") then
+    if (self.Class~="stargate_supergate") then
         if (self.GroupSystem) then
             -- The Local Checkbox
             self.VGUI.LocaleCheckbox:SetPos(75,175);
@@ -382,7 +382,7 @@ function PANEL:SetSettings(entity,groupsystem,alternatemenu,candialg)
                         timer.Remove("_StarGate.RefreshAddressList");
                         timer.Create("_StarGate.RefreshAddressList",0.25,1,
                             function()
-                                if(self!=nil and self.VGUI!=nil) then
+                                if(self~=nil and self.VGUI~=nil) then
                                     self.VGUI.AddressSelect:UpdateLocalStage(b);
                                     self.VGUI.AddressSelect:RefreshList(true);
                                 end
@@ -391,7 +391,7 @@ function PANEL:SetSettings(entity,groupsystem,alternatemenu,candialg)
                     end
                 end
             end
-        elseif (self.Class!="stargate_universe") then
+        elseif (self.Class~="stargate_universe") then
             self.VGUI.GalaxyCheckbox:SetPos(75,145);
             self.VGUI.GalaxyCheckbox:SetText(SGLanguage.GetMessage("stargate_galaxy_vgui"));
             local tip = SGLanguage.GetMessage("stargate_galaxy_vgui_tip");
@@ -407,7 +407,7 @@ function PANEL:SetSettings(entity,groupsystem,alternatemenu,candialg)
                         timer.Remove("_StarGate.RefreshAddressList");
                         timer.Create("_StarGate.RefreshAddressList",0.25,1,
                             function()
-                                if(self!=nil and self.VGUI!=nil) then
+                                if(self~=nil and self.VGUI~=nil) then
                                     self.VGUI.AddressSelect:RefreshList(true);
                                 end
                             end
@@ -475,10 +475,10 @@ function PANEL:LoadSettings()
     self.VGUI.AddressPanel:LoadSettings();
     self.VGUI.NameTextEntry:SetText(self.Entity:GetGateName());
     self.VGUI.PrivateCheckbox:SetValue(self.Entity:GetPrivate());
-    if (self.Class!="stargate_supergate") then
+    if (self.Class~="stargate_supergate") then
         if (self.GroupSystem) then
             self.VGUI.LocaleCheckbox:SetValue(self.Entity:GetLocale());
-        elseif (self.Class!="stargate_universe") then
+        elseif (self.Class~="stargate_universe") then
             self.VGUI.GalaxyCheckbox:SetValue(self.Entity:GetGalaxy());
         end
     end
@@ -549,13 +549,13 @@ function PANEL:OnOpen()
     if(self.Data.MouseX and self.Data.MouseY) then
         gui.SetMousePos(self.Data.MouseX,self.Data.MouseY);
     end
-    if (not self.Alternative and self.Data.SizeH!=nil and self.Data.SizeW!=nil) then
+    if (not self.Alternative and self.Data.SizeH~=nil and self.Data.SizeW~=nil) then
         self:SetSize(self.Data.SizeW,self.Data.SizeH);
     end
-    if (self.Data.PosX!=nil and self.Data.PosY!=nil) then
+    if (self.Data.PosX~=nil and self.Data.PosY~=nil) then
         self:SetPos(self.Data.PosX,self.Data.PosY);
     end
-    if (self.Data.DialType!=nil and self.VGUI.AddressSelect!=nil) then
+    if (self.Data.DialType~=nil and self.VGUI.AddressSelect~=nil) then
         self.VGUI.AddressSelect:SetDialType(self.Data.DialType);
     end
 end
@@ -714,7 +714,7 @@ function PANEL:SetSettings(entity,groupsystem,candialg,nox,orlin)
                 timer.Remove("_StarGate.RefreshAddressList");
                 timer.Create("_StarGate.RefreshAddressList",0.25,1,
                     function()
-                        if(self!=nil and self.VGUI!=nil) then
+                        if(self~=nil and self.VGUI~=nil) then
                             self.VGUI.AddressSelect:RefreshList(true);
                         end
                     end
@@ -1374,7 +1374,7 @@ function PANEL:SetStatusGroup(s,g,no_message,letters,gs)
         local letters = s:TrimExplode("");
         local valid = true;
         local set = true;
-        if (l!="") then
+        if (l~="") then
             valid = false;
         end
         if (valid) then
@@ -1389,7 +1389,7 @@ function PANEL:SetStatusGroup(s,g,no_message,letters,gs)
                     address:find(letters[6]) and
                     (g == group or g:sub(1,1) == group:sub(1,1))
                 ) then
-                    if (self.Entity:GetNetworkedInt("SG_ATL_OVERRIDE")<=0 or (v.class=="stargate_atlantis" and self.Entity:GetClass()=="stargate_atlantis" or v.class!="stargate_atlantis" and self.Entity:GetClass()!="stargate_atlantis") or g:sub(1,1) == group:sub(1,1) and g:sub(2,2) != group:sub(2,2)) then
+                    if (self.Entity:GetNetworkedInt("SG_ATL_OVERRIDE")<=0 or (v.class=="stargate_atlantis" and self.Entity:GetClass()=="stargate_atlantis" or v.class~="stargate_atlantis" and self.Entity:GetClass()~="stargate_atlantis") or g:sub(1,1) == group:sub(1,1) and g:sub(2,2) ~= group:sub(2,2)) then
                         if(tonumber(v.ent) == self.Entity:EntIndex()) then -- We have entered the same/similar address we had before - So we haven't changed anything
                             if (group:find(g)) then
                                 set = false;
@@ -1411,7 +1411,7 @@ function PANEL:SetStatusGroup(s,g,no_message,letters,gs)
             if(not no_message) then
                 -- Have we set the address or is it the old from before?
                 if(set) then
-                    if (IsValid(self.Entity) and self.Entity.GetGateGroup and g != self.Entity:GetGateGroup()) then
+                    if (IsValid(self.Entity) and self.Entity.GetGateGroup and g ~= self.Entity:GetGateGroup()) then
                         self:ShowMessage(SGLanguage.GetMessage("stargate_vgui_valid4"),"Info");
                     else
                         self:ShowMessage(SGLanguage.GetMessage("stargate_vgui_valid2"),"Info");
@@ -1445,9 +1445,9 @@ function PANEL:SetStatusGroup(s,g,no_message,letters,gs)
             self.VGUI.StatusImage:SetImage(self.Images.Invalid);
             self.VGUI.StatusLabel:SetText(SGLanguage.GetMessage("stargate_vgui_invalid"));
             self.VGUI.GroupStatus:SetText(SGLanguage.GetMessage("stargate_vgui_invalid"));
-            if (l!="" and l:len()==1) then
+            if (l~="" and l:len()==1) then
                 self:ShowMessage(SGLanguage.GetMessage("stargate_vgui_symused",l),"Warning");
-            elseif (l!="" and l:len()==2) then
+            elseif (l~="" and l:len()==2) then
                 self:ShowMessage(SGLanguage.GetMessage("stargate_vgui_symsused",l),"Warning");
             else
                 self:ShowMessage(SGLanguage.GetMessage("stargate_vgui_adrexs"),"Warning");
@@ -1474,7 +1474,7 @@ function PANEL:SetStatusGroup(s,g,no_message,letters,gs)
         else
             self.VGUI.GroupStatus:SetText(SGLanguage.GetMessage("stargate_vgui_grpc"));
         end
-    elseif(len == 0 and g:len() == 2 and g != self.Entity:GetGateGroup()) then
+    elseif(len == 0 and g:len() == 2 and g ~= self.Entity:GetGateGroup()) then
         -- Cleared this gate's address
         self.VGUI.StatusImage:SetImage("null");
         self.VGUI.StatusLabel:SetText("");
@@ -1543,7 +1543,7 @@ function PANEL:SetStatusSGU(s,g,no_message,letters,gs)
         local valid = true;
         local valid_type = true;
         local set = true;
-        if (l!="") then
+        if (l~="") then
             valid = false;
         end
         if (valid) then
@@ -1583,7 +1583,7 @@ function PANEL:SetStatusSGU(s,g,no_message,letters,gs)
             if(not no_message) then
                 -- Have we set the address or is it the old from before?
                 if(set) then
-                    if (IsValid(self.Entity) and self.Entity.GetGateGroup and g != self.Entity:GetGateGroup()) then
+                    if (IsValid(self.Entity) and self.Entity.GetGateGroup and g ~= self.Entity:GetGateGroup()) then
                         self:ShowMessage(SGLanguage.GetMessage("stargate_vgui_valid5"),"Info");
                     else
                         self:ShowMessage(SGLanguage.GetMessage("stargate_vgui_valid2"),"Info");
@@ -1613,9 +1613,9 @@ function PANEL:SetStatusSGU(s,g,no_message,letters,gs)
             self.VGUI.StatusImage:SetImage(self.Images.Invalid);
             self.VGUI.StatusLabel:SetText(SGLanguage.GetMessage("stargate_vgui_invalid"));
             self.VGUI.GroupStatus:SetText(SGLanguage.GetMessage("stargate_vgui_invalid"));
-            if (l!="" and l:len()==1) then
+            if (l~="" and l:len()==1) then
                 self:ShowMessage(SGLanguage.GetMessage("stargate_vgui_symused",l),"Warning");
-            elseif (l!="" and l:len()>=2) then
+            elseif (l~="" and l:len()>=2) then
                 self:ShowMessage(SGLanguage.GetMessage("stargate_vgui_symsused",l),"Warning");
             else
                 if (valid_type) then
@@ -1642,7 +1642,7 @@ function PANEL:SetStatusSGU(s,g,no_message,letters,gs)
         else
             self.VGUI.GroupStatus:SetText(SGLanguage.GetMessage("stargate_vgui_grpc2"));
         end
-    elseif(len == 0 and g:len() == 3 and g != self.Entity:GetGateGroup()) then
+    elseif(len == 0 and g:len() == 3 and g ~= self.Entity:GetGateGroup()) then
         local valid = true;
         local set = true;
         for _,v in pairs(self:GetGates()) do
@@ -2380,10 +2380,10 @@ function PANEL:AddGatesToList(s)
                 elseif (self.Entity.IsDHD == true) then
                     ent = self.Entity:GetParent();
                 end
-                if(address != "" and group != "" and IsValid(ent) and (not locale and not ent:GetLocale() and not self.LocalGate or (ent:GetGateGroup() == group or v.class=="stargate_universe" and ent:GetClass()=="stargate_universe")) and (address!=ent:GetGateAddress() or group!=ent:GetGateGroup())) then
+                if(address ~= "" and group ~= "" and IsValid(ent) and (not locale and not ent:GetLocale() and not self.LocalGate or (ent:GetGateGroup() == group or v.class=="stargate_universe" and ent:GetClass()=="stargate_universe")) and (address~=ent:GetGateAddress() or group~=ent:GetGateGroup())) then
                     local range = (ent:GetPos() - v.pos):Length();
                     local c_range = ent:GetNetworkedInt("SGU_FIND_RANDE"); -- GetConVar("stargate_sgu_find_range"):GetInt();
-                    if (ent:GetGateGroup() != group and (v.class!="stargate_universe" or ent:GetClass()!="stargate_universe") or c_range > 0 and range>c_range and ent:GetGateGroup():len()==3) then
+                    if (ent:GetGateGroup() ~= group and (v.class~="stargate_universe" or ent:GetClass()~="stargate_universe") or c_range > 0 and range>c_range and ent:GetGateGroup():len()==3) then
                         if (locale or ent:GetLocale()) then    continue end
                         if (ent:GetGateGroup():len()==3 and group:len()==3 or ent:GetGateGroup():len()==2 and group:len()==2) then
                             address = address..group:sub(1,1);

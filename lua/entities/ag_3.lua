@@ -18,7 +18,7 @@ list.Set("CAP.Entity", ENT.PrintName, ENT);
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
     ENT.Category = SGLanguage.GetMessage("entity_weapon_cat");
     ENT.PrintName = SGLanguage.GetMessage("entity_ag3");
 end
@@ -87,7 +87,7 @@ function ENT:FindSatellites(ent)
     local isfirst = true;
 
     for _,v in pairs(ents.FindByClass("ag_3")) do
-        if IsValid(v) and v != ent then
+        if IsValid(v) and v ~= ent then
             if (v.Owner == ent.Owner) then
                 isfirst = false;
                 if v.IsMaster then
@@ -194,7 +194,7 @@ end
 
 function ENT:StartTouch(ent)
     if IsValid(ent) and ent:IsVehicle() then
-        if self.IsMaster and self.APC != ent then
+        if self.IsMaster and self.APC ~= ent then
             local ed = EffectData()
                 ed:SetEntity( ent )
             util.Effect( "propspawn", ed, true, true )

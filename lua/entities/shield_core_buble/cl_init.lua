@@ -4,7 +4,7 @@
 ]]--
 
 include('shared.lua');
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("shield_core_buble",SGLanguage.GetMessage("ship_core_buble"));
 end
 

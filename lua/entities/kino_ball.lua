@@ -301,7 +301,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("kino_ball", SGLanguage.GetMessage("entity_kino"))
 end
 

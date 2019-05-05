@@ -17,7 +17,7 @@ ENT.Untouchable = true
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.Category = SGLanguage.GetMessage("entity_main_cat");
 end
 
@@ -65,7 +65,7 @@ net.Receive( "CAP_LDO_SpriteColorUpdate", function()
     local tab = net.ReadTable()
     local color = net.ReadColor()
     for _,device in pairs(tab) do
-        if device != NULL then
+        if device ~= NULL then
             device.SpriteColor = color
         end
     end
@@ -149,7 +149,7 @@ function ENT:Use(activator,_,use)
 
     if IsValid(self.Entity) and IsValid(self.Entity.TargetDoor) and !activator:KeyDown(IN_WALK) then
 
-        if self.Entity.TargetDoor.Open != true and self.Entity.TargetDoor.CanDoAnim then
+        if self.Entity.TargetDoor.Open ~= true and self.Entity.TargetDoor.CanDoAnim then
             self:EmitSound("npc/scanner/cbot_servoscared.wav",70,100)
             timer.Simple(0.7, function() if IsValid(self) and IsValid(self.TargetDoor) then self:EmitSound("npc/scanner/combat_scan4.wav",70,100) self:UpdateSpriteColor(Color(0,255,0)) end end)
             timer.Simple(1.2, function() if IsValid(self) and IsValid(self.TargetDoor) then self.TargetDoor:Toggle() end end)
@@ -167,7 +167,7 @@ end
 
 function ENT:Touch(ent)
 
-    if ent:GetClass() == "cap_doors" and ent:GetModel() == "models/madman07/doors/dest_door.mdl" and ent.Attached != true then
+    if ent:GetClass() == "cap_doors" and ent:GetModel() == "models/madman07/doors/dest_door.mdl" and ent.Attached ~= true then
         ent.Attached = true
         self.Entity.IsMain = true
         self.Entity.TargetDoor = ent
@@ -179,7 +179,7 @@ function ENT:Touch(ent)
         constraint.NoCollide(self.Entity,self.Entity.TargetDoor,0,0)
     end
 
-    if ent:GetClass() == "cap_doors_frame" and ent:GetModel() == "models/madman07/doors/dest_frame.mdl" and ent.Door.Attached != true then
+    if ent:GetClass() == "cap_doors_frame" and ent:GetModel() == "models/madman07/doors/dest_frame.mdl" and ent.Door.Attached ~= true then
         ent.Door.Attached = true
         self.Entity.IsMain = true
         self.Entity.TargetDoor = ent.Door
@@ -201,7 +201,7 @@ function ENT:Think()
         return
     end
 
-    if (self.GetTimer!=0 and CurTime()-self.GetTimer>0) then
+    if (self.GetTimer~=0 and CurTime()-self.GetTimer>0) then
         local activator = self.Activator
         if (IsValid(activator)) then
             activator:Give("lucian_door_opener_wep")

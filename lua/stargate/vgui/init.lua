@@ -232,10 +232,10 @@ function PANEL:OnOpen()
     self.AlphaTime = CurTime(); -- For the FadeIn/Out
     self.FadeOut = nil;
     self:SetAlpha(1); -- We will fade in!
-    if (self.Data.Width!=nil and self.Data.Heigth!=nil) then
+    if (self.Data.Width~=nil and self.Data.Heigth~=nil) then
         self:SetSize(self.Data.Width,self.Data.Heigth);
     end
-    if (self.Data.X!=nil and self.Data.Y!=nil) then
+    if (self.Data.X~=nil and self.Data.Y~=nil) then
         self:SetPos(self.Data.X,self.Data.Y);
     end
 end
@@ -411,11 +411,11 @@ local function OnInitialize()
     GAMEMODE.__OnSpawnMenuClose = GAMEMODE.__OnSpawnMenuClose or GAMEMODE.OnSpawnMenuClose;
     function GAMEMODE:OnContextMenuClose()
         if(IsValid(CURRENT) and CURRENT.Edit) then return end;
-        if (self.__OnContextMenuClose!=nil) then self.__OnContextMenuClose(self) end
+        if (self.__OnContextMenuClose~=nil) then self.__OnContextMenuClose(self) end
     end
     function GAMEMODE:OnSpawnMenuClose()
         if(IsValid(CURRENT) and CURRENT.Edit) then return end;
-        if (self.__OnSpawnMenuClose!=nil) then self.__OnSpawnMenuClose(self) end
+        if (self.__OnSpawnMenuClose~=nil) then self.__OnSpawnMenuClose(self) end
     end
 end
 hook.Add("Initialize","SKeyboardKey.Initialize",OnInitialize);

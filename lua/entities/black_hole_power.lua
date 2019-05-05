@@ -1,4 +1,4 @@
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 
 ENT.Type = "anim"
 ENT.Base = "base_gmodentity"
@@ -17,7 +17,7 @@ ENT.NoDissolve = true
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.Category = SGLanguage.GetMessage("entity_main_cat");
 ENT.PrintName = SGLanguage.GetMessage("entity_black_hole");
 end
@@ -95,7 +95,7 @@ function ENT:Initialize()
         end
     end
 
-    if(WireAddon != nil) then
+    if(WireAddon ~= nil) then
         self.WireDebugName = self.PrintName
         self.Outputs = Wire_CreateOutputs(self.Entity, {"Resource Amount"})
         Wire_TriggerOutput(self.Entity, "Resource Amount", self.MaxAmount)

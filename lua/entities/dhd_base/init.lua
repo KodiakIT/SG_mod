@@ -21,7 +21,7 @@
     Copyright (C) 2011 Madman07
 ]]--
 
--- HEADER #################
+-- HEADER
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("base")) then return end
 
 -- Include
@@ -32,7 +32,7 @@ include("shared.lua");
 ENT.CDSIgnore = true; -- Make it undestroyable by Combad Damage System
 function ENT:gcbt_breakactions() end; ENT.hasdamagecase = true; -- GCombat invulnarability!
 
--- SENT CODE #################
+-- SENT CODE
 ENT.Model = "models/MarkJaw/dhd_new/dhd_base.mdl"
 ENT.ModelBroken = "models/MarkJaw/dhd_new/dhd_open.mdl"
 ENT.PlorkSound = "stargate/dhd_sg1.mp3"; -- The old sound
@@ -168,7 +168,7 @@ function ENT:Initialize()
         self:CreateWireInputs("Press Button","Disable Menu","Hide Letters","Wire Disable DHD Sound","Buttons Mode","Lock Buttons","Lock Main Button","Lock to Gate [ENTITY]","Disable DHD");
     end
     self:CreateWireOutputs("Pressed Buttons [STRING]");
-    if (self.SkinBase != nil) then
+    if (self.SkinBase ~= nil) then
         self.Entity:Fire("skin",self.SkinBase);
     end
     self.Range = StarGate.CFG:Get("dhd","range",1000);
@@ -444,7 +444,7 @@ function ENT:DestroyEffect(noeffect)
             if IsValid(gate) then
                 local workingdhd = false;
                 for _,v in pairs(gate:FindDHD(true)) do
-                    if (v != self and not v.Destroyed) then workingdhd = true end
+                    if (v ~= self and not v.Destroyed) then workingdhd = true end
                 end
                 if (gate:CheckEnergyDHD()) then workingdhd = true end
                 if not workingdhd then gate:Flicker(1); end
@@ -457,7 +457,7 @@ function ENT:DestroyEffect(noeffect)
             if IsValid(gate) then
                 local workingdhd = false;
                 for _,v in pairs(gate:FindDHD(true)) do
-                    if (v != self and not v.Destroyed) then workingdhd = true end
+                    if (v ~= self and not v.Destroyed) then workingdhd = true end
                 end
                 if (gate:CheckEnergyDHD()) then workingdhd = true end
                 if not workingdhd then gate:Flicker(1); end
@@ -470,7 +470,7 @@ function ENT:DestroyEffect(noeffect)
             if IsValid(gate) then
                 local workingdhd = false;
                 for _,v in pairs(gate:FindDHD(true)) do
-                    if (v != self and not v.Destroyed) then workingdhd = true end
+                    if (v ~= self and not v.Destroyed) then workingdhd = true end
                 end
                 if (gate:CheckEnergyDHD()) then workingdhd = true end
                 if not workingdhd then gate:AbortDialling(); end
@@ -485,11 +485,11 @@ function ENT:OnTakeDamage(dmg)
     local damage = dmg:GetDamage();
     local class = self:GetClass();
 
-    if (dmg:GetDamageType() != DMG_BLAST) then return end
+    if (dmg:GetDamageType() ~= DMG_BLAST) then return end
 
     if(not self.GateSpawnerSpawned and not util.tobool(GetConVar("stargate_dhd_protect"):GetInt()) or self.GateSpawnerSpawned and not util.tobool(GetConVar("stargate_dhd_protect_spawner"):GetInt()))then
         self.Healthh = self.Healthh - damage/4;
-        if (self.Healthh < 1 and class != "dhd_concept" and class != "dhd_city") then self.Entity:DestroyEffect() end
+        if (self.Healthh < 1 and class ~= "dhd_concept" and class ~= "dhd_city") then self.Entity:DestroyEffect() end
     end
 
     if not IsValid(gate) then return end
@@ -588,10 +588,10 @@ function ENT:Use(p)
             if(hook.Call("StarGate.Player.CanDialGate",GAMEMODE,p,e) == false) then return end;
             self.LastPlayer = p;
             local btn = self:GetCurrentButton(p);
-            if (btn and btn != "IRIS") then self:PressButton(btn); end
+            if (btn and btn ~= "IRIS") then self:PressButton(btn); end
         else
             local btn = self:GetCurrentButton(p);
-            if btn and (btn=="DIAL" and not self.DisableMainBut or not self.DisableBtns and btn!="DIAL") then self:ButtonMode(btn); end
+            if btn and (btn=="DIAL" and not self.DisableMainBut or not self.DisableBtns and btn~="DIAL") then self:ButtonMode(btn); end
             return false;
         end
     end
@@ -610,30 +610,30 @@ function ENT:Think()
     if (not IsValid(self)) then return false end;
     local candialg = GetConVar("stargate_candial_groups_dhd"):GetInt()
     if (self:GetClass()=="dhd_city") then candialg = 1; end
-    if (candialg != self.Entity:GetNetworkedInt("CANDIAL_GROUP_DHD")) then
+    if (candialg ~= self.Entity:GetNetworkedInt("CANDIAL_GROUP_DHD")) then
         self.Entity:SetNetworkedInt("CANDIAL_GROUP_DHD",candialg);
     end
     candialg = GetConVar("stargate_candial_groups_menu"):GetInt()
-    if (candialg != self.Entity:GetNetworkedInt("CANDIAL_GROUP_MENU")) then
+    if (candialg ~= self.Entity:GetNetworkedInt("CANDIAL_GROUP_MENU")) then
         self.Entity:SetNetworkedInt("CANDIAL_GROUP_MENU",candialg);
     end
     candialg = GetConVar("stargate_sgu_find_range"):GetInt()
-    if (candialg != self.Entity:GetNetworkedInt("SGU_FIND_RANDE")) then
+    if (candialg ~= self.Entity:GetNetworkedInt("SGU_FIND_RANDE")) then
         self.Entity:SetNetworkedInt("SGU_FIND_RANDE",candialg);
     end
     local groupsystem = GetConVar("stargate_group_system"):GetBool()
-    if (groupsystem != self.Entity:GetNetworkedBool("SG_GROUP_SYSTEM")) then
+    if (groupsystem ~= self.Entity:GetNetworkedBool("SG_GROUP_SYSTEM")) then
         self.Entity:SetNetworkedBool("SG_GROUP_SYSTEM",groupsystem);
     end
     local gate = self:FindGate();
     if IsValid(gate) then
         candialg = gate:GetLocale();
-        if (candialg != self.Entity:GetNetworkedBool("Locale")) then
+        if (candialg ~= self.Entity:GetNetworkedBool("Locale")) then
             self.Entity:SetNetworkedBool("Locale",candialg);
         end
     end
     candialg = GetConVar("stargate_dhd_letters"):GetInt()
-    if (candialg != self.Entity:GetNetworkedInt("DHD_LETTERS")) then
+    if (candialg ~= self.Entity:GetNetworkedInt("DHD_LETTERS")) then
         self.Entity:SetNetworkedInt("DHD_LETTERS",candialg);
     end
 
@@ -663,7 +663,7 @@ function ENT:AddChevron(btn, nosound, lightup, gate, city, fail)
             if self.Chevron and IsValid(self.Chevron[self.ChevronNumber[btn]]) and lightup then
                 self.Chevron[self.ChevronNumber[btn]]:Fire("skin",self.SkinNumber+1);
             end
-            if IsValid(gate) and btn != "DIAL" and lightup then
+            if IsValid(gate) and btn ~= "DIAL" and lightup then
                 local n = table.getn(self.DialledAddress);
                 local action = gate.Sequence:New();
                 action = gate.Sequence:OnButtonChevron(true, n, self.DialledAddress, btn, fail,false,self.DisRingRotate);
@@ -724,7 +724,7 @@ function ENT:RemoveChevron(btn, lightup, gate)
         self.DialledAddress=new_t;
         self.Entity:SetNetworkedString("ADDRESS",string.Implode(",",self.DialledAddress));
         self:SetWire("Pressed Buttons",self:GetNWString("ADDRESS"));
-        if IsValid(gate) and lightup and btn != "DIAL" then
+        if IsValid(gate) and lightup and btn ~= "DIAL" then
             local n = table.getn(self.DialledAddress);
             local action = gate.Sequence:New();
             action = gate.Sequence:OnButtonChevron(false, n, self.DialledAddress, btn, false, false, self.DisRingRotate);
@@ -754,11 +754,11 @@ function ENT:PressButton(btn, nolightup, no_menu)
     local e = self:FindGate();
     if not IsValid(e) then return end
     if (GetConVar("stargate_dhd_close_incoming"):GetInt()==0 and e.IsOpen and not e.Outbound) then return end -- if incoming, then we can do nothign
-    if (e.Dialling and e.Active and not e.IsOpen or e.Jamming!=nil and e.Jamming==true or e:IsShutdown()) then return end
+    if (e.Dialling and e.Active and not e.IsOpen or e.Jamming~=nil and e.Jamming==true or e:IsShutdown()) then return end
     if (IsValid(e.EventHorizon) and not e.EventHorizon:IsOpen()) then return end
-    if (e.Dialling and (e.Stop!=nil and e.Stop==true or e.Gate!=nil and e.Gate.Moving!=nil and e.Gate.Moving == true) or e.WireManualDial!=nil and e.WireManualDial==true) then return end
+    if (e.Dialling and (e.Stop~=nil and e.Stop==true or e.Gate~=nil and e.Gate.Moving~=nil and e.Gate.Moving == true) or e.WireManualDial~=nil and e.WireManualDial==true) then return end
     local num = table.getn(self.DialledAddress);
-    if ((num==0 or btn!="DIAL") and e.IsOpen) then return end
+    if ((num==0 or btn~="DIAL") and e.IsOpen) then return end
     local nosound = (self.WireNoSound and no_menu)
     -- Random gate dialing for concept
     if (btn and btn == "*" and num == 0) then
@@ -767,7 +767,7 @@ function ENT:PressButton(btn, nolightup, no_menu)
         -- Prepare gate
         local gates = {}
         for _,v in pairs(ents.FindByClass("stargate_*")) do
-            if(v.IsStargate and e != v and not v.GatePrivat and v:GetClass() != "stargate_supegate" and v:GetClass() != "stargate_orlin") then
+            if(v.IsStargate and e ~= v and not v.GatePrivat and v:GetClass() ~= "stargate_supegate" and v:GetClass() ~= "stargate_orlin") then
                 if (v:GetGateGroup() == e:GetGateGroup() or v:GetLocale() == false and e:GetLocale() == false) then
                     table.insert(gates,v);
                 end
@@ -782,7 +782,7 @@ function ENT:PressButton(btn, nolightup, no_menu)
                 RandGate.GateAddress = "5GW7M2"; -- hope nobody will make such adress
             else
                 dialaddress = RandGate.GateAddress
-                if (RandGate.GateGroup != e.GateGroup) then
+                if (RandGate.GateGroup ~= e.GateGroup) then
                     if (string.len(RandGate.GateGroup)==3) then
                         dialaddress = dialaddress..RandGate.GateGroup
                     else
@@ -842,7 +842,7 @@ function ENT:PressButton(btn, nolightup, no_menu)
     local remove = false;
     if (nolightup) then lightup = false end
     if (btn and num==0) then e.Outbound = true; end
-    if (btn and ((num < allowed_symbols or allowed_symbols==6 and num==6 and btn == "#") and (not table.HasValue(self.DialledAddress,"#") or btn == "#") and (btn != "#" or btn == "#" and (num >= 6 and num <= 8)) or btn == "DIAL") or table.HasValue(self.DialledAddress,btn) and (not table.HasValue(self.DialledAddress,"#") or btn == "#")) then
+    if (btn and ((num < allowed_symbols or allowed_symbols==6 and num==6 and btn == "#") and (not table.HasValue(self.DialledAddress,"#") or btn == "#") and (btn ~= "#" or btn == "#" and (num >= 6 and num <= 8)) or btn == "DIAL") or table.HasValue(self.DialledAddress,btn) and (not table.HasValue(self.DialledAddress,"#") or btn == "#")) then
         local atlantis = false
         if (IsValid(e) and e:GetClass()=="stargate_atlantis" and self.DisRingRotate) then atlantis = true end
         if (not table.HasValue(self.DialledAddress,"DIAL")) then
@@ -855,7 +855,7 @@ function ENT:PressButton(btn, nolightup, no_menu)
                 local busy = false
                 if(btn == "#" or num==8 or btn == "DIAL") then
                     table.insert(self.DialledAddress,btn)
-                    if (btn!="DIAL") then
+                    if (btn~="DIAL") then
                         table.insert(self.DialledAddress,"DIAL");
                     end
                     e.DialledAddress = self.DialledAddress;
@@ -891,7 +891,7 @@ function ENT:PressButton(btn, nolightup, no_menu)
                     end
                     e.DialledAddress = {};
                     table.remove(self.DialledAddress,#self.DialledAddress);
-                    if (btn!="DIAL") then
+                    if (btn~="DIAL") then
                         table.remove(self.DialledAddress,#self.DialledAddress);
                     end
                 end
@@ -922,7 +922,7 @@ function ENT:PressButton(btn, nolightup, no_menu)
                     self:Shutdown(1.5);
                 else
                     -- We got exact 7 chevrons, C7 as chevron7 and dialbutton activated - Lets dial out, holy crap
-                    if(table.getn(self.DialledAddress) >= 8 and table.getn(self.DialledAddress) <= 10 and class != "dhd_city") then
+                    if(table.getn(self.DialledAddress) >= 8 and table.getn(self.DialledAddress) <= 10 and class ~= "dhd_city") then
                         e.DialledAddress = self.DialledAddress;
                         -- Set address, dialling type and start dialling
                         e:OnButtDialGate();

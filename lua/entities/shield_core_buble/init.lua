@@ -356,7 +356,7 @@ local function CalcDmgProtect(ent, inflictor, attacker, ammount, dmginfo)
                 if (class2 == "shield_core_buble" or class2 == "tokra_shield") then
                     if(trace.Entity:Hit(attacker, trace.HitPos, dmginfo:GetDamage()*10, -1*trace.Normal)) then return end;
                 end
-                if (trace.Entity != ent) then
+                if (trace.Entity ~= ent) then
                     local dmg = 2-math.Clamp(start:Distance(endpos)/100, 0, 2);
                     dmginfo:SetDamage(dmg); //small damage relative to distance
                 end

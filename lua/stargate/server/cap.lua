@@ -46,7 +46,7 @@ function StarGate.Debug2(msg1, msg2)
 end
 /* this will be added later when finish function
 function StarGate.IsJammingOnline(pos,ent)
-    if (type(pos)!="Vector" or not IsValid(ent)) then return false end
+    if (type(pos)~="Vector" or not IsValid(ent)) then return false end
     local radius = 1024; -- max range of jamming, we will adjust it later
     local jaiming_online = false;
     for k,v in pairs(ents.FindInSphere(pos, radius)) do
@@ -63,7 +63,7 @@ function StarGate.IsJammingOnline(pos,ent)
                                     if (not table.HasValue(tbl,ent)) then jaiming_online = true end
                                 elseif (ent.CPPIGetOwner) then
                                     local own = ent:CPPIGetOwner()
-                                    if (own and own!=CPPI_DEFER and IsValid(own)) then
+                                    if (own and own~=CPPI_DEFER and IsValid(own)) then
                                         if (own)
                                     end
                                 end
@@ -354,7 +354,7 @@ function StarGate.TintGate(gate)
    local col = gate.OrigColor or Color(255,255,255)
    
    local tintAmount = 255 * (gate.excessPower / gate.excessPowerLimit)
-   /*if (col.r!=255) then
+   /*if (col.r~=255) then
         col.r = col.r + (tintAmount-col.r)
    end */
 
@@ -368,11 +368,11 @@ function StarGate.TintGate(gate)
             gate.ColR[i] = 255;
             gate.ColG[i] = 255 - tintAmount;
             gate.ColB[i] = 255 - tintAmount;
-            if(c.g != 40 and c.b != 40)then
+            if(c.g ~= 40 and c.b ~= 40)then
                 gate.Symbols[i]:SetColor(Color(255, 255 - tintAmount, 255 - tintAmount, 255));
               end
         end
-   elseif (gate:GetClass()!="stargate_universe") then    */
+   elseif (gate:GetClass()~="stargate_universe") then    */
         
       gate:SetColor(Color(math.Clamp(col.r + tintAmount,0,255), math.Clamp(col.g - tintAmount,0,255), math.Clamp(col.b - tintAmount,0,255), col.a))
    --end
@@ -836,7 +836,7 @@ end
 function StarGate.RandomGateName(ply,ent,count,wire,mode)
     local conv = GetConVar("stargate_random_address")
     if (conv and conv:GetBool() or wire) then
-        if (IsValid(ent) and ent.IsStargate and ent:GetClass()!="stargate_orlin") then
+        if (IsValid(ent) and ent.IsStargate and ent:GetClass()~="stargate_orlin") then
             if (mode==nil or mode<=1) then
                 local randadr = "";
                 if (GetConVar("stargate_group_system"):GetBool()) then

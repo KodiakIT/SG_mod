@@ -4,7 +4,7 @@
 ]]--
 
 include('shared.lua');
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("tokra_shield",SGLanguage.GetMessage("tshield_desc"));
 end
 include("box.lua")

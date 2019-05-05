@@ -18,7 +18,7 @@ if (Refresh==1) {
         Name = V[2,string] # Get name
         Blocked = V[3,number] # Get blocked
 
-        if (I!=0) { List = List + "<br>" }
+        if (I~=0) { List = List + "<br>" }
         if (Blocked==1) {
             List = List + "BLOCKED! Address - " + Address + " Name - " + Name
         } else {

@@ -25,7 +25,7 @@
     Ronon Dex
 ]]--
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 
 ENT.PrintName = "Stargate Vehicle Base"
 ENT.Author = "RononDex"
@@ -284,7 +284,7 @@ function ENT:PhysicsSimulate( phys, deltatime )-- Flight code@ RononDex
         local mul = math.Clamp((velocity:Length()/1700),0,1); -- More roll, if faster.
         local oldRoll = ang.Roll;
         ang.Roll = (ang.Roll + self.Roll - ExtraRoll*mul) % 360;
-        if (ang.Roll!=ang.Roll) then ang.Roll = oldRoll; end -- fix for nan values what cause despawing/crash.
+        if (ang.Roll~=ang.Roll) then ang.Roll = oldRoll; end -- fix for nan values what cause despawing/crash.
 
         if(self.Pilot:KeyDown(self.Vehicle,"LAND")) then
             if(self.NextLand < CurTime()) then
@@ -403,7 +403,7 @@ end
 function playerDies( victim, weapon, killer )
     if (IsValid(victim:GetNetworkedEntity("ScriptedVehicle", NULL))) then
           local veh = victim:GetNetworkedEntity("ScriptedVehicle", NULL);
-          if (veh:GetClass()!="puddle_jumper" and veh:GetClass()!="sg_vehicle_daedalus" and veh.Bang) then
+          if (veh:GetClass()~="puddle_jumper" and veh:GetClass()~="sg_vehicle_daedalus" and veh.Bang) then
             veh:Bang();
           end
      end

@@ -1,4 +1,4 @@
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"
 ENT.Base = "base_anim"
 ENT.PrintName = "Gate bearing"
@@ -12,7 +12,7 @@ ENT.AdminSpawnable = false
 if CLIENT then
 
 ENT.BearingColor = Color(255,255,255);
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("bearing",SGLanguage.GetMessage("stool_bearing"));
 end
 

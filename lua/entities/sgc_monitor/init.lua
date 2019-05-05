@@ -70,7 +70,7 @@ function ENT:Think()
     return true
   end
 
-  if not self.Server.On and self.Screen!=0 then 
+  if not self.Server.On and self.Screen~=0 then
     self.TmpScreen = self.Screen
     self.Screen = 0
     self:UpdateProgram()
@@ -254,7 +254,7 @@ function ENT:PostEntityPaste(ply, Ent, CreatedEntities)
         self.TmpScreen = dupeInfo.Screen;
     end
 
-    if (dupeInfo.On!=nil) then
+    if (dupeInfo.On~=nil) then
         self.On = dupeInfo.On;
         self:SetWire("On",self.On)
     end

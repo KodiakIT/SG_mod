@@ -20,7 +20,7 @@
     Copyright (C) 2010 Madman07
 ]]--
 
--- Header ###################
+-- Header
 StarGate.HTTP = {
     FORUM = "http://steamcommunity.com/sharedfiles/filedetails/discussions/180077636",
     BUGS = "https://github.com/RafaelDeJongh/cap/issues",
@@ -46,7 +46,7 @@ StarGate.CURRENT_VERSION = 0;
 function StarGate.CompareVersion(ver, verc, add)
     local v1t = string.Explode(".",ver)
     local v2t = string.Explode(".",verc)
-    if (add!=nil) then v2t[1] = v2t[1]-add; end
+    if (add~=nil) then v2t[1] = v2t[1]-add; end
     if v2t[2]==nil then
         return tonumber(ver)>tonumber(v2t[1]);
     elseif v1t[2]==nil then
@@ -199,10 +199,10 @@ end);
 
 StarGate.InstalledOnCl = nil;
 function StarGate.InstalledOnClient()
-    if (StarGate.InstalledOnCl!=nil) then return StarGate.InstalledOnCl; end -- cache
+    if (StarGate.InstalledOnCl~=nil) then return StarGate.InstalledOnCl; end -- cache
     StarGate.InstalledOnCl = false;
     local addonlist = {}
-    if (GetAddonList!=nil) then
+    if (GetAddonList~=nil) then
         for _,v in pairs(GetAddonList(true)) do
             for k,c in pairs(GetAddonInfo(v)) do
                 if (k == "Name") then

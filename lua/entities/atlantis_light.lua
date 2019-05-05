@@ -6,7 +6,7 @@ ENT.PrintName = "Atlantis Light"
 ENT.Author = "RononDex"
 ENT.Category = "Stargate Carter Addon Pack"
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 
 if SERVER then
 

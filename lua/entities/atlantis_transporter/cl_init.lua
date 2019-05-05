@@ -143,7 +143,7 @@ end
 local group;
 function PANEL:UpdateList()
     for k,v in pairs(AtlTP_GetAll) do
-        if (self.Entity:EntIndex()!=k and v.name and v.name!="" and v.group and v.group!="" and not v.private) then
+        if (self.Entity:EntIndex()~=k and v.name and v.name~="" and v.group and v.group~="" and not v.private) then
             local ent = AtlTP_GetAll[self.Entity:EntIndex()];
             if(ent and (v.group == ent.group or !ent.locale and !v.locale)) then
                 self.ListView:AddLine(v.name,v.group);

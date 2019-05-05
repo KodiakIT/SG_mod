@@ -150,7 +150,7 @@ end
 local IsTwo;
 function StarGate.RDTwo()
     if(IsTwo ~= nil) then return IsTwo end;
-    if(RD_AddResource!=nil) then
+    if(RD_AddResource~=nil) then
         IsTwo = true;
         return true;
     end

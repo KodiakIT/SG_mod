@@ -165,7 +165,7 @@ EGP:egpAlign(33,1,1)
 EGP:egpSize(33,46)
 
 White = 2
-if (MainTextColor != 2){
+if (MainTextColor ~= 2){
 EGP:egpColor(23,LBlue2)
 EGP:egpColor(24,LBlue2)
 EGP:egpColor(33,LBlue2)
@@ -180,6 +180,6 @@ Yes = 1
 if (ShowAuthor == 1){
     EGP:egpText(34, "Made by Gmod4phun", vec2(348,488))
 }
-elseif (ShowAuthor !=1){
+elseif (ShowAuthor ~=1){
     EGP:egpText(34, "", vec2(348,488))
 }

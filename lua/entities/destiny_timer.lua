@@ -5,7 +5,7 @@
 
 -- gui by AlexALX
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 
 ENT.Type = "anim"
 ENT.Base = "base_anim"
@@ -138,7 +138,7 @@ function ENT:FindGate(gt)
     local dist = 1024;
     local pos = self:GetPos();
     for _,v in pairs(ents.FindByClass("stargate_*")) do
-        if(v.IsStargate and v:GetClass() != "stargate_supergate" and (not IsValid(v.LockedDTimer) or v.LockedDTimer==self)) then
+        if(v.IsStargate and v:GetClass() ~= "stargate_supergate" and (not IsValid(v.LockedDTimer) or v.LockedDTimer==self)) then
             local sg_dist = (pos - v:GetPos()):Length();
             if(dist >= sg_dist) then
                 dist = sg_dist;
@@ -449,7 +449,7 @@ local font = {
 }
 surface.CreateFont("DigitalTimer", font)
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.Category = SGLanguage.GetMessage("entity_main_cat");
 ENT.PrintName = SGLanguage.GetMessage("entity_dest_timer");
 end
@@ -468,7 +468,7 @@ function ENT:Draw()
 
     local Col = Color(200,230,255,255);
     if (Time < 11 and maxtime==0) then Col = Color(225,50,50,255)
-    elseif (maxtime!=0 and Time>maxtime-11) then Col = Color(225,50,50,255) end
+    elseif (maxtime~=0 and Time>maxtime-11) then Col = Color(225,50,50,255) end
 
     local TimeStr = string.ToMinutesSeconds(Time);
     --surface.SetFont("AncientsT");

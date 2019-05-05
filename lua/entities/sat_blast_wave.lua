@@ -156,7 +156,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("sat_blast_wave",SGLanguage.GetMessage("sat_blask_wave"));
 end
 

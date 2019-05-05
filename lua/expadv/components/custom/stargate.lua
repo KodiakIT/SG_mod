@@ -854,7 +854,7 @@ Component:AddFunctionHelper( "stargateRingSetAddress", "wl:s", "Sets ring addres
 Component:AddPreparedFunction( "stargateRingDial", "e:s", "",
 [[
 if IsValid(@value 1) and @value 1.IsRings and not @value 1.Busy and EXPADV.PPCheck(Context,@value 1) then 
-    if (@value 2:gsub("[^0-9]","")!="") then
+    if (@value 2:gsub("[^0-9]","")~="") then
         @value 1:Dial(@value 2);
     else
         @value 1:Dial(" "); -- fail
@@ -866,7 +866,7 @@ Component:AddFunctionHelper( "stargateRingDial", "e:s", "Dials rings." )
 Component:AddPreparedFunction( "stargateRingDial", "wl:s", "",
 [[
 if IsValid(@value 1) and @value 1.IsRings and not @value 1.Busy then 
-    if (@value 2:gsub("[^0-9]","")!="") then
+    if (@value 2:gsub("[^0-9]","")~="") then
         @value 1:Dial(@value 2);
     else
         @value 1:Dial(" "); -- fail

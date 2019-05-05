@@ -17,7 +17,7 @@
 */
 
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("weapon")) then return end
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 SWEP.Category = SGLanguage.GetMessage("weapon_cat");
 SWEP.PrintName = SGLanguage.GetMessage("weapon_hand_device");
 end
@@ -316,7 +316,7 @@ end
 if(file.Exists("materials/VGUI/weapons/hand_killicon.vmt","GAME")) then
     killicon.Add("weapon_hand_device","VGUI/weapons/hand_killicon",Color(255,255,255));
 end
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("Battery_ammo",SGLanguage.GetMessage("naquadah"));
 language.Add("weapon_hand_device",SGLanguage.GetMessage("weapon_hand_device"));
 end

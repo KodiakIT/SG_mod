@@ -39,7 +39,7 @@ function ENT:SpawnFunction(p,t)
 end
 
 function ENT:Think()
-    if(self.Gate!=nil)then
+    if(self.Gate~=nil)then
         self:SkinChanger();
     end
     self:GateFinder();
@@ -47,7 +47,7 @@ function ENT:Think()
 end
 
 function ENT:SkinChanger()
-    if(self.Gate!=nil)then
+    if(self.Gate~=nil)then
         if(not self.Gate.NewActive)then
             self.Entity:SetSkin(0);
         elseif(self.Gate.NewActive and not self.Gate.IsOpen)then
@@ -91,7 +91,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("future_ramp",SGLanguage.GetMessage("ramp_kill"));
 end
 

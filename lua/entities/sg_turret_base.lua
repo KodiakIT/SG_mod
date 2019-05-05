@@ -3,7 +3,7 @@
     Copyright (C) 2011 Madman07
 ]]--
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 
 ENT.Type = "anim"
 ENT.Base = "base_anim"
@@ -156,7 +156,7 @@ end
 
 function ENT:StartTouch( ent )
     if IsValid(ent) and ent:IsVehicle() then
-        if (self.APC != ent) then
+        if (self.APC ~= ent) then
             local ed = EffectData()
                 ed:SetEntity( ent )
             util.Effect( "old_propspawn", ed, true, true )
@@ -253,7 +253,7 @@ function ENT:PhysicsUpdate( phys, deltatime )
         local new_p = math.NormalizeAngle(ShootAngle.Pitch);
         local new_y = math.NormalizeAngle(ShootAngle.Yaw);
 
-        if (self.Pitch != new_p or self.Yaw != new_y) then
+        if (self.Pitch ~= new_p or self.Yaw ~= new_y) then
              if CurTime() > self.SoundTime then
                 self.SoundTime = CurTime()+self.SoundDur;
                 --self.Entity:EmitSound(Sound(self.Sounds.Move),100,100); missed file

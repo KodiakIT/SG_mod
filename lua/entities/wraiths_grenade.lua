@@ -37,7 +37,7 @@ if SERVER then
             if(self.CanExplode < CurTime()) then
                 for k,v in pairs(ents.FindInSphere(self:GetPos(),self.DetectRange)) do
                     if(v:IsPlayer() or v:IsNPC()) then
-                        if(v != self.Owner) then
+                        if(v ~= self.Owner) then
                             self:Explode();
                         end
                     end

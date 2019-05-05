@@ -3,7 +3,7 @@
     Copyright (C) 2010 Llapp, cooldudetb, model by micropro
 */
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"
 ENT.Base = "base_anim" --gmodentity
 ENT.PrintName = "SGC Hub Mk2"
@@ -446,7 +446,7 @@ end
 
 function ENT:PostEntityPaste(Player, Ent, CreatedEntities)
     self.ZPM = Ent.EntityMods.ZPMs.ZPM;
-    if (Ent.EntityMods.ZPMs.ZPMid!=-1) then
+    if (Ent.EntityMods.ZPMs.ZPMid~=-1) then
         self.ZPM.Ent = CreatedEntities[Ent.EntityMods.ZPMs.ZPMid]
         self.ZPM.Ent:SetUseType(SIMPLE_USE);
         self.ZPM.Ent.Use = function()
@@ -509,7 +509,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("sgc_zpm_hub",SGLanguage.GetMessage("stool_sgc_hub"));
 end
 
@@ -609,7 +609,7 @@ function ENT:Draw()
             surface.SetFont("header")
 
             draw.DrawText("SGC HUB", "header", ScrW() / 2 + 58 + w, ScrH() / 2 +41 - h, Color(0,255,255,255),0);
-            if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+            if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
                 draw.DrawText(SGLanguage.GetMessage("hud_status"), "center2", ScrW() / 2 + 40 + w, ScrH() / 2 +65 - h, Color(209,238,238,255),0);
                 draw.DrawText(SGLanguage.GetMessage("hud_energy"), "center2", ScrW() / 2 + 40 + w, ScrH() / 2 +115 - h, Color(209,238,238,255),0);
                 draw.DrawText(SGLanguage.GetMessage("hud_capacity"), "center2", ScrW() / 2 + 40 + w, ScrH() / 2 +165 - h, Color(209,238,238,255),0);
@@ -628,7 +628,7 @@ function ENT:Draw()
                 color = Color(255,0,0,255);
             end
             if(tonumber(perc)>0)then perc = string.format("%f",perc) end;
-            if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+            if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
                 draw.SimpleText(SGLanguage.GetMessage("hud_sts_"..add:lower()), "center", ScrW() / 2 + 40 + w, ScrH() / 2 +85 - h, color,0);
             end
             draw.SimpleText(tostring(eng), "center", ScrW() / 2 + 40 + w, ScrH() / 2 +135 - h, Color(255,255,255,255),0);

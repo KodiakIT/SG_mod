@@ -17,7 +17,7 @@ SWEP.Author             = "Rothon"
 SWEP.Contact            = "steven@facklerfamily.org"
 SWEP.Purpose            = "Sends IDC through stargates"
 SWEP.Instructions       = "Right click to set, Left click to send"
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 SWEP.PrintName = SGLanguage.GetMessage("weapon_misc_gdo");
 SWEP.Category = SGLanguage.GetMessage("weapon_misc_cat");
 end
@@ -73,13 +73,13 @@ local function SendCode(EntTable)
         local answer = iris_comp:RecieveIrisCode(code)
         local answ = iris_comp.GDOText;
         if answer == 1 then
-            if (answ and answ!="") then
+            if (answ and answ~="") then
                 EntTable:SetNetworkedString("gdo_textdisplay", answ);
             else
                 EntTable:SetNetworkedString("gdo_textdisplay", "OPEN");
             end
         elseif answer == 0 then
-            if (answ and answ!="") then
+            if (answ and answ~="") then
                 EntTable:SetNetworkedString("gdo_textdisplay", answ);
             else
                 EntTable:SetNWString("gdo_textdisplay", "WRONG");
@@ -89,7 +89,7 @@ local function SendCode(EntTable)
         elseif answer == -2 then
             EntTable:SetNWString("gdo_textdisplay", "ERROR");
         else
-            if (answ and answ!="") then
+            if (answ and answ~="") then
                 EntTable:SetNetworkedString("gdo_textdisplay", answ);
             else
                 EntTable:SetNWString("gdo_textdisplay", "STAND-BY");
@@ -102,14 +102,14 @@ local function SendCode(EntTable)
                 local cod = iris_comp.GDOStatus;
                 if (IsValid(iris_comp)) then
                     if (cod==-1) then
-                        if (iris_comp.GDOText and iris_comp.GDOText!="") then
+                        if (iris_comp.GDOText and iris_comp.GDOText~="") then
                             EntTable:SetNWString("gdo_textdisplay", iris_comp.GDOText);
                         else
                             EntTable:SetNWString("gdo_textdisplay", "WRONG");
                         end
                         timer.Remove("GDOTimer"..id);
                         timer.Simple(5, function() if (IsValid(ent)) then ent.Stand = false; ent:SetNWString("gdo_textdisplay", "GDO") end end);
-                    elseif (iris_comp.GDOText and iris_comp.GDOText!="") then
+                    elseif (iris_comp.GDOText and iris_comp.GDOText~="") then
                         EntTable:SetNWString("gdo_textdisplay", iris_comp.GDOText);
                     end
                 else
@@ -118,8 +118,8 @@ local function SendCode(EntTable)
                     timer.Remove("GDOTimer"..id);
                 end
                 if (IsValid(ent) and IsValid(ent.Owner) and ent.Stand and IsValid(ent.gate) and IsValid(ent.gate.Target) and ent.gate.IsOpen) then
-                    if (not ent.gate.Target:IsBlocked(1,1) and answer!=3) then
-                        if (IsValid(iris_comp) and iris_comp.GDOText and iris_comp.GDOText!="") then
+                    if (not ent.gate.Target:IsBlocked(1,1) and answer~=3) then
+                        if (IsValid(iris_comp) and iris_comp.GDOText and iris_comp.GDOText~="") then
                             ent:SetNWString("gdo_textdisplay", iris_comp.GDOText);
                         else
                             ent:SetNWString("gdo_textdisplay", "OPEN");
@@ -144,7 +144,7 @@ function SWEP:Think()
 end
 
 function SWEP:PrimaryAttack()
-    if(CLIENT || not IsValid(self.Owner) || self:GetNetworkedString("gdo_textdisplay","GDO")!="GDO") then return end
+    if(CLIENT || not IsValid(self.Owner) || self:GetNetworkedString("gdo_textdisplay","GDO")~="GDO") then return end
     local pos = self.Owner:GetPos()
     self.gate = self:FindEnt(pos, false)
     if(self.gate and self.gate.IsOpen) then
@@ -465,17 +465,17 @@ if CLIENT then
 
                 if (v.material == "") then
                     model:SetMaterial("")
-                elseif (model:GetMaterial() != v.material) then
+                elseif (model:GetMaterial() ~= v.material) then
                     model:SetMaterial( v.material )
                 end
 
-                if (v.skin and v.skin != model:GetSkin()) then
+                if (v.skin and v.skin ~= model:GetSkin()) then
                     model:SetSkin(v.skin)
                 end
 
                 if (v.bodygroup) then
                     for k, v in pairs( v.bodygroup ) do
-                        if (model:GetBodygroup(k) != v) then
+                        if (model:GetBodygroup(k) ~= v) then
                             model:SetBodygroup(k, v)
                         end
                     end
@@ -582,17 +582,17 @@ if CLIENT then
 
                 if (v.material == "") then
                     model:SetMaterial("")
-                elseif (model:GetMaterial() != v.material) then
+                elseif (model:GetMaterial() ~= v.material) then
                     model:SetMaterial( v.material )
                 end
 
-                if (v.skin and v.skin != model:GetSkin()) then
+                if (v.skin and v.skin ~= model:GetSkin()) then
                     model:SetSkin(v.skin)
                 end
 
                 if (v.bodygroup) then
                     for k, v in pairs( v.bodygroup ) do
-                        if (model:GetBodygroup(k) != v) then
+                        if (model:GetBodygroup(k) ~= v) then
                             model:SetBodygroup(k, v)
                         end
                     end
@@ -638,7 +638,7 @@ if CLIENT then
     function SWEP:GetBoneOrientation( basetab, tab, ent, bone_override )
 
         local bone, pos, ang
-        if (tab.rel and tab.rel != "") then
+        if (tab.rel and tab.rel ~= "") then
 
             local v = basetab[tab.rel]
 
@@ -683,7 +683,7 @@ if CLIENT then
 
         -- Create the clientside models here because Garry says we can't do it in the render hook
         for k, v in pairs( tab ) do
-            if (v.type == "Model" and v.model and v.model != "" and (!IsValid(v.modelEnt) or v.createdModel != v.model) and
+            if (v.type == "Model" and v.model and v.model ~= "" and (!IsValid(v.modelEnt) or v.createdModel ~= v.model) and
                     string.find(v.model, ".mdl") and file.Exists (v.model, "GAME") ) then
 
                 v.modelEnt = ClientsideModel(v.model, RENDER_GROUP_VIEW_MODEL_OPAQUE)
@@ -697,7 +697,7 @@ if CLIENT then
                     v.modelEnt = nil
                 end
 
-            elseif (v.type == "Sprite" and v.sprite and v.sprite != "" and (!v.spriteMaterial or v.createdSprite != v.sprite)
+            elseif (v.type == "Sprite" and v.sprite and v.sprite ~= "" and (!v.spriteMaterial or v.createdSprite ~= v.sprite)
                 and file.Exists ("materials/"..v.sprite..".vmt", "GAME")) then
 
                 local name = v.sprite.."-"
@@ -772,13 +772,13 @@ if CLIENT then
                 s = s * ms
                 -- !! ----------- !! //
 
-                if vm:GetManipulateBoneScale(bone) != s then
+                if vm:GetManipulateBoneScale(bone) ~= s then
                     vm:ManipulateBoneScale( bone, s )
                 end
-                if vm:GetManipulateBoneAngles(bone) != v.angle then
+                if vm:GetManipulateBoneAngles(bone) ~= v.angle then
                     vm:ManipulateBoneAngles( bone, v.angle )
                 end
-                if vm:GetManipulateBonePosition(bone) != p then
+                if vm:GetManipulateBonePosition(bone) ~= p then
                     vm:ManipulateBonePosition( bone, p )
                 end
             end

@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
--- HEADER #################
+-- HEADER
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("base")) then return end
 ENT.CDSIgnore = true; -- CDS Immunity
 function ENT:gcbt_breakactions() end; ENT.hasdamagecase = true; -- GCombat invulnarability!
@@ -230,7 +230,7 @@ end
 function ENT:SetEHColor(col)
     self.Color = col
     self:SetColor(self.Color)
-    if (self.Color.r!=self.DefColor.r or self.Color.g!=self.DefColor.g or self.Color.b!=self.DefColor.b) then
+    if (self.Color.r~=self.DefColor.r or self.Color.g~=self.DefColor.g or self.Color.b~=self.DefColor.b) then
         self.Entity:SetNWBool("LightCustom",true);
         --self.Entity:SetNWVector("LightColor",self.Color)
     else
@@ -240,7 +240,7 @@ end
 
 function ENT:Flicker(reset)
     if (reset) then
-        if (self.UnstableMaterial!="") then
+        if (self.UnstableMaterial~="") then
             self:SetMaterial(self.Material);
         else
             self:SetNWBool("Flicker",false);
@@ -249,7 +249,7 @@ function ENT:Flicker(reset)
         self:SetColor(self.Color)
         self.Unstable = false;
     else
-        if (self.UnstableMaterial!="") then
+        if (self.UnstableMaterial~="") then
             self:SetMaterial(self.UnstableMaterial);
         else
             local col = table.Copy(self.Color)
@@ -915,7 +915,7 @@ function ENT:EndTouch(e)
     end
 
     -- If the ent came out the way it was going in, don't destroy/teleport
-    if(e.___EventHorizon != self or temp_dir != e.dir) then
+    if(e.___EventHorizon ~= self or temp_dir ~= e.dir) then
         e.___InBuffer = false;
         e.___EventHorizon = nil;
         return;
@@ -1224,7 +1224,7 @@ function BUFFER:StartTouch(EventHorizon,e)
     if(attached) then
         for _,v in pairs(attached.Attached) do
             if (IsValid(v)) then
-                if(IsValid(phys) and v:GetSolid()!=SOLID_NONE) then
+                if(IsValid(phys) and v:GetSolid()~=SOLID_NONE) then
                     v.dir = e.dir
                     v:SetNWInt("PhysBufferedDir",e.dir);
                     local phys = v:GetPhysicsObject();
@@ -1260,11 +1260,11 @@ function BUFFER:Touch(EventHorizon,e)
     if(EventHorizon.Attached[e]) then return end
     if(EventHorizon.ShuttingDown and not EventHorizon.ShuttingDownKill) then return; end
     if(e:IsPlayer()) then return end
-    if (e.___LastCurTime!=nil and e.___LastCurTime==CurTime()) then return end -- PREVENT FUCKING DISCONNECT ON PAUSE IN SP WHEN SOMETHING TOUCH EH!!! Damn it...
+    if (e.___LastCurTime~=nil and e.___LastCurTime==CurTime()) then return end -- PREVENT FUCKING DISCONNECT ON PAUSE IN SP WHEN SOMETHING TOUCH EH!!! Damn it...
     e.___LastCurTime = CurTime();
 
     -- Draw the enter effect every 20th frame, @Deathmaker
-    if (e.___DrawEnterEffectTime!=nil and e.___DrawEnterEffectTime>20) then
+    if (e.___DrawEnterEffectTime~=nil and e.___DrawEnterEffectTime>20) then
         EventHorizon:EnterEffectEntity(e)
         e.___DrawEnterEffectTime=0
     else
@@ -1346,7 +1346,7 @@ function BUFFER:EndTouch(EventHorizon,e,ignore,tdir)
         for _,v in pairs(attached.Attached) do
 
             -- less buggy, but still...
-            if (IsValid(v) and IsValid(v:GetPhysicsObject()) and v:GetSolid()!=SOLID_NONE) then
+            if (IsValid(v) and IsValid(v:GetPhysicsObject()) and v:GetSolid()~=SOLID_NONE) then
                 --print_r(v)
                 --print("-----");
                 --print_r(v,v.dir,tdir,EventHorizon.ClipBuffer[v:EntIndex()],EventHorizon.AllBuffer[v:EntIndex()])
@@ -1358,7 +1358,7 @@ function BUFFER:EndTouch(EventHorizon,e,ignore,tdir)
                 else
                     tvdir = 1;
                 end
-                if (tdir==1 and tvdir!=tdir and not EventHorizon.ClipBuffer[v:EntIndex()]) then
+                if (tdir==1 and tvdir~=tdir and not EventHorizon.ClipBuffer[v:EntIndex()]) then
                     EventHorizon.ClipBuffer[v:EntIndex()] = v
                     v.___InBuffer = true;
                     --return
@@ -1366,7 +1366,7 @@ function BUFFER:EndTouch(EventHorizon,e,ignore,tdir)
                     EventHorizon.ClipBuffer[v:EntIndex()] = nil
                     v.___InBuffer = nil;
                     --return
-                elseif (tdir==-1 and tvdir!=tdir and not EventHorizon.AllBuffer[v:EntIndex()]) then
+                elseif (tdir==-1 and tvdir~=tdir and not EventHorizon.AllBuffer[v:EntIndex()]) then
                     EventHorizon.AllBuffer[v:EntIndex()] = v
                     v.___InBuffer = nil;
                     self:EndTouch(EventHorizon,v,true,tdir);
@@ -1383,11 +1383,11 @@ function BUFFER:EndTouch(EventHorizon,e,ignore,tdir)
 
         for _,v in pairs(attached.Attached) do
 
-            if (IsValid(v) and IsValid(v:GetPhysicsObject()) and v:GetSolid()!=SOLID_NONE) then
+            if (IsValid(v) and IsValid(v:GetPhysicsObject()) and v:GetSolid()~=SOLID_NONE) then
                 if (v.dir==tdir and not EventHorizon.ClipBuffer[v:EntIndex()]) then
                     EventHorizon.ClipBuffer[v:EntIndex()] = v
                     return
-                elseif (v.dir!=tdir and EventHorizon.AllBuffer[v:EntIndex()]) then
+                elseif (v.dir~=tdir and EventHorizon.AllBuffer[v:EntIndex()]) then
                     EventHorizon.ClipBuffer[v:EntIndex()] = nil
                     notouch = true;
                 end
@@ -1424,7 +1424,7 @@ function BUFFER:EndTouch(EventHorizon,e,ignore,tdir)
 
     if (not notouch) then
         if(IsValid(e:GetPhysicsObject())) then
-            if (EventHorizon.GravBuffer[e:EntIndex()]!=nil) then
+            if (EventHorizon.GravBuffer[e:EntIndex()]~=nil) then
                 e:GetPhysicsObject():EnableGravity(EventHorizon.GravBuffer[e:EntIndex()]);
                 EventHorizon.GravBuffer[e:EntIndex()] = nil;
             end
@@ -1458,7 +1458,7 @@ function BUFFER:EndTouch(EventHorizon,e,ignore,tdir)
             end
             if(not EventHorizon.AllBuffer[v:EntIndex()] and IsValid(v)) then
                 if(IsValid(v:GetPhysicsObject())) then
-                    if (EventHorizon.GravBuffer[v:EntIndex()]!=nil) then
+                    if (EventHorizon.GravBuffer[v:EntIndex()]~=nil) then
                         v:GetPhysicsObject():EnableGravity(EventHorizon.GravBuffer[v:EntIndex()]);
                         EventHorizon.GravBuffer[v:EntIndex()] = nil;
                     end
@@ -1488,7 +1488,7 @@ function BUFFER:ClipShouldIgnore(ent,reset_cache)
     local class = ent:GetClass()
     if (table.HasValue(self.ClipIgnore,class) || table.HasValue(self.ClipIgnore,ent:GetModel()) || StarGate.RampOffset.Gates[ent:GetModel()] || ent.GateSpawnerSpawned || string.find(class,"stargate_") || ent.CAP_EH_NoTouch) then return true end
     if (reset_cache) then ent.__EHConstCache = nil; end
-    if (ent.__EHConstCache!=nil) then return ent.__EHConstCache end
+    if (ent.__EHConstCache~=nil) then return ent.__EHConstCache end
     -- adding cache for save performance
     ent.__EHConstCache = false;
     if (constraint.HasConstraints(ent)) then

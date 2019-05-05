@@ -63,7 +63,7 @@ local function CfgBackup(fil)
     for i=cb,1,-1 do
         local ni = i-1
         file.Delete("stargate/cfg/backup/"..fil..i..".txt")
-        if i!=1 and file.Exists("stargate/cfg/backup/"..fil..ni..".txt","DATA") then
+        if i~=1 and file.Exists("stargate/cfg/backup/"..fil..ni..".txt","DATA") then
             -- damn, why there is no rename function? modification time lost =(
             file.Write("stargate/cfg/backup/"..fil..i..".txt",file.Read("stargate/cfg/backup/"..fil..ni..".txt","DATA"))
         end
@@ -181,7 +181,7 @@ net.Receive("_sg_config",function(len,ply)
                             cust_write[name][tostring(k)] = v;
                             continue;
                         end
-                        if (CfgTable[name][k]!=v) then
+                        if (CfgTable[name][k]~=v) then
                             if (not written[name]) then
                                 write = write.."\r\n["..name.."]\r\n";
                                 written[name] = true;
@@ -197,7 +197,7 @@ net.Receive("_sg_config",function(len,ply)
                 for name,val in pairs(CfgTable[cat] or {}) do
                     local cw = (cust_write[cat] and cust_write[cat][name]);
                     if ((val=="" or val==false and dis) and not cw) then continue end
-                    if (not CfgTable[cat] or CfgTable[cat][name] and not cw or cw and val!=cust_write[cat][name]) then
+                    if (not CfgTable[cat] or CfgTable[cat][name] and not cw or cw and val~=cust_write[cat][name]) then
                         if (not written[cat]) then
                             write = write.."\r\n["..cat.."]\r\n";
                             written[cat] = {};
@@ -1123,7 +1123,7 @@ local function SG_Settings_OpenNet()
         system:ChooseOptionID(2);
     end
     system.OnSelect = function(panel,index,value,data)
-        --if (SGGetConvar("stargate_group_system")!=data) then
+        --if (SGGetConvar("stargate_group_system")~=data) then
             LocalPlayer():ChatPrint(SGLanguage.GetMessage("stargate_reload_start"));
             SGSetConvar("stargate_group_system", Format("%d", data));
         --end
@@ -1165,7 +1165,7 @@ local function SG_Settings_OpenNet()
         if (not CapConvarsTbl[cat]) then CapConvarsTbl[cat] = {}; end
         if (tbl[id] and tbl[id][3]) then
             local val = tonumber(value) or tbl[id][3]
-            if (tbl[id][3]!=val) then
+            if (tbl[id][3]~=val) then
                 CapConvarsTbl[cat][convar] = tonumber(value) or tbl[id][3];
             else
                 CapConvarsTbl[cat][convar] = nil;
@@ -1663,7 +1663,7 @@ local function SG_Settings_OpenNet()
             for n,val in pairs(value) do
                 if (val=="add_shield") then add_shield = true; continue end
                 if (val=="exclude_mod") then exclude = true; continue end
-                if (groups!="") then groups = groups..","; end
+                if (groups~="") then groups = groups..","; end
                 groups = groups..val;
             end
 
@@ -1696,7 +1696,7 @@ local function SG_Settings_OpenNet()
             butt:SetSize(150,25);
             butt.DoClick = function(self)
                 local val = text:GetValue():Trim();
-                if (val!="") then
+                if (val~="") then
                     if (check:GetChecked()) then
                         val = val..",add_shield";
                     end
@@ -1827,7 +1827,7 @@ local function SG_Settings_OpenNet()
                 if (not name) then return end
                 local key = sel.key;
                 local val = text:GetValue():Trim();
-                if (val!="") then
+                if (val~="") then
                     if (check:GetChecked()) then
                         val = val..",add_shield";
                     end
@@ -1917,7 +1917,7 @@ local function SG_Settings_OpenNet()
                 for k,v in pairs(self.CfgTable[restk]) do
                     if (v=="" or dis and v==false) then continue end
                     local cat_name = name_tbl[rest][k] or k;
-                    if (cat_name!=k) then cat_name = cat_name.." ("..k..")" end
+                    if (cat_name~=k) then cat_name = cat_name.." ("..k..")" end
                     if (dis) then
                         RList:AddLine(cat_name,k);
                     else
@@ -2006,7 +2006,7 @@ local function SG_Settings_OpenNet()
             butt:SetSize(150,25);
             butt.DoClick = function(self)
                 local nam = name:GetValue():Trim();
-                if (nam!="") then
+                if (nam~="") then
                     if (i==2 and shared:GetChecked()) then
                         nam = nam.." !SHARED";
                     end
@@ -2137,7 +2137,7 @@ local function SG_Settings_OpenNet()
             butt.DoClick = function(self)
                 local val = text:GetValue():Trim();
                 local nam = name:GetValue():Trim();
-                if (val:len()==(i+1) and nam!="") then
+                if (val:len()==(i+1) and nam~="") then
                     if (i==2 and shared:GetChecked()) then
                         nam = nam.." !SHARED";
                     end

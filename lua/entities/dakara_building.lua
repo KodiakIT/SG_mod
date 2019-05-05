@@ -3,7 +3,7 @@
     Copyright (C) 2011 Madman07
 ]]--
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"
 ENT.Base = "base_anim"
 ENT.PrintName = "Dakara Weapon"
@@ -18,7 +18,7 @@ ENT.AutomaticFrameAdvance = true
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.Category = SGLanguage.GetMessage("entity_weapon_cat");
 ENT.PrintName = SGLanguage.GetMessage("entity_dakara");
 end
@@ -404,7 +404,7 @@ function ENT:FindGate()
     local dist = 10000;
     local pos = self.Entity:GetPos();
     for _,v in pairs(ents.FindByClass("stargate_*")) do
-        if(v.IsStargate and v:GetClass() != "stargate_supergate" and v:GetClass() != "stargate_orlin" and v:GetClass() != "stargate_universe" and not v.GateGalaxy) then
+        if(v.IsStargate and v:GetClass() ~= "stargate_supergate" and v:GetClass() ~= "stargate_orlin" and v:GetClass() ~= "stargate_universe" and not v.GateGalaxy) then
             local sg_dist = (pos - v:GetPos()):Length();
             if(dist >= sg_dist) then
                 dist = sg_dist;
@@ -418,7 +418,7 @@ end
 function ENT:FindAllGate()
     local gate = {};
     for _,v in pairs(ents.FindByClass("stargate_*")) do
-        if(v.IsStargate and v:GetClass() != "stargate_supergate" and v:GetClass() != "stargate_orlin" and v != self.DialGate and v:GetClass() != "stargate_universe" and not v.GateGalaxy) then
+        if(v.IsStargate and v:GetClass() ~= "stargate_supergate" and v:GetClass() ~= "stargate_orlin" and v ~= self.DialGate and v:GetClass() ~= "stargate_universe" and not v.GateGalaxy) then
             table.insert(gate,v);
             v.Target = v;
         end

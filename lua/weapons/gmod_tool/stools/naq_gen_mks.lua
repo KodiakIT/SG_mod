@@ -48,7 +48,7 @@ end
 
 function TOOL:RightClick(t)
     if(t.Entity and t.Entity:IsPlayer()) then return false end;
-    if(t.Entity and (t.Entity:GetClass()!="naquadah_generator" and t.Entity:GetClass()!="naq_gen_mk2")) then return false end;
+    if(t.Entity and (t.Entity:GetClass()~="naquadah_generator" and t.Entity:GetClass()~="naq_gen_mk2")) then return false end;
     if(CLIENT) then return true end;
     t.Entity.LastRefill = t.Entity.LastRefill or 0;
     if (t.Entity:GetClass()=="naquadah_generator") then

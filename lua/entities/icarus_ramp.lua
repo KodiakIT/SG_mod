@@ -288,7 +288,7 @@ if CLIENT then
 
 -- Smoke code from SGC Ramp by Llapp
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("ramp",SGLanguage.GetMessage("ramp_kill"));
 end
 
@@ -359,7 +359,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("icarus_ramp",SGLanguage.GetMessage("ramp_kill"));
 end
 

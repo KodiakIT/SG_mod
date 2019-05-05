@@ -15,12 +15,12 @@
 @trigger
 if(~EGP&EGP){reset()}
 findByClass("gmod_wire_expression2")
-if(AAA!=2)
+if(AAA~=2)
 {
 ETdp=findClosest(entity():pos())
 ETIDdp=ETdp:id()
 }
-if(gTable("DPv1_"+ETdp:id())[1,string]!="DPv1"){findExcludeEntity(ETdp)}
+if(gTable("DPv1_"+ETdp:id())[1,string]~="DPv1"){findExcludeEntity(ETdp)}
 if(gTable("DPv1_"+ETdp:id())[1,string]=="DPv1"&!AAA)
 {
 hint("AB:Founded a Dialing Computer Chip with "+ETdp:id()+" ID by "+ETdp:owner():name()+", press Use to link",10) AAA=1
@@ -36,7 +36,7 @@ hint("AB:Unlinked from Dialing Computer Chip",10)
 }
 if(!Loaded){timer("update",200)}
 if(clk("update")&!Loaded){timer("update",200)}
-if(AAA==2&ETdp:id()!=0){DPt=gTable("DPv1_"+ETdp:id())[2,table]} #hint(ETdp:id():toString(),10) #if(AAA==2&ETdp:id()==0){hint("ERROR! Dialing Computer Chip is disappeared! Chip unlinked and shutdowned!",10) Loaded=0 timer("shutdown1",1) BBB=0}
+if(AAA==2&ETdp:id()~=0){DPt=gTable("DPv1_"+ETdp:id())[2,table]} #hint(ETdp:id():toString(),10) #if(AAA==2&ETdp:id()==0){hint("ERROR! Dialing Computer Chip is disappeared! Chip unlinked and shutdowned!",10) Loaded=0 timer("shutdown1",1) BBB=0}
 NewCol=DPt["NewCol",number]
 DPL=DPt["DPL",number]
 Start=DPt["Start",number]
@@ -55,7 +55,7 @@ Blocked = V[3,number] # Get blocked
 #if (Blocked==1) {
 if(Address:length()==7){Name=Name+"(8:"+Address[7]+"#)"}
 if(Address:length()==9){Name=Name+"(9:"+Address[8]+Address[9]+")"}
-if(Address:length()!=9){Address=Address+"#"}
+if(Address:length()~=9){Address=Address+"#"}
 AddressG[I,string]=Address
 AddressN[I,string]=Name
 AddressB[I,number]=Blocked
@@ -66,7 +66,7 @@ AddressB[I,number]=0
 }]#
 }
 timer("UpdateAddressList",5000)
-if(AddressG:concat()+""+AddressN:concat()+""+AddressB:concat()!=AddressO){timer("REL",100)}
+if(AddressG:concat()+""+AddressN:concat()+""+AddressB:concat()~=AddressO){timer("REL",100)}
 }
 if(first()|dupefinished()|clk("shutdown1")){EGP:egpClear() Loaded1=0}
 if(((changed(Start)|first()|dupefinished())&Start)&Loaded1==0)
@@ -96,7 +96,7 @@ if(clk("LD3")&RAM>=ceil(egpMaxObjects()/128)*256){timer("LD4",1000) EGP:egpSetTe
 if(clk("LD4")){RAM=0 EGP:egpSetText(4,"GPUSpeed:"+egpMaxUmsgPerSecond():toString()+" BPS OK!") timer("LD5",randint(150,300))}
 if(clk("LD5")&KeyDP==-1){
 EGP:egpSetText(5,"Error! Keyboard not detected! Waiting keyboard connect.") if(!Pip){timer("errpip",1) Pip=1} EGP:egpColor(5,vec(255,0,0)) timer("LD5",1000)}
-if(clk("LD5")&KeyDP!=-1){EGP:egpSetText(5,"Keyboard... OK!") EGP:egpColor(5,vec(255,255,255)) Pip=0 timer("LD6",randint(800,1300))}
+if(clk("LD5")&KeyDP~=-1){EGP:egpSetText(5,"Keyboard... OK!") EGP:egpColor(5,vec(255,255,255)) Pip=0 timer("LD6",randint(800,1300))}
 if(egpMaxObjects()<196&changed(KeyDP)&(KeyDP==13|KeyDP==10)&IDs1){IDsOverride=1 IDs1=0}
 if(clk("LD6")&egpMaxObjects()>=196&!IDsOverride){EGP:egpSetText(6,"GPUMemory:"+egpMaxObjects():toString()+" ID's OK!") EGP:egpColor(6,vec(255,255,255)) timer("LD7",randint(50,300)) Pip=0}
 if(clk("LD6")&(egpMaxObjects()<196&IDsOverride)){EGP:egpSetText(6,"GPUMemory:"+egpMaxObjects():toString()+" ID's Override ID's protection!") EGP:egpColor(6,vec(255,255,0)) timer("LD7",randint(50,300)) Pip=0}
@@ -104,13 +104,13 @@ if(clk("LD6")&egpMaxObjects()<196&!IDsOverride){IDs1=1 EGP:egpSetText(6,"GPUMemo
 if(clk("LD7")&!->SG){if(!Pip){timer("errpip",1) Pip=1} EGP:egpSetText(7,"Can't connect to Address Database!!!") EGP:egpColor(7,vec(255,0,0)) timer("LD7",100)}
 if(clk("LD7")&->SG){Pip=0 EGP:egpSetText(7,"Connected to Address Database") EGP:egpColor(7,vec(255,255,255)) timer("LD8",100)}
 if(clk("LD8")){Pip=0 Load1=0 EGP:egpSetText(8,"Address Book build 1.241.15 v1 07.12.13 is loading...") EGP:egpColor(8,vec(255,255,255)) timer("LD9",randint(100,1000))}
-if(clk("LD9")&Loaded!=1&Load1<100){Load1+=randint(4,12) EGP:egpSetText(8,"Address Book build 1.241.15 v1 07.12.13 is loading... "+Load1+"%") timer("LD9",randint(100,300))}
+if(clk("LD9")&Loaded~=1&Load1<100){Load1+=randint(4,12) EGP:egpSetText(8,"Address Book build 1.241.15 v1 07.12.13 is loading... "+Load1+"%") timer("LD9",randint(100,300))}
 if(Load1>=100){EGP:egpSetText(8,"Address Book build 1.241.15 v1 07.12.13 is loading... 100%") if(DPL){timer("Loaded",randint(50,700))}else{timer("LD91",randint(100,300))}}
 if(clk("LD91")&!DPL&DPt:count()>0){if(!Pip){timer("errpip",1) Pip=1} EGP:egpSetText(9,"Waiting Dialing Programm...") EGP:egpColor(9,vec(255,255,0)) timer("LD91",100)}
 if(clk("LD91")&(DPL|DPt:count()==0)){Pip=0 timer("Loaded",randint(50,700))}}
 if(LoadOver){
 if(clk("LD1")){soundVolume(12,0) soundStop(12,0.001) Load1=0 EGP:egpSetText(1,"Address Book build 1.241.15 v1 07.12.13 is loading...") EGP:egpColor(1,vec(255,255,255)) timer("LD11",randint(100,1000))}
-if(clk("LD11")&Loaded!=1&Load1<100){Load1+=randint(4,12) EGP:egpSetText(1,"Address Book build 1.241.15 v1 07.12.13 is loading... "+Load1+"%") timer("LD11",randint(100,300))}
+if(clk("LD11")&Loaded~=1&Load1<100){Load1+=randint(4,12) EGP:egpSetText(1,"Address Book build 1.241.15 v1 07.12.13 is loading... "+Load1+"%") timer("LD11",randint(100,300))}
 if(Load1>=100){EGP:egpSetText(1,"Address Book build 1.241.15 v1 07.12.13 is loading... 100%") timer("Loaded",randint(50,700))}}
 if(clk("shutdown")){
 STD1=randint(30,80)
@@ -281,14 +281,14 @@ if(Adr==4){EGP:egpColor(65,vec(255,0,0))} else {EGP:egpColor(65,vec(0,153,184-30
 if(Adr==5){EGP:egpColor(66,vec(255,0,0))} else {EGP:egpColor(66,vec(0,153,184-30*NewCol))}
 if(Adr==6){EGP:egpColor(67,vec(255,0,0))} else {EGP:egpColor(67,vec(0,153,184-30*NewCol))}
 if(Adr==7){EGP:egpColor(68,vec(255,0,0))} else {EGP:egpColor(68,vec(0,153,184-30*NewCol))}
-#if((PosX>431&PosY>117)&(PosX<437&PosY<123)&KeyUse){if(AdrPlus!=0){AdrPlus--}}
+#if((PosX>431&PosY>117)&(PosX<437&PosY<123)&KeyUse){if(AdrPlus~=0){AdrPlus--}}
 #if((PosX>431&PosY>330)&(PosX<437&PosY<336)&KeyUse){if(AddressG:count()>7 & AdrPlus<=AddressG:count()-8){AdrPlus++}}
 }
 if(AddressG:count()>7){if(~Key&Key==18&Adr<7){Adr++}} if(AddressG:count()<=7){if(~Key&Key==18&Adr<AddressG:count()){Adr++}}
 if(~Key&Key==17&Adr>1){Adr--}
 if(~Key&Key==20&AdrPlus<AddressG:count()-7){AdrPlus++}
 if(~Key&Key==19&AdrPlus>0){AdrPlus--}
-if(~Key&(Key==13|Key==10)){AddressBook=AddressG[Adr+AdrPlus,string]} if(~Key&Key!=13&Key!=10){AddressBook=""}
+if(~Key&(Key==13|Key==10)){AddressBook=AddressG[Adr+AdrPlus,string]} if(~Key&Key~=13&Key~=10){AddressBook=""}
 if(clk("update")){
 #if((PosX>414&PosY>119)&(PosX<428&PosY<131)&KeyUse){Addr=1} elseif((PosX>414&PosY>150)&(PosX<428&PosY<162)&KeyUse){Addr=1} elseif((PosX>414&PosY>181)&(PosX<428&PosY<193)&KeyUse){Addr=1} elseif((PosX>414&PosY>212)&(PosX<428&PosY<224)&KeyUse){Addr=1} elseif((PosX>414&PosY>243)&(PosX<428&PosY<255)&KeyUse){Addr=1} elseif((PosX>414&PosY>274)&(PosX<428&PosY<286)&KeyUse){Addr=1} elseif((PosX>414&PosY>305)&(PosX<428&PosY<317)&KeyUse){Addr=1} else {Addr=0}
 #if(Addr){AddressOut=AddressG[Adr+AdrPlus,string]}
@@ -312,9 +312,9 @@ if(clk("Loaded")|changed(NewCol)){
 for(I=2,131)
 {
 if(NewCol){
-if((I!=3&I!=7&I<43&I!=44&I!=45)|(I>50&I<55)|(I>61&I<118)|(I>124&I<132)){EGP:egpColor(I,vec(0,153,154))}}#vec(26,93,103)
+if((I~=3&I~=7&I<43&I~=44&I~=45)|(I>50&I<55)|(I>61&I<118)|(I>124&I<132)){EGP:egpColor(I,vec(0,153,154))}}#vec(26,93,103)
 if(!NewCol){
-if((I!=3&I!=7&I<43&I!=44&I!=45)|(I>50&I<55)|(I>61&I<118)|(I>124&I<132)){EGP:egpColor(I,vec(0,153,184))}}
+if((I~=3&I~=7&I<43&I~=44&I~=45)|(I>50&I<55)|(I>61&I<118)|(I>124&I<132)){EGP:egpColor(I,vec(0,153,184))}}
 if((I>=43&I<=48)){EGP:egpColor(I,vec(215,239,177))}
 if(I==3|I==7|(I>48&I<51)){EGP:egpColor(I,vec(75,196,211))}
 }

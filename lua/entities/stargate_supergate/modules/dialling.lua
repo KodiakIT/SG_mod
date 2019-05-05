@@ -30,7 +30,7 @@ function ENT.Sequence:Dial(inbound,fast,fail)
     end
     local dialaddress = "";
     for i=1,6 do
-        if (address[i] != nil) then
+        if (address[i] ~= nil) then
             dialaddress = dialaddress..tostring(address[i]);
         end
     end

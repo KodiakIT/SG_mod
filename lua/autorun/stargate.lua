@@ -101,7 +101,7 @@ local function CheckVersion()
 
     if (SERVER) then
         local capver = CreateConVar("stargate_cap_version",StarGate.CapVer,{FCVAR_GAMEDLL,FCVAR_NOTIFY});
-        if (capver:GetString()!=StarGate.CapVer) then
+        if (capver:GetString()~=StarGate.CapVer) then
             RunConsoleCommand("stargate_cap_version", StarGate.CapVer)
         end
     end

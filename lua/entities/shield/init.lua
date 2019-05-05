@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
--- HEADER #################
+-- HEADER
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("base")) then return end
 AddCSLuaFile("cl_init.lua");
 AddCSLuaFile("shared.lua");
@@ -501,7 +501,7 @@ end
 
 -- As requested, add an athmosphere to the shield, when it's turned on (on a planet!) @aVoN
 function ENT:Think()
-    if (IsValid(self.Parent) and self.Parent.AntiNoclip != nil) then
+    if (IsValid(self.Parent) and self.Parent.AntiNoclip ~= nil) then
         self.AntiNoclip = self.Parent.AntiNoclip
     end
     if(SB_Update_Environment and self.Athmosphere) then

@@ -7,7 +7,7 @@ if SERVER then
     AddCSLuaFile();
 end
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 SWEP.PrintName = SGLanguage.GetMessage("weapon_misc_atanik");
 SWEP.Category = SGLanguage.GetMessage("weapon_misc_cat");
 else

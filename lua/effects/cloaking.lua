@@ -276,7 +276,7 @@ function EFFECT:Render(draw_anyway)
     local alpha = self.Color.a*multiply;
     -- To show this only to the Owner, we need to do this...
     local immune = self.Parent:GetNWEntity("cloak_player",false);
-    if (immune!=false) then
+    if (immune~=false) then
         if(immune == LocalPlayer() or CPPI and Friends[immune] and table.HasValue(Friends[immune],LocalPlayer())) then
             min_alpha = 130;
             if(self.Engage) then self.PermaDraw = true end;

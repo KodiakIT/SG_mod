@@ -642,7 +642,7 @@ local function InternalSpawnNPC( Player, Position, Normal, Class, Equipment )
         if v.class == Equipment then valid = true break end
     end
 
-    if ( Equipment && Equipment != "none" && valid ) then
+    if ( Equipment && Equipment ~= "none" && valid ) then
         NPC:SetKeyValue( "additionalequipment", Equipment )
         NPC.Equipment = Equipment
     end

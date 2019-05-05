@@ -242,6 +242,6 @@ Yes = 1
 if (ShowAuthor == 1){
     EGP:egpText(17, "Made by Gmod4phun", vec2(348,488))
 }
-elseif (ShowAuthor !=1){
+elseif (ShowAuthor ~=1){
     EGP:egpText(17, "", vec2(348,488))
 }

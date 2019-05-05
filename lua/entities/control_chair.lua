@@ -1,4 +1,4 @@
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 
 ENT.Base = "base_anim"
 ENT.Type = "anim"
@@ -11,7 +11,7 @@ ENT.AutomaticFrameAdvance=true
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.Category = SGLanguage.GetMessage("entity_ships_cat");
 ENT.PrintName = SGLanguage.GetMessage("entity_control_chair");
 end
@@ -54,7 +54,7 @@ function ControlCHCalcView(Player, Origin, Angles, FieldOfView)
     local p = Player
     local self = p:GetNetworkedEntity( "ScriptedVehicle", NULL );
     local chair = p:GetNWEntity("chair")
-    if(not IsValid(chair) or self:GetClass()!="control_chair") then return end;
+    if(not IsValid(chair) or self:GetClass()~="control_chair") then return end;
 
     if IsValid(self) then
         local pos = chair:GetPos()+chair:GetUp()*self.UDist+chair:GetRight()*self.Dist

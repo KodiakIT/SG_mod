@@ -3,7 +3,7 @@
     Copyright (C) 2011 Madman07
 ]]--
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end -- When you need to add LifeSupport and Wire capabilities, you NEED TO CALL this before anything else or it wont work!
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end -- When you need to add LifeSupport and Wire capabilities, you NEED TO CALL this before anything else or it wont work!
 ENT.Type = "anim"
 ENT.Base = "dhd_base"
 ENT.PrintName = "DHD (Concept)"
@@ -117,13 +117,13 @@ ENT.ChevronPositionsGalaxy = {
 
 if SERVER then
 
--- HEADER #################
+-- HEADER
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("extra")) then return end
 
 -- Include
 AddCSLuaFile();
 
--- SENT CODE #################
+-- SENT CODE
 ENT.Model = "models/MarkJaw/dhd/dhd_base.mdl"
 ENT.ModelBroken = "models/MarkJaw/dhd/dhd_base.mdl"
 ENT.PlorkSound = "stargate/dhd_sg1.mp3"; -- The old sound
@@ -256,7 +256,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.Category = SGLanguage.GetMessage("stargate_category");
 ENT.PrintName = SGLanguage.GetMessage("dhd_concept");
 end

@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
--- HEADER #################
+-- HEADER
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("extra")) then return end
 -- Include
 AddCSLuaFile("cl_init.lua");
@@ -90,9 +90,9 @@ function ENT:ChangeSystemType(groupsystem,reload)
         self:SetChevrons(0,0);
         self.WireCharters = "A-Z1-9@#!";
         if (self:GetGateAddress():find("[0]")) then self:SetGateAddress("");
-        elseif (self:GetGateAddress()!="") then
+        elseif (self:GetGateAddress()~="") then
             for _,v in pairs(ents.FindByClass("stargate_*")) do
-                if (self.Entity != v.Entity and v.IsStargate and v:GetClass()!="stargate_supergate" and v:GetGateAddress()!="") then
+                if (self.Entity ~= v.Entity and v.IsStargate and v:GetClass()~="stargate_supergate" and v:GetGateAddress()~="") then
                     local address, a = self:GetGateAddress(), string.Explode("",v:GetGateAddress());
                     if (address:find(a[1]) and address:find(a[2]) and address:find(a[3]) and address:find(a[4]) and address:find(a[5]) and address:find(a[6])) then self:SetGateAddress(""); end
                 end
@@ -187,7 +187,7 @@ end
 function ENT:TriggerInput(k,v,mobile,mdhd)
     self:TriggerInputDefault(k,v,mobile,mdhd);
     if(k == "Activate chevron numbers" and not self.NewActive and not self.WireManualDial) then
-        if (v != "" and self:CheckEnergy(true,true)) then
+        if (v ~= "" and self:CheckEnergy(true,true)) then
             local chevs = v:gsub("[^0-9]",""):TrimExplode("");
             local sound = true;
             local act = false;
@@ -204,7 +204,7 @@ function ENT:TriggerInput(k,v,mobile,mdhd)
                 end
             end
             self:RunActions(action);
-            if (v!="000000000") then
+            if (v~="000000000") then
                 self.Entity:SetNWBool("ActChevronsL",true);
             else
                 self.Entity:SetNWBool("ActChevronsL",false);

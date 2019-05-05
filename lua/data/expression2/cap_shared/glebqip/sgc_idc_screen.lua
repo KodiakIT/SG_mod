@@ -14,17 +14,17 @@
 @persist Start DPL Key KeyUser:entity NewCol IrisDP AAA ETca:entity ETIDca BBB ETdp:entity ETIDdp DPT:table IDC:table GT:gtable GTidc:table
 @trigger
 findByClass("gmod_wire_expression2")
-if(AAA!=2)
+if(AAA~=2)
 {
 ETca=findClosest(entity():pos())
 ETIDca=ETca:id()
 }
 #if(changed(ETIDca))
 #{
-#if(AAA!=2){AAA=0}
-#if(BBB!=2){BBB=0}
+#if(AAA~=2){AAA=0}
+#if(BBB~=2){BBB=0}
 #}
-if(gTable("SIca_"+ETca:id())[1,string]!="SIcav1"){findExcludeEntity(ETca)}
+if(gTable("SIca_"+ETca:id())[1,string]~="SIcav1"){findExcludeEntity(ETca)}
 if(gTable("SIca_"+ETca:id())[1,string]=="SIcav1"&!AAA)
 {
 hint("IDC:Founded a code array with "+ETca:id()+" ID by "+ETca:owner():name()+", press Use to link",10) AAA=1
@@ -35,12 +35,12 @@ hint("IDC:Linked to table with "+ETca:id()+" ID by "+ETca:owner():name(),10) AAA
 }
 if(AAA==2)
 {
-if(BBB!=2)
+if(BBB~=2)
 {
 ETdp=findClosest(entity():pos())
 ETIDdp=ETdp:id()
 }
-if(gTable("DPv1_"+ETdp:id())[1,string]!="DPv1"){findExcludeEntity(ETdp)}
+if(gTable("DPv1_"+ETdp:id())[1,string]~="DPv1"){findExcludeEntity(ETdp)}
 if(gTable("DPv1_"+ETdp:id())[1,string]=="DPv1"&!BBB)
 {
 hint("IDC:Founded a Dialing Computer Chip with "+ETdp:id()+" ID by "+ETdp:owner():name()+", press Use to link",10) BBB=1
@@ -60,8 +60,8 @@ if(~Unlink&Unlink&BBB==2)
 BBB=0
 hint("IDC:Unlinked from Dialing Computer Chip",10)
 }
-if(BBB==2&ETdp:id()!=0){DPT=gTable("DPv1_"+ETdp:id())[2,table]} if(BBB==2&ETdp:id()==0){hint("IDC:ERROR! Dialing Computer Chip is disappeared! Chip unlinked and shutdowned!",10) Loaded=0 timer("shutdown1",1) BBB=0}
-if(AAA==2&ETca:id()!=0){IDC=gTable("SIca_"+ETca:id())[2,table]}
+if(BBB==2&ETdp:id()~=0){DPT=gTable("DPv1_"+ETdp:id())[2,table]} if(BBB==2&ETdp:id()==0){hint("IDC:ERROR! Dialing Computer Chip is disappeared! Chip unlinked and shutdowned!",10) Loaded=0 timer("shutdown1",1) BBB=0}
+if(AAA==2&ETca:id()~=0){IDC=gTable("SIca_"+ETca:id())[2,table]}
 function number even(CHET)
 {
 if(CHET/2==round(CHET/2)){return 1} else {return 0}
@@ -108,7 +108,7 @@ if(clk("LD3")&RAM>=ceil(egpMaxObjects()/128)*256){timer("LD4",1000) EGP:egpSetTe
 if(clk("LD4")){RAM=0 EGP:egpSetText(4,"GPUSpeed:"+egpMaxUmsgPerSecond():toString()+" BPS OK!") timer("LD5",randint(150,300))}
 if(clk("LD5")&Key==-1){
 EGP:egpSetText(5,"Error! Keyboard not detected! Waiting keyboard connect.") if(!Pip){timer("errpip",1) Pip=1} EGP:egpColor(5,vec(255,0,0)) timer("LD5",1000)}
-if(clk("LD5")&Key!=-1){EGP:egpSetText(5,"Keyboard... OK!") EGP:egpColor(5,vec(255,255,255)) Pip=0 timer("LD6",randint(800,1300))}
+if(clk("LD5")&Key~=-1){EGP:egpSetText(5,"Keyboard... OK!") EGP:egpColor(5,vec(255,255,255)) Pip=0 timer("LD6",randint(800,1300))}
 if(egpMaxObjects()<420&changed(Key)&(Key==13|Key==10)&IDs1){IDsOverride=1 IDs1=0}
 if(clk("LD6")&egpMaxObjects()>=354&!IDsOverride){EGP:egpSetText(6,"GPUMemory:"+egpMaxObjects():toString()+" ID's OK!") EGP:egpColor(6,vec(255,255,255)) timer("LD7",randint(50,300)) Pip=0}
 if(clk("LD6")&(egpMaxObjects()<354&IDsOverride)){EGP:egpSetText(6,"GPUMemory:"+egpMaxObjects():toString()+" ID's Override ID's protection!") EGP:egpColor(6,vec(255,255,0)) timer("LD7",randint(50,300)) Pip=0}
@@ -119,13 +119,13 @@ if(clk("LD8")&(!->SG|!->ReceivedCode|!->IC))
 {EGP:egpSetText(8,"Not connected correctly!!! Waiting...") EGP:egpColor(8,vec(255,0,0)) if(!Pip){timer("errpip",1) Pip=1} timer("LD8",500)}
 elseif(clk("LD8")){Pip=0 EGP:egpSetText(8,"Connected correctly!") EGP:egpColor(8,vec(0,255,0)) timer("LD9",randint(200,700))}
 if(clk("LD9")){Load1=0 Pip=0 EGP:egpSetText(9,"IDC Computer build 1.241.15 v1 07.12.13 is loading...") EGP:egpColor(9,vec(255,255,255)) timer("LD91",randint(100,1000))}
-if(clk("LD91")&Loaded!=1&Load1<100){Load1+=randint(4,12) EGP:egpSetText(9,"IDC Computer build 1.241.15 v1 07.12.13 is loading... "+Load1+"%") timer("LD91",randint(100,300))}
+if(clk("LD91")&Loaded~=1&Load1<100){Load1+=randint(4,12) EGP:egpSetText(9,"IDC Computer build 1.241.15 v1 07.12.13 is loading... "+Load1+"%") timer("LD91",randint(100,300))}
 if(Load1>=100){EGP:egpSetText(9,"IDC Computer build 1.241.15 v1 07.12.13 is loading... 100%") if(DPL){timer("Loaded",randint(50,700))}else{timer("LD92",randint(100,300))}}
 if(clk("LD92")&!DPL&DPT:count()>0){if(!Pip){timer("errpip",1) Pip=1} EGP:egpSetText(10,"Waiting Dialing Programm...") EGP:egpColor(10,vec(255,255,0)) timer("LD92",100)}
 if(clk("LD92")&(DPL|DPT:count()==0)){Pip=0 timer("Loaded",randint(50,700))}}
 if(!Loaded&LoadOver){
 if(clk("LD1")){Load1=0 soundVolume(12,0) soundStop(12,0.001) EGP:egpSetText(1,"IDC Computer build 1.241.15 v1 07.12.13 is loading...") EGP:egpColor(1,vec(255,255,255)) timer("LD11",randint(100,1000))}
-if(clk("LD11")&Loaded!=1&Load1<100){Load1+=randint(4,12) EGP:egpSetText(1,"IDC Computer build 1.241.15 v1 07.12.13 is loading... "+Load1+"%") timer("LD11",randint(100,300))}
+if(clk("LD11")&Loaded~=1&Load1<100){Load1+=randint(4,12) EGP:egpSetText(1,"IDC Computer build 1.241.15 v1 07.12.13 is loading... "+Load1+"%") timer("LD11",randint(100,300))}
 if(Load1>=100){EGP:egpSetText(1,"IDC Computer build 1.241.15 v1 07.12.13 is loading... 100%") timer("Loaded",randint(50,700))}}
 if(clk("shutdown")){
 STD1=randint(30,80)
@@ -318,7 +318,7 @@ timer("LINE1",180)
 if(Loaded==1){
 if($Inbound&Inbound){EGP:entity():soundPlay(122,1,"alexalx/glebqip/idc_incomming.wav") ReceivedCode1=0 Iris1=1}
 if(($Inbound&!Inbound)|clk("Loaded")){for(I=288,303){EGP:egpAlpha(I,255)} ReceivedCode1=0 GDOStatus=0 Iris1=0 IDCStatus=0 GDOText=""}
-if(~ReceivedCode&ReceivedCode1!=ReceivedCode&(ReceivedCode>0&Inbound)){ReceivedCode1=ReceivedCode}
+if(~ReceivedCode&ReceivedCode1~=ReceivedCode&(ReceivedCode>0&Inbound)){ReceivedCode1=ReceivedCode}
 if(changed(Key)&Key==9&(KeyUser==owner())){RB++ timer("RBTR",500) if(RB==2){timer("shutdown",1) Loaded=-1 RB=0 }}
 if(clk("RBTR")&RB>0){RB=0}
 if(($Inbound|~ReceivedCode)&ReceivedCode&Inbound){for(I=0,2){

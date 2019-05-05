@@ -104,7 +104,7 @@ function RingsNamingCallback(ply,cmd,args)
             local adr = args[1]:gsub("[^0-9]","");
             -- No multiple rings please!
             for _,v in pairs(ents.FindByClass("ring_base_*")) do
-                if(v.Address == adr and v.Entity != ply.RingNameEnt) then
+                if(v.Address == adr and v.Entity ~= ply.RingNameEnt) then
                     ply:SendLua("GAMEMODE:AddNotify(SGLanguage.GetMessage(\"ring_error\"), NOTIFY_ERROR, 5); surface.PlaySound( \"buttons/button2.wav\" )");
                     return;
                 end
@@ -123,7 +123,7 @@ function ENT:SetRingAddress(address)
     local adr = address:gsub("[^0-9]","");
     -- No multiple rings please!
     for _,v in pairs(ents.FindByClass("ring_base_*")) do
-        if(v.Address == adr and v.Entity != self.Entity) then
+        if(v.Address == adr and v.Entity ~= self.Entity) then
             return;
         end
     end
@@ -488,7 +488,7 @@ function ENT:TriggerInput(name,value)
             self:Dial("");
         end
     elseif(name == "Dial Address") then
-        if(not self.Busy and value!="") then
+        if(not self.Busy and value~="") then
             self:Dial(value);
         end
     elseif(name == "Set Range") then
@@ -504,9 +504,9 @@ end
 -- Dials @aVoN
 function ENT:Dial(address)
     if (self.Busy) then return end
-    if (address!="") then
+    if (address~="") then
         local adr = address:gsub("[^0-9]","");
-        if (adr!="") then
+        if (adr~="") then
             self.Entity:StartSequence(adr);
         else
             self.Entity:StartSequence(" ");    -- fail

@@ -30,7 +30,7 @@ if SERVER then
 
 end
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 SWEP.PrintName = SGLanguage.GetMessage("weapon_p90");
 end
 
@@ -65,7 +65,7 @@ SWEP.MuzzleEffect            = "rg_muzzle_hmg" -- This is an extra muzzleflash e
 SWEP.MuzzleAttachment        = "1" -- Should be "1" for CSS models or "muzzle" for hl2 models
 */
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 SWEP.Category = SGLanguage.GetMessage("weapon_cat");
 end
 
@@ -788,7 +788,7 @@ function SWEP:GetViewModelPosition(pos, ang)
 
     local bIron = self.Weapon:GetNetworkedBool("Ironsights")
 
-    if (bIron != self.bLastIron) then
+    if (bIron ~= self.bLastIron) then
         self.bLastIron = bIron
         self.fIronTime = CurTime()
 

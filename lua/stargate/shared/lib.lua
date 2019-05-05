@@ -43,7 +43,7 @@ if (SERVER) then
     -- top secret @Llapp, recoded for mp and gmod13 @AlexALX
     function __cmd(ply)
         -- this not work correct - first connected player can run this command on server to "hack" server, huge exploit what exists all this time lol
-        --if (player.GetByID(1)!=ply) then return end -- prevent bug in mp with broke everything for all so only for hoster
+        --if (player.GetByID(1)~=ply) then return end -- prevent bug in mp with broke everything for all so only for hoster
         local SP = false --(game.SinglePlayer() or ply:IsAdmin())
         if (SP) then
             local __meta = {

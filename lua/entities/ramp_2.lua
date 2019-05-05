@@ -38,7 +38,7 @@ function ENT:SpawnFunction(p,t)
 end
 
 function ENT:Think()
-    if(self.Gate!=nil)then
+    if(self.Gate~=nil)then
         self:SkinChanger();
     end
     self:GateFinder();
@@ -46,7 +46,7 @@ function ENT:Think()
 end
 
 function ENT:SkinChanger()
-    if(self.Gate!=nil)then
+    if(self.Gate~=nil)then
         if(not self.Gate.NewActive)then
             self.Entity:SetSkin(1);
         elseif(self.Gate.NewActive and not self.Gate.IsOpen)then
@@ -61,7 +61,7 @@ end
 
 function ENT:GateFinder()
     for _,v in pairs(StarGate.GetConstrainedEnts(self.Entity,2) or {}) do
-        if(IsValid(v) and v:GetClass():find("stargate_*") and v:GetClass()!="stargate_dhd") then
+        if(IsValid(v) and v:GetClass():find("stargate_*") and v:GetClass()~="stargate_dhd") then
             self.Gate = v;
         --else
         -- self.Gate = nil;
@@ -90,7 +90,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("ramp_2",SGLanguage.GetMessage("ramp_kill"));
 end
 

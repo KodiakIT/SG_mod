@@ -5,7 +5,7 @@
 
 ENT.Type="anim"
 ENT.Base="base_anim"
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.PrintName = "Ancient Obelisk"
 ENT.Author = "Madman07, Rafael De Jongh"
 ENT.Category = "Stargate Carter Addon Pack"
@@ -14,7 +14,7 @@ list.Set("CAP.Entity", ENT.PrintName, ENT);
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
     ENT.Category = SGLanguage.GetMessage("entity_main_cat");
     ENT.PrintName = SGLanguage.GetMessage("entity_obelisk");
 end
@@ -47,7 +47,7 @@ function ENT:Initialize()
     /*
     local CurrentToSend = true;
     for _,v in pairs(ents.FindByClass("ancient_obelisk")) do
-        if (v != self) then
+        if (v ~= self) then
             CurrentToSend = false;
         end
     end
@@ -111,7 +111,7 @@ function ENT:PrepareTeleport()
         if (not IsValid(self.TargetObelisk)) then return end
         self.TargetGate = self.TargetObelisk:FindGate();
         if (not IsValid(self.TargetGate)) then return end
-        if (self.TargetGate:GetGateAddress()!="") then break end
+        if (self.TargetGate:GetGateAddress()~="") then break end
     end
 
     --self.TargetObelisk:CreateTimer()
@@ -254,7 +254,7 @@ function ENT:FindGate()
     local dist = 500;
     local pos = self.Entity:GetPos();
     for _,v in pairs(ents.FindByClass("stargate_*")) do
-        if(v.IsGroupStargate and v:GetClass()!="stargate_orlin" and v:GetGateAddress()!="") then
+        if(v.IsGroupStargate and v:GetClass()~="stargate_orlin" and v:GetGateAddress()~="") then
             local sg_dist = (pos - v:GetPos()):Length();
             if(dist >= sg_dist) then
                 dist = sg_dist;
@@ -268,7 +268,7 @@ end
 function ENT:FindObelisk()
     self.ObeliskTable = {};
     for _,v in pairs(ents.FindByClass("ancient_obelisk")) do
-        if (not table.HasValue(self.ObeliskTable, v) and v != self.Entity) then
+        if (not table.HasValue(self.ObeliskTable, v) and v ~= self.Entity) then
             table.insert(self.ObeliskTable, v);
         end
     end

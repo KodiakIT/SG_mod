@@ -138,7 +138,7 @@ function TOOL:LeftClick(trace)
             if !trace.Entity.phys then
                 trace.Entity.phys = trace.Entity:GetPhysicsObject()
             end
-            if trace.Entity.phys:IsValid() and convtable["fWeight"][2] != 0 then
+            if trace.Entity.phys:IsValid() and convtable["fWeight"][2] ~= 0 then
                 trace.Entity.phys:SetMass(math.Clamp(convtable["fWeight"][2], 1, 500))
             end
             if trace.Entity.Sound then
@@ -216,7 +216,7 @@ if SERVER then
         end
 
         numpad.OnDown(ply, tbl["iActivateKey"][2], 'FireGravitycontroller', ent)
-        if tbl["bSGAPowerNode"][2]!=1 then
+        if tbl["bSGAPowerNode"][2]~=1 then
             if tbl["fWeight"][2] > 1 then
                 ent:GetPhysicsObject():SetMass(tbl["fWeight"][2])
             end
@@ -300,7 +300,7 @@ if CLIENT then
         })
         CPanel:AddControl("Label", {Text = ""})
         CPanel:CheckBox(SGLanguage.GetMessage("stool_gravitycontroller_ds"),"gravitycontroller_bDrawSprite")
-        if convtable["bSGAPowerNode"][2] != 1 then
+        if convtable["bSGAPowerNode"][2] ~= 1 then
             CPanel:AddControl('Slider', {
                 Label = SGLanguage.GetMessage("stool_gravitycontroller_we"),
                 Type = "Float",
@@ -427,7 +427,7 @@ if CLIENT then
             firstupdate=false
         end
         for k, v in pairs(oldvtable) do
-            if v[1]==2 and v[2] != convtable[k][2] then
+            if v[1]==2 and v[2] ~= convtable[k][2] then
                 UpdatePanel()
                 oldvtable=table.Copy(convtable)
                 break
@@ -435,7 +435,7 @@ if CLIENT then
         end
         if (!self:GetClientInfo("sModel")) then return end
         local model = self:GetClientInfo("sModel")
-        if (!self.GhostEntity || !self.GhostEntity:IsValid() || self.GhostEntity:GetModel() != model) then
+        if (!self.GhostEntity || !self.GhostEntity:IsValid() || self.GhostEntity:GetModel() ~= model) then
             self:MakeGhostEntity(model, Vector(0,0,0), Angle(0,0,0))
         end
         self:UpdateSpawnGhost(self.GhostEntity, self:GetOwner())
@@ -476,7 +476,7 @@ if SERVER then
         end
         if (!self:GetClientInfo("sModel")) then return end
         local model = self:GetClientInfo("sModel")
-        if (!self.GhostEntity || !self.GhostEntity:IsValid() || self.GhostEntity:GetModel() != model) then
+        if (!self.GhostEntity || !self.GhostEntity:IsValid() || self.GhostEntity:GetModel() ~= model) then
             self:MakeGhostEntity(model, Vector(0,0,0), Angle(0,0,0))
         end
         self:UpdateSpawnGhost(self.GhostEntity, self:GetOwner())

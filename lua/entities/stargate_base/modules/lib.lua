@@ -192,7 +192,7 @@ function ENT:HaveEnergy(check,iris,first)
     local en = self:GetResource("energy");
     local t_en = 0;
     local distance = 100;
-    if (self.LastDistance!=0) then distance = self.LastDistance; end;
+    if (self.LastDistance~=0) then distance = self.LastDistance; end;
     if(IsValid(self.Target)) then distance = (self:GetPos() - self.Target:GetPos()):Length(); end;
     if (IsValid(self.Target) and self.Target == self.Entity) then distance = 10000 end
     local consume = distance * self.EnergyConsume;
@@ -246,7 +246,7 @@ function ENT:CheckEnergy(dhd, no_consume)
     local en = self:GetResource("energy");
     if (dhd or self.LastEnergy==0) then self.LastEnergy = en; else en = self.LastEnergy end
     local distance = 100;
-    if(IsValid(self.Target) and self.Target!=self.Entity) then distance = (self:GetPos() - self.Target:GetPos()):Length(); end;
+    if(IsValid(self.Target) and self.Target~=self.Entity) then distance = (self:GetPos() - self.Target:GetPos()):Length(); end;
     local consume = distance * self.EnergyConsume;
     if (self.ConnectionSGU) then consume = consume + self.SGUAdd; elseif (self.ConnectionGalaxy) then consume = consume + self.GalaxyAdd; else consume = consume + self.ChevAdd; end
     if(not self.ConnectionSGU and not self.ConnectionGalaxy)then consume = consume / self.ChevConsumption end;
@@ -284,7 +284,7 @@ end
 function ENT:WireGetEnergy(addr,dist)
     if (addr:Trim()=="") then return 0; end
     local address = string.Explode("",addr);
-    if (#address==6 or #address==7 and address[7]!="#") then table.insert(address,"#"); end
+    if (#address==6 or #address==7 and address[7]~="#") then table.insert(address,"#"); end
     local isgalaxy = 0
     local issgu = 0
     if (#address==8) then isgalaxy = 1 end
@@ -303,7 +303,7 @@ function ENT:WireGetEnergy(addr,dist)
     local en = self:GetResource("energy");
     local consume = distance * enconsume;
     if (#address==10) then consume = consume + self.SGUAdd; elseif (#address==9) then consume = consume + self.GalaxyAdd; else consume = consume + self.ChevAdd; end
-    if(#address==8 and self:GetClass()!="stargate_supergate")then consume = consume / self.ChevConsumption end;
+    if(#address==8 and self:GetClass()~="stargate_supergate")then consume = consume / self.ChevConsumption end;
     if (issgu) then
         consume = consume*2;
     else
@@ -311,7 +311,7 @@ function ENT:WireGetEnergy(addr,dist)
     end
     -- energy :)
     energy = consume;
-    if(#address==8 and self:GetClass()!="stargate_supergate") then
+    if(#address==8 and self:GetClass()~="stargate_supergate") then
         for k,v in pairs(self:FindPowerDHD()) do -- look for other power sources -- look for dhd :)
             if(IsValid(v))then energy = -1 end
         end
@@ -341,21 +341,21 @@ function ENT:CheckWormJump(target,range,c_range,old_target,groupsystem)
             result = false;
         else*/if(chevs==9) then
             if (self.IsUniverseGate) then
-                if (not target.IsUniverseGate or target.IsSupergate or c_range!=0 and range>=c_range) then
+                if (not target.IsUniverseGate or target.IsSupergate or c_range~=0 and range>=c_range) then
                     result = false;
                 end
             else
-                if (target.IsUniverseGate or target.IsSupergate or target:GetGateGroup()!=old_target:GetGateGroup()) then
+                if (target.IsUniverseGate or target.IsSupergate or target:GetGateGroup()~=old_target:GetGateGroup()) then
                     result = false;
                 end
             end
         else
             if (self.IsUniverseGate) then
-                if (not target.IsUniverseGate and not target.IsSupergate or c_range!=0 and range>=c_range) then
+                if (not target.IsUniverseGate and not target.IsSupergate or c_range~=0 and range>=c_range) then
                     result = false;
                 end
             else
-                if (not target.IsSupergate and self:GetGateGroup()!=target:GetGateGroup()) then
+                if (not target.IsSupergate and self:GetGateGroup()~=target:GetGateGroup()) then
                     result = false;
                 end
             end
@@ -363,21 +363,21 @@ function ENT:CheckWormJump(target,range,c_range,old_target,groupsystem)
     else
         if(chevs==9) then
             if (self.IsUniverseGate) then
-                if (not target.IsUniverseGate or target:GetGalaxy()!=old_target:GetGalaxy()) then
+                if (not target.IsUniverseGate or target:GetGalaxy()~=old_target:GetGalaxy()) then
                     result = false;
                 end
             else
-                if (target.IsUniverseGate or target:GetGalaxy()!=old_target:GetGalaxy()) then
+                if (target.IsUniverseGate or target:GetGalaxy()~=old_target:GetGalaxy()) then
                     result = false;
                 end
             end
         else
             if (self.IsUniverseGate) then
-                if (not target.IsUniverseGate and not target.IsSupergate or target:GetGalaxy()!=old_target:GetGalaxy()) then
+                if (not target.IsUniverseGate and not target.IsSupergate or target:GetGalaxy()~=old_target:GetGalaxy()) then
                     result = false;
                 end
             else
-                if (target.IsUniverseGate or not target.IsSupergate and target:GetGalaxy()!=old_target:GetGalaxy()) then
+                if (target.IsUniverseGate or not target.IsSupergate and target:GetGalaxy()~=old_target:GetGalaxy()) then
                     result = false;
                 end
             end
@@ -405,7 +405,7 @@ end
 
 -- Jump wormhole to nearest gate
 function ENT:WormHoleJump()
-    if (self.IsOpen and self.Outbound and IsValid(self.EventHorizon) and self.Entity:GetClass() != "stargate_orlin" and not self.IsSupergate and (not IsValid(self.Target) or not self.Target.jammed)) then
+    if (self.IsOpen and self.Outbound and IsValid(self.EventHorizon) and self.Entity:GetClass() ~= "stargate_orlin" and not self.IsSupergate and (not IsValid(self.Target) or not self.Target.jammed)) then
         local old = self.Target;
 
         if (self.Jumped) then
@@ -421,7 +421,7 @@ function ENT:WormHoleJump()
         local dist = 32000;
         local pos = old:GetPos();
         for _,v in pairs(ents.FindByClass("stargate_*")) do
-            if ((v.IsGroupStargate or v:GetClass() == "stargate_supergate") and v~=self.Entity and v~=old and not v.IsOpen and not v.IsDialling and v:GetClass() != "stargate_orlin") then
+            if ((v.IsGroupStargate or v:GetClass() == "stargate_supergate") and v~=self.Entity and v~=old and not v.IsOpen and not v.IsDialling and v:GetClass() ~= "stargate_orlin") then
                 local sg_dist = (pos - v:GetPos()):Length();
                 local range = GetConVar("stargate_sgu_find_range"):GetInt();
                 if (not self:CheckWormJump(v,sg_dist,range,old,groupsystem)) then continue end
@@ -543,7 +543,7 @@ function ENT:FindPowerDHD()
     end
 
     for _,v in pairs(posibble_dhd) do
-        if (v:GetClass()=="dhd_city" or IsValid(v.LockedGate) and v.LockedGate!=self.Entity) then continue end
+        if (v:GetClass()=="dhd_city" or IsValid(v.LockedGate) and v.LockedGate~=self.Entity) then continue end
         local e_pos = v:GetPos();
         local dist = (e_pos - pos):Length(); -- Distance from DHD to this stargate
         local range = self.DHDRange or 1000;
@@ -659,7 +659,7 @@ function ENT:GetAllGates(closed)
     local class = self.Entity:GetClass();
     for _,v in pairs(ents.FindByClass("stargate_*")) do
         if(v.IsStargate and not (closed and (v.IsOpen or v.Dialling))) then
-            if ((class == super and v:GetClass() == super) or (class != super and v:GetClass() != super)) then
+            if ((class == super and v:GetClass() == super) or (class ~= super and v:GetClass() ~= super)) then
                 table.insert(sg,v);
             end
         end
@@ -696,7 +696,7 @@ function ENT:FindGate(no_target,addr)
                         caddress and
                         a[7] == "#" and
                         (group == g or self.Entity:GetClass()=="stargate_universe") and
-                        (self.Entity:GetClass()!="stargate_universe" or
+                        (self.Entity:GetClass()~="stargate_universe" or
                         c_range == 0 or
                         c_range > 0 and
                         group:len()==3 and
@@ -713,7 +713,7 @@ function ENT:FindGate(no_target,addr)
                         string.find(group:sub(1,1),a[7]) and
                         a[8] == "#" and
                         (g:len()==2 and
-                        group != g and group:len()==2 or
+                        group ~= g and group:len()==2 or
                         c_range > 0 and
                         group:len()==3 and
                         g:len()==3 and
@@ -731,11 +731,11 @@ function ENT:FindGate(no_target,addr)
                         (string.find(group:sub(1,1),a[7]) and
                         string.find(group:sub(2,2),a[8]) and
                         string.find(group:sub(3,3),a[9]) and
-                        group:len()!=2 and g:len()==2 or
+                        group:len()~=2 and g:len()==2 or
                         string.find(group:sub(1,1),a[7]) and
                         string.find(group:sub(2,2),a[8]) and
                         a[9] == "#" and
-                        group:len()==2 and g:len()!=2)
+                        group:len()==2 and g:len()~=2)
                     ) then
                         table.insert(gates,v);
                     end
@@ -760,7 +760,7 @@ function ENT:FindGate(no_target,addr)
                 -- Tell the other gate, who is calling
                 local n = self.Entity:GetGateAddress();
                 local g = self.Entity:GetGateGroup();
-                if (n!=self.Target:GetGateAddress() or g!=self.Target:GetGateGroup()) then
+                if (n~=self.Target:GetGateAddress() or g~=self.Target:GetGateGroup()) then
                     if(n:len() == 6) then
                         local hide = GetConVar("stargate_show_inbound_address"):GetInt();
                         if (g == self.Target:GetGateGroup()) then
@@ -769,19 +769,19 @@ function ENT:FindGate(no_target,addr)
                             else
                                 self.Target.DialledAddress = {n:sub(1,1),n:sub(2,2),n:sub(3,3),n:sub(4,4),n:sub(5,5),n:sub(6,6),"#","DIAL"};
                             end
-                        elseif(g != self.Target:GetGateGroup() and g:len() == 2 and self.Target.Entity:GetGateGroup():len()==2) then
+                        elseif(g ~= self.Target:GetGateGroup() and g:len() == 2 and self.Target.Entity:GetGateGroup():len()==2) then
                             if (hide==0 or hide==1 and self.Entity:GetPrivate()==true) then
                                 self.Target.DialledAddress = {"","","","","","","","","DIAL"};
                             else
                                 self.Target.DialledAddress = {n:sub(1,1),n:sub(2,2),n:sub(3,3),n:sub(4,4),n:sub(5,5),n:sub(6,6),g:sub(1,1),"#","DIAL"};
                             end
-                        elseif(g != self.Target:GetGateGroup() and g:len() == 2 and self.Target.Entity:GetGateGroup():len()==3) then
+                        elseif(g ~= self.Target:GetGateGroup() and g:len() == 2 and self.Target.Entity:GetGateGroup():len()==3) then
                             if (hide==0 or hide==1 and self.Entity:GetPrivate()==true) then
                                 self.Target.DialledAddress = {"","","","","","","","","","DIAL"};
                             else
                                 self.Target.DialledAddress = {n:sub(1,1),n:sub(2,2),n:sub(3,3),n:sub(4,4),n:sub(5,5),n:sub(6,6),g:sub(1,1),g:sub(2,2),"#","DIAL"};
                             end
-                        elseif(g != self.Target:GetGateGroup() and g:len() == 3) then
+                        elseif(g ~= self.Target:GetGateGroup() and g:len() == 3) then
                             if (hide==0 or hide==1 and self.Entity:GetPrivate()==true) then
                                 self.Target.DialledAddress = {"","","","","","","","","","DIAL"};
                             else
@@ -821,7 +821,7 @@ function ENT:FindGateGalaxy(no_target,addr)
                         caddress and
                         a[7] == "#" and
                         g==galaxy and
-                        (self.Entity:GetClass()!="stargate_universe" or
+                        (self.Entity:GetClass()~="stargate_universe" or
                         c_range == 0 or
                         c_range > 0 and
                         v:GetClass()=="stargate_universe" and
@@ -837,7 +837,7 @@ function ENT:FindGateGalaxy(no_target,addr)
                         caddress and
                         a[7] == "@" and
                         a[8] == "#" and
-                        (g!=galaxy or v:GetClass()=="stargate_universe" and
+                        (g~=galaxy or v:GetClass()=="stargate_universe" and
                         self.Entity:GetClass()=="stargate_universe" and
                         c_range > 0 and
                         range>c_range)
@@ -855,8 +855,8 @@ function ENT:FindGateGalaxy(no_target,addr)
                         a[8] == "!" and
                         a[9] == "#" and
                         (v:GetClass()=="stargate_universe" and
-                        self.Entity:GetClass()!="stargate_universe" or
-                        v:GetClass()!="stargate_universe" and
+                        self.Entity:GetClass()~="stargate_universe" or
+                        v:GetClass()~="stargate_universe" and
                         self.Entity:GetClass()=="stargate_universe")
                     ) then
                         table.insert(gates,v);
@@ -881,7 +881,7 @@ function ENT:FindGateGalaxy(no_target,addr)
                 if (self.Entity == self.Target) then return end
                 -- Tell the other gate, who is calling
                 local n = self.Entity:GetGateAddress();
-                if (n!=self.Target:GetGateAddress() or g!=self.Target:GetGalaxy()) then
+                if (n~=self.Target:GetGateAddress() or g~=self.Target:GetGalaxy()) then
                     if(n:len() == 6) then
                         local hide = GetConVar("stargate_show_inbound_address"):GetInt();
                         if (#dialadr == 8) then
@@ -1167,12 +1167,12 @@ function ENT:SetGateGroup(s)
     if (self.Entity:GetClass()=="stargate_supergate") then return end
     if (self.Entity:GetClass()=="stargate_universe") then
         s = tostring(s or ""):gsub("[^"..self.WireCharters.."]","");
-        if (s!="" and s:len() == 3 and (s:sub(1,1)=="#" or s:sub(2,2)=="#")) then return end
+        if (s~="" and s:len() == 3 and (s:sub(1,1)=="#" or s:sub(2,2)=="#")) then return end
     else
         s = tostring(s or ""):gsub("[^"..self.WireCharters:gsub("#","").."]","");
     end
     if (s:len() == 1) then s = s.."@"; end
-    if(s:len() == 2 and self.Entity:GetClass() != "stargate_universe" or s:len() == 3 and self.Entity:GetClass() == "stargate_universe") then
+    if(s:len() == 2 and self.Entity:GetClass() ~= "stargate_universe" or s:len() == 3 and self.Entity:GetClass() == "stargate_universe") then
         local group = s:upper();
         if not self:CheckGroup(s,self.GateAddress) then return end
         group = hook.Call("StarGate.SetGateGroup",GAMEMODE,self.Entity,self.GateGroup or "",group) or group;
@@ -1268,7 +1268,7 @@ end
 
 -- Is this gate blocked? by AlexALX
 function ENT:GetBlocked()
-    if (self:GetNetworkedInt("SG_BLOCK_ADDRESS")<=0 or self:GetNetworkedInt("SG_BLOCK_ADDRESS")==1 and self:GetClass()!="stargate_universe") then return false; end
+    if (self:GetNetworkedInt("SG_BLOCK_ADDRESS")<=0 or self:GetNetworkedInt("SG_BLOCK_ADDRESS")==1 and self:GetClass()~="stargate_universe") then return false; end
     return self.GateBlocked;
 end
 
@@ -1418,7 +1418,7 @@ function ENT:OnButtDialGate()
         local target = "";
         if (self.Target.Target and IsValid(self.Target.Target)) then target = self.Target.Target end
         self.Target:StopActions();
-        if (target != self.Entity) then
+        if (target ~= self.Entity) then
             --target:Close();
             target:EmergencyShutdown(true,true);
         end
@@ -1525,7 +1525,7 @@ function ENT:AbortDialling()
 end
 
 function ENT:Chev9Spec(chev)
-    if not self.Outbound and #self.DialledAddress!=10 then return chev end
+    if not self.Outbound and #self.DialledAddress~=10 then return chev end
     if chev==4 then chev = 8
     elseif chev==5 then chev = 9
     elseif chev==6 then chev = 4

@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end -- When you need to add LifeSupport and Wire capabilities, you NEED TO CALL this before anything else or it wont work!
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end -- When you need to add LifeSupport and Wire capabilities, you NEED TO CALL this before anything else or it wont work!
 ENT.Type = "anim"
 ENT.Base = "base_gmodentity"
 ENT.PrintName = "Ship Shield Generator"
@@ -28,7 +28,7 @@ ENT.AdminSpawnable = false
 
 if SERVER then
 
--- HEADER #################
+-- HEADER
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("ship")) then return end
 AddCSLuaFile();
 
@@ -40,7 +40,7 @@ ENT.Sounds={
     Fail={Sound("buttons/button19.wav"),Sound("buttons/combine_button2.wav")},
 };
 
--- SENT CODE ###############
+-- SENT CODE
 -- function ENT:SpawnFunction(pl, tr)
     -- if (!tr.HitWorld) then return end
     -- local e = ents.Create("ship_shield_generator")
@@ -101,7 +101,7 @@ end
 
 -- Activates or deactivates the shield @aVoN
 function ENT:Status(b,nosound)
-    if (not StarGate.CFG:Get("cap_misc","ship_shield",true)) then return end -- disable shield if convar != 1
+    if (not StarGate.CFG:Get("cap_misc","ship_shield",true)) then return end -- disable shield if convar ~= 1
     if(b) then
         if(not self:Enabled() and not self.CantBeEnabled) then
             /*local energy = self:GetResource("energy",self.EngageEnergy);

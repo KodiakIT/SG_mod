@@ -55,7 +55,7 @@ function ENT.Sequence:Dial(inbound,fast,fail)
     if(not fail) then
         local dialaddress = "";
         for i=1,count-1 do
-            if (tostring(address[i]) != nil) then
+            if (tostring(address[i]) ~= nil) then
                 dialaddress = dialaddress..tostring(address[i]);
             end
         end
@@ -91,7 +91,7 @@ function ENT.Sequence:InstantOpen(action,delay,instant,inbound,slow,nox,fail)
     end
     local dialaddress = "";
     for i=1,chevs do
-        if (self.DialledAddress[i] != nil) then
+        if (self.DialledAddress[i] ~= nil) then
             dialaddress = dialaddress..tostring(self.DialledAddress[i]);
         end
     end

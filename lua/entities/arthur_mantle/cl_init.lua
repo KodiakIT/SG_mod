@@ -6,7 +6,7 @@
 
 include("shared.lua");
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.Category = SGLanguage.GetMessage("entity_main_cat");
 ENT.PrintName = SGLanguage.GetMessage("entity_arthurs_mantle");
 end
@@ -69,7 +69,7 @@ hook.Add("Think","StarGate.ArthurCloaking.Think",
                 if (c and p.__SGCloakMaterial==nil) then
                     p.__SGCloakMaterial = p:GetMaterial();
                     p:SetMaterial("models/effects/vol_light001");
-                elseif (not c and p.__SGCloakMaterial!=nil) then
+                elseif (not c and p.__SGCloakMaterial~=nil) then
                     a = 255;
                     if (p.__SGCloakMaterial=="models/effects/vol_light001") then
                         p:SetMaterial("");
@@ -84,7 +84,7 @@ hook.Add("Think","StarGate.ArthurCloaking.Think",
                     weapon:SetRenderMode( RENDERMODE_TRANSALPHA )
                     weapon:SetColor(Color(255,255,255,a)); -- Cloak his weapon too
                 end
-            elseif(p.__SGCloakMaterial!=nil) then
+            elseif(p.__SGCloakMaterial~=nil) then
                 local color = p:GetColor();
                 local r,g,b = color.r,color.g,color.b;
                 local weapon = p:GetActiveWeapon();
@@ -176,7 +176,7 @@ end
 
 local validfont
 local function checkfont(self)
-    if (validfont!=nil) then return validfont end
+    if (validfont~=nil) then return validfont end
     surface.SetFont( "AncientsC" )
     local w = surface.GetTextSize("SoMe TeXt HerE 12-12 %$");
     surface.SetFont( "GlyphsC" )
@@ -184,8 +184,8 @@ local function checkfont(self)
     if (w==321 and (w2==716 or w2==733 and not system.IsWindows())) then
         validfont = true
     end
-    if (self.AFont!=self.TFont) then validfont = false end
-    if (self.SFont!=self.GFont) then validfont = false end
+    if (self.AFont~=self.TFont) then validfont = false end
+    if (self.SFont~=self.GFont) then validfont = false end
     if (validfont==nil) then validfont = false end
     return validfont;
 end
@@ -196,7 +196,7 @@ if (file.Exists("entities/arthur_mantle/cl_data.lua","LUA")) then
     local str_exp = string.Explode("||\n\n||",str);
     local tbl = {}
     for k=1,table.Count(str_exp) do
-        if (str_exp[k] and str_exp[k]!="") then
+        if (str_exp[k] and str_exp[k]~="") then
             local tmp = string.Explode("|\n|",str_exp[k]);
             if (table.Count(tmp)>2) then
                 local t = tonumber(util.Decompress(tmp[1]) or "") or 0;
@@ -204,7 +204,7 @@ if (file.Exists("entities/arthur_mantle/cl_data.lua","LUA")) then
                 for l=2,table.Count(tmp)-1 do
                     table.insert(tbl[t],util.Decompress(tmp[l]) or "");
                 end
-                if (util.CRC(string.Implode("",tbl[t]))!=tmp[table.Count(tmp)]) then
+                if (util.CRC(string.Implode("",tbl[t]))~=tmp[table.Count(tmp)]) then
                     tbl[t] = nil
                     break;
                 end

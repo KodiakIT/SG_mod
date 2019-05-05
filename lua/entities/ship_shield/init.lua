@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
--- HEADER #################
+-- HEADER
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("ship")) then return end
 AddCSLuaFile("cl_init.lua");
 AddCSLuaFile("shared.lua");
@@ -465,7 +465,7 @@ end
 function ENT:Think()
 
     if self.IsJumper and self.Parent and self.Parent:Enabled() then
-        if self.JumperLast != self.Parent.Owner.epodo then
+        if self.JumperLast ~= self.Parent.Owner.epodo then
             if self.Parent.Owner.epodo then
                 self.Entity:SetModel("models/Madman07/shields/jumper_shield_open.mdl");
                 self.Entity:SetNetworkedBool("shield_jumper_open", true);

@@ -97,9 +97,9 @@ function ENT.Sequence:Dial(inbound,fast,fail,busy)
             end
             -- Chevron 1-7
             for i=1,chevs do
-                if (address[i] != nil) then
+                if (address[i] ~= nil) then
                     DialAddress = DialAddress..tostring(address[i]);
-                    if (IsValid(self.Target) and self.Target.IsStargate and self.Target.Entity:GetGateAddress():len()!=0) then
+                    if (IsValid(self.Target) and self.Target.IsStargate and self.Target.Entity:GetGateAddress():len()~=0) then
                         DialSymbol = tostring(address[i]);
                     else
                         DialSymbol = "";
@@ -221,7 +221,7 @@ function ENT.Sequence:Dial(inbound,fast,fail,busy)
                 rnds = rnds+rnd[7];
             end
         end
-        if (self.DialledAddress[1] != nil) then
+        if (self.DialledAddress[1] ~= nil) then
             action:Add({f=self.SetWire,v={self,"Dialing Symbol",tostring(self.DialledAddress[1])},d=0}); -- Wire
         end
         -- Start spinning
@@ -234,10 +234,10 @@ function ENT.Sequence:Dial(inbound,fast,fail,busy)
         -- Chevron 1-7
         for i=1,chevs do
             -- Output to wire dialled address
-            if (self.DialledAddress[i] != nil) then
+            if (self.DialledAddress[i] ~= nil) then
                 DialAddress = DialAddress..tostring(self.DialledAddress[i]);
                 DialSymbol = tostring(self.DialledAddress[i]);
-                if (i <= chevs and self.DialledAddress[i+1] != nil and self.DialledAddress[i+1] != "DIAL") then
+                if (i <= chevs and self.DialledAddress[i+1] ~= nil and self.DialledAddress[i+1] ~= "DIAL") then
                     DialNextSymbol = tostring(self.DialledAddress[i+1]);
                 else
                     DialNextSymbol = "";
@@ -426,7 +426,7 @@ function ENT.Sequence:InstantOpen(action,delay,instant,inbound,slow,nox,fail)
     end
     local dialaddress = "";
     for i=1,chevs do
-        if (self.DialledAddress[i] != nil) then
+        if (self.DialledAddress[i] ~= nil) then
             dialaddress = dialaddress..tostring(self.DialledAddress[i]);
         end
     end
@@ -478,7 +478,7 @@ function ENT.Sequence:OnButtonChevron(lightup, dialchev, address, symbol, fail, 
     local dialaddress = "";
     local dialsymbol = "";
     for i=1,dialchev do
-        if (address[i] != nil) then
+        if (address[i] ~= nil) then
             dialaddress = dialaddress..tostring(address[i]);
             if (i == dialchev) then
                 dialsymbol = tostring(address[i]);
@@ -493,7 +493,7 @@ function ENT.Sequence:OnButtonChevron(lightup, dialchev, address, symbol, fail, 
 
      local actdialchev = dialchev
     if (not lightup) then actdialchev = actdialchev+1 end
-    if (symbol != "#" and actdialchev!=9) then
+    if (symbol ~= "#" and actdialchev~=9) then
         if (actdialchev==7 or actdialchev==8) then
             actdialchev = actdialchev+1;
         end
@@ -503,9 +503,9 @@ function ENT.Sequence:OnButtonChevron(lightup, dialchev, address, symbol, fail, 
 
     local b = dialchev+1;
 
-    if (dialchev == 7 and symbol != "#") then
+    if (dialchev == 7 and symbol ~= "#") then
         b = 9
-    elseif (dialchev == 8 and symbol != "#") then
+    elseif (dialchev == 8 and symbol ~= "#") then
         b = 10
     elseif (dialchev == 8 and symbol == "#") then
         b = 11
@@ -541,7 +541,7 @@ function ENT.Sequence:OnButtonChevron(lightup, dialchev, address, symbol, fail, 
             action:Add({f=self.RingLight,v={self,chev},d=spintime});
         end
         action:Add({f=self.RingSound,v={self,false},d=0});
-        if (actdialchev != 7 or not fail) then
+        if (actdialchev ~= 7 or not fail) then
             action:Add({f=self.EmitSound,v={self.Entity,snd,90,math.random(98,103)},d=0});
         end
         if (not fail or busy) then

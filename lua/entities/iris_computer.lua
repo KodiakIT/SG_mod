@@ -1,4 +1,4 @@
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"
 ENT.Base = "base_anim"
 ENT.PrintName = "Stargate Iris Computer"
@@ -16,7 +16,7 @@ if SERVER then
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("base")) then return end
 AddCSLuaFile()
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 
 function ENT:Initialize()
     self.Entity:SetModel("models/props_lab/reciever01b.mdl")
@@ -89,7 +89,7 @@ util.AddNetworkString("gdopc_sendinfo")
 
 function ENT:Use(ply)
     if (self:GetWire("Disable Menu Mode",0)>=2) then return end
-    if (self:GetWire("Disable Menu Mode",0)==1 and self.Owner!=ply) then return end
+    if (self:GetWire("Disable Menu Mode",0)==1 and self.Owner~=ply) then return end
     net.Start("gdopc_sendinfo")
     net.WriteEntity(self)
     net.WriteInt(self.closetime,8)
@@ -275,7 +275,7 @@ local function ReceiveCodes(len, player)
         local codes = {}
         for i=1,count do
             local k,v = net.ReadString(),net.ReadString();
-            if (k!="" and v!="") then
+            if (k~="" and v~="") then
                 codes[k] = v
             end
         end
@@ -386,7 +386,7 @@ function ENT:SetBusy(busy)
 end
 
 function ENT:OnRemove()
-    if (self.LockedGate!=self) then
+    if (self.LockedGate~=self) then
         self.LockedGate.LockedIrisComp = nil;
     end
 end
@@ -454,7 +454,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.Category = SGLanguage.GetMessage("entity_main_cat");
 ENT.PrintName = SGLanguage.GetMessage("entity_iris_comp");
 end
@@ -538,7 +538,7 @@ local function gdopc_menuhook(len)
             end
         end
                   */
-        if not found and code:GetValue():gsub("[^1-9]","")!="" and desc:GetValue()!="" then
+        if not found and code:GetValue():gsub("[^1-9]","")~="" and desc:GetValue()~="" then
             codes[code:GetValue():gsub("[^1-9]","")] = desc:GetValue()
             updateCodes()
         end

@@ -141,7 +141,7 @@ function ENT:TriggerInput(k,v)
         self:SetNWVector("EffColor",Vector(self.EffColor.r,self.EffColor.g,self.EffColor.b));
         if (IsValid(self.Ent)) then self.Ent:SetColor(self.EffColor); end
     elseif (k=="Class Name") then
-        if (v!="") then self.CreateClass = v;
+        if (v~="") then self.CreateClass = v;
         else self.CreateClass = nil; end
     elseif (k=="Create" and v>0) then
         if (self.CreateClass and IsValid(self.Owner)) then
@@ -234,7 +234,7 @@ function ENT:Think()
             self.EntProgress = self.Entity:GetNetworkedInt("EntProgress");
             self.Progress = self.Entity:GetNWInt("Progress");
             self.Progress = string.Explode(".",tostring(self.Progress))
-            if(self.Progress[2] != nil)then
+            if(self.Progress[2] ~= nil)then
                 self.Progress = tonumber(self.Progress[1].."."..math.floor(self.Progress[2]))
             else
                 self.Progress = tonumber(self.Progress[1])
@@ -281,7 +281,7 @@ function ENT:Think()
                     self.Ent:Remove();
                     self.Ent = e;
                 end
-                if (self.MCD_RealClass!=nil) then
+                if (self.MCD_RealClass~=nil) then
                     local e = ents.Create(self.MCD_RealClass);
                     e:SetPos(self.Ent:GetPos());
                     e:SetModel(self.Ent:GetModel());
@@ -406,7 +406,7 @@ function ENT:StartCreate(class,owner,data)
     local orig_class = class;
     local pl = owner;
     if (not self.CheckRights) then pl = nil end
-    if (class!="replicator" and StarGate.NotSpawnable(info.check or class,pl,info.type or "tool")) then return end
+    if (class~="replicator" and StarGate.NotSpawnable(info.check or class,pl,info.type or "tool")) then return end
     local realclass = nil
     if (class=="replicator") then realclass = "prop_ragdoll"; class = "prop_physics"; end
     if (class=="fnp90" or class=="weapon_zat" or class=="weapon_asura" or class=="sg_medkit" or class=="weapon_gdo") then realclass = class; class = "prop_physics"; end
@@ -508,7 +508,7 @@ end
 
 net.Receive("MCD",function(len,ply)
     local self = net.ReadEntity()
-    if (not IsValid(self) or self.Player!=ply) then return end
+    if (not IsValid(self) or self.Player~=ply) then return end
     local class = net.ReadString();
     self:TriggerInput("Effect Color",net.ReadVector());
     local data = {};

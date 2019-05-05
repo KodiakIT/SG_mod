@@ -1,4 +1,4 @@
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"
 ENT.Base = "base_gmodentity"
 ENT.PrintName = "Gravity Controller"
@@ -27,7 +27,7 @@ function ENT:Initialize()
     self.phys=self.Entity:GetPhysicsObject()
     if (self.phys:IsValid()) then
         self.phys:Wake()
-        if self.Weight and self.Weight != 0 then
+        if self.Weight and self.Weight ~= 0 then
             self.phys:SetMass(math.Clamp(self.Weight, 1, 500))
         end
     end
@@ -108,7 +108,7 @@ function ENT:ActivateIt(bool)
         self.Active = false
         self:SetWire("Activated",false)
         for _,e in pairs(self.ConstrainedEntities) do
-            if e.IsGravcontroller and e.Active and e != self.Entity then
+            if e.IsGravcontroller and e.Active and e ~= self.Entity then
                 return
             end
         end
@@ -153,13 +153,13 @@ function ENT:PhysicsUpdate(phys)
     local actvel = phys:GetVelocity()
     local vel = NULLVEC
     local pos = self.Entity:GetPos()
-    if self.ConTable["bSGAPowerNode"][2] != 1 then
+    if self.ConTable["bSGAPowerNode"][2] ~= 1 then
         if self.ConTable["bRelativeToGrnd"][2] == 0 and self.HoverMode then
-            if self.ZAddValue != 0 then
+            if self.ZAddValue ~= 0 then
                 self.ZPos = self.ZPos + self.ZAddValue
             end
             if !self.ZAddByKey then self.ZAddByKey = 0 end
-            if self.ZAddByKey != 0 then
+            if self.ZAddByKey ~= 0 then
                 self.ZPos = self.ZPos + self.ZAddByKey
             end
         elseif self.HoverMode then
@@ -184,7 +184,7 @@ function ENT:PhysicsUpdate(phys)
             vel = vel + actvel*((100.0 - self.ConTable["fBrakePercent"][2])/100.0)
         end
         if self.HoverMode and self.ConTable["bRelativeToGrnd"][2] == 0 then
-            if (self.ZPos and self.ZPos != 0) then
+            if (self.ZPos and self.ZPos ~= 0) then
                 vel = vel + Vector(0,0, self.ZPos - pos.z)*self.ConTable["fHoverSpeed"][2]/3
             end
         end
@@ -202,7 +202,7 @@ function ENT:PhysicsUpdate(phys)
         if soundvel > 900 then soundvel = 900  end
         self.Sound:ChangePitch(100+(soundvel/6),0)
     end
-    if vel != NULLVEC then
+    if vel ~= NULLVEC then
         phys:SetVelocity(vel)
     end
 end

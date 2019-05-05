@@ -4,7 +4,7 @@
     Secret Code added by AlexALX
 ]]--
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"
 ENT.Base = "base_anim"
 ENT.PrintName = "Arthurs Mantle"

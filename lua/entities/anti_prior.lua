@@ -3,7 +3,7 @@
     Copyright (C) 2010 assassin21
 ############################################################################################################]]
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"
 ENT.Base = "base_anim"
 ENT.PrintName = "Anti Prior Device"
@@ -20,7 +20,7 @@ list.Set("CAP.Entity", ENT.PrintName, ENT);
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
     ENT.Category = SGLanguage.GetMessage("entity_main_cat");
     ENT.PrintName = SGLanguage.GetMessage("entity_antiprior");
 end
@@ -113,7 +113,7 @@ function ENT:Think()
         local e = ents.FindInSphere(self:GetPos(), self.Radius);
             for _,v in pairs(e) do
                 if v:IsPlayer() and v:GetMoveType() == MOVETYPE_NOCLIP then
-                    if (self.Immunity<0 or v != self.Owner) and not v:HasGodMode() then
+                    if (self.Immunity<0 or v ~= self.Owner) and not v:HasGodMode() then
                         local allow = hook.Call("StarGate.AntiPrior.Noclip",nil,v,self);
                         if (allow==false) then continue end
                         v:SetMoveType(MOVETYPE_WALK)
@@ -178,7 +178,7 @@ hook.Add("PlayerNoClip", "AntiPrior.DisableNoclip", function(ply,noclip)
     if (noclip) then
         if (not IsValid(ply) or ply.HasGodMode and ply:HasGodMode()) then return end
         for k,v in pairs(ents.FindInSphere(ply:GetPos(),800)) do
-            if (v:GetClass()=="anti_prior" and v.IsOn and (v.Immunity<0 or ply!=v.Owner) and not ply:HasGodMode()) then
+            if (v:GetClass()=="anti_prior" and v.IsOn and (v.Immunity<0 or ply~=v.Owner) and not ply:HasGodMode()) then
                 local allow = hook.Call("StarGate.AntiPrior.Noclip",nil,ply,v);
                 if (allow==false) then continue end
                 return false;
@@ -196,7 +196,7 @@ properties.Add( "AntiPrior.Immunity",
     MenuIcon    =    "icon16/plugin_link.png",
 
     Filter        =    function( self, ent, ply )
-                        if ( !IsValid( ent ) || !IsValid( ply ) || ent:GetClass()!="anti_prior") then return false end
+                        if ( !IsValid( ent ) || !IsValid( ply ) || ent:GetClass()~="anti_prior") then return false end
                         if ( !gamemode.Call( "CanProperty", ply, "antipriormodify", ent ) ) then return false end
                         return true
 

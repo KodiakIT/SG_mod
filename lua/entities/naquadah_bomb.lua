@@ -1,5 +1,5 @@
 -- Use the Stargate addon to add LS, RD and Wire support to this entity
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 
 ENT.Type         = "anim"
 ENT.Base         = "base_anim"
@@ -327,7 +327,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("naquadah_bomb", SGLanguage.GetMessage("entity_naq_bomb"))
 end
 

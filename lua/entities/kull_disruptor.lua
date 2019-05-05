@@ -117,7 +117,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("kull_disruptor",SGLanguage.GetMessage("entity_kd"))
 end
 

@@ -15,7 +15,7 @@ ENT.WireDebugName = "Communication Stone"
 if CLIENT then
 
 ENT.Stone_hud = surface.GetTextureID("VGUI/resources_hud/MCD");
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.Category = SGLanguage.GetMessage("entity_main_cat");
 ENT.PrintName = SGLanguage.GetMessage("entity_stone");
 end

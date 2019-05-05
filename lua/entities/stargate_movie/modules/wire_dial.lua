@@ -36,7 +36,7 @@ function ENT.Sequence:SeqEncodeChevron(dialchev, address)
         sgctype = true;
     end
     for i=1,dialchev do
-        if (address[i] != nil) then
+        if (address[i] ~= nil) then
             dialaddress = dialaddress..tostring(address[i]);
             if (i == dialchev) then
                 dialsymbol = tostring(address[i]);
@@ -111,7 +111,7 @@ function ENT.Sequence:SeqChevron7Lock(dialchev,address,fail,busy)
         sgctype = true;
     end
     for i=1,dialchev do
-        if (address[i] != nil) then
+        if (address[i] ~= nil) then
             dialaddress = dialaddress..tostring(address[i]);
             if (i == dialchev) then
                 dialsymbol = tostring(address[i]);

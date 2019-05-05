@@ -67,7 +67,7 @@ end
 
 function ENT:Think(ply)
 
-    if (IsValid(self.Entity) and IsValid(self.RingBase) and self.RingBase != self.Entity) then
+    if (IsValid(self.Entity) and IsValid(self.RingBase) and self.RingBase ~= self.Entity) then
 
         if (timer.Exists(self.Entity:EntIndex().."Dial") and self.RingBase.Busy) then
 
@@ -226,7 +226,7 @@ function ENT:Draw()
     local eye = self.Entity:WorldToLocal(LocalPlayer():GetEyeTrace().HitPos)
     local len = (eye - self.Middle):Length()
 
-    if (len <= 20 or table.GetFirstValue(address) != "") then
+    if (len <= 20 or table.GetFirstValue(address) ~= "") then
 
         local restalpha = 0;
         if (len <= 20) then restalpha = 50; end

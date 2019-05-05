@@ -17,7 +17,7 @@
 */
 
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("extra")) then return end
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 SWEP.PrintName = SGLanguage.GetMessage("weapon_misc_sodan");
 SWEP.Category = SGLanguage.GetMessage("weapon_misc_cat");
 end
@@ -177,7 +177,7 @@ hook.Add("Think","StarGate.SodanCloaking.Think",
                 else
                     if(cloaked) then
                         /*if (p.__HasBeenCloaked==nil or p.__HasBeenCloaked==false) then
-                            if (p.__SGCloakMaterial and p.__SGCloakMaterial!="models/effects/vol_light001") then
+                            if (p.__SGCloakMaterial and p.__SGCloakMaterial~="models/effects/vol_light001") then
                                 p.__SGCloakMaterial = p:GetMaterial();
                             end
                             p:SetMaterial("models/effects/vol_light001");
@@ -187,7 +187,7 @@ hook.Add("Think","StarGate.SodanCloaking.Think",
                     elseif(a == 0 and p.__HasBeenCloaked) then -- If he is uncloaked but still at 0 alpha, make him visible back again (Failsafe) - But do this only, if WE have cloaked him
                         a = 255;
                         p.__HasBeenCloaked = false;
-                        --if (p.__SGCloakMaterial!=nil) then if (p.__SGCloakMaterial=="models/effects/vol_light001") then p:SetMaterial(""); else p:SetMaterial(p.__SGCloakMaterial); end end
+                        --if (p.__SGCloakMaterial~=nil) then if (p.__SGCloakMaterial=="models/effects/vol_light001") then p:SetMaterial(""); else p:SetMaterial(p.__SGCloakMaterial); end end
                     end
                 end
                 p:SetRenderMode( RENDERMODE_TRANSALPHA )

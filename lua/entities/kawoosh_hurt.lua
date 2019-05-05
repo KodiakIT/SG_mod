@@ -13,7 +13,7 @@ ENT.DoNotDuplicate = true
 
 if SERVER then
 
--- HEADER #################
+-- HEADER
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("base")) then return end
 AddCSLuaFile();
 
@@ -82,7 +82,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.PrintName = SGLanguage.GetMessage("kawoosh_hurt");
 language.Add("kawoosh_hurt",SGLanguage.GetMessage("kawoosh_hurt"))
 end

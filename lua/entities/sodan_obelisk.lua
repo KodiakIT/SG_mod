@@ -377,7 +377,7 @@ function ENT:Draw()
     local eye = self.Entity:WorldToLocal(LocalPlayer():GetEyeTrace().HitPos)
     local len = (eye - Vector(22.53, -3.98, 69.45)):Length()
 
-    if (len <= 50 or table.GetFirstValue(address) != "") then
+    if (len <= 50 or table.GetFirstValue(address) ~= "") then
 
         local restalpha = 0;
         if (len <= 50) then restalpha = 100; end

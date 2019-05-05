@@ -94,7 +94,7 @@ if SERVER then
 
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("base")) then return end
 
--- HEADER #################
+-- HEADER
 AddCSLuaFile();
 
 ENT.Sounds = {Hit=Sound("shields/shield_hit.mp3")};
@@ -380,7 +380,7 @@ function ENT:Cloak(e,b)
                             end
                             if (IsValid(e:GetActiveWeapon())) then
                                 e:GetActiveWeapon().WeaponRenderMode = e:GetActiveWeapon():GetRenderMode()
-                                if (e:GetActiveWeapon():GetMaterial()!="models/effects/vol_light001") then
+                                if (e:GetActiveWeapon():GetMaterial()~="models/effects/vol_light001") then
                                     e:GetActiveWeapon().WeaponMaterial = e:GetActiveWeapon():GetMaterial();
                                 else
                                     e:GetActiveWeapon().WeaponMaterial = "";
@@ -411,7 +411,7 @@ function ENT:Cloak(e,b)
                     local color = e:GetColor();
                     e:SetColor(Color(color.r,color.g,color.b,old_alpha or 255));
                     if ((e:IsPlayer() or e:IsNPC()) and IsValid(e:GetActiveWeapon())) then
-                        if (e:GetActiveWeapon().WeaponRenderMode!=nil) then
+                        if (e:GetActiveWeapon().WeaponRenderMode~=nil) then
                             e:GetActiveWeapon():SetRenderMode(e:GetActiveWeapon().WeaponRenderMode);
                         end
                         e:GetActiveWeapon():Fire("alpha", old_alpha, 0);
@@ -426,7 +426,7 @@ function ENT:Cloak(e,b)
                 if (e:IsPlayer()) then
                     e:SetNetworkedBool("CloakCloaked",false);
                 end
-                if (IsValid(e:GetActiveWeapon()) and e:GetActiveWeapon().WeaponMaterial!=nil) then
+                if (IsValid(e:GetActiveWeapon()) and e:GetActiveWeapon().WeaponMaterial~=nil) then
                     e:GetActiveWeapon():SetMaterial(e:GetActiveWeapon().WeaponMaterial);
                 end
             end
@@ -459,10 +459,10 @@ hook.Add("PlayerSwitchWeapon", "StarGate.WeaponCloak.Changed", function(ply, old
     if (not ply or not IsValid(ply) or not ply:IsPlayer() or not IsValid(oldWeapon) or not IsValid(newWeapon)) then return nil end
 
     if (ply.__SGCloacked==true) then
-        if (oldWeapon.WeaponMaterial!=nil) then
+        if (oldWeapon.WeaponMaterial~=nil) then
             oldWeapon:SetMaterial(oldWeapon.WeaponMaterial);
         end
-        if (oldWeapon.WeaponRenderMode!=nil) then
+        if (oldWeapon.WeaponRenderMode~=nil) then
             oldWeapon:SetRenderMode(oldWeapon.WeaponRenderMode);
         end
         oldWeapon:Fire("alpha", 255, 0);

@@ -9,40 +9,40 @@
 
 if (Active & !Open) {
 
-if(Chevron==1 & !Inbound & Ch!=Chevron) {
+if(Chevron==1 & !Inbound & Ch~=Chevron) {
     soundPlay(0,2000,"stargate/walter/c1.mp3")
 }
-if(Chevron==2 & !Inbound & Ch!=Chevron) {
+if(Chevron==2 & !Inbound & Ch~=Chevron) {
     soundPlay(0,2000,"stargate/walter/c2.mp3")
 }
-if(Chevron==3 & !Inbound & Ch!=Chevron) {
+if(Chevron==3 & !Inbound & Ch~=Chevron) {
     soundPlay(0,2000,"stargate/walter/c3.mp3")
 }
-if(Chevron==4 & !Inbound & Ch!=Chevron) {
+if(Chevron==4 & !Inbound & Ch~=Chevron) {
     soundPlay(0,2000,"stargate/walter/c4.mp3")
 }
-if(Chevron==5 & !Inbound & Ch!=Chevron) {
+if(Chevron==5 & !Inbound & Ch~=Chevron) {
     soundPlay(0,2000,"stargate/walter/c5.mp3")
 }
-if(Chevron==6 & !Inbound & Ch!=Chevron) {
+if(Chevron==6 & !Inbound & Ch~=Chevron) {
     soundPlay(0,2000,"stargate/walter/c6.mp3")
 }
-if(Chevron==7 & !Inbound & Chevron_Locked & Ch!=Chevron) {
+if(Chevron==7 & !Inbound & Chevron_Locked & Ch~=Chevron) {
     soundPlay(0,2000,"stargate/walter/c7_locked.mp3")
-} elseif(Chevron==7 & !Inbound & !Chevron_Locked & Ch!=Chevron) {
+} elseif(Chevron==7 & !Inbound & !Chevron_Locked & Ch~=Chevron) {
     #soundPlay(0,2000,"stargate/walter/c7_short.mp3")
     soundPlay(0,2000,"alexalx/stargate/riley/c7_encoded.mp3")
 }
-if(Chevron==8 & !Inbound & Chevron_Locked & Ch!=Chevron) {
+if(Chevron==8 & !Inbound & Chevron_Locked & Ch~=Chevron) {
     soundPlay(0,2000,"stargate/walter/c8_locked.mp3")
-} elseif(Chevron==8 & !Inbound & !Chevron_Locked & Ch!=Chevron) {
+} elseif(Chevron==8 & !Inbound & !Chevron_Locked & Ch~=Chevron) {
     #soundPlay(0,2000,"stargate/walter/c8.mp3") - not exists
     soundPlay(0,2000,"alexalx/stargate/riley/c8_encoded.mp3")
 }
 if(Chevron==9 & !Inbound & Chevron_Locked) {
     #soundPlay(0,2000,"stargate/walter/c9_locked.mp3") - not exists
     soundPlay(0,2000,"alexalx/stargate/riley/bad/c9_lock.mp3")
-} elseif(Chevron==9 & !Inbound & !Chevron_Locked & Ch!=Chevron) {
+} elseif(Chevron==9 & !Inbound & !Chevron_Locked & Ch~=Chevron) {
     #soundPlay(0,2000,"stargate/walter/c8.mp3") - not exists
     soundPlay(0,2000,"alexalx/stargate/riley/c9_encoded.mp3")
 }

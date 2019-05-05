@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
--- HEADER #################
+-- HEADER
 include("shared.lua");
 ENT.RenderGroup = RENDERGROUP_OPAQUE -- This FUCKING THING avoids the clipping bug I have had for ages since stargate BETA 1.0. DAMN!
 
@@ -121,7 +121,7 @@ end
 
 -- Is the stargate blocked? by AlexALX
 function ENT:GetBlocked()
-    if (self:GetNetworkedInt("SG_BLOCK_ADDRESS")<=0 or self:GetNetworkedInt("SG_BLOCK_ADDRESS")==1 and self:GetClass()!="stargate_universe") then return false; end
+    if (self:GetNetworkedInt("SG_BLOCK_ADDRESS")<=0 or self:GetNetworkedInt("SG_BLOCK_ADDRESS")==1 and self:GetClass()~="stargate_universe") then return false; end
     return self:GetNWBool("Blocked",false);
 end
 
@@ -228,7 +228,7 @@ hook.Add("HUDPaint","StarGate.Hook.HUDPaint.ShowAddressAndGroupAndName",
                     if(e.IsGroupStargate and e:GetNetworkedBool("SG_GROUP_SYSTEM")) then
                         local address = e:GetGateAddress();
                         local group = e:GetGateGroup();
-                        if(address != "" and group != "") then
+                        if(address ~= "" and group ~= "") then
                             local name = e:GetGateName();
                             if(name == "") then name = "N/A" end;
                             local message = SGLanguage.GetMessage("stargate_address")..": "..address.." - "..SGLanguage.GetMessage("stargate_group")..": "..group.." - "..SGLanguage.GetMessage("stargate_name")..": "..name;
@@ -237,7 +237,7 @@ hook.Add("HUDPaint","StarGate.Hook.HUDPaint.ShowAddressAndGroupAndName",
                             end
                             draw.WordBox(8,40,ScrH()/2,message,"Default",Color(50,50,75,100),color);
                         end
-                    elseif(e.IsGroupStargate and e:GetClass()!="stargate_universe") then
+                    elseif(e.IsGroupStargate and e:GetClass()~="stargate_universe") then
                         local address = e:GetGateAddress();
                         if(address ~= "") then
                             local name = e:GetGateName();
@@ -250,7 +250,7 @@ hook.Add("HUDPaint","StarGate.Hook.HUDPaint.ShowAddressAndGroupAndName",
                         end
                     elseif(e.IsStargate) then
                         local address = e:GetGateAddress();
-                        if(address != "") then
+                        if(address ~= "") then
                             local name = e:GetGateName();
                             if(name == "") then name = "N/A" end;
                             local message = SGLanguage.GetMessage("stargate_address")..": "..address.." - "..SGLanguage.GetMessage("stargate_name")..": "..name;
@@ -333,7 +333,7 @@ function ENT:FindPowerDHD()
     end
 
     for _,v in pairs(posibble_dhd) do
-        if (v:GetClass()=="dhd_city" or IsValid(v:GetNWEntity("LockedGate")) and v:GetNWEntity("LockedGate")!=self.Entity) then continue end
+        if (v:GetClass()=="dhd_city" or IsValid(v:GetNWEntity("LockedGate")) and v:GetNWEntity("LockedGate")~=self.Entity) then continue end
         local e_pos = v:GetPos();
         local dist = (e_pos - pos):Length(); -- Distance from DHD to this stargate
         if(dist <= self.Entity:GetNetworkedInt("DHDRange",1000)) then
@@ -435,7 +435,7 @@ function ENT:GetAllGates(closed)
     local class = self.Entity:GetClass();
     for _,v in pairs(ents.FindByClass("stargate_*")) do
         if(v.IsStargate and not (closed and (v.IsOpen or v.Dialling))) then
-            if ((class == super and v:GetClass() == super) or (class != super and v:GetClass() != super)) then
+            if ((class == super and v:GetClass() == super) or (class ~= super and v:GetClass() ~= super)) then
                 table.insert(sg,v);
             end
         end

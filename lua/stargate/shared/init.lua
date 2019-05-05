@@ -15,7 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
--- DEFINES #################
+-- DEFINES
 StarGate.Hook = StarGate.Hook or {};
 -- CreateConVar("gmod_stargate_version",StarGate.CURRENT_VERSION); -- Which version?
 
@@ -159,7 +159,7 @@ end
     All models paths must be in LOWER case.
 */
 
--- For stools ###################
+-- For stools
 -- For reloading the stools require writen restart.
 -- All models paths must be in LOWER case.
 
@@ -224,7 +224,7 @@ StarGate.Ramps.Ring = {
     ["models/boba_fett/ramps/ring_ramps/ring_ramp3.mdl"] = {},
 }
 
--- Offsets ###################
+-- Offsets
 -- You can write stargate_reload (not lua_reloadents) to update ramp offsets (much faster).
 -- All model paths must be in LOWER case.
 

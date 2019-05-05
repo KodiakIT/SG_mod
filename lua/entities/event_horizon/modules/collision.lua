@@ -25,13 +25,13 @@ function ShouldEHEntitiesCollide(ent1,ent2)
 
     -- may prevent physics crash, but still sometimes crash somewhy(
     -- v2.0 may prevent crash better now
-    if (enta.___last_entb!=nil and entb.___last_enta!=nil and enta.___last_entb == entb:EntIndex() and entb.___last_entb == enta:EntIndex()) then
+    if (enta.___last_entb~=nil and entb.___last_enta~=nil and enta.___last_entb == entb:EntIndex() and entb.___last_entb == enta:EntIndex()) then
 
-        if (enta.___last_res!=nil) then
+        if (enta.___last_res~=nil) then
             local res = enta.___last_res;
             eha,entab,enta_dir,eha_valid,enta_bdir = res[1],res[2],res[3],res[4],res[5];
         end
-        if (entb.___last_res!=nil) then
+        if (entb.___last_res~=nil) then
             local res = entb.___last_res;
             ehb,entbb,entb_dir,ehb_valid,entb_bdir = res[1],res[2],res[3],res[4],res[5];
         end
@@ -60,7 +60,7 @@ function ShouldEHEntitiesCollide(ent1,ent2)
     end
 
     if (eha_valid and ehb_valid or entab and entbb) then
-        if (enta_dir!=0 and entb_dir!=0 and enta_dir!=entb_dir) then
+        if (enta_dir~=0 and entb_dir~=0 and enta_dir~=entb_dir) then
             return false
         end
         return
@@ -86,7 +86,7 @@ function ShouldEHEntitiesCollide(ent1,ent2)
     end
 
     local bdir = 0
-    if (tent_bdir!=0) then
+    if (tent_bdir~=0) then
         bdir = tent_bdir;
     else
         -- @RononDex line
@@ -100,7 +100,7 @@ function ShouldEHEntitiesCollide(ent1,ent2)
         end
     end
 
-    if(ent_dir!=0 and ent_dir!=bdir)then
+    if(ent_dir~=0 and ent_dir~=bdir)then
         return false;
     end
 

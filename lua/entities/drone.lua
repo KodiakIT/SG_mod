@@ -29,7 +29,7 @@ ENT.DoNotDuplicate = true
 
 if SERVER then
 
--- HEADER #################
+-- HEADER
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("extra")) then return end
 AddCSLuaFile();
 
@@ -289,7 +289,7 @@ ENT.Glow = StarGate.MaterialFromVMT(
         "$vertexcolor" 1
     }]]
 );
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("drone",SGLanguage.GetMessage("drone_kill"));
 end
 

@@ -6,7 +6,7 @@ ENT.Base = "base_anim"
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
     language.Add("f302", SGLanguage.GetMessage("entity_f302"))
 end
 

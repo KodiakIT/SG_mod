@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
--- HEADER #################
+-- HEADER
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("base")) then return end
 AddCSLuaFile("cl_init.lua");
 AddCSLuaFile("shared.lua");
@@ -116,7 +116,7 @@ function ENT:FindGate()
     local dist = 150;
     local pos = self.Entity:GetPos();
     for _,v in pairs(ents.FindByClass("stargate_*")) do
-        if(v.IsStargate and v:GetClass() != "stargate_supergate") then
+        if(v.IsStargate and v:GetClass() ~= "stargate_supergate") then
             local sg_dist = (pos - v:GetPos()):Length();
             if(dist >= sg_dist) then
                 dist = sg_dist;
@@ -262,7 +262,7 @@ function ENT:Touch(e)
 end
 
 function ENT:OnTakeDamage(  dmginfo )
-    if (not IsValid(self.Entity) or self.Entity:GetModel() != "models/zup/stargate/sga_shield.mdl" or not self.IsActivated or dmginfo:GetAttacker():GetClass() == "point_hurt" or dmginfo:GetAttacker():GetClass() == "kawoosh_hurt") then return end
+    if (not IsValid(self.Entity) or self.Entity:GetModel() ~= "models/zup/stargate/sga_shield.mdl" or not self.IsActivated or dmginfo:GetAttacker():GetClass() == "point_hurt" or dmginfo:GetAttacker():GetClass() == "kawoosh_hurt") then return end
     self.Entity:EmitSound(self.Sounds.Hit,90,math.random(98,103));
 end
 

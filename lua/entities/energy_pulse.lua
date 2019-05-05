@@ -23,7 +23,7 @@ ENT.DoNotDuplicate = true
 
 if SERVER then
 
--- HEADER #################
+-- HEADER
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("weapon")) then return end
 AddCSLuaFile();
 
@@ -317,7 +317,7 @@ ENT.Glow = StarGate.MaterialFromVMT(
 );
 ENT.Shaft = Material("effects/ar2ground2");
 ENT.LightSettings = "cl_staff_dynlights_flight";
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("energy_pulse",SGLanguage.GetMessage("energy_pulse_kill"));
 end
 ENT.RenderGroup = RENDERGROUP_BOTH;

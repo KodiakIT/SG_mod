@@ -286,7 +286,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("gate_nuke", SGLanguage.GetMessage("gate_nuke"))
 end
 

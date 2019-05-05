@@ -128,7 +128,7 @@ end
 
 else
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("goauld_ramp",SGLanguage.GetMessage("ramp_kill"));
 end
 

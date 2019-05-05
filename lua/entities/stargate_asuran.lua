@@ -1,6 +1,6 @@
 -- Copyright (C) 2010 by Llapp
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"
 ENT.Base = "base_anim"
 ENT.PrintName = "Asuran Satellite"
@@ -258,7 +258,7 @@ function ENT:DoKill(ply)   -- @ RononDex,aVoN
         k:SetPos(self:GetPos())
         k:SetAngles(self:GetAngles());
         k:SetModel( model );
-        if(model != "models/Zup/Stargate/sga_test_gate.mdl")then
+        if(model ~= "models/Zup/Stargate/sga_test_gate.mdl")then
             k:SetMaterial("Iziraider\asuransat\asuransat");
             --k:SetColor(Color(95, 155, 209, 255));
         end
@@ -286,7 +286,7 @@ end
 
 function ENT:StartTouch( ent )  -- @ Madman07
     if (ent and ent:IsValid() and ent:IsVehicle()) then
-        if (self.APC != ent) then
+        if (self.APC ~= ent) then
             local ed = EffectData()
                 ed:SetEntity( ent )
             util.Effect( "propspawn", ed, true, true )
@@ -336,8 +336,8 @@ function ENT:PhysicsUpdate( phys, deltatime )  -- @ Madman07 and Llapp
                 acc = 20;
             end
             self.Accel.RIGHT=math.Approach(self.Accel.RIGHT,strafe,acc);
-            if (self.APCply:KeyDown(IN_RELOAD) and TargetPos!=nil and IsValid(self.Entity) and self.Pressed == false) then
-                if(TargetPos!=nil and self.Entity:IsValid())then
+            if (self.APCply:KeyDown(IN_RELOAD) and TargetPos~=nil and IsValid(self.Entity) and self.Pressed == false) then
+                if(TargetPos~=nil and self.Entity:IsValid())then
                     if ((TargetPos-self.Entity:GetPos()):Length() > 0) then
                         coords = -800;
                     else
@@ -361,7 +361,7 @@ function ENT:PhysicsUpdate( phys, deltatime )  -- @ Madman07 and Llapp
         elseif (self.WireVec) then
             TargetPos = self.WireVec;
         end
-        if(TargetPos!=nil and IsValid(self.Entity))then
+        if(TargetPos~=nil and IsValid(self.Entity))then
             if ((TargetPos-self.Entity:GetPos()):Length() > 0) then
                 coords = -1000;
             else
@@ -369,7 +369,7 @@ function ENT:PhysicsUpdate( phys, deltatime )  -- @ Madman07 and Llapp
             end
             jumpCoords = Vector(TargetPos.x+coords, TargetPos.y, self.Entity:GetPos().z);
         end
-        if(self.WireHoverdrive==1 and TargetPos!=nil and IsValid(self.Entity) and self.Pressed == false)then
+        if(self.WireHoverdrive==1 and TargetPos~=nil and IsValid(self.Entity) and self.Pressed == false)then
             timer.Simple(5,function()
                 if(IsValid(self.Entity) and (jumpCoords-self.Entity:GetPos()):Length() > 3000)then
                         self:HyperspaceOut(jumpCoords)
@@ -609,7 +609,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.Category = SGLanguage.GetMessage("entity_weapon_cat");
 ENT.PrintName = SGLanguage.GetMessage("entity_asuran_satellite");
 end

@@ -5,7 +5,7 @@
 
 ENT.Type = "anim"
 ENT.Base = "base_anim"
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.PrintName = "Braziers"
 ENT.Author = "Madman07, Rafael De Jongh"
 ENT.Category = "Stargate Carter Addon Pack"

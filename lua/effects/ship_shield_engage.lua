@@ -82,7 +82,7 @@ end
 function EFFECT:Think()
     if self.IsJumper then
         local status = self.Parent:GetNWBool("shield_jumper_open");
-        if self.JumperLast != status then
+        if self.JumperLast ~= status then
             if status then
                 self.Entity:SetModel("models/Madman07/shields/jumper_shield_open.mdl");
             else

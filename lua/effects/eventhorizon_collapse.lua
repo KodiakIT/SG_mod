@@ -66,10 +66,10 @@ function EFFECT:Render()
     if(not self.Draw) then return end; -- Stops crashing ppl
 
     -- test fix for client crash
-    if (self.Collapse:GetName()!="zup/stargate/eh_closing") then
+    if (self.Collapse:GetName()~="zup/stargate/eh_closing") then
         self.Collapse = Material("zup/stargate/eh_closing");
     end
-    if (self.Material:GetName()!="zup/stargate/eventhorizon_establish") then
+    if (self.Material:GetName()~="zup/stargate/eventhorizon_establish") then
         self.Material = Material("zup/stargate/eventhorizon_establish");
     end
 

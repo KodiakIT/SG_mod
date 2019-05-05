@@ -6,7 +6,7 @@ ENT.Author = "RononDex / AlexALX"
 ENT.Category = "Stargate Carter Addon Pack"
 ENT.Instructions = "Mobile Analysis Labatory Probe"
 list.Set("CAP.Entity", ENT.PrintName, ENT);
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end -- When you need to add LifeSupport and Wire capabilities, you NEED TO CALL this before anything else or it wont work!
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end -- When you need to add LifeSupport and Wire capabilities, you NEED TO CALL this before anything else or it wont work!
 
 if SERVER then
 
@@ -71,7 +71,7 @@ function ENT:Initialize()
     self:CreateWireInputs("Forward","Left","Right","Back");
     self:CreateWireOutputs("Gravity","Habitat","Atmosphere","Temperature","O2 Percent","CO2 Percent","N2 Percent","H2 Percent","Water Level");
 
-    if (CAF and CAF.GetAddon and CAF.GetAddon("Spacebuild") and table.Count(CAF.GetAddon("Spacebuild"):GetEnvironments())!=0) then
+    if (CAF and CAF.GetAddon and CAF.GetAddon("Spacebuild") and table.Count(CAF.GetAddon("Spacebuild"):GetEnvironments())~=0) then
         self.CAF = true;
     end
 
@@ -662,7 +662,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.Category = SGLanguage.GetMessage("entity_main_cat");
 ENT.PrintName = SGLanguage.GetMessage("entity_malp");
 end

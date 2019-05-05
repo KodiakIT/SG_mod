@@ -212,10 +212,10 @@ function ENT:SetAtlNameGrp(name,grp,ply,wire)
     grp = grp or "";
     grp = grp:Trim();
 
-    if (name!="") then
+    if (name~="") then
         -- No multiple rings please!
         for _,v in pairs(ents.FindByClass("atlantis_transporter")) do
-            if(v.TName == name and v.Entity != self.Entity) then
+            if(v.TName == name and v.Entity ~= self.Entity) then
                 if (not wire) then ply:SendLua("GAMEMODE:AddNotify(SGLanguage.GetMessage(\"atl_tp_error\"), NOTIFY_ERROR, 5); surface.PlaySound( \"buttons/button2.wav\" )"); end
                 return;
             end
@@ -241,10 +241,10 @@ function ENT:SetAtlName(name)
     if not IsValid(self.Entity) then return end
     name = name or "";
     name = name:Trim();
-    if (name!="") then
+    if (name~="") then
         -- No multiple rings please!
         for _,v in pairs(ents.FindByClass("atlantis_transporter")) do
-            if(v.TName == name and v.Entity != self.Entity) then
+            if(v.TName == name and v.Entity ~= self.Entity) then
                 return;
             end
         end
@@ -261,10 +261,10 @@ function ENT:SetAtlGrp(grp)
     if(not IsValid(self)) then return end;
     grp = grp or "";
     grp = grp:Trim();
-    if (grp!="") then
+    if (grp~="") then
         -- No multiple rings please!
         for _,v in pairs(ents.FindByClass("atlantis_transporter")) do
-            if(v.TName == self.TName and v.Entity != self.Entity) then
+            if(v.TName == self.TName and v.Entity ~= self.Entity) then
                 return;
             end
         end
@@ -491,7 +491,7 @@ function ENT:FindTransporter(name)
     else
         local entt = ents.FindByClass("atlantis_transporter")
         for _,e in pairs(entt) do
-            if IsValid(e) and e!=self and e.TName!="" then
+            if IsValid(e) and e~=self and e.TName~="" then
                 if e.TName == name and (e.TGroup == self.TGroup or !self.TLocal and !e.TLocal) then
                     return e;
                 end
@@ -777,7 +777,7 @@ function ENT:WireGetAddresses()
     local list = {}
     local entt = ents.FindByClass("atlantis_transporter")
     for _,e in pairs(entt) do
-        if IsValid(e) and e!=self and e.TName!="" and not e.TPrivate and (e.TGroup == self.TGroup or !self.TLocal and !e.TLocal) then
+        if IsValid(e) and e~=self and e.TName~="" and not e.TPrivate and (e.TGroup == self.TGroup or !self.TLocal and !e.TLocal) then
             table.insert(list,{e.TName,e.TGroup});
         end
     end

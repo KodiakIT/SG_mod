@@ -10,7 +10,7 @@
 @outputs Dial_Address
 @persist Str:string X Go
 @trigger all
-if (Address != "") {Str = Address} else {Str = "123456"} #Change "123456" if you want. What it does is, it dials to 123456 if you leave "String" unwired.
+if (Address ~= "") {Str = Address} else {Str = "123456"} #Change "123456" if you want. What it does is, it dials to 123456 if you leave "String" unwired.
 if (~Dial & Dial & !Go) {Go = 1}
 if (Go) {
     interval(10) #Change this to 600 for use with dhd press button input.

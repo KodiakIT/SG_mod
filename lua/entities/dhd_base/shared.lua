@@ -15,7 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end -- When you need to add LifeSupport and Wire capabilities, you NEED TO CALL this before anything else or it wont work!
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end -- When you need to add LifeSupport and Wire capabilities, you NEED TO CALL this before anything else or it wont work!
 ENT.Type = "anim";
 ENT.PrintName = "DHD_base";
 ENT.Author = "aVoN, RononDex, AlexALX";
@@ -127,7 +127,7 @@ function ENT:GetCurrentButton(p,multi)
     local c = self.ChevronPositions;
     local t = p:GetEyeTrace();
     -- damn you garry... GetEyeTrace in gmod13 return always same value when some menu is open
-    if (CLIENT and gui.MousePos()!=0) then
+    if (CLIENT and gui.MousePos()~=0) then
         t = util.TraceLine( util.GetPlayerTrace( p, gui.ScreenToVector(gui.MousePos()) ) )
     end
     local cv = self.Entity:WorldToLocal(t.HitPos)

@@ -815,7 +815,7 @@ __e2setcost( 5 )
 e2function void entity:stargateRingDial(string address)
     if not IsValid(this) or not this.IsRings or this.Busy or not(isOwner(self,this) or self.player:IsAdmin()) then return end
     local adr = address:gsub("[^0-9]","");
-    if (adr!="") then
+    if (adr~="") then
         this:Dial(address);
     else
         this:Dial(" "); -- fail
@@ -830,7 +830,7 @@ end
 e2function void wirelink:stargateRingDial(string address)
     if not IsValid(this) or not this.IsRings or this.Busy then return end
     local adr = address:gsub("[^0-9]","");
-    if (adr!="") then
+    if (adr~="") then
         this:Dial(address);
     else
         this:Dial(" "); -- fail
@@ -843,13 +843,13 @@ e2function void wirelink:stargateRingDialClosest()
 end
 
 e2function void entity:stargateAsgardTeleport(vector origin, vector dest, number all)
-    if not IsValid(this) or this:GetClass() != "transporter" or not(isOwner(self,this) or self.player:IsAdmin()) then return end
+    if not IsValid(this) or this:GetClass() ~= "transporter" or not(isOwner(self,this) or self.player:IsAdmin()) then return end
     this.TeleportEverything = util.tobool(all);
     this:Teleport(Vector(origin[1],origin[2],origin[3]), Vector(dest[1],dest[2],dest[3]));
 end
 
 e2function void wirelink:stargateAsgardTeleport(vector origin, vector dest, number all)
-    if not IsValid(this) or this:GetClass() != "transporter" then return end
+    if not IsValid(this) or this:GetClass() ~= "transporter" then return end
     this.TeleportEverything = util.tobool(all);
     this:Teleport(Vector(origin[1],origin[2],origin[3]), Vector(dest[1],dest[2],dest[3]));
 end

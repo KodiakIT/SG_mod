@@ -20,7 +20,7 @@ ENT.IsDHDUni = true
 if SERVER then
 
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("base")) then return end
--- HEADER #################
+-- HEADER
 AddCSLuaFile();
 
 ENT.PlorkSound = "stargate/universe/chevron.mp3"; -- The old sound
@@ -53,7 +53,7 @@ if CLIENT then
 ENT.RenderGroup = RENDERGROUP_BOTH -- This FUCKING THING avoids the clipping bug I have had for ages since stargate BETA 1.0. DAMN!
 -- Damn u aVoN. It need to be setted to BOTH. I spend many hours on trying to fix Z-index issue. @Mad
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.Category = SGLanguage.GetMessage("stargate_category");
 ENT.PrintName = SGLanguage.GetMessage("dhd_universe");
 end

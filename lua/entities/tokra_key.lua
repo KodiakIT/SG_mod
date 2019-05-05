@@ -3,7 +3,7 @@
     Copyright (C) 2011 Madman07
 ]]--
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"
 ENT.Base = "base_anim"
 ENT.PrintName = "Tokra Shield Controller"
@@ -112,12 +112,12 @@ end
 function ENT:FindGen(ent,disable)
     if (not IsValid(ent)) then return end
     if (ent==self and IsValid(self.Link)) then return self.Link;
-    elseif (ent!=self and IsValid(ent.Link)) then return ent.Link end
+    elseif (ent~=self and IsValid(ent.Link)) then return ent.Link end
     local gen;
     local dist = 1000;
     local pos = self:GetPos();
     for _,v in pairs(ents.FindByClass("tokra_emmiter")) do
-        if (v != ent and (not v.Enabled and not disable or v.Enabled and disable) and not IsValid(v.KeyLink) and not IsValid(v.Link)) then
+        if (v ~= ent and (not v.Enabled and not disable or v.Enabled and disable) and not IsValid(v.KeyLink) and not IsValid(v.Link)) then
             local sg_dist = (pos - v:GetPos()):Length();
             if(dist >= sg_dist) then
                 dist = sg_dist;

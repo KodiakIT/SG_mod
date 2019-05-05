@@ -50,7 +50,7 @@ properties.Add( "Stargate.Uni.SymLight.On",
     MenuIcon    =    "icon16/plugin_disabled.png",
 
     Filter        =    function( self, ent, ply )
-                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()!="stargate_universe" || ent:GetNWBool("GateSpawnerProtected",false) || ent:GetNWBool("ActSymsAL",false)) then return false end
+                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()~="stargate_universe" || ent:GetNWBool("GateSpawnerProtected",false) || ent:GetNWBool("ActSymsAL",false)) then return false end
                         if ( !gamemode.Call( "CanProperty", ply, "stargatemodify", ent ) ) then return false end
                         return true
 
@@ -82,7 +82,7 @@ properties.Add( "Stargate.Uni.SymLight.Off",
 
     Filter        =    function( self, ent, ply )
 
-                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()!="stargate_universe" || ent:GetNWBool("GateSpawnerProtected",false) || !ent:GetNWBool("ActSymsAL",false)) then return false end
+                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()~="stargate_universe" || ent:GetNWBool("GateSpawnerProtected",false) || !ent:GetNWBool("ActSymsAL",false)) then return false end
                         if ( !gamemode.Call( "CanProperty", ply, "stargatemodify", ent ) ) then return false end
                         return true
 
@@ -113,7 +113,7 @@ properties.Add( "Stargate.Uni.SymInc.On",
     MenuIcon    =    "icon16/plugin_disabled.png",
 
     Filter        =    function( self, ent, ply )
-                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()!="stargate_universe" || ent:GetNWBool("GateSpawnerProtected",false) || ent:GetNWInt("ActSymsI",0)!=0) then return false end
+                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()~="stargate_universe" || ent:GetNWBool("GateSpawnerProtected",false) || ent:GetNWInt("ActSymsI",0)~=0) then return false end
                         if ( !gamemode.Call( "CanProperty", ply, "stargatemodify", ent ) ) then return false end
                         return true
 
@@ -144,7 +144,7 @@ properties.Add( "Stargate.Uni.SymInc.On2",
     MenuIcon    =    "icon16/plugin.png",
 
     Filter        =    function( self, ent, ply )
-                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()!="stargate_universe" || ent:GetNWBool("GateSpawnerProtected",false) || ent:GetNWInt("ActSymsI",0)!=1) then return false end
+                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()~="stargate_universe" || ent:GetNWBool("GateSpawnerProtected",false) || ent:GetNWInt("ActSymsI",0)~=1) then return false end
                         if ( !gamemode.Call( "CanProperty", ply, "stargatemodify", ent ) ) then return false end
                         return true
 
@@ -176,7 +176,7 @@ properties.Add( "Stargate.Uni.SymInc.Off",
 
     Filter        =    function( self, ent, ply )
 
-                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()!="stargate_universe" || ent:GetNWBool("GateSpawnerProtected",false) || ent:GetNWInt("ActSymsI",0)!=2) then return false end
+                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()~="stargate_universe" || ent:GetNWBool("GateSpawnerProtected",false) || ent:GetNWInt("ActSymsI",0)~=2) then return false end
                         if ( !gamemode.Call( "CanProperty", ply, "stargatemodify", ent ) ) then return false end
                         return true
 

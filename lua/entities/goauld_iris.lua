@@ -3,7 +3,7 @@
     Copyright (C) 2007  aVoN, 2010 Madman07
 */
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"
 ENT.Base = "base_anim"
 ENT.PrintName = "Goauld Iris"
@@ -15,7 +15,7 @@ ENT.AdminSpawnable = false
 
 if SERVER then
 
--- HEADER #################
+-- HEADER
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("base")) then return end
 AddCSLuaFile();
 
@@ -104,7 +104,7 @@ function ENT:FindGate()
     local dist = 150;
     local pos = self.Entity:GetPos();
     for _,v in pairs(ents.FindByClass("stargate_*")) do
-        if(v.IsStargate and v:GetClass() != "stargate_supergate") then
+        if(v.IsStargate and v:GetClass() ~= "stargate_supergate") then
             local sg_dist = (pos - v:GetPos()):Length();
             if(dist >= sg_dist) then
                 dist = sg_dist;
@@ -408,7 +408,7 @@ end
 if CLIENT then
 
 ENT.RenderGroup = RENDERGROUP_OPAQUE
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("goauld_iris",SGLanguage.GetMessage("stool_giris"));
 end
 

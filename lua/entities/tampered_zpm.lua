@@ -3,7 +3,7 @@
     Copyright (C) 2010 Llapp
 */
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 
 ENT.Type = "anim"
 ENT.Base = "base_anim"
@@ -99,12 +99,12 @@ function ENT:Think()
         local entities = netTable["entities"]; */
         local entities = StarGate.WireRD.GetEntListTable(self);
 
-        if (entities != nil) then
+        if (entities ~= nil) then
             zpms = 0;
             local zpmsarray = {};
             for k, v in pairs(entities) do
                 if IsValid(v) then
-                    if (v.isZPM != NULL) then
+                    if (v.isZPM ~= NULL) then
                         zpms = zpms+1;
                         zpmsarray[zpms] = v;
                     end
@@ -275,7 +275,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("tampered_zpm",SGLanguage.GetMessage("stool_tzpm"));
 end
 

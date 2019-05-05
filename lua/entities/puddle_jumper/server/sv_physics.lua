@@ -153,7 +153,7 @@ function ENT:PhysicsSimulate(phys,deltatime)-- Flight code@ RononDex
             local mul = math.Clamp((velocity:Length()/1000),0,1); -- More roll, if faster.
             local oldRoll = ang.Roll;
             ang.Roll = (ang.Roll + self.Roll - ExtraRoll*mul) % 360;
-            if (ang.Roll!=ang.Roll) then ang.Roll = oldRoll; end -- fix for nan values what cause despawing/crash.
+            if (ang.Roll~=ang.Roll) then ang.Roll = oldRoll; end -- fix for nan values what cause despawing/crash.
 
             if(not self.Autopilot) then
 

@@ -17,7 +17,7 @@
 */
 
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("weapon")) then return end
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 SWEP.PrintName = SGLanguage.GetMessage("weapon_zat");
 SWEP.Category = SGLanguage.GetMessage("weapon_cat");
 end
@@ -503,7 +503,7 @@ end
 if(file.Exists("materials/VGUI/weapons/zat_killicon.vmt","GAME")) then
     killicon.Add("weapon_zat","VGUI/weapons/zat_killicon",Color(255,255,255));
 end
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("GaussEnergy_ammo",SGLanguage.GetMessage("naquadah"));
 language.Add("weapon_zat",SGLanguage.GetMessage("weapon_zat"));
 end

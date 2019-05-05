@@ -26,7 +26,7 @@ ENT.AdminSpawnable = false
 
 if SERVER then
 
--- HEADER #################
+-- HEADER
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("entweapon")) then return end
 AddCSLuaFile();
 
@@ -109,7 +109,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("horizon_missile",SGLanguage.GetMessage("entity_horizon_missile"));
 end
 

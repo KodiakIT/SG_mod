@@ -20,7 +20,7 @@
     Copyright (C) 2010  Llapp
 */
 
--- Loads the menues #################
+-- Loads the menues
 -- Check for visuals (used in effects) @aVoN
 function StarGate.VisualsShips(str)
     if(LocalPlayer() and LocalPlayer().GetInfo and util.tobool(LocalPlayer():GetInfo("cl_stargate_visualsship")) and util.tobool(LocalPlayer():GetInfo(str))) then
@@ -111,7 +111,7 @@ spawnmenu.AddContentType( "cap_npc", function( container, obj )
         icon.DoClick = function()
 
                         local weapon = obj.weapon;
-                        if ( gmod_npcweapon:GetString() != "" ) then weapon = gmod_npcweapon:GetString(); end
+                        if ( gmod_npcweapon:GetString() ~= "" ) then weapon = gmod_npcweapon:GetString(); end
 
                         RunConsoleCommand( "cap_spawnnpc", obj.spawnname, weapon );
                         surface.PlaySound( "ui/buttonclickrelease.wav" )
@@ -122,7 +122,7 @@ spawnmenu.AddContentType( "cap_npc", function( container, obj )
                         local menu = DermaMenu()
 
                             local weapon = obj.weapon;
-                            if ( gmod_npcweapon:GetString() != "" ) then weapon = gmod_npcweapon:GetString(); end
+                            if ( gmod_npcweapon:GetString() ~= "" ) then weapon = gmod_npcweapon:GetString(); end
 
                             menu:AddOption( "Copy to Clipboard", function() SetClipboardText( obj.spawnname ) end )
                             menu:AddOption( "Spawn Using Toolgun", function() RunConsoleCommand( "gmod_tool", "cap_creator" ); RunConsoleCommand( "cap_creator_type", "2" ); RunConsoleCommand( "cap_creator_name", obj.spawnname ); RunConsoleCommand( "cap_creator_arg", weapon ); end )
@@ -163,7 +163,7 @@ spawnmenu.AddContentType( "cap_entity", function( container, obj )
         icon:SetAdminOnly( obj.admin )
         local Tooltip =  Format( "%s", obj.nicename )
         if ( obj.author ) then Tooltip = Format( "%s\n"..SGLanguage.GetMessage("cap_menu_author")..": %s", Tooltip, obj.author ) end
-        if ( obj.info and obj.info!="" ) then Tooltip = Format( "%s\n\n%s", Tooltip, obj.info ) end
+        if ( obj.info and obj.info~="" ) then Tooltip = Format( "%s\n\n%s", Tooltip, obj.info ) end
         icon:SetTooltip(Tooltip);
         icon:SetColor( Color( 205, 92, 92, 255 ) )
         icon.DoClick = function()
@@ -210,7 +210,7 @@ spawnmenu.AddContentType( "cap_weapon", function( container, obj )
         icon:SetAdminOnly( obj.admin )
         local Tooltip =  Format( "%s", obj.nicename )
         if ( obj.author ) then Tooltip = Format( "%s\n"..SGLanguage.GetMessage("cap_menu_author")..": %s", Tooltip, obj.author ) end
-        if ( obj.info and obj.info!="" ) then Tooltip = Format( "%s\n\n%s", Tooltip, obj.info ) end
+        if ( obj.info and obj.info~="" ) then Tooltip = Format( "%s\n\n%s", Tooltip, obj.info ) end
         icon:SetTooltip(Tooltip);
         icon:SetColor( Color( 135, 206, 250, 255 ) )
         icon.DoClick = function()
@@ -1140,7 +1140,7 @@ function StarGate_Settings(Panel)
     local clientlang = vgui.Create("DMultiChoice",Panel);
     clientlang:SetSize(50,20);
     local lg = SGLanguage.GetLanguageName(SGLanguage.GetClientLanguage());
-    if (lg!="Error") then
+    if (lg~="Error") then
         clientlang:SetText(lg);
     else
         clientlang:SetText(SGLanguage.GetClientLanguage());
@@ -1156,15 +1156,15 @@ function StarGate_Settings(Panel)
         timer.Remove("SG.lang_check");
         timer.Create("SG.lang_check",0.4,1,function()
             local lg = SGLanguage.GetLanguageName(letters);
-            if (IsValid(TextEntry) and lg!="Error") then
+            if (IsValid(TextEntry) and lg~="Error") then
                 TextEntry:SetText(lg);
                 TextEntry:SetCaretPos(lg:len()); -- Reset the caretpos!
             end
-            if (letters!="") then SGLanguage.SetClientLanguage(letters); end
+            if (letters~="") then SGLanguage.SetClientLanguage(letters); end
         end)
     end
     clientlang.OnSelect = function(panel,index,value)
-        if (value!="") then
+        if (value~="") then
             local lg = SGLanguage.GetLanguageFromName(value);
             SGLanguage.SetClientLanguage(lg);
         end
@@ -1175,7 +1175,7 @@ function StarGate_Settings(Panel)
     local lng_arr = {}
     for i,lang in pairs(langs) do
         local count,msgs = SGLanguage.CountMessagesInLanguage(lang,true);
-        if (lang!="en"/* and (not msgs["global_lang_similar"] or msgs["global_lang_similar"]=="false")*/) then
+        if (lang~="en"/* and (not msgs["global_lang_similar"] or msgs["global_lang_similar"]=="false")*/) then
             for k,v in pairs(msgs) do
                 if (not en_msgs[k]/* or v==en_msgs[k]*/) then count = count-1; end -- stop cheating!
             end

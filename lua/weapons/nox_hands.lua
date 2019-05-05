@@ -18,7 +18,7 @@ else
         killicon.Add("ring_panel","weapons/ring_killicon",Color(255,255,255));
     end
 end
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 SWEP.PrintName = SGLanguage.GetMessage("weapon_misc_nox");
 SWEP.Category = SGLanguage.GetMessage("weapon_misc_cat");
 SWEP.Instructions = SGLanguage.GetMessage("weapon_misc_nox_desc")

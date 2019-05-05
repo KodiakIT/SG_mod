@@ -12,7 +12,7 @@ ENT.DoNotDuplicate = true
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("dakara_wave", SGLanguage.GetMessage("dakara_energy_kill"))
 end
 
@@ -141,7 +141,7 @@ end
 
 function ENT:PropagateThroughGate(gate)
     for _,v in pairs(ents.FindByClass("stargate_*")) do
-        if(v.IsStargate and v!=gate and v:GetClass() != "stargate_supergate" and v:GetClass() != "stargate_orlin" and v:GetClass() != "stargate_universe" and not v.GateGalaxy) then
+        if(v.IsStargate and v~=gate and v:GetClass() ~= "stargate_supergate" and v:GetClass() ~= "stargate_orlin" and v:GetClass() ~= "stargate_universe" and not v.GateGalaxy) then
             local wave = ents.Create("dakara_wave")
             wave:Setup(v:GetPos(), self.immuneEnts, self.Target, false, self.MaxRadius)
             wave:Spawn()

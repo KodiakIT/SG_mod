@@ -3,7 +3,7 @@
     Copyright (C) 2011 Llapp
 */
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type             = "anim"
 ENT.Base             = "base_gmodentity"
 ENT.PrintName        = "Virus"

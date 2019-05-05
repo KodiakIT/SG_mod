@@ -452,7 +452,7 @@ function ENT:FireAsgard(target)
         trace.endpos = target;
     local tr = util.TraceLine( trace );
 
-    if (!tr.Entity or tr.Entity != self.Entity) then
+    if (!tr.Entity or tr.Entity ~= self.Entity) then
         local ShootDir = (target - data.Pos):GetNormal();
         local ent = ents.Create("energy_beam2");
         ent.Owner = self.Entity;
@@ -692,7 +692,7 @@ function ENT:PhysicsSimulate( phys, deltatime )
         elseif (self.Driver:KeyDown(self.Vehicle,"RIGHT")) then self.Angles.Yaw = self.Angles.Yaw - 0.5; end
 
         local velocity = self:GetVelocity();
-        if (up != 0) then velocity.z = 0; end
+        if (up ~= 0) then velocity.z = 0; end
 
         -- local Sublight = math.Round(velocity:Length()/19.3);
 
@@ -704,7 +704,7 @@ function ENT:PhysicsSimulate( phys, deltatime )
         local max = math.Clamp((velocity:Length()/40),0,60);
         local oldRoll = self.Angles.Roll;
         self.Angles.Roll =  -1*AerodynamicRoll*max + self.KeyRoll;
-        if (self.Angles.Roll!=self.Angles.Roll) then self.Angles.Roll = oldRoll; end -- fix for nan values what cause despawing/crash.
+        if (self.Angles.Roll~=self.Angles.Roll) then self.Angles.Roll = oldRoll; end -- fix for nan values what cause despawing/crash.
 
         self.LastYaw = self.Entity:GetAngles().Yaw;
         self.HoverPos = self.Entity:GetPos();

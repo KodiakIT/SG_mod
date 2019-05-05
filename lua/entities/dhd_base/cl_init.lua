@@ -203,7 +203,7 @@ end    */
 
 hook.Add("OnGamemodeLoaded","FixDHDHalos",function()
     hook.Add( "PreDrawHalos", "PropertiesHover", function()
-        if ( vgui.GetHoveredPanel() != vgui.GetWorldPanel() && vgui.GetHoveredPanel() != g_ContextMenu ) then return end
+        if ( vgui.GetHoveredPanel() ~= vgui.GetWorldPanel() && vgui.GetHoveredPanel() ~= g_ContextMenu ) then return end
 
         local ent = properties.GetHovered( EyePos(), LocalPlayer():GetAimVector() )
         if ( !IsValid( ent ) or ent.IsDHD) then return end

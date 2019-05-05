@@ -23,7 +23,7 @@ properties.Add( "Stargate.Atl.RingLight.On",
     MenuIcon    =    "icon16/plugin_disabled.png",
 
     Filter        =    function( self, ent, ply )
-                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()!="stargate_atlantis" || ent:GetNWBool("GateSpawnerProtected",false) || ent:GetNWBool("ActRingL",false)) then return false end
+                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()~="stargate_atlantis" || ent:GetNWBool("GateSpawnerProtected",false) || ent:GetNWBool("ActRingL",false)) then return false end
                         if ( !gamemode.Call( "CanProperty", ply, "stargatemodify", ent ) ) then return false end
                         return true
 
@@ -55,7 +55,7 @@ properties.Add( "Stargate.Atl.RingLight.Off",
 
     Filter        =    function( self, ent, ply )
 
-                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()!="stargate_atlantis" || ent:GetNWBool("GateSpawnerProtected",false) || !ent:GetNWBool("ActRingL",false)) then return false end
+                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()~="stargate_atlantis" || ent:GetNWBool("GateSpawnerProtected",false) || !ent:GetNWBool("ActRingL",false)) then return false end
                         if ( !gamemode.Call( "CanProperty", ply, "stargatemodify", ent ) ) then return false end
                         return true
 
@@ -86,7 +86,7 @@ properties.Add( "Stargate.Atl.AtlType.On",
     MenuIcon    =    "icon16/plugin_disabled.png",
 
     Filter        =    function( self, ent, ply )
-                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()!="stargate_atlantis" || ent:GetNWBool("GateSpawnerProtected",false) || ent:GetNWBool("AtlType",false)) then return false end
+                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()~="stargate_atlantis" || ent:GetNWBool("GateSpawnerProtected",false) || ent:GetNWBool("AtlType",false)) then return false end
                         if ( !gamemode.Call( "CanProperty", ply, "stargatemodify", ent ) ) then return false end
                         return true
 
@@ -118,7 +118,7 @@ properties.Add( "Stargate.Atl.AtlType.Off",
 
     Filter        =    function( self, ent, ply )
 
-                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()!="stargate_atlantis" || ent:GetNWBool("GateSpawnerProtected",false) || !ent:GetNWBool("AtlType",false)) then return false end
+                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()~="stargate_atlantis" || ent:GetNWBool("GateSpawnerProtected",false) || !ent:GetNWBool("AtlType",false)) then return false end
                         if ( !gamemode.Call( "CanProperty", ply, "stargatemodify", ent ) ) then return false end
                         return true
 
@@ -150,7 +150,7 @@ properties.Add( "Stargate.Atl.AtlType.On",
 
     Filter        =    function( self, ent, ply )
 
-                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()!="stargate_atlantis" || ent:GetNWBool("GateSpawnerProtected",false) || ent:GetNWBool("FasterDial",false)) then return false end
+                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()~="stargate_atlantis" || ent:GetNWBool("GateSpawnerProtected",false) || ent:GetNWBool("FasterDial",false)) then return false end
                         if ( !gamemode.Call( "CanProperty", ply, "stargatemodify", ent ) ) then return false end
                         return true
 
@@ -182,7 +182,7 @@ properties.Add( "Stargate.Atl.AtlType.Off",
 
     Filter        =    function( self, ent, ply )
 
-                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()!="stargate_atlantis" || ent:GetNWBool("GateSpawnerProtected",false) || !ent:GetNWBool("FasterDial",false)) then return false end
+                        if ( !IsValid( ent ) || !IsValid( ply ) || !ent.IsStargate || ent:GetClass()~="stargate_atlantis" || ent:GetNWBool("GateSpawnerProtected",false) || !ent:GetNWBool("FasterDial",false)) then return false end
                         if ( !gamemode.Call( "CanProperty", ply, "stargatemodify", ent ) ) then return false end
                         return true
 

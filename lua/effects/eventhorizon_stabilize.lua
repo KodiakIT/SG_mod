@@ -63,7 +63,7 @@ function EFFECT:Render()
     end
     if(not self.Draw) then return end; -- Stops crashing ppl
 
-    if (self.Material:GetName()!="zup/stargate/eventhorizon_establish") then
+    if (self.Material:GetName()~="zup/stargate/eventhorizon_establish") then
         self.Material = Material("zup/stargate/eventhorizon_establish");
     end
 

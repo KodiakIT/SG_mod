@@ -357,7 +357,7 @@ end
 
 function sg_library.IsInJamming(from,player)
     SF.CheckType( from, SF.Types[ "Vector" ] )
-    if (player!=nil) then SF.CheckType( player, SF.Types[ "Player" ] ) end
+    if (player~=nil) then SF.CheckType( player, SF.Types[ "Player" ] ) end
     local radius = 1024; -- max range of jamming, we will adjust it later
     local jaiming_online = false;
     from = Vector(from[1],from[2],from[3]);
@@ -400,7 +400,7 @@ function ents_methods:stargateRingDial(address)
     if not canModify(SF.instance.player,this) then return false, "Insufficient permissions" end
     if not this.IsRings then return false, "entity is not ring" end
     local adr = address:gsub("[^0-9]","");
-    if (adr!="") then
+    if (adr~="") then
         this:Dial(address);
     else
         this:Dial(" "); -- fail
@@ -422,7 +422,7 @@ function ents_methods:stargateAsgardTeleport(origin, dest, all)
     SF.CheckType( all, "boolean" )
     local this = unwrap( self )
     if not canModify(SF.instance.player,this) then return false, "Insufficient permissions" end
-    if this:GetClass() != "transporter" then return false, "entity is not asgard trasnporter" end
+    if this:GetClass() ~= "transporter" then return false, "entity is not asgard trasnporter" end
     this.TeleportEverything = all;
     this:Teleport(Vector(origin[1],origin[2],origin[3]), Vector(dest[1],dest[2],dest[3]));
 end
@@ -872,7 +872,7 @@ function wirelink_methods:stargateRingDial(address)
     if not SF.Permissions.check( SF.instance.player, nil, "wire.wirelink.read" ) then return false, "Insufficient permissions" end
     if not this.IsRings then return false, "entity is not ring" end
     local adr = address:gsub("[^0-9]","");
-    if (adr!="") then
+    if (adr~="") then
         this:Dial(address);
     else
         this:Dial(" "); -- fail
@@ -894,7 +894,7 @@ function wirelink_methods:stargateAsgardTeleport(origin, dest, all)
     SF.CheckType( all, "boolean" )
     local this = unwrap( self )
     if not SF.Permissions.check( SF.instance.player, nil, "wire.wirelink.read" ) then return false, "Insufficient permissions" end
-    if this:GetClass() != "transporter" then return false, "entity is not asgard trasnporter" end
+    if this:GetClass() ~= "transporter" then return false, "entity is not asgard trasnporter" end
     this.TeleportEverything = all;
     this:Teleport(Vector(origin[1],origin[2],origin[3]), Vector(dest[1],dest[2],dest[3]));
 end

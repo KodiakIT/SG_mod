@@ -12,17 +12,17 @@
 @trigger
 interval(100)
 findByClass("gmod_wire_expression2")
-if(AAA!=2)
+if(AAA~=2)
 {
 ETidc=findClosest(entity():pos())
 ETIDidc=ETidc:id()
 }
 if(changed(ETIDidc))
 {
-if(AAA!=2){AAA=0}
-if(BBB!=2){BBB=0}
+if(AAA~=2){AAA=0}
+if(BBB~=2){BBB=0}
 }
-if(gTable("IDCsv1_"+ETidc:id())[1,string]!="IDCsv1"){findExcludeEntity(ETidc)}
+if(gTable("IDCsv1_"+ETidc:id())[1,string]~="IDCsv1"){findExcludeEntity(ETidc)}
 if(gTable("IDCsv1_"+ETidc:id())[1,string]=="IDCsv1"&!AAA)
 {
 hint("Chat:Founded a IDC Chip with "+ETidc:id()+" ID by "+ETidc:owner():name()+", press Use to link",10) AAA=1
@@ -33,12 +33,12 @@ hint("Chat:Linked to IDC Chip with "+ETidc:id()+" ID by "+ETidc:owner():name(),1
 }
 if(AAA==2)
 {
-if(BBB!=2)
+if(BBB~=2)
 {
 ETdp=findClosest(entity():pos())
 ETIDdp=ETdp:id()
 }
-if(gTable("DPv1_"+ETdp:id())[1,string]!="DPv1"){findExcludeEntity(ETdp)}
+if(gTable("DPv1_"+ETdp:id())[1,string]~="DPv1"){findExcludeEntity(ETdp)}
 if(gTable("DPv1_"+ETdp:id())[1,string]=="DPv1"&!BBB)
 {
 hint("Chat:Founded a Dialing Computer Chip with "+ETdp:id()+" ID by "+ETdp:owner():name()+", press Use to link",10) BBB=1
@@ -58,8 +58,8 @@ if(~Unlink&Unlink&BBB==2)
 BBB=0
 hint("Chat:Unlinked from Dialing Computer Chip",10)
 }
-if(BBB==2&ETdp:id()!=0){DPT=gTable("DPv1_"+ETdp:id())[2,table]}
-if(AAA==2&ETidc:id()!=0){IDCT=gTable("IDCsv1_"+ETidc:id())[2,table]}
+if(BBB==2&ETdp:id()~=0){DPT=gTable("DPv1_"+ETdp:id())[2,table]}
+if(AAA==2&ETidc:id()~=0){IDCT=gTable("IDCsv1_"+ETidc:id())[2,table]}
 Iris=SG:stargateIrisActive()
 Overload=DPT["Overload",number]
 IDCName=IDCT["IDCName",string]

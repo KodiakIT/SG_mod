@@ -36,7 +36,7 @@ function ENT:EncodeChevron()
     local candialg = GetConVar("stargate_candial_groups_wire"):GetInt()
     local allowed_symbols = 8
     self.Outbound = true;
-    if (n >= allowed_symbols || self.RingSymbol == "" || self.RingSymbol!="" and (table.HasValue(self.WireDialledAddress,self.RingSymbol) or not self:CheckWireSymbol(self.RingSymbol))) then
+    if (n >= allowed_symbols || self.RingSymbol == "" || self.RingSymbol~="" and (table.HasValue(self.WireDialledAddress,self.RingSymbol) or not self:CheckWireSymbol(self.RingSymbol))) then
         local action = self.Sequence:New();
         action = self.Sequence:OnButtonDialFail(n,true)
         action = action + self.Sequence:DialFail(nil,true,true);
@@ -64,7 +64,7 @@ function ENT:Chevron7Lock()
         allowed_symbols = 7
     end
     self.Outbound = true;
-    if (n < 6 or n >= allowed_symbols or self.RingSymbol=="" or self.RingSymbol!="" and (table.HasValue(self.WireDialledAddress,self.RingSymbol) or not self:CheckWireSymbol(self.RingSymbol))) then
+    if (n < 6 or n >= allowed_symbols or self.RingSymbol=="" or self.RingSymbol~="" and (table.HasValue(self.WireDialledAddress,self.RingSymbol) or not self:CheckWireSymbol(self.RingSymbol))) then
         local action = self.Sequence:New();
         if (n >= allowed_symbols) then
             action = self.Sequence:SeqChevron7Lock(table.getn(self.WireDialledAddress)+1,self.WireDialledAddress,true) + self.Sequence:DialFail(false,true,true);
@@ -92,7 +92,7 @@ function ENT:WireDialGate()
         local target = "";
         if (self.Target.Target and IsValid(self.Target.Target)) then target = self.Target.Target end
         self.Target:StopActions();
-        if (target != self.Entity) then
+        if (target ~= self.Entity) then
             --target:Close();
             target:EmergencyShutdown(true,true);
         end
@@ -241,10 +241,10 @@ function ENT:WireGetAddresses()
                         local group = v:GetGateGroup();
                         local locale = v:GetLocale();
                         local ent = self.Entity;
-                        if(address != "" and group != "" and IsValid(ent) and (not locale and not ent:GetLocale() or (ent:GetGateGroup() == group or v:GetClass()=="stargate_universe" and ent:GetClass()=="stargate_universe")) and (address!=ent:GetGateAddress() or group!=ent:GetGateGroup())) then
+                        if(address ~= "" and group ~= "" and IsValid(ent) and (not locale and not ent:GetLocale() or (ent:GetGateGroup() == group or v:GetClass()=="stargate_universe" and ent:GetClass()=="stargate_universe")) and (address~=ent:GetGateAddress() or group~=ent:GetGateGroup())) then
                             local range = (ent:GetPos() - v:GetPos()):Length();
                             local c_range = ent:GetNetworkedInt("SGU_FIND_RANDE"); -- GetConVar("stargate_sgu_find_range"):GetInt();
-                            if (ent:GetGateGroup() != group and (v:GetClass()!="stargate_universe" or ent:GetClass()!="stargate_universe") or c_range > 0 and range>c_range and ent:GetGateGroup():len()==3) then
+                            if (ent:GetGateGroup() ~= group and (v:GetClass()~="stargate_universe" or ent:GetClass()~="stargate_universe") or c_range > 0 and range>c_range and ent:GetGateGroup():len()==3) then
                                 if (locale or ent:GetLocale()) then    continue end
                                 if (ent:GetGateGroup():len()==3 and group:len()==3 or ent:GetGateGroup():len()==2 and group:len()==2) then
                                     address = address..group:sub(1,1);
@@ -271,7 +271,7 @@ function ENT:WireGetAddresses()
                         local address = v:GetGateAddress();
                         local group = v:GetGateGroup();
                         local ent = self.Entity;
-                        if(address != "" and group != "" and IsValid(ent) and (address!=ent:GetGateAddress() or group!=ent:GetGateGroup())) then
+                        if(address ~= "" and group ~= "" and IsValid(ent) and (address~=ent:GetGateAddress() or group~=ent:GetGateGroup())) then
                             local range = (ent:GetPos() - v:GetPos()):Length();
                             local c_range = ent:GetNetworkedInt("SGU_FIND_RANDE"); -- GetConVar("stargate_sgu_find_range"):GetInt();
                             if ((ent:GetGateGroup() == group or v:GetClass()=="stargate_universe" and ent:GetClass()=="stargate_universe") and (range<=c_range and ent:GetGateGroup():len()==3 or ent:GetGateGroup():len()==2 or c_range == 0 and ent:GetGateGroup():len()==3)) then

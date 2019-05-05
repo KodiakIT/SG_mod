@@ -14,7 +14,7 @@ ENT.WireDebugName = "Communication Tablet"
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.Category = SGLanguage.GetMessage("entity_main_cat");
 ENT.PrintName = SGLanguage.GetMessage("entity_stone_tablet");
 end
@@ -313,7 +313,7 @@ function ENT:FindDevice()
     local ston;
     local pos = self.Entity:GetPos();
     for _,v in pairs(ents.FindByClass("comstones_tablet")) do
-        if(v != self.Entity and v.Channel == self.Channel) then
+        if(v ~= self.Entity and v.Channel == self.Channel) then
             ston = v:FindStone();
             if IsValid(ston) then
                 return v, ston;

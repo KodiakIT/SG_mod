@@ -80,21 +80,21 @@ function ENT.Sequence:Dial(inbound,fast,fail,busy)
                 -- This corrects the 0.9 seconds which are missing from not spinning the ring (below) and the missing 1 second from Chevron7 till the event horizon openes (1.3 seconds vs 0.3)
                 delta = delta + 1.9/(chevs-1);
             else
-                if (address[1] != nil) then
+                if (address[1] ~= nil) then
                     action:Add({f=self.SetWire,v={self,"Dialing Symbol",tostring(address[1])},d=0}); -- Wire
                 end
                 action:Add({f=self.ActivateRing,v={self,true},d=0.9}); -- Start spinning
             end
             --Chevron 1-7
             for i=1,chevs do
-                if (address[i] != nil) then
+                if (address[i] ~= nil) then
                     DialAddress = DialAddress..tostring(address[i]);
-                    if (IsValid(self.Target) and self.Target.IsStargate and self.Target.Entity:GetGateAddress():len()!=0) then
+                    if (IsValid(self.Target) and self.Target.IsStargate and self.Target.Entity:GetGateAddress():len()~=0) then
                         DialSymbol = tostring(address[i]);
                     else
                         DialSymbol = "";
                     end
-                    if (not inbound and i < chevs and address[i+1] != nil) then
+                    if (not inbound and i < chevs and address[i+1] ~= nil) then
                         DialNextSymbol = tostring(address[i+1]);
                     else
                         DialNextSymbol = "";
@@ -182,11 +182,11 @@ function ENT.Sequence:Dial(inbound,fast,fail,busy)
         action:Add({f=self.WireOrigin,v={self},d=0}); -- Wire
         -- Chevron 1-7
         for i=1,chevs do
-            if (self.DialledAddress[i] != nil) then
+            if (self.DialledAddress[i] ~= nil) then
                 DialAddress = DialAddress..tostring(self.DialledAddress[i]);
                 DialSymbol = tostring(self.DialledAddress[i]);
             end
-            if (i <= chevs and self.DialledAddress[i] != nil) then
+            if (i <= chevs and self.DialledAddress[i] ~= nil) then
                 action:Add({f=self.SetWire,v={self,"Dialing Symbol",self.DialledAddress[i]},d=0}); -- Wire
             else
                 action:Add({f=self.SetWire,v={self,"Dialing Symbol",""},d=0}); -- Wire
@@ -271,7 +271,7 @@ function ENT.Sequence:InstantOpen(action,delay,instant,inbound,slow,nox,fail)
     end
     local dialaddress = "";
     for i=1,chevs do
-        if (self.DialledAddress[i] != nil) then
+        if (self.DialledAddress[i] ~= nil) then
             dialaddress = dialaddress..tostring(self.DialledAddress[i]);
         end
     end
@@ -327,7 +327,7 @@ function ENT.Sequence:OnButtonChevron(lightup, dialchev, address, symbol,fail,bu
     local dialsymbol = "";
     local chev = dialchev
     for i=1,dialchev do
-        if (address[i] != nil) then
+        if (address[i] ~= nil) then
             dialaddress = dialaddress..tostring(address[i]);
             if (i == dialchev) then
                 dialsymbol = tostring(address[i]);
@@ -343,7 +343,7 @@ function ENT.Sequence:OnButtonChevron(lightup, dialchev, address, symbol,fail,bu
     action:Add({f=self.SetWire,v={self,"Dialed Symbol",dialsymbol},d=0}); -- Wire
 
     if (not lightup) then dialchev = dialchev+1 end
-    if (symbol != "#" and dialchev!=9) then
+    if (symbol ~= "#" and dialchev~=9) then
         if (dialchev==7 or dialchev==8) then
             dialchev = dialchev+1;
         end

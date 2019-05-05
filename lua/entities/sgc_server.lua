@@ -1,5 +1,5 @@
 -- Copyright (C) 2016 by glebqip
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 
 ENT.Type = "anim"
 ENT.Base = "base_anim"
@@ -19,7 +19,7 @@ properties.Add( "SGCScreen.CodeMenu",
     MenuIcon    =    "icon16/page_key.png",
 
     Filter        =    function( self, ent, ply )
-                        if ( !IsValid( ent ) || !IsValid( ply ) || ent:GetClass()!="sgc_server" || ent:GetNWBool("GateSpawnerProtected",false) || ent:GetNWBool("DisMenu",false) || ply!=ent:GetNWEntity("Owner")) then return false end
+                        if ( !IsValid( ent ) || !IsValid( ply ) || ent:GetClass()~="sgc_server" || ent:GetNWBool("GateSpawnerProtected",false) || ent:GetNWBool("DisMenu",false) || ply~=ent:GetNWEntity("Owner")) then return false end
                         if ( !gamemode.Call( "CanProperty", ply, "sgcscreenmodify", ent ) ) then return false end
                         return true
 
@@ -136,7 +136,7 @@ end
 
 net.Receive( "SGCScreen", function( len, ply )
     local ent = net.ReadEntity()
-    if not IsValid(ent) or ply!=ent.Owner then return end
+    if not IsValid(ent) or ply~=ent.Owner then return end
     local tbl = net.ReadTable()
     ent.SelfDestructCodes = tbl.codes or {}
     ent.SelfDestructResetCodes = tbl.reset_codes or {}
@@ -176,7 +176,7 @@ function ENT:GetFineAddress(gate,ogate)
     if grouped then
         local group = gate.GateGroup
         local mgroup = ogate.GateGroup
-        if (mgroup != group and (not gate.IsUniverseGate or not ogate.IsUniverseGate) or c_range > 0 and range>c_range and #mgroup==3) then
+        if (mgroup ~= group and (not gate.IsUniverseGate or not ogate.IsUniverseGate) or c_range > 0 and range>c_range and #mgroup==3) then
             if (#group == #mgroup and #group >= 2) then
                 address = address..group:sub(1,1)
             else
@@ -566,7 +566,7 @@ function ENT:Think()
         --GDO scripts
         if inbound and IsValid(self.IDCReceiver)/* and self.IDCReceiver.LockedGate ~= self.IDCReceiver.Entity*/ then
             local code = self.IDCReceiver.wireCode
-            if (self.IDCReceiver!=self.LastIDC) then
+            if (self.IDCReceiver~=self.LastIDC) then
                 self.LastIDC = self.IDCReceiver
                 self.IDCReceiver.GDOStatus = 3
                 self.IDCReceiver.GDOText = "CODE CHECK"
@@ -839,7 +839,7 @@ function ENT:PostEntityPaste(ply, Ent, CreatedEntities)
     if (dupeInfo.SelfDestructResetCodes) then
         self.SelfDestructResetCodes = dupeInfo.SelfDestructResetCodes;
     end
-    if (dupeInfo.RequireTwoPlayers!=nil) then
+    if (dupeInfo.RequireTwoPlayers~=nil) then
         self.RequireTwoPlayers = dupeInfo.RequireTwoPlayers;
     end
 
@@ -1063,7 +1063,7 @@ local function SGC_Codes_Mgr(otbl,ent)
             end
         end
 
-        if not found and code:GetValue():gsub("[^1-9]","")!="" and desc:GetValue()!="" then
+        if not found and code:GetValue():gsub("[^1-9]","")~="" and desc:GetValue()~="" then
             codes[code:GetValue():gsub("[^1-9]","")] = desc:GetValue()
             updateCodes()
         end
@@ -1160,7 +1160,7 @@ local function SGC_Codes_Mgr(otbl,ent)
             end
         end
 
-        if not found and code:GetValue():gsub("[^1-9]","")!="" and desc:GetValue()!="" then
+        if not found and code:GetValue():gsub("[^1-9]","")~="" and desc:GetValue()~="" then
             reset_codes[code:GetValue():gsub("[^1-9]","")] = desc:GetValue()
             updateResetCodes()
         end

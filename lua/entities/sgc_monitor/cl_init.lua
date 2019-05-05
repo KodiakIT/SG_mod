@@ -137,7 +137,7 @@ function ENT:Initialize()
     monitor = WireGPU_Monitors[self:GetModel()]
   end
   local model = self:GetModel():Replace("//","/") -- wtf? why sometiems with two slashes
-  if (monitor and model!="models/props_lab/monitor01a.mdl") then  
+  if (monitor and model~="models/props_lab/monitor01a.mdl") then
     local CusData = self.CusModelRS[model] or {}
     local RS = CusData[1] or monitor.RS
     local PFixX = CusData[2] or 0

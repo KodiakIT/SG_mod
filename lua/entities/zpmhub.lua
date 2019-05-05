@@ -3,7 +3,7 @@
     Copyright (C) 2010  Llapp, cooldudetb
 */
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"
 ENT.Base = "base_anim" --gmodentity
 ENT.PrintName = "ZPM Hub Mk2"
@@ -485,7 +485,7 @@ end
 function ENT:PostEntityPaste(Player, Ent, CreatedEntities)
     self.ZPMs = Ent.EntityMods.ZPMs.ZPMs;
     for i,v in ipairs(Ent.EntityMods.ZPMs.ZPMid) do
-        if (v!=-1) then
+        if (v~=-1) then
             if (self.ZPMs[i]) then
                 self.ZPMs[i].Ent = CreatedEntities[v]
                 self.ZPMs[i].Ent:SetUseType(SIMPLE_USE);
@@ -557,7 +557,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("zpmhub",SGLanguage.GetMessage("stool_atlantis_hub"));
 end
 
@@ -668,7 +668,7 @@ function ENT:Draw()
             surface.SetFont("center");
 
             draw.DrawText("SGA HUB", "header", ScrW() / 2 + 58 + w, ScrH() / 2 +41 - h, Color(0,255,255,255),0);
-            if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+            if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
                 draw.DrawText(SGLanguage.GetMessage("hud_status"), "center2", ScrW() / 2 + 40 + w, ScrH() / 2 +65 - h, Color(209,238,238,255),0);
                 draw.DrawText(SGLanguage.GetMessage("hud_energy"), "center2", ScrW() / 2 + 40 + w, ScrH() / 2 +115 - h, Color(209,238,238,255),0);
                 draw.DrawText(SGLanguage.GetMessage("hud_capacity"), "center2", ScrW() / 2 + 40 + w, ScrH() / 2 +165 - h, Color(209,238,238,255),0);
@@ -696,11 +696,11 @@ function ENT:Draw()
                 color = Color(255,0,0,255);
             end
             if(tonumber(perc)>0)then perc = string.format("%f",perc) end;
-            if(tonumber(zpm1)>0 and zpm1 != nil)then zpm1 = string.format("%G",zpm1) end;
-            if(tonumber(zpm2)>0 and zpm2 != nil)then zpm2 = string.format("%G",zpm2) end;
-            if(tonumber(zpm3)>0 and zpm3 != nil)then zpm3 = string.format("%G",zpm3) end;
+            if(tonumber(zpm1)>0 and zpm1 ~= nil)then zpm1 = string.format("%G",zpm1) end;
+            if(tonumber(zpm2)>0 and zpm2 ~= nil)then zpm2 = string.format("%G",zpm2) end;
+            if(tonumber(zpm3)>0 and zpm3 ~= nil)then zpm3 = string.format("%G",zpm3) end;
 
-            if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+            if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
                 draw.SimpleText(SGLanguage.GetMessage("hud_sts_"..add:lower()), "center", ScrW() / 2 + 40 + w, ScrH() / 2 +85 - h, color,0);
             end
             draw.SimpleText(tostring(eng), "center", ScrW() / 2 + 40 + w, ScrH() / 2 +135 - h, Color(255,255,255,255),0);

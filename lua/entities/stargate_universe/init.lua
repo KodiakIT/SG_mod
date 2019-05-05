@@ -210,9 +210,9 @@ function ENT:ChangeSystemType(groupsystem,reload)
         self.SymbolsLock = self.SymbolsLockGalaxy;
         self.WireCharters = "A-Z1-9@#!";
         if (self:GetGateAddress():find("[0]")) then self:SetGateAddress("");
-        elseif (self:GetGateAddress()!="") then
+        elseif (self:GetGateAddress()~="") then
             for _,v in pairs(ents.FindByClass("stargate_*")) do
-                if (self.Entity != v.Entity and v.IsStargate and v:GetClass()!="stargate_supergate" and v:GetGateAddress()!="") then
+                if (self.Entity ~= v.Entity and v.IsStargate and v:GetClass()~="stargate_supergate" and v:GetGateAddress()~="") then
                     local address, a = self:GetGateAddress(), string.Explode("",v:GetGateAddress());
                     if (address:find(a[1]) and address:find(a[2]) and address:find(a[3]) and address:find(a[4]) and address:find(a[5]) and address:find(a[6])) then self:SetGateAddress(""); end
                 end
@@ -316,7 +316,7 @@ function ENT:DeriveOnSetColor(color)
     if (not self.Chevron) then return end
     local coloff = self.MatsSymb.ColOff
     local colon = Color(255,255,255)
-    if (self.Chevron:GetColor()!=Color(255,255,255)) then
+    if (self.Chevron:GetColor()~=Color(255,255,255)) then
         coloff = self.Chevron:GetColor()
         colon = self.Chevron:GetColor()
         coloff.r = coloff.r*(self.MatsSymb.ColOff.r/255)
@@ -338,11 +338,11 @@ end
 function ENT:ChangeSkin(skin,inbound,symbol)
     if(skin)then
         if(IsValid(self.Entity))then
-            if(skin > 1 and symbol and symbol!="" and (not inbound or self.InboundSymbols==1))then
+            if(skin > 1 and symbol and symbol~="" and (not inbound or self.InboundSymbols==1))then
                 local i = self.SymbolsLock[tonumber(symbol) or symbol][2]; --self.SymbolPositions[skin-1];
                 --self.Symbols[i]:SetColor(Color(self.ColR[i],self.ColG[i],self.ColB[i],self.ColA[i]));
                 local col = Color(255,255,255)
-                if (self.Chevron:GetColor()!=Color(255,255,255)) then
+                if (self.Chevron:GetColor()~=Color(255,255,255)) then
                     col = self.Chevron:GetColor()
                 end
                 self.Symbols[i]:SetColor(col)
@@ -351,7 +351,7 @@ function ENT:ChangeSkin(skin,inbound,symbol)
                 for i=1,45 do
                     local c = self.Symbols[i]:GetColor();
                     local col = self.MatsSymb.ColOff
-                    if (self.Chevron:GetColor()!=Color(255,255,255)) then
+                    if (self.Chevron:GetColor()~=Color(255,255,255)) then
                         col = self.Chevron:GetColor()
                         col.r = col.r*(self.MatsSymb.ColOff.r/255)
                         col.g = col.g*(self.MatsSymb.ColOff.r/255)
@@ -374,7 +374,7 @@ end
 -- Activate/Deactivate all symbols by AlexALX
 function ENT:ActivateSymbols(deactivate,syms)
     if (not IsValid(self.Entity)) then return end
-    if (syms and syms!="") then
+    if (syms and syms~="") then
         local s = syms:gsub("[^"..self.WireCharters.."]",""):TrimExplode("")
         for i=1,45 do
             self.Symbols[i]:SetColor(self.MatsSymb.ColOff);
@@ -383,7 +383,7 @@ function ENT:ActivateSymbols(deactivate,syms)
         local s2 = "";
 
         local col = Color(255,255,255) --Color(self.ColR[i],self.ColG[i],self.ColB[i],self.ColA[i])
-        if (self.Chevron:GetColor()!=Color(255,255,255)) then
+        if (self.Chevron:GetColor()~=Color(255,255,255)) then
             col = self.Chevron:GetColor()
         end
 
@@ -400,7 +400,7 @@ function ENT:ActivateSymbols(deactivate,syms)
     else
         if (not deactivate) then
             local col = Color(255,255,255) --Color(self.ColR[i],self.ColG[i],self.ColB[i],self.ColA[i])
-            if (self.Chevron:GetColor()!=Color(255,255,255)) then
+            if (self.Chevron:GetColor()~=Color(255,255,255)) then
                 col = self.Chevron:GetColor()
             end
 
@@ -410,7 +410,7 @@ function ENT:ActivateSymbols(deactivate,syms)
             end
         else
             local col = self.MatsSymb.ColOff
-            if (self.Chevron:GetColor()!=Color(255,255,255)) then
+            if (self.Chevron:GetColor()~=Color(255,255,255)) then
                 col = self.Chevron:GetColor()
                 col.r = col.r*(self.MatsSymb.ColOff.r/255)
                 col.g = col.g*(self.MatsSymb.ColOff.r/255)
@@ -606,16 +606,16 @@ function ENT:RingTickUniverse()
                         reset = false;
                     end
                 end
-                if (reset and self.RingSymbol != "") then
+                if (reset and self.RingSymbol ~= "") then
                     self.Entity:SetWire("Ring Symbol",""); -- Wire
                     self.RingSymbol = "";
                 end
                 local nsym = self.DiallingSymbol;
                 local lock = false;
                 local encode = false;
-                if (self.WireEncodeSymbol!="") then nsym = self.WireEncodeSymbol; encode = true; end
-                if (self.WireLockSymbol!="") then nsym = self.WireLockSymbol; lock = true; end
-                if (nsym != "") then
+                if (self.WireEncodeSymbol~="") then nsym = self.WireEncodeSymbol; encode = true; end
+                if (self.WireLockSymbol~="") then nsym = self.WireLockSymbol; lock = true; end
+                if (nsym ~= "") then
                     if (self.SymbolsLock[tonumber(nsym) or nsym]==nil) then self:AbortDialling(); self.Gate.Moving = false; else
                         local x = tonumber(self.SymbolsLock[tonumber(nsym) or nsym][1]);
                         if (self:StopFormula(y,x,s3,s4) and not self.Shutingdown) then
@@ -776,7 +776,7 @@ function ENT:TriggerInput(k,v,mobile,mdhd,ignore)
                 self.WireSpin = true;
                 local dir
                 if (v==2) then dir = true; elseif (v>=3) then dir = false; end
-                if (dir==nil or dir!=self.WireSpinDir) then
+                if (dir==nil or dir~=self.WireSpinDir) then
                     if (self.WireSpinDir) then
                         self.WireSpinDir = false;
                     else
@@ -846,7 +846,7 @@ function ENT:TriggerInput(k,v,mobile,mdhd,ignore)
             self.Entity:SetNWBool("ActSymsAL",false);
         end
     elseif(k == "Activate Symbols" and not self.NewActive and not self.WireManualDial)then
-        if (v!="" and self:CheckEnergy(true,true)) then
+        if (v~="" and self:CheckEnergy(true,true)) then
             self:ActivateSymbols(false,v);
         else
             self:ActivateSymbols(true);
@@ -867,7 +867,7 @@ function ENT:TriggerInput(k,v,mobile,mdhd,ignore)
             self.Entity:SetNWBool("ActChevronsL",false);
         end
     elseif(k == "Force Encode Symbol" and IsValid(self.Gate) and not self.Active and (not self.NewActive or self.WireManualDial) and not self.WireBlock and not self.WireSpin) then
-        if (v != "" and v:len()==1 and not self.Gate.Moving) then
+        if (v ~= "" and v:len()==1 and not self.Gate.Moving) then
             if (self:GetWire("Chevron",0,true)==0) then
                 self.WireManualDial = true;
                 local action = self.Sequence:New();
@@ -887,7 +887,7 @@ function ENT:TriggerInput(k,v,mobile,mdhd,ignore)
             end
         end
     elseif(k == "Force Lock Symbol" and IsValid(self.Gate) and not self.Active and (not self.NewActive or self.WireManualDial) and not self.WireBlock and not self.WireSpin) then
-        if (v != "" and v:len()==1 and not self.Gate.Moving) then
+        if (v ~= "" and v:len()==1 and not self.Gate.Moving) then
             if (self:GetWire("Chevron",0,true)==0) then
                 self.WireManualDial = true;
                 local action = self.Sequence:New();

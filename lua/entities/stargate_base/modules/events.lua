@@ -484,7 +484,7 @@ end
 function ENT:OnButtLockStargate(oldtarget)
     local e = self.Target; -- Quick reference (keeps code shorter)
     local action = e.Sequence:New();
-    if(IsValid(oldtarget) and oldtarget!=self.Target) then
+    if(IsValid(oldtarget) and oldtarget~=self.Target) then
         if(IsValid(oldtarget.Target) and oldtarget.Target == self.Entity) then
             oldtarget:StopActions();
             -- FIXME: CHECK IF THIS IS A BUG!
@@ -564,7 +564,7 @@ function ENT:SetAddress(a)
             self.DialledAddress = {a:sub(1,1),a:sub(2,2),a:sub(3,3),a:sub(4,4),a:sub(5,5),a:sub(6,6),"#","DIAL"};
         elseif (a:len() == 7 and a:sub(7,7) == "#") then
             self.DialledAddress = {a:sub(1,1),a:sub(2,2),a:sub(3,3),a:sub(4,4),a:sub(5,5),a:sub(6,6),"#","DIAL"};
-        elseif (a:len() == 7 and a:sub(7,7) != "#") then
+        elseif (a:len() == 7 and a:sub(7,7) ~= "#") then
             self.DialledAddress = {a:sub(1,1),a:sub(2,2),a:sub(3,3),a:sub(4,4),a:sub(5,5),a:sub(6,6),a:sub(7,7),"#","DIAL"};
         elseif (a:len() == 8 and GetConVar("stargate_group_system"):GetBool()) then
             self.DialledAddress = {a:sub(1,1),a:sub(2,2),a:sub(3,3),a:sub(4,4),a:sub(5,5),a:sub(6,6),a:sub(7,7),a:sub(8,8),"DIAL"};
@@ -589,7 +589,7 @@ end
 function ENT:StartDialling()
     self:FindGate();
     local allow = hook.Call("StarGate.Dial",GAMEMODE,self.Entity,self.Target or NULL,table.concat(self.DialledAddress or {}):sub(1,9),self.DialType);
-    if(allow == false or GetConVar("stargate_group_system"):GetBool() and self:GetGateGroup()=="" and self.Entity:GetClass()!="stargate_supergate") then return end;
+    if(allow == false or GetConVar("stargate_group_system"):GetBool() and self:GetGateGroup()=="" and self.Entity:GetClass()~="stargate_supergate") then return end;
     self:ActivateStargate(self.DialType.Inbound,self.DialType.Fast);
 end
 

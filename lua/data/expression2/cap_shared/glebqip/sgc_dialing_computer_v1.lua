@@ -17,16 +17,16 @@
 @persist GT:gtable AB:table Overload Iris DPL AAA ET AddressBook:string ETIDab ETab:entity
 @trigger
 findByClass("gmod_wire_expression2")
-if(AAA!=2)
+if(AAA~=2)
 {
 ETab=findClosest(entity():pos())
 ETIDab=ETab:id()
 }
 if(changed(ETIDab))
 {
-if(AAA!=2){AAA=0}
+if(AAA~=2){AAA=0}
 }
-if(gTable("ABv1_"+ETab:id())[1,string]!="ABv1"){findExcludeEntity(ETab)}
+if(gTable("ABv1_"+ETab:id())[1,string]~="ABv1"){findExcludeEntity(ETab)}
 if(gTable("ABv1_"+ETab:id())[1,string]=="ABv1"&!AAA)
 {
 hint("DP:Founded a Address Book with "+ETab:id()+" ID by "+ETab:owner():name()+", press Use to link",10) AAA=1
@@ -40,13 +40,13 @@ if(~Unlink&Unlink&AAA==2)
 AAA=0
 hint("DP:Unlinked from Address Book",10)
 }
-if(AAA==2&ETab:id()!=0){AddressBook=gTable("ABv1_"+ETab:id())[2,table]["AddressBook",string]} if(AAA==2&ETab:id()==0){AddressBook==""}
+if(AAA==2&ETab:id()~=0){AddressBook=gTable("ABv1_"+ETab:id())[2,table]["AddressBook",string]} if(AAA==2&ETab:id()==0){AddressBook==""}
 if(~EGP&->EGP){reset()}
 if(first()|dupefinished()|clk("shutdown1")){EGP:egpClear() Loaded1=0}
 if(first()|dupefinished()|~SG){SG:stargateSetWire("SGC Type",1) SG:stargateSetWire("Set Point of Origin",1)}
 function number even(CHET)
 {
-if(CHET%2!=0){return 1} else {return 0}
+if(CHET%2~=0){return 1} else {return 0}
 }
 Active=SG:stargateGetWire("Active")
 Open=SG:stargateGetWire("Open")
@@ -61,14 +61,14 @@ DialedSymbol=SG:stargateGetWireString("Dialed Symbol")
 DialMode=SG:stargateGetWire("Dialing Mode")
 ##Startup simulating
 #30000
-if(Loaded!=2){
+if(Loaded~=2){
 if((($Start|first()|dupefinished())&Start)&Loaded1==0)
 {
 DPL=0
 if(Start<=1&!RBT){DiagOver=0 LoadOver=0}
 if(Start==3&!RBT){DiagOver=1 LoadOver=0}
 if(Start==2){DiagOver=1 LoadOver=1}
-if(RBT&Start!=2){DiagOver=1 LoadOver=0}
+if(RBT&Start~=2){DiagOver=1 LoadOver=0}
 RingSpeedMode=1
 EGP:egpClear()
 for(I=0,8){EGP:egpText(1+I,"",vec2(5,10+I*12)) EGP:egpAlign(1+I,0,1) EGP:egpFont(1+I,"Console",15)}
@@ -110,7 +110,7 @@ if(clk("LD9")&Load1<100){Load1+=randint(4,12) EGP:egpSetText(8,"Dialing Programm
 if(Load1>=100){Load1=0 EGP:egpSetText(8,"Dialing Programm build 1.241.15 v1 07.12.13 is loading... 100%") Loaded=2 timer("Loaded",randint(50,700))}}
 if(!Loaded&LoadOver){
 if(clk("LD1")){EGP:egpSetText(1,"Dialing Programm build 1.241.15 v1 07.12.13 is loading...") timer("LD11",randint(100,300))}
-if(clk("LD11")&Loaded!=2&Load1<100){Load1+=randint(4,12) EGP:egpSetText(1,"Dialing Programm build 1.241.15 v1 07.12.13 is loading... "+Load1+"%") timer("LD11",randint(50,700))}
+if(clk("LD11")&Loaded~=2&Load1<100){Load1+=randint(4,12) EGP:egpSetText(1,"Dialing Programm build 1.241.15 v1 07.12.13 is loading... "+Load1+"%") timer("LD11",randint(50,700))}
 if(Load1>=100){Load1=0 EGP:egpSetText(1,"Dialing Programm build 1.241.15 v1 07.12.13 is loading... 100%") Loaded=2 timer("Loaded",randint(50,700))}}}
 ##/startup simulating
 ##diag
@@ -123,16 +123,16 @@ if(clk("DG1")){EGP:egpSetText(1,"Diangonstic...") EGP:egpColor(1,vec(0,255,0)) t
 #if(clk("DG2")&(!->ActivateChevronNumbers|!->SG|!->RotateRing|!->DialString|!->StartStringDial|!->Close|!->DialingMode|!->Active|!->Open|!->Inbound|!->Chevron|!->ChevronLocked|!->RingRotation|!->DialMode|!->RingSymbol|!->DialingAdress|!->DialingSymbol|!->DialedSymbol))
 #{EGP:egpSetText(2,"Not connected correctly to stargate!!! Waiting...") EGP:egpColor(2,vec(255,0,0)) if(!Pip){timer("errpip",1) Pip=1} timer("DG2",500)}
 elseif(clk("DG2")){Pip=0 EGP:egpSetText(2,"Connected to stargate! Starting diagnostic...") EGP:egpColor(2,vec(0,255,0)) timer("DG3",randint(200,700))}
-if(clk("DG3")&RingDiag!=2&RingDiag!=11){EGP:egpSetText(3,"Ring diagnostic") RotateRing=1 EGP:egpColor(3,vec(255,255,255)) timer("DG31",10) if(RingRotation){RingDiag=11}else{RingDiag=1} timer("RDG",500)}
-if(clk("RDG")&RingDiag!=2&(RingDiag==11|RotateRing)){RingDiag=11 if(Active){RotateRing=0}else{RotateRing=1} timer("RDG",100)}
-if(clk("DG31")&!RingRotation&RingDiag!=2&RingDiag!=11){RingDiag=12 EGP:egpSetText(3,"Ring is blocked! Maybe not enough energy!") if(!Pip){timer("errpip",1) Pip=1 RingDiag=0} RotateRing++ if(RotateRing>=2){RotateRing=0} EGP:egpColor(3,vec(255,0,0)) timer("DG31",500)}
-if(clk("DG31")&RingRotation&RingDiag!=2&RingDiag!=11){timer("DG3",10)}
+if(clk("DG3")&RingDiag~=2&RingDiag~=11){EGP:egpSetText(3,"Ring diagnostic") RotateRing=1 EGP:egpColor(3,vec(255,255,255)) timer("DG31",10) if(RingRotation){RingDiag=11}else{RingDiag=1} timer("RDG",500)}
+if(clk("RDG")&RingDiag~=2&(RingDiag==11|RotateRing)){RingDiag=11 if(Active){RotateRing=0}else{RotateRing=1} timer("RDG",100)}
+if(clk("DG31")&!RingRotation&RingDiag~=2&RingDiag~=11){RingDiag=12 EGP:egpSetText(3,"Ring is blocked! Maybe not enough energy!") if(!Pip){timer("errpip",1) Pip=1 RingDiag=0} RotateRing++ if(RotateRing>=2){RotateRing=0} EGP:egpColor(3,vec(255,0,0)) timer("DG31",500)}
+if(clk("DG31")&RingRotation&RingDiag~=2&RingDiag~=11){timer("DG3",10)}
 if(RingDiag==11&RingRotation&RingSymbol=="#"){RingDiag=2 EGP:egpSetText(3,"Ring diagnostic OK!") EGP:egpColor(3,vec(0,255,0)) RingDiag=2 RotateRing=0 timer("DG4",randint(500,2500))}
 if(clk("DG4")){EGP:egpSetText(4,"Chevron diagnostic") EGP:egpColor(4,vec(255,255,255)) ActivateChevronNumbers="" RotateRing=1 timer("DG41",randint(500,2500))}
-if(clk("DG41")&RingDiag!=22&ActivateChevronNumbers!="1111111111"){ActivateChevronNumbers=ActivateChevronNumbers+"1" timer("DG41",randint(500,1500))}
+if(clk("DG41")&RingDiag~=22&ActivateChevronNumbers~="1111111111"){ActivateChevronNumbers=ActivateChevronNumbers+"1" timer("DG41",randint(500,1500))}
 if(clk("DG41")&ActivateChevronNumbers=="1111111111"){EGP:egpSetText(4,"Chevron diagnostic OK!") EGP:egpColor(4,vec(0,255,0)) ActivateChevronNumbers="" RotateRing=0 timer("DG5",randint(500,2500)) RingDiag=22}
 if(clk("DG5")){ EGP:egpSetText(5,"Dialing Programm build 1.241.15 v1 07.12.13 is loading...") timer("DG51",randint(100,300))}
-if(clk("DG51")&Loaded!=2&Load1<100){Load1+=randint(4,12) EGP:egpSetText(5,"Dialing Programm build 1.241.15 v1 07.12.13 is loading... "+Load1+"%") timer("DG51",randint(50,700))}
+if(clk("DG51")&Loaded~=2&Load1<100){Load1+=randint(4,12) EGP:egpSetText(5,"Dialing Programm build 1.241.15 v1 07.12.13 is loading... "+Load1+"%") timer("DG51",randint(50,700))}
 if(Load1>=100){Load1=0 EGP:egpSetText(5,"Dialing Programm build 1.241.15 v1 07.12.13 is loading... 100%") Loaded=2 timer("Loaded",randint(50,700))}}}
 if(clk("shutdown")){
 STD1=randint(30,80)
@@ -655,18 +655,18 @@ if(changed(Time)&Time>0){OvSec=toString( Time % 60)} if(changed(Time)&Time<=0){O
 if(changed(Time)&Time>0){OvMin=toString(floor(Time/60))} if(changed(Time)&Time<=0){OvMin="00"}
 if(changed(Time)&OvMin:length()==1){OvMin="0"+OvMin}
 if(changed(Time)&OvSec:length()==1){OvSec="0"+OvSec}
-if(~Key&Key&Key!=127){
-if(EnteredAdress:length()<9&!Active){if((ChrA:find(toChar(Key))&!EnteredAdress:find(toChar(Key):upper())&toChar(Key)!="#"&!EnteredAdress:find("#"))|(ChrA:find(toChar(Key))&toChar(Key)=="#"&EnteredAdress:length()>5&EnteredAdress:length()<9&!EnteredAdress:find("#"))){
+if(~Key&Key&Key~=127){
+if(EnteredAdress:length()<9&!Active){if((ChrA:find(toChar(Key))&!EnteredAdress:find(toChar(Key):upper())&toChar(Key)~="#"&!EnteredAdress:find("#"))|(ChrA:find(toChar(Key))&toChar(Key)=="#"&EnteredAdress:length()>5&EnteredAdress:length()<9&!EnteredAdress:find("#"))){
 EnteredAdress+=toChar(Key):upper()}}
 } if(~Key&Key==127&!Active){CHKRM=1 EnteredAdress=EnteredAdress:left(EnteredAdress:length()-1) timer("CHKRM",500)}
-if(~Key&Key!=127&!Active){CHKRM=0 stoptimer("CHKRM")}
+if(~Key&Key~=127&!Active){CHKRM=0 stoptimer("CHKRM")}
 if(clk("CHKRM")){EnteredAdress=""}
-if(changed(AddressBook)&AddressBook:length()>0&!Active&EnteredAdress!=AddressBook){EnteredAdress=AddressBook AdrBlock=1} if(changed(AddressBook)&AddressBook:length()==0|Active){AdrBlock=0}
+if(changed(AddressBook)&AddressBook:length()>0&!Active&EnteredAdress~=AddressBook){EnteredAdress=AddressBook AdrBlock=1} if(changed(AddressBook)&AddressBook:length()==0|Active){AdrBlock=0}
 if(changed(AddressBook)&AddressBook:length()>0&!Active&EnteredAdress==AddressBook&!AdrBlock){DialString=EnteredAdress timer("SSDT",100)}
 if(~Key&(Key==13|Key==10)&!Correct&EnteredAdress:length()>5&EnteredAdress:length()<9&!EnteredAdress:find("#")){EnteredAdress=EnteredAdress+"#"}
 if(~Key&(((Key==13|Key==10)&Correct)|Key==124)){DialString=EnteredAdress}
 if(~Key&((Key==13|Key==10)&Correct)|Key==124){EnteredAdress="" timer("SSDT",100)} if(clk("SSDT")){StartStringDial=1 EnteredAdress="" timer("SSDT1",100)}  if(clk("SSDT1")){StartStringDial=0}
-if(~Key&Key==127&Active){Close=1} if(~Key&Key!=127){Close=0}
+if(~Key&Key==127&Active){Close=1} if(~Key&Key~=127){Close=0}
 if(~Key&Key==61){Iris=1}else{Iris=0}
 if(~Key&Key==129){DialingMode=0}
 if(~Key&Key==130){DialingMode=1}
@@ -746,10 +746,10 @@ EGP:egpSetText(408,RingSymbol)
 EGP:egpPos(408,vec2(260,110+Chev*1.06))
 EGP:egpSize(408,Chev*1.3)
 if(AnotherSound){
-if(Chev==0&(DialingSymbol!="#"&Chevron<8)){EGP:entity():soundPlay(2,1,"alexalx/glebqip/dp_locked.wav") soundVolume(2,0.6) timer("enc",1500)}
+if(Chev==0&(DialingSymbol~="#"&Chevron<8)){EGP:entity():soundPlay(2,1,"alexalx/glebqip/dp_locked.wav") soundVolume(2,0.6) timer("enc",1500)}
 if(Chev==0&((DialingSymbol=="#"&Chevron<8)|(Chevron>=8))){EGP:entity():soundPlay(2,1,"alexalx/glebqip/dp_locked.wav") soundVolume(2,0.6) timer("enc",1100)} }
 if(!AnotherSound){
-if(Chev==0&(DialingSymbol!="#"&Chevron<8)){EGP:entity():soundPlay(2,1,"alexalx/glebqip/dp_locking.wav") soundVolume(2,0.6) timer("enc",1500)}
+if(Chev==0&(DialingSymbol~="#"&Chevron<8)){EGP:entity():soundPlay(2,1,"alexalx/glebqip/dp_locking.wav") soundVolume(2,0.6) timer("enc",1500)}
 if(Chev==0&((DialingSymbol=="#"&Chevron<8)|(Chevron>=8))){EGP:entity():soundPlay(2,1,"alexalx/glebqip/dp_locking.wav") soundVolume(2,0.6) timer("enc",1100)} }
 Chev+=15
 local BoxMin=vec2((Chev-5)*3.23,(Chev-5)*2.67)
@@ -758,8 +758,8 @@ EGP:egpSize(393,BoxMin)
 timer("chev",100)
 }}
 if(clk("enc")){EGP:entity():soundPlay(2,1,"alexalx/glebqip/dp_locked.wav") soundVolume(2,0.6)}
-if(RingSymbol!=""&RingSymbol==DialedSymbol&Chev2<90){
-if(changed(DialedSymbol)&RingSymbol!=""&RingSymbol==DialedSymbol&Chev2<90){timer("chev2",100)}
+if(RingSymbol~=""&RingSymbol==DialedSymbol&Chev2<90){
+if(changed(DialedSymbol)&RingSymbol~=""&RingSymbol==DialedSymbol&Chev2<90){timer("chev2",100)}
 if(clk("chev2")&AN1<2){
 Chev=0
 AN1=1
@@ -776,7 +776,7 @@ if(Chev2>=90){EGP:entity():soundPlay(1,1,"alexalx/glebqip/dp_encoded.wav") sound
 timer("chev2",100)
 }}}
 if($Active&!Active){Chev2=0 Chev=0 AN1=2 EGP:egpAlpha(393,0) EGP:egpAlpha(408,0)}
-if($RingRotation&RingRotation!=0){AN1=0}
+if($RingRotation&RingRotation~=0){AN1=0}
 if(!Inbound&DialMode==0&Active){
 if(changed(Chevron1)&Chevron1==1){for(I=0,10){EGP:egpColor(202+I,vec(255,0,0))}}
 if(changed(Chevron1)&Chevron1==2){for(I=0,10){EGP:egpColor(213+I,vec(255,0,0))}}
@@ -787,7 +787,7 @@ if(changed(Chevron1)&Chevron1==6){for(I=0,10){EGP:egpColor(257+I,vec(255,0,0))}}
 if(changed(Chevron1)&ChevronLocked){for(I=0,9){EGP:egpColor(268+I,vec(255,0,0))}}
 if(changed(Chevron1)&Chevron1==7&!ChevronLocked){for(I=0,10){EGP:egpColor(278+I,vec(255,0,0))}}
 if(changed(Chevron1)&Chevron1==8&!ChevronLocked){for(I=0,10){EGP:egpColor(289+I,vec(255,0,0))}}}
-if((Inbound|DialMode!=0)&Active){
+if((Inbound|DialMode~=0)&Active){
 if($Chevron&Chevron>=1){for(I=0,10){EGP:egpColor(202+I,vec(255,0,0))}}
 if($Chevron&Chevron>=2){for(I=0,10){EGP:egpColor(213+I,vec(255,0,0))}}
 if($Chevron&Chevron>=3){for(I=0,10){EGP:egpColor(224+I,vec(255,0,0))}}
@@ -799,9 +799,9 @@ if($Chevron&Chevron>=7&!ChevronLocked){for(I=0,10){EGP:egpColor(278+I,vec(255,0,
 if($Chevron&Chevron>=8&!ChevronLocked){for(I=0,10){EGP:egpColor(289+I,vec(255,0,0))}}}
 if($Active&!Active){for(I=0,97){if(NewCol){EGP:egpColor(202+I,vec(208,208,144))} if(!NewCol){EGP:egpColor(202+I,vec(255,255,255))}}}
 if(changed(Chevron1)&Chevron1>0){if(DialMode==0&!Inbound){EGP:egpSetText(367+Chevron-1,DialingAdress1[Chevron])}}
-if(changed(DialingAdress)&Chevron>0){if(DialMode!=0&!Inbound){EGP:egpSetText(367+Chevron-1,DialingAdress[Chevron])}}
+if(changed(DialingAdress)&Chevron>0){if(DialMode~=0&!Inbound){EGP:egpSetText(367+Chevron-1,DialingAdress[Chevron])}}
 if(changed(Chevron1)&!Inbound&DialMode==0&Active){EGP:egpAlpha(378+Chevron1-1,255)}
-if($Chevron&Inbound|DialMode!=0&Active){EGP:egpAlpha(378+Chevron-1,255)}
+if($Chevron&Inbound|DialMode~=0&Active){EGP:egpAlpha(378+Chevron-1,255)}
 if($Active&Active==0){Chevron1=0 DialingAdress1="" EGP:egpAlpha(366,0) for(I=0,8){EGP:egpSetText(367+I,"") EGP:egpAlpha(378+I,0)}}
 #if(!Active){for(I=0,8){EGP:egpAlpha(378+I,0)}}
 if(clk("Loaded")|~NewCol){
@@ -893,15 +893,15 @@ EGP:egpAlpha(403,0) EGP:egpAlpha(404,0) EGP:egpAlpha(405,0) EGP:egpAlpha(406,0) 
 #if(clk("kvadratiki1")){
 if(Correct){EGP:egpAlpha(407,Alpha3)} if(changed(Correct)&!Correct){EGP:egpAlpha(407,0)}#}
 if(DialMode==0){
-if(Chevron1==7&DialedSymbol!="#"){Chevr8=1}
-if(Chevron1==7&DialedSymbol=="#"&DialingSymbol!="#"&Chevr8!=1){Chevr8=0}
-if(Chevron1==8&DialedSymbol!="#"){Chevr9=1}
-if(Chevron1==8&DialedSymbol=="#"&DialingSymbol!="#"&Chevr9!=1){Chevr9=0}}
-if(DialMode!=0){
-if(Chevron==7&DialedSymbol!="#"){Chevr8=1}
-if(Chevron==7&DialedSymbol=="#"&DialingSymbol!="#"){Chevr8=0}
-if(Chevron==8&DialedSymbol!="#"){Chevr9=1}
-if(Chevron==8&DialedSymbol=="#"&DialingSymbol!="#"){Chevr9=0}}
+if(Chevron1==7&DialedSymbol~="#"){Chevr8=1}
+if(Chevron1==7&DialedSymbol=="#"&DialingSymbol~="#"&Chevr8~=1){Chevr8=0}
+if(Chevron1==8&DialedSymbol~="#"){Chevr9=1}
+if(Chevron1==8&DialedSymbol=="#"&DialingSymbol~="#"&Chevr9~=1){Chevr9=0}}
+if(DialMode~=0){
+if(Chevron==7&DialedSymbol~="#"){Chevr8=1}
+if(Chevron==7&DialedSymbol=="#"&DialingSymbol~="#"){Chevr8=0}
+if(Chevron==8&DialedSymbol~="#"){Chevr9=1}
+if(Chevron==8&DialedSymbol=="#"&DialingSymbol~="#"){Chevr9=0}}
 if(Chevron<7&Chevron1<7){Chevr8=0}
 if(Chevron<8&Chevron1<8){Chevr9=0}
 if(changed(DialedSymbol)&Active&!Open&!Inbound&((DialedSymbol=="#"&Chevron<9)|Chevron==9)&DialMode>0){timer("compl0",1)} if(!Active|Inbound){for(I=0,8){EGP:egpAlpha(18+I,0)}}# soundStop(3,0)}
@@ -937,7 +937,7 @@ EGP:egpColor(201,vec(0,0,0))
 } if(!Chevr9){EGP:egpRemove(201) EGP:egpAlpha(36,0) I2=0 if(Chevr8&!Chevr9){EGP:egpBoxOutline(2,vec2(1,85),vec2(511,378))} if(!Chevr8&!Chevr9&AA1){EGP:egpBoxOutline(2,vec2(1,85),vec2(511,334)) AA1=0}
 if(($Inbound|changed(DialingMode))&!Inbound){EGP:egpText(409,DType[DialingMode,string],vec2(256,75))} if($Inbound&Inbound){EGP:egpText(409,DType[0,string],vec2(256,75))}
 if(~Key&Key){EGP:entity():soundPlay(0,1,"alexalx/glebqip/click"+randint(1,4)+".mp3")}
-if(DialMode!=0&!Inbound){if($Chevron&Chevron>0){EGP:entity():soundPlay(1,1,"alexalx/glebqip/dp_encoded.wav") soundVolume(1,0.6) timer("sstop",200)}} if(clk("sstop")){soundStop(1,0)}
+if(DialMode~=0&!Inbound){if($Chevron&Chevron>0){EGP:entity():soundPlay(1,1,"alexalx/glebqip/dp_encoded.wav") soundVolume(1,0.6) timer("sstop",200)}} if(clk("sstop")){soundStop(1,0)}
 if(changed(Overload)&Overload>0){
 EGP:egpBox(429,vec2(124,125),vec2(264,133))
 EGP:egpColor(429,vec(0,0,0))

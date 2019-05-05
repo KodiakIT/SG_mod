@@ -494,7 +494,7 @@ function ENT:IntertialDampning(b)
         for k,v in pairs(self.Cargo) do
             print(v:GetClass())
             v.TeltakCurrentParent = v:GetParent();
-            if(v.TeltakCurrentParent != nil) then
+            if(v.TeltakCurrentParent ~= nil) then
                 v:SetParent(self);
             end
         end
@@ -769,7 +769,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.Category = SGLanguage.GetMessage("entity_ships_cat");
 ENT.PrintName = SGLanguage.GetMessage("entity_teltak");
 end

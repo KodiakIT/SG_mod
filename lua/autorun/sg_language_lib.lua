@@ -67,7 +67,7 @@ function LANGParser:StripComment(line)
     local found_comment = line:find("[/][/]");
     if(found_comment) then
         local link = line:sub(found_comment-3,found_comment-1);
-        if (link!="tp:" and link!="ps:") then
+        if (link~="tp:" and link~="ps:") then
             line = line:sub(1,found_comment-1):Trim(); -- Removes any non neccessayry stuff
         end
     end
@@ -244,7 +244,7 @@ function SGLanguage.GetMessage(message, ...)
 end
 
 function SGLanguage.ValidMessage(message)
-    if (SGLanguage_Messages[message] and tostring(SGLanguage_Messages[message])!="") then
+    if (SGLanguage_Messages[message] and tostring(SGLanguage_Messages[message])~="") then
         return true;
     end
     return false;

@@ -1,5 +1,5 @@
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("base")) then return end
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 SWEP.PrintName = SGLanguage.GetMessage("weapon_misc_lucian_door_opener");
 SWEP.Category = SGLanguage.GetMessage("weapon_misc_cat");
 SWEP.Instructions = SGLanguage.GetMessage("weapon_misc_lucian_door_opener_desc");
@@ -166,7 +166,7 @@ function SWEP:Holster(wep)
         return true
     end
 
-    if IsValid(wep) and self.Status != "holster_start" then
+    if IsValid(wep) and self.Status ~= "holster_start" then
         CT = CurTime()
 
         self:SetNextPrimaryFire(CT + (0.75))
@@ -174,7 +174,7 @@ function SWEP:Holster(wep)
 
         self.ChosenWeapon = wep:GetClass()
 
-        if self.Status != "holster_end" then
+        if self.Status ~= "holster_end" then
             timer.Simple((0.7), function()
                 if IsValid(self) and IsValid(self.Owner) and self.Owner:Alive() then
                     self.Status = "holster_end"

@@ -19,7 +19,7 @@
 -- Header #################--
 include("shared.lua");
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.Category = SGLanguage.GetMessage("entity_ships_cat");
 ENT.PrintName = SGLanguage.GetMessage("entity_jumper") or "Puddle Jumper";
 end
@@ -110,7 +110,7 @@ function ENT:Initialize()
 end
 
 function ENT:UpdateJData()
-    if (JData.Entity!=self) then return end
+    if (JData.Entity~=self) then return end
     self.JData.Drones = JData.Drones;
     self.JData.Pods = JData.Pods;
     self.JData.CantCloak = JData.CantCloak;
@@ -206,7 +206,7 @@ end
 usermessage.Hook("JumperCloakData",GetCloakData);
 
 function ENT:UpdateCloakData()
-    if (CloakData.Entity!=self) then return end
+    if (CloakData.Entity~=self) then return end
     self.CloakData.Pods = CloakData.Pods;
     self.CloakData.Door = CloakData.Door;
     self.CloakData.BulkHead = CloakData.BulkHead;

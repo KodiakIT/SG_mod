@@ -151,7 +151,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("ramp",SGLanguage.GetMessage("ramp_kill"));
 end
 
@@ -264,7 +264,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("sgc_ramp",SGLanguage.GetMessage("ramp_kill"));
 end
 

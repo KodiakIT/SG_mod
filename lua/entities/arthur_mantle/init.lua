@@ -108,7 +108,7 @@ end
 
 function ENT:TriggerInput(k,v)
     if (k=="Secret Code") then
-        if (v:upper()==self.Code and self.Code!="") then
+        if (v:upper()==self.Code and self.Code~="") then
             if (self.Step==0) then
                 local str,res = self:RandomTask();
                 self.OldCode = self.Code;

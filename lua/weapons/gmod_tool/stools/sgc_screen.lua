@@ -57,7 +57,7 @@ function TOOL:LeftClick(t)
     if(util.tobool(self:GetClientNumber("keyboard"))) then
         local tool = p:GetTool( "wire_keyboard" )
         local ent = tool:LeftClick_Make(t,p)
-        if (type(ent)!="boolean" and IsValid(ent)) then
+        if (type(ent)~="boolean" and IsValid(ent)) then
             keyb = ent
             ent:SetAngles(e:GetAngles())
             local dir = ent:GetForward()

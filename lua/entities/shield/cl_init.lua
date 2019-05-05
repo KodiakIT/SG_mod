@@ -1,6 +1,6 @@
 include("shared.lua");
 include("modules/bullets.lua");
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("shield",SGLanguage.GetMessage("stool_shield"));
 end
 if (StarGate==nil or StarGate.Trace==nil) then return end

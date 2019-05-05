@@ -29,7 +29,7 @@ function ENT.Sequence:Dial(inbound,fast,fail,busy)
     end
     if (self.WireSpin and (inbound and fast or fast)) then
         local delspin = 0.2;
-        if(inbound and self.InboundSymbols!=1)then
+        if(inbound and self.InboundSymbols~=1)then
             delspin = 3;
         end
         action:Add({f=self.SetSpeed,v={self,false},d=delspin}); -- Roll Forward
@@ -62,7 +62,7 @@ function ENT.Sequence:Dial(inbound,fast,fail,busy)
                   action:Add({f=self.ActivateSymbols,v={self},d=0}); -- activate all symbols
             end
             if (not inbound) then
-                if (address[1] != nil) then
+                if (address[1] ~= nil) then
                     action:Add({f=self.SetWire,v={self,"Dialing Symbol",tostring(address[1])},d=0}); -- Wire
                 end
             end
@@ -72,7 +72,7 @@ function ENT.Sequence:Dial(inbound,fast,fail,busy)
             end
             action:Add({f=self.ActivateGateSound,v={self,i},d=0.8+add});
             local delspin = 0.2;
-            if(inbound and self.InboundSymbols!=1)then
+            if(inbound and self.InboundSymbols~=1)then
                 delspin = 3;
             end
             if (not self.WireSpin) then
@@ -82,10 +82,10 @@ function ENT.Sequence:Dial(inbound,fast,fail,busy)
             if(fast and (not inbound or self.InboundSymbols==1))then
                 action:Add({f=self.BearingSetSkin,v={self,true,true},d=0}); -- change the bearing skin
                 for i=1,runs do
-                    if (address[i] != nil) then
+                    if (address[i] ~= nil) then
                         DialAddress = DialAddress..tostring(address[i]);
                         DialSymbol = tostring(address[i]);
-                        if (not inbound and i < runs and address[i+1] != nil) then
+                        if (not inbound and i < runs and address[i+1] ~= nil) then
                             DialNextSymbol = tostring(address[i+1]);
                         else
                             DialNextSymbol = "";
@@ -109,7 +109,7 @@ function ENT.Sequence:Dial(inbound,fast,fail,busy)
                 end
             end
             local deltim = 1.3;
-            if(inbound and self.InboundSymbols!=1)then
+            if(inbound and self.InboundSymbols~=1)then
                 for i=1,runs do
                     action:Add({f=self.DHDSetChevron,v={self,i,0.05},d=0});
                 end
@@ -154,12 +154,12 @@ function ENT.Sequence:Dial(inbound,fast,fail,busy)
         -- Chevron 1-9
         --local rnd = {};
         for i=1,runs do
-            if (self.DialledAddress[i] != nil) then
+            if (self.DialledAddress[i] ~= nil) then
                 DialAddress = DialAddress..tostring(self.DialledAddress[i]);
                 DialSymbol = tostring(self.DialledAddress[i]);
                 action:Add({f=self.SetDiallingSymbol,v={self,DialSymbol},d=0});
             end
-            if (i <= runs and self.DialledAddress[i] != nil) then
+            if (i <= runs and self.DialledAddress[i] ~= nil) then
                 action:Add({f=self.SetWire,v={self,"Dialing Symbol",self.DialledAddress[i]},d=0}); -- Wire
             else
                 action:Add({f=self.SetWire,v={self,"Dialing Symbol",""},d=0}); -- Wire
@@ -227,10 +227,10 @@ function ENT.Sequence:Dial(inbound,fast,fail,busy)
             end
         end
     end
-    if(inbound and self.InboundSymbols!=1 and not fail) then
+    if(inbound and self.InboundSymbols~=1 and not fail) then
         local dialaddress = "";
         for i=1,count-1 do
-            if (address[i] != nil) then
+            if (address[i] ~= nil) then
                 dialaddress = dialaddress..tostring(address[i]);
             end
         end
@@ -278,13 +278,13 @@ function ENT.Sequence:InstantOpen(action,delay,instant,inbound,slow,nox,fail)
     end
     local dialaddress = "";
     for i=1,chevs do
-        if (self.DialledAddress[i] != nil) then
+        if (self.DialledAddress[i] ~= nil) then
             dialaddress = dialaddress..tostring(self.DialledAddress[i]);
         end
     end
     local dialsymbol = "";
     for i=1,chevs do
-        if (self.DialledAddress[i] != nil) then
+        if (self.DialledAddress[i] ~= nil) then
             dialsymbol = tostring(self.DialledAddress[i]);
         end
         action:Add({f=self.DHDSetChevron,v={self,i},d=0});
@@ -327,7 +327,7 @@ function ENT.Sequence:OnButtonChevron(lightup, dialchev, address, symbol, fail, 
     local dialaddress = "";
     local dialsymbol = "";
     for i=1,dialchev do
-        if (address[i] != nil) then
+        if (address[i] ~= nil) then
             dialaddress = dialaddress..tostring(address[i]);
             if (i == dialchev) then
                 dialsymbol = tostring(address[i]);

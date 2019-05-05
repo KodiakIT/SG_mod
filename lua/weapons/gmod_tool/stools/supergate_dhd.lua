@@ -40,7 +40,7 @@ function TOOL:LeftClick(t)
     local model = self:GetClientInfo("model");
     local seg
     for _,v in pairs(ents.FindByClass("supergate_dhd")) do
-        if v:GetParent() != nil then
+        if v:GetParent() ~= nil then
             if v:GetParent() == t.Entity then
                  p:SendLua("GAMEMODE:AddNotify(SGLanguage.GetMessage(\"stool_supergate_dhd_exs\"), NOTIFY_ERROR, 5); surface.PlaySound( \"buttons/button2.wav\" )");
             return

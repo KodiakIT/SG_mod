@@ -3,7 +3,7 @@
     Copyright (C) 2007  Zup, 2010 Madman07
 */
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end -- When you need to add LifeSupport and Wire capabilities, you NEED TO CALL this before anything else or it wont work!
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end -- When you need to add LifeSupport and Wire capabilities, you NEED TO CALL this before anything else or it wont work!
 ENT.Type = "anim"
 ENT.Base = "base_anim"
 ENT.PrintName = "Drone Launcher"
@@ -114,7 +114,7 @@ function ENT:StartTouch( ent )
         if ent:IsVehicle() then self.IsChair = true; self.IsAtlantisChair = false;
         elseif (ent:GetClass() == "control_chair") then self.IsAtlantisChair = true; self.IsChair = false;
         else return end
-        if (self.APC != ent) then
+        if (self.APC ~= ent) then
             local ed = EffectData()
                 ed:SetEntity(ent)
             util.Effect( "propspawn", ed, true, true )
@@ -303,7 +303,7 @@ end
 if CLIENT then
 
 ENT.RenderGroup = RENDERGROUP_OPAQUE; -- This FUCKING THING avoids the clipping bug I have had for ages since stargate BETA 1.0. DAMN!
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 ENT.Category = SGLanguage.GetMessage("entity_weapon_cat");
 ENT.PrintName = SGLanguage.GetMessage("entity_drone");
 end

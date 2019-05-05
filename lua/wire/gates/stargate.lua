@@ -285,7 +285,7 @@ GateActions["GetEnergyFromAddress"] = {
         elseif Refresh>0 then
             Ent.LastGetEnergy = Ent:WireGetEnergy(Address:upper():sub(1,9));
             return Ent.LastGetEnergy;
-        elseif Ent.LastGetEnergy!=nil then
+        elseif Ent.LastGetEnergy~=nil then
             return Ent.LastGetEnergy;
         else
             return 0;
@@ -307,7 +307,7 @@ GateActions["GetDistanceFromAddress"] = {
         elseif Refresh>0 then
             Ent.LastGetDistance = Ent:WireGetEnergy(Address:upper():sub(1,9),true);
             return Ent.LastGetDistance;
-        elseif Ent.LastGetDistance!=nil then
+        elseif Ent.LastGetDistance~=nil then
             return Ent.LastGetDistance;
         else
             return 0;
@@ -333,7 +333,7 @@ GateActions["AddressList"] = {
                 table.insert(Ent.LastGetAddresses,v[3].." "..v[1].." "..v[2]);
             end
             return Ent.LastGetAddresses;
-        elseif Ent.LastGetAddresses!=nil then
+        elseif Ent.LastGetAddresses~=nil then
             return Ent.LastGetAddresses;
         else
             return {};
@@ -540,7 +540,7 @@ GateActions["GetAtlantisTPList"] = {
                 table.insert(Ent.LastGetAddresses,v[1].." ||| "..v[2]);
             end
             return Ent.LastGetAddresses;
-        elseif Ent.LastGetAddresses!=nil then
+        elseif Ent.LastGetAddresses~=nil then
             return Ent.LastGetAddresses;
         else
             return {};

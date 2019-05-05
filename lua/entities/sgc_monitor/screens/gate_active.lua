@@ -93,7 +93,7 @@ if SERVER then
       self.SelfDestructCode = ""
       return
     end
-    if IsValid(self.Entity.Keyboard) and key == self.Entity.Keyboard:GetRemappedKey(self.Entity.KeyD) and self.SelfDestructState!=-1 and value and not self.SDOffTimer then
+    if IsValid(self.Entity.Keyboard) and key == self.Entity.Keyboard:GetRemappedKey(self.Entity.KeyD) and self.SelfDestructState~=-1 and value and not self.SDOffTimer then
       self.SelfDestructState = self.SelfDestructState == 0 and 1 or 0
       self.SelfDestructCode = ""
       return true

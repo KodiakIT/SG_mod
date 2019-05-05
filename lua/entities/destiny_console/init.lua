@@ -354,7 +354,7 @@ net.Receive("destiny_console",function(length, player)
             local vars = {"A","B","C","D","E","F","G","H"}
             for _,v in pairs(vars) do
                 local val = net.ReadString();
-                if (val!="") then
+                if (val~="") then
                     self["ScreenText"..v] = val;
                     self.Entity:SetNetworkedString("Name"..v,val);
                 end

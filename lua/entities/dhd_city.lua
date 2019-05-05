@@ -5,7 +5,7 @@
 
 -- Include
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("base")) then return end
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end
 
 ENT.Type = "anim"
 ENT.Base = "dhd_base"
@@ -137,7 +137,7 @@ function ENT:GetCurrentButton(p,multi)
     local c = self.ChevronPositions2;
     local t = p:GetEyeTrace();
     -- damn you garry... GetEyeTrace in gmod13 return always same value when some menu is open
-    if (CLIENT and gui.MousePos()!=0) then
+    if (CLIENT and gui.MousePos()~=0) then
         t = util.TraceLine( util.GetPlayerTrace( p, gui.ScreenToVector(gui.MousePos()) ) )
     end
     local cv = self.Entity:WorldToLocal(t.HitPos)
@@ -288,7 +288,7 @@ end
 
 else -- CLIENT
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
     ENT.Category = SGLanguage.GetMessage("stargate_category");
     ENT.PrintName = SGLanguage.GetMessage("dhd_city");
 end

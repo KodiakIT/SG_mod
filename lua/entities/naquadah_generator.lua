@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end -- When you need to add LifeSupport and Wire capabilities, you NEED TO CALL this before anything else or it wont work!
+if (StarGate~=nil and StarGate.LifeSupportAndWire~=nil) then StarGate.LifeSupportAndWire(ENT); end -- When you need to add LifeSupport and Wire capabilities, you NEED TO CALL this before anything else or it wont work!
 ENT.Type = "anim"
 ENT.Base = "base_anim"
 ENT.PrintName = "Naquadah Generator"
@@ -29,10 +29,10 @@ ENT.AdminSpawnable = false
 
 if SERVER then
 
--- HEADER #################
+-- HEADER
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("energy")) then return end
 AddCSLuaFile();
--- SENT CODE ###############
+-- SENT CODE
 
 -- Init
 function ENT:Initialize()
@@ -228,7 +228,7 @@ end
 
 if CLIENT then
 
-if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
 language.Add("naquadah_generator",SGLanguage.GetMessage("naq_gen_mk1"));
 end
 
@@ -256,7 +256,7 @@ function ENT:Draw()
             surface.SetFont("header")
 
             draw.DrawText("NGEN MK1", "header", ScrW() / 2 + 54 + w, ScrH() / 2 +41 - h, Color(0,255,255,255), 0)
-            if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+            if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
                 draw.DrawText(SGLanguage.GetMessage("hud_status"), "center2", ScrW() / 2 + 40 + w, ScrH() / 2 +65 - h, Color(209,238,238,255),0);
                 draw.DrawText(SGLanguage.GetMessage("hud_naquadah"), "center2", ScrW() / 2 + 40 + w, ScrH() / 2 +115 - h, Color(209,238,238,255),0);
                 draw.DrawText(SGLanguage.GetMessage("hud_capacity"), "center2", ScrW() / 2 + 40 + w, ScrH() / 2 +165 - h, Color(209,238,238,255),0);
@@ -282,7 +282,7 @@ function ENT:Draw()
                 perc = string.format("%4.2f",perc);
             end
 
-            if (SGLanguage!=nil and SGLanguage.GetMessage!=nil) then
+            if (SGLanguage~=nil and SGLanguage.GetMessage~=nil) then
                 draw.SimpleText(SGLanguage.GetMessage("hud_sts_"..add:lower()), "center", ScrW() / 2 + 40 + w, ScrH() / 2 +85 - h, color,0);
             end
             draw.SimpleText(tostring(eng), "center", ScrW() / 2 + 40 + w, ScrH() / 2 +135 - h, Color(255,255,255,255),0)
