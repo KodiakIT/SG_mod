@@ -1,6 +1,6 @@
 --[[
-	Tollan Ion Cannon
-	Copyright (C) 2010 Madman07
+    Tollan Ion Cannon
+    Copyright (C) 2010 Madman07
 ]]--
 
 if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
@@ -22,8 +22,8 @@ if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("entw
 AddCSLuaFile()
 
 ENT.Sounds={
-	Shoot=Sound("weapons/tollana_fire.wav"),
-	Move=Sound("weapons/turret_move_loop.wav"),
+    Shoot=Sound("weapons/tollana_fire.wav"),
+    Move=Sound("weapons/turret_move_loop.wav"),
 }
 ENT.SoundDur = 0.2;
 
@@ -46,176 +46,176 @@ ENT.Pitch = 0;
 
 function ENT:Initialize()
 
-	self.Entity:SetName(self.PrintName);
-	self.Entity:SetModel(self.BaseModel);
-	self.Entity:PhysicsInit(SOLID_VPHYSICS);
-	self.Entity:SetMoveType(MOVETYPE_VPHYSICS);
-	self.Entity:SetSolid(SOLID_VPHYSICS);
+    self.Entity:SetName(self.PrintName);
+    self.Entity:SetModel(self.BaseModel);
+    self.Entity:PhysicsInit(SOLID_VPHYSICS);
+    self.Entity:SetMoveType(MOVETYPE_VPHYSICS);
+    self.Entity:SetSolid(SOLID_VPHYSICS);
 
-	self.Entity:StartMotionController();
+    self.Entity:StartMotionController();
 
-	if (WireAddon) then
-		self.Inputs = WireLib.CreateInputs( self.Entity, {"Fire [NORMAL]", "Active [NORMAL]", "Vector [VECTOR]", "Entity [ENTITY]"});
-	end
+    if (WireAddon) then
+        self.Inputs = WireLib.CreateInputs( self.Entity, {"Fire [NORMAL]", "Active [NORMAL]", "Vector [VECTOR]", "Entity [ENTITY]"});
+    end
 
-	self.Yaw = 0;
-	self.Pitch = -25;
+    self.Yaw = 0;
+    self.Pitch = -25;
 
-	self.APC = NULL;
-	self.APCply = NULL;
-	self.WireActive = nil;
-	self.WireShoot = nil;
-	self.WireEnt = nil;
-	self.Target = Vector(1,1,1);
+    self.APC = NULL;
+    self.APCply = NULL;
+    self.WireActive = nil;
+    self.WireShoot = nil;
+    self.WireEnt = nil;
+    self.Target = Vector(1,1,1);
 
-	self:AddResource("energy",self.energy_setup);
+    self:AddResource("energy",self.energy_setup);
 
-	self.ShootingCann = 1;
-	self.CanFire = true;
-	self.SoundTime = CurTime()+self.SoundDur;
+    self.ShootingCann = 1;
+    self.CanFire = true;
+    self.SoundTime = CurTime()+self.SoundDur;
 
-	self.Stand = self.Entity;
-	local phys = self.Stand:GetPhysicsObject();
-	if IsValid(phys) then
-		phys:EnableMotion(false);
-		phys:SetMass(5000);
-	end
+    self.Stand = self.Entity;
+    local phys = self.Stand:GetPhysicsObject();
+    if IsValid(phys) then
+        phys:EnableMotion(false);
+        phys:SetMass(5000);
+    end
 
-	--self:SpawnRest();
+    --self:SpawnRest();
 end
 
 function ENT:SpawnFunction( ply, tr )
-	if ( !tr.Hit ) then return end
+    if ( !tr.Hit ) then return end
 
-	local PropLimit = GetConVar("CAP_ioncannon_max"):GetInt()
-	if(ply:GetCount("CAP_ioncannon")+1 > PropLimit) then
-		ply:SendLua("GAMEMODE:AddNotify(SGLanguage.GetMessage(\"entity_limit_toll_ion\"), NOTIFY_ERROR, 5); surface.PlaySound( \"buttons/button2.wav\" )");
-		return
-	end
+    local PropLimit = GetConVar("CAP_ioncannon_max"):GetInt()
+    if(ply:GetCount("CAP_ioncannon")+1 > PropLimit) then
+        ply:SendLua("GAMEMODE:AddNotify(SGLanguage.GetMessage(\"entity_limit_toll_ion\"), NOTIFY_ERROR, 5); surface.PlaySound( \"buttons/button2.wav\" )");
+        return
+    end
 
-	local ang = ply:GetAimVector():Angle(); ang.p = 0; ang.r = 0; ang.y = ang.y % 360
+    local ang = ply:GetAimVector():Angle(); ang.p = 0; ang.r = 0; ang.y = ang.y % 360
 
-	local ent = ents.Create("sg_turret_tollan");
-	ent:SetPos(tr.HitPos);
-	ent:SetAngles(ang);
-	ent:Spawn();
-	ent:Activate();
+    local ent = ents.Create("sg_turret_tollan");
+    ent:SetPos(tr.HitPos);
+    ent:SetAngles(ang);
+    ent:Spawn();
+    ent:Activate();
 
-	ply:AddCount("CAP_ioncannon", ent)
-	ent:SpawnRest(ply);
-	ent.Duped = true;
-	return ent
+    ply:AddCount("CAP_ioncannon", ent)
+    ent:SpawnRest(ply);
+    ent.Duped = true;
+    return ent
 end
 
 function ENT:PreEntityCopy()
-	local dupeInfo = {}
+    local dupeInfo = {}
 
-	if IsValid(self.Entity) then
-		dupeInfo.EntID = self.Entity:EntIndex();
-	end
+    if IsValid(self.Entity) then
+        dupeInfo.EntID = self.Entity:EntIndex();
+    end
 
-	if IsValid(self.Turn) then
-		dupeInfo.Turn = self.Turn:EntIndex();
-	end
+    if IsValid(self.Turn) then
+        dupeInfo.Turn = self.Turn:EntIndex();
+    end
 
-	if IsValid(self.Cann) then
-		dupeInfo.Cann = self.Cann:EntIndex();
-	end
+    if IsValid(self.Cann) then
+        dupeInfo.Cann = self.Cann:EntIndex();
+    end
 
-	duplicator.StoreEntityModifier(self, "SGTurrBaseDupe", dupeInfo)
-	StarGate.WireRD.PreEntityCopy(self)
+    duplicator.StoreEntityModifier(self, "SGTurrBaseDupe", dupeInfo)
+    StarGate.WireRD.PreEntityCopy(self)
 end
 
 function ENT:PostEntityPaste(ply, Ent, CreatedEntities)
-	local dupeInfo = Ent.EntityMods["SGTurrBaseDupe"] or {}
+    local dupeInfo = Ent.EntityMods["SGTurrBaseDupe"] or {}
 
-	if dupeInfo.Turn then
-		self.Turn = CreatedEntities[ dupeInfo.Turn ]
-		self.Turn.Parent = self.Entity;
-	end
+    if dupeInfo.Turn then
+        self.Turn = CreatedEntities[ dupeInfo.Turn ]
+        self.Turn.Parent = self.Entity;
+    end
 
-	if dupeInfo.Cann then
-		self.Cann = CreatedEntities[ dupeInfo.Cann ]
-		self.Cann.Parent = self.Entity;
-	end
+    if dupeInfo.Cann then
+        self.Cann = CreatedEntities[ dupeInfo.Cann ]
+        self.Cann.Parent = self.Entity;
+    end
 
-	if dupeInfo.EntID then
-		self.Entity = CreatedEntities[ dupeInfo.EntID ]
-	end
+    if dupeInfo.EntID then
+        self.Entity = CreatedEntities[ dupeInfo.EntID ]
+    end
 
-	self.Stand = self.Entity;
-	if (StarGate.NotSpawnable(Ent:GetClass(),ply)) then self.Entity:Remove(); return end
-	if (IsValid(ply)) then
-		local PropLimit = GetConVar("CAP_ioncannon_max"):GetInt()
-		if(ply:GetCount("CAP_ioncannon")+1 > PropLimit) then
-			ply:SendLua("GAMEMODE:AddNotify(SGLanguage.GetMessage(\"entity_limit_toll_ion\"), NOTIFY_ERROR, 5); surface.PlaySound( \"buttons/button2.wav\" )");
-			self.Entity:Remove();
-			return
-		end
-		ply:AddCount("CAP_ioncannon", self.Entity)
-	end
-	self.Duped = true;
-	StarGate.WireRD.PostEntityPaste(self,ply,Ent,CreatedEntities)
+    self.Stand = self.Entity;
+    if (StarGate.NotSpawnable(Ent:GetClass(),ply)) then self.Entity:Remove(); return end
+    if (IsValid(ply)) then
+        local PropLimit = GetConVar("CAP_ioncannon_max"):GetInt()
+        if(ply:GetCount("CAP_ioncannon")+1 > PropLimit) then
+            ply:SendLua("GAMEMODE:AddNotify(SGLanguage.GetMessage(\"entity_limit_toll_ion\"), NOTIFY_ERROR, 5); surface.PlaySound( \"buttons/button2.wav\" )");
+            self.Entity:Remove();
+            return
+        end
+        ply:AddCount("CAP_ioncannon", self.Entity)
+    end
+    self.Duped = true;
+    StarGate.WireRD.PostEntityPaste(self,ply,Ent,CreatedEntities)
 end
 
 if (StarGate and StarGate.CAP_GmodDuplicator) then
-	duplicator.RegisterEntityClass( "sg_turret_tollan", StarGate.CAP_GmodDuplicator, "Data" )
+    duplicator.RegisterEntityClass( "sg_turret_tollan", StarGate.CAP_GmodDuplicator, "Data" )
 end
 
 function ENT:OnRemove()
-	if IsValid(self.Stand) then self.Stand:Remove(); end
-	if IsValid(self.Turn) then self.Turn:Remove(); end
-	if IsValid(self.Cann) then self.Cann:Remove() end
+    if IsValid(self.Stand) then self.Stand:Remove(); end
+    if IsValid(self.Turn) then self.Turn:Remove(); end
+    if IsValid(self.Cann) then self.Cann:Remove() end
 end
 
 -----------------------------------SHOOT----------------------------------
 
 function ENT:Shoot()
 
-	local energy = self:GetResource("energy",self.energy_drain);
+    local energy = self:GetResource("energy",self.energy_drain);
 
-	if(energy > self.energy_drain or !self.HasResourceDistribution) then
+    if(energy > self.energy_drain or !self.HasResourceDistribution) then
 
-		self:ConsumeResource("energy",self.energy_drain);
+        self:ConsumeResource("energy",self.energy_drain);
 
-		self.CanFire = false;
-		self.Cann:DoAnim(1, "Fire");
-		self.Cann:EmitSound(self.Sounds.Shoot,100,math.random(90,110));
+        self.CanFire = false;
+        self.Cann:DoAnim(1, "Fire");
+        self.Cann:EmitSound(self.Sounds.Shoot,100,math.random(90,110));
 
-		local attach = {"Fire1", "Fire2", "Fire3", "Fire4"}
+        local attach = {"Fire1", "Fire2", "Fire3", "Fire4"}
 
-		for i = 1, 4 do
-			local data = self.Cann:GetAttachment(self.Cann:LookupAttachment(attach[i]))
-			if(not (data and data.Pos)) then return end
+        for i = 1, 4 do
+            local data = self.Cann:GetAttachment(self.Cann:LookupAttachment(attach[i]))
+            if(not (data and data.Pos)) then return end
 
-			local fx = EffectData();
-			fx:SetAngles(Angle(math.random(40,60),math.random(80,100),math.random(250,255)));
-			fx:SetStart(data.Pos - self.Cann:GetForward()*10);
-			fx:SetOrigin(data.Pos - self.Cann:GetForward()*10);
-			fx:SetScale(1);
-			util.Effect("Energy_glow",fx);
-		end
+            local fx = EffectData();
+            fx:SetAngles(Angle(math.random(40,60),math.random(80,100),math.random(250,255)));
+            fx:SetStart(data.Pos - self.Cann:GetForward()*10);
+            fx:SetOrigin(data.Pos - self.Cann:GetForward()*10);
+            fx:SetScale(1);
+            util.Effect("Energy_glow",fx);
+        end
 
 
-		timer.Simple( 0.3, function()
-			for i = 1, 4 do
-				local data = self.Cann:GetAttachment(self.Cann:LookupAttachment(attach[i]))
-				if(not (data and data.Pos)) then return end
+        timer.Simple( 0.3, function()
+            for i = 1, 4 do
+                local data = self.Cann:GetAttachment(self.Cann:LookupAttachment(attach[i]))
+                if(not (data and data.Pos)) then return end
 
-				local e = ents.Create("energy_pulse");
-				e:PrepareBullet(self.Cann:GetForward(), 10, 12000, 30, {self.Cann, self.Turn, self.Stand});
-				e:SetPos(data.Pos);
-				e:SetOwner(self);
-				e.Owner = self;
-				e:Spawn();
-				e:Activate();
-				e:SetColor(Color(math.random(40,60),math.random(80,100),math.random(250,255),255));
-			end
+                local e = ents.Create("energy_pulse");
+                e:PrepareBullet(self.Cann:GetForward(), 10, 12000, 30, {self.Cann, self.Turn, self.Stand});
+                e:SetPos(data.Pos);
+                e:SetOwner(self);
+                e.Owner = self;
+                e:Spawn();
+                e:Activate();
+                e:SetColor(Color(math.random(40,60),math.random(80,100),math.random(250,255),255));
+            end
 
-		end)
+        end)
 
-		timer.Simple( math.random(2,4), function() self.CanFire = true end);
-	end
+        timer.Simple( math.random(2,4), function() self.CanFire = true end);
+    end
 
 end
 

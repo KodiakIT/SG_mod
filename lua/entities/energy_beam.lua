@@ -3,7 +3,7 @@ ENT.Base             = "base_entity"
 
 ENT.PrintName        = "Energy Beam"
 ENT.Author           = "PyroSpirit"
-ENT.Contact		      = "forums.facepunchstudios.com"
+ENT.Contact              = "forums.facepunchstudios.com"
 ENT.DoNotDuplicate = true 
 
 if SERVER then
@@ -18,15 +18,15 @@ local cycleInterval = 0.25
 
 -- Comment out the contents of this function to disable debugging messages
 function ENT:DebugMsg(...)
-	--Msg("energy_beam ", self:EntIndex(), ": ", ..., "\n")
+    --Msg("energy_beam ", self:EntIndex(), ": ", ..., "\n")
 end
 
 function IsValid2(X)
-	if (X && X:IsValid()) then
-		return true
-	else
-		return false
-	end
+    if (X && X:IsValid()) then
+        return true
+    else
+        return false
+    end
 end
 
 -- Beam --
@@ -290,7 +290,7 @@ function ENT:CreateLaser(owner)
 
    if(self.effect ~= nil) then
       local beamInfo = EffectData()
-	    beamInfo:SetOrigin(startPos)
+        beamInfo:SetOrigin(startPos)
       beamInfo:SetMagnitude(self.speed)
       beamInfo:SetNormal(self.forward)
       beamInfo:SetEntity(self.Entity)
@@ -509,7 +509,7 @@ function ENT:Extend()
                                            -- ignorableEntities,
                                            -- true)
 
-	self.trace = StarGate.Trace:New(startPos,beamVector,ignorableEntities);
+    self.trace = StarGate.Trace:New(startPos,beamVector,ignorableEntities);
 
    local hitEnt = self.trace.Entity
    local hitPos = self.trace.HitPos
@@ -526,7 +526,7 @@ function ENT:Extend()
 
       if(hitEnt:GetClass() == "shield" or hitEnt:GetClass() == "ship_shield") then
          hitEnt:Hit(self.Entity, hitPos, self.Damage.amount * self.Ftime, self.trace.Normal * -1)
-	  elseif(hitEnt:GetClass() == "shield_core_buble") then
+      elseif(hitEnt:GetClass() == "shield_core_buble") then
          hitEnt:Hit(self.Entity, hitPos, self.Damage.amount * self.Ftime, self.trace.Normal * -1)
       elseif(hitEnt:GetClass() == "event_horizon") then
          local remoteEH = hitEnt.Target
@@ -542,13 +542,13 @@ function ENT:Extend()
          hitEnt:TakeDamage(self.Damage.amount * self.Ftime, owner, self.Entity)
       end
    else
-		if IsValid2(self.Entity) then
-			util.BlastDamage(self.Entity,
+        if IsValid2(self.Entity) then
+            util.BlastDamage(self.Entity,
                        owner,
                        hitPos,
                        self.Damage.radius,
                        self.Damage.amount * self.Ftime)
-		end
+        end
    end
 end
 

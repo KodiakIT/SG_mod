@@ -41,7 +41,7 @@ KBD:SetDefaultKey("EXIT",StarGate.KeyBoard.BINDS["+use"] or "E") -- Exit
 
 -- rockets
 for i=1,8 do
-	KBD:SetDefaultKey(tostring(i),StarGate.KeyBoard.BINDS["slot"..i] or tostring(i))
+    KBD:SetDefaultKey(tostring(i),StarGate.KeyBoard.BINDS["slot"..i] or tostring(i))
 end
 
 --require("datastream")
@@ -62,8 +62,8 @@ local WepBar = surface.GetTextureID("VGUI/HUD/BC304_HUD/weapons_bar");
 local Pressed = false;
 
 function ENT:Initialize( )
-	self.Vehicle = "Daedalus";
-	self.KBD = self.KBD or KBD:CreateInstance(self);
+    self.Vehicle = "Daedalus";
+    self.KBD = self.KBD or KBD:CreateInstance(self);
 
         --self:SetShouldDrawInViewMode( true );
         self.FXEmitter = ParticleEmitter( self:GetPos());
@@ -72,7 +72,7 @@ function ENT:Initialize( )
         LocalPlayer().HUDEnable = true;
         self.EngineSound = CreateSound(self.Entity,Sound("ships/cargo_ship_interor_idle.wav"));
 
-			-- FIRE_RING.PCF
+            -- FIRE_RING.PCF
 
     -- fire_ring_01
     -- smoke_oily_01
@@ -86,68 +86,68 @@ function ENT:Initialize( )
     -- flame
 -- PrecacheParticleSystem("fire_ring_01")
 
-	self.AttLastPos = {
-		Vector(0,0,0),
-		Vector(0,0,0),
-		Vector(0,0,0),
-		Vector(0,0,0),
-		Vector(0,0,0),
-		Vector(0,0,0),
-		Vector(0,0,0),
-		Vector(0,0,0),
-		Vector(0,0,0),
-		Vector(0,0,0)
-	}
+    self.AttLastPos = {
+        Vector(0,0,0),
+        Vector(0,0,0),
+        Vector(0,0,0),
+        Vector(0,0,0),
+        Vector(0,0,0),
+        Vector(0,0,0),
+        Vector(0,0,0),
+        Vector(0,0,0),
+        Vector(0,0,0),
+        Vector(0,0,0)
+    }
 
 end
 /*
 local function KeyPress()
-	local key = "";
-	if input.IsKeyDown(KEY_1) then key = "1";
-	elseif input.IsKeyDown(KEY_2) then key = "2";
-	elseif input.IsKeyDown(KEY_3) then key = "3";
-	elseif input.IsKeyDown(KEY_4) then key = "4";
-	elseif input.IsKeyDown(KEY_5) then key = "5";
-	elseif input.IsKeyDown(KEY_6) then key = "6";
-	elseif input.IsKeyDown(KEY_7) then key = "7";
-	elseif input.IsKeyDown(KEY_8) then key = "8";
-	end
+    local key = "";
+    if input.IsKeyDown(KEY_1) then key = "1";
+    elseif input.IsKeyDown(KEY_2) then key = "2";
+    elseif input.IsKeyDown(KEY_3) then key = "3";
+    elseif input.IsKeyDown(KEY_4) then key = "4";
+    elseif input.IsKeyDown(KEY_5) then key = "5";
+    elseif input.IsKeyDown(KEY_6) then key = "6";
+    elseif input.IsKeyDown(KEY_7) then key = "7";
+    elseif input.IsKeyDown(KEY_8) then key = "8";
+    end
 
-	local p = LocalPlayer();
-	local daedalus = p:GetNetworkedEntity("Daedalus");
-	if (IsValid(daedalus) and key != "") then
-		p:ConCommand("Daedalus_FireRocket "..daedalus:EntIndex().." "..key);
-	end
+    local p = LocalPlayer();
+    local daedalus = p:GetNetworkedEntity("Daedalus");
+    if (IsValid(daedalus) and key != "") then
+        p:ConCommand("Daedalus_FireRocket "..daedalus:EntIndex().." "..key);
+    end
 end
 hook.Add("Think","Daedalus_Rockets",KeyPress)
 */
 function ENT:Think()
 
-	-- local att = {
-			-- "ELB",
-			-- "ERB",
-			-- "ELM1",
-			-- "ELM2",
-			-- "ERM1",
-			-- "ERM2",
-			-- "ELS1",
-			-- "ELS2",
-			-- "ERS1",
-			-- "ERS2"
-	-- }
+    -- local att = {
+            -- "ELB",
+            -- "ERB",
+            -- "ELM1",
+            -- "ELM2",
+            -- "ERM1",
+            -- "ERM2",
+            -- "ELS1",
+            -- "ELS2",
+            -- "ERS1",
+            -- "ERS2"
+    -- }
 
-	-- for i=1,10 do
-		-- ParticleEffectAttach("fire_ring_01", PATTACH_POINT_FOLLOW, self.Entity, self:LookupAttachment(att[i]))
-	-- end
+    -- for i=1,10 do
+        -- ParticleEffectAttach("fire_ring_01", PATTACH_POINT_FOLLOW, self.Entity, self:LookupAttachment(att[i]))
+    -- end
 
-	local p = LocalPlayer()
-	local IsDriver = (p:GetNetworkedEntity(self.Vehicle,NULL) == self.Entity);
+    local p = LocalPlayer()
+    local IsDriver = (p:GetNetworkedEntity(self.Vehicle,NULL) == self.Entity);
 
-		if (IsDriver) then
-			self.KBD:SetActive(true)
-		else
-			self.KBD:SetActive(false)
-		end
+        if (IsDriver) then
+            self.KBD:SetActive(true)
+        else
+            self.KBD:SetActive(false)
+        end
 
 
         LocalPlayer().ViewMode = self.Entity:GetNetworkedInt("ViewMode");
@@ -207,9 +207,9 @@ function ENT:StartSound()
 end
 
 function ENT:OnRemove()
-	if (self.EngineSound) then
-		self.EngineSound:Stop();
-	end
+    if (self.EngineSound) then
+        self.EngineSound:Stop();
+    end
 end
 
 function ENT:Draw()
@@ -218,11 +218,11 @@ function ENT:Draw()
 end
 
 local font = {
-	font = "Default",
-	size = ScreenScale(6),
-	weight = 1000,
-	antialias = true,
-	additive = false,
+    font = "Default",
+    size = ScreenScale(6),
+    weight = 1000,
+    antialias = true,
+    additive = false,
 }
 surface.CreateFont("DaedalusFont", font);
 
@@ -389,18 +389,18 @@ function ENT:Effects()
         size[10] = 40;
 
 
-		local att = {
-			"ELB",
-			"ERB",
-			"ELM1",
-			"ELM2",
-			"ERM1",
-			"ERM2",
-			"ELS1",
-			"ELS2",
-			"ERS1",
-			"ERS2"
-		}
+        local att = {
+            "ELB",
+            "ERB",
+            "ELM1",
+            "ELM2",
+            "ERM1",
+            "ERM2",
+            "ELS1",
+            "ELS2",
+            "ERS1",
+            "ERS2"
+        }
 
         local roll = math.Rand(-90,90);
         local normal = (self.Entity:GetForward() * -1):GetNormalized();
@@ -409,11 +409,11 @@ function ENT:Effects()
 
         for i=1,10 do
 
-				local data = self:GetAttachment(self:LookupAttachment(att[i]));
-				if not (data and data.Pos) then return end
+                local data = self:GetAttachment(self:LookupAttachment(att[i]));
+                if not (data and data.Pos) then return end
 
-				local velo = (data.Pos-self.AttLastPos[i])*75
-				self.AttLastPos[i] = data.Pos;
+                local velo = (data.Pos-self.AttLastPos[i])*75
+                self.AttLastPos[i] = data.Pos;
 
                 -- local dynlight = DynamicLight(i*5);
                 -- dynlight.Pos = data.Pos;
@@ -435,39 +435,39 @@ function ENT:Effects()
                 -- left:SetColor(math.Rand(220,255),math.Rand(220,255),155);
                 -- left:SetRoll(roll);
 
-			-- if(StarGate.Visuals("cl_F302_sprites")) then
-					local aftbrn = self.FXEmitter:Add("effects/fire_cloud1",data.Pos);
-					aftbrn:SetVelocity(velo - 300*FWD);
-					aftbrn:SetDieTime(0.1);
-					aftbrn:SetStartAlpha(255);
-					aftbrn:SetEndAlpha(100);
-					aftbrn:SetStartSize(size[i]/2);
-					aftbrn:SetEndSize(size[i]);
-					aftbrn:SetColor(math.Rand(220,255),math.Rand(220,255),185);
-					aftbrn:SetRoll(roll);
+            -- if(StarGate.Visuals("cl_F302_sprites")) then
+                    local aftbrn = self.FXEmitter:Add("effects/fire_cloud1",data.Pos);
+                    aftbrn:SetVelocity(velo - 300*FWD);
+                    aftbrn:SetDieTime(0.1);
+                    aftbrn:SetStartAlpha(255);
+                    aftbrn:SetEndAlpha(100);
+                    aftbrn:SetStartSize(size[i]/2);
+                    aftbrn:SetEndSize(size[i]);
+                    aftbrn:SetColor(math.Rand(220,255),math.Rand(220,255),185);
+                    aftbrn:SetRoll(roll);
 
-					local aftbrn2 = self.FXEmitter:Add("sprites/orangecore1",data.Pos);
-					aftbrn2:SetVelocity(velo - 300*FWD);
-					aftbrn2:SetDieTime(0.1);
-					aftbrn2:SetStartAlpha(255);
-					aftbrn2:SetEndAlpha(100);
-					aftbrn2:SetStartSize(size[i]/2);
-					aftbrn2:SetEndSize(size[i]);
-					aftbrn2:SetColor(math.Rand(220,255),math.Rand(220,255),185);
-					aftbrn2:SetRoll(roll);
-				-- end
+                    local aftbrn2 = self.FXEmitter:Add("sprites/orangecore1",data.Pos);
+                    aftbrn2:SetVelocity(velo - 300*FWD);
+                    aftbrn2:SetDieTime(0.1);
+                    aftbrn2:SetStartAlpha(255);
+                    aftbrn2:SetEndAlpha(100);
+                    aftbrn2:SetStartSize(size[i]/2);
+                    aftbrn2:SetEndSize(size[i]);
+                    aftbrn2:SetColor(math.Rand(220,255),math.Rand(220,255),185);
+                    aftbrn2:SetRoll(roll);
+                -- end
 
-				-- if(StarGate.Visuals("cl_F302_heatwave")) then
-					-- local heatwv = self.FXEmitter:Add("sprites/heatwave",data.Pos);
-					-- heatwv:SetVelocity(- 300*FWD);
-					-- heatwv:SetDieTime(0.2);
-					-- heatwv:SetStartAlpha(255);
-					-- heatwv:SetEndAlpha(255);
-					-- heatwv:SetStartSize(size[i]);
-					-- heatwv:SetEndSize(size[i]*2);
-					-- heatwv:SetColor(255,255,255);
-					-- heatwv:SetRoll(roll);
-				-- end
+                -- if(StarGate.Visuals("cl_F302_heatwave")) then
+                    -- local heatwv = self.FXEmitter:Add("sprites/heatwave",data.Pos);
+                    -- heatwv:SetVelocity(- 300*FWD);
+                    -- heatwv:SetDieTime(0.2);
+                    -- heatwv:SetStartAlpha(255);
+                    -- heatwv:SetEndAlpha(255);
+                    -- heatwv:SetStartSize(size[i]);
+                    -- heatwv:SetEndSize(size[i]*2);
+                    -- heatwv:SetColor(255,255,255);
+                    -- heatwv:SetRoll(roll);
+                -- end
         end
 
         --self.FXEmitter:Finish();
@@ -501,21 +501,21 @@ function SGDaedalusCalcView(Player, Origin, Angles, FieldOfView)
         local self = LocalPlayer():GetNetworkedEntity("ScriptedVehicle", NULL)
 
         if(IsValid(self) and self:GetClass()=="sg_vehicle_daedalus") then
-	        if (LocalPlayer().ViewMode == 0) then
-	                pos = self:GetPos()+self:GetUp()*600+Player:GetAimVector():GetNormal()*-5000;
-	                face = ( ( self:GetPos() + Vector( 0, 0, 100 ) ) - pos ):Angle();
-	        elseif (LocalPlayer().ViewMode == 1) then
-	                pos = self:GetPos()-self:GetUp()*500;
-	                face = (Player:GetAimVector()):Angle();
-	        else
-	                pos = self:GetPos()+self:GetUp()*1000;
-	                face = (Player:GetAimVector()):Angle();
-	        end
+            if (LocalPlayer().ViewMode == 0) then
+                    pos = self:GetPos()+self:GetUp()*600+Player:GetAimVector():GetNormal()*-5000;
+                    face = ( ( self:GetPos() + Vector( 0, 0, 100 ) ) - pos ):Angle();
+            elseif (LocalPlayer().ViewMode == 1) then
+                    pos = self:GetPos()-self:GetUp()*500;
+                    face = (Player:GetAimVector()):Angle();
+            else
+                    pos = self:GetPos()+self:GetUp()*1000;
+                    face = (Player:GetAimVector()):Angle();
+            end
 
-	                view.origin = pos;
-	                view.angles = face;
+                    view.origin = pos;
+                    view.angles = face;
 
-	        return view;
+            return view;
         end
 end
 hook.Add("CalcView", "SGDaedalusCalcView", SGDaedalusCalcView)

@@ -1,6 +1,6 @@
 /*
-	Jamming Device
-	Copyright (C) 2010  Madman07
+    Jamming Device
+    Copyright (C) 2010  Madman07
 */
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("devices") or SGLanguage==nil or SGLanguage.GetMessage==nil) then return end
 include("weapons/gmod_tool/stargate_base_tool.lua");
@@ -22,7 +22,7 @@ list.Set(TOOL.List,"models/props_junk/propanecanister001a.mdl",{});
 list.Set(TOOL.List,"models/props_trainstation/trashcan_indoor001a.mdl",{});
 list.Set(TOOL.List,"models/props_c17/clock01.mdl",{});
 if (file.Exists("models/props_c17/pottery08a.mdl","GAME")) then
-	list.Set(TOOL.List,"models/props_c17/pottery08a.mdl",{});
+    list.Set(TOOL.List,"models/props_c17/pottery08a.mdl",{});
 end
 list.Set(TOOL.List,"models/props_combine/breenclock.mdl",{});
 list.Set(TOOL.List,"models/props_combine/breenglobe.mdl",{});
@@ -41,61 +41,61 @@ TOOL.Language["Cleaned"] = SGLanguage.GetMessage("stool_jamming_cleaned");
 TOOL.Language["SBoxLimit"] = SGLanguage.GetMessage("stool_jamming_limit");
 
 function TOOL:LeftClick(t)
-	if(t.Entity and t.Entity:IsPlayer()) then return false end;
-	if(CLIENT) then return true end;
-	local p = self:GetOwner();
-	local model = self:GetClientInfo("model");
-	local toggle = self:GetClientNumber("toggle");
-	local size = math.Clamp(self:GetClientNumber("size"),1,1024);
-	local immunity = self:GetClientNumber("immunity");
-	if(t.Entity and t.Entity:GetClass() == self.Entity.Class) then
-		t.Entity:Setup(size, util.tobool(immunity));
-		return true;
-	end
-	if(not self:CheckLimit()) then return false end;
-	local e = self:SpawnSENT(p,t,model,toggle, size, immunity);
-	if (not IsValid(e)) then return end
-	e:Setup(size, util.tobool(immunity));
-	local c = self:Weld(e,t.Entity,util.tobool(self:GetClientNumber("autoweld")));
-	self:AddUndo(p,e,c);
-	self:AddCleanup(p,c,e);
-	return true;
+    if(t.Entity and t.Entity:IsPlayer()) then return false end;
+    if(CLIENT) then return true end;
+    local p = self:GetOwner();
+    local model = self:GetClientInfo("model");
+    local toggle = self:GetClientNumber("toggle");
+    local size = math.Clamp(self:GetClientNumber("size"),1,1024);
+    local immunity = self:GetClientNumber("immunity");
+    if(t.Entity and t.Entity:GetClass() == self.Entity.Class) then
+        t.Entity:Setup(size, util.tobool(immunity));
+        return true;
+    end
+    if(not self:CheckLimit()) then return false end;
+    local e = self:SpawnSENT(p,t,model,toggle, size, immunity);
+    if (not IsValid(e)) then return end
+    e:Setup(size, util.tobool(immunity));
+    local c = self:Weld(e,t.Entity,util.tobool(self:GetClientNumber("autoweld")));
+    self:AddUndo(p,e,c);
+    self:AddCleanup(p,c,e);
+    return true;
 end
 
 function TOOL:PreEntitySpawn(p,e,model,toggle, size, immunity)
-	e:SetModel(model);
+    e:SetModel(model);
 end
 
 function TOOL:PostEntitySpawn(p,e,model,toggle, size, immunity)
-	e:Setup(size or 100, util.tobool(immunity));
-	if(toggle) then
-		numpad.OnDown(p,toggle,"ToggleJamming",e);
-	end
+    e:Setup(size or 100, util.tobool(immunity));
+    if(toggle) then
+        numpad.OnDown(p,toggle,"ToggleJamming",e);
+    end
 end
 
 function TOOL:ControlsPanel(Panel)
-	Panel:AddControl("PropSelect",{Label=SGLanguage.GetMessage("stool_model"),ConVar="jamming_model",Category="",Models=self.Models});
-	Panel:NumSlider(SGLanguage.GetMessage("stool_size"),"jamming_size",100,1024,0);
-	Panel:AddControl("Numpad",{
-		ButtonSize=22,
-		Label=SGLanguage.GetMessage("stool_toggle"),
-		Command="jamming_toggle",
-	});
-	Panel:CheckBox(SGLanguage.GetMessage("stool_immunity"),"jamming_immunity"):SetToolTip(SGLanguage.GetMessage("stool_jamming_imm_desc"));
-	Panel:CheckBox(SGLanguage.GetMessage("stool_autoweld"),"jamming_autoweld");
+    Panel:AddControl("PropSelect",{Label=SGLanguage.GetMessage("stool_model"),ConVar="jamming_model",Category="",Models=self.Models});
+    Panel:NumSlider(SGLanguage.GetMessage("stool_size"),"jamming_size",100,1024,0);
+    Panel:AddControl("Numpad",{
+        ButtonSize=22,
+        Label=SGLanguage.GetMessage("stool_toggle"),
+        Command="jamming_toggle",
+    });
+    Panel:CheckBox(SGLanguage.GetMessage("stool_immunity"),"jamming_immunity"):SetToolTip(SGLanguage.GetMessage("stool_jamming_imm_desc"));
+    Panel:CheckBox(SGLanguage.GetMessage("stool_autoweld"),"jamming_autoweld");
 end
 
 if SERVER then
-	numpad.Register("ToggleJamming",
-		function(p,e)
-			if(not e:IsValid()) then return end;
-			if(e.IsEnabled) then
-				e.IsEnabled = false;
-			else
-				e.IsEnabled = true;
-			end
-		end
-	);
+    numpad.Register("ToggleJamming",
+        function(p,e)
+            if(not e:IsValid()) then return end;
+            if(e.IsEnabled) then
+                e.IsEnabled = false;
+            else
+                e.IsEnabled = true;
+            end
+        end
+    );
 end
 
 TOOL:Register();

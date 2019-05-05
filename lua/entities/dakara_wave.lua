@@ -2,7 +2,7 @@ ENT.Type = "anim"
 
 ENT.PrintName        = "Dakara Energy Wave"
 ENT.Author           = "PyroSpirit, Madman07 (recoded for cap)"
-ENT.Contact		      = "forums.facepunchstudios.com"
+ENT.Contact              = "forums.facepunchstudios.com"
 
 ENT.Spawnable        = false
 ENT.AdminSpawnable   = false
@@ -45,22 +45,22 @@ ENT.IsShieldPiercing = false;
 ENT.Sounds = {}
 
 function ENT:Initialize()
-	self.Entity:SetModel("models/zup/shields/1024_shield.mdl")
-	self:SetColor(Color(0,0,0,0));
-	self:SetRenderMode(RENDERMODE_TRANSALPHA);
-	self:DrawShadow(false)
+    self.Entity:SetModel("models/zup/shields/1024_shield.mdl")
+    self:SetColor(Color(0,0,0,0));
+    self:SetRenderMode(RENDERMODE_TRANSALPHA);
+    self:DrawShadow(false)
     self.disintegrator = ents.Create("env_entity_dissolver")
     self.disintegrator:SetKeyValue("magnitude", "1")
     self.disintegrator:SetKeyValue("dissolvetype", "0")
     self.disintegrator:SetPos(self:GetPos())
     self.disintegrator:Spawn()
     self.disintegrator:Activate()
-	timer.Create("WaveExpanding"..self:EntIndex(),self.cycleInterval,0,function()
-		if IsValid(self) then self.radius = self.radius + self.ExpansionRate end
-	end);
-	local effectInfo = EffectData();
-		effectInfo:SetEntity(self.Entity);
-		effectInfo:SetMagnitude(self.MaxRadius/1000);
+    timer.Create("WaveExpanding"..self:EntIndex(),self.cycleInterval,0,function()
+        if IsValid(self) then self.radius = self.radius + self.ExpansionRate end
+    end);
+    local effectInfo = EffectData();
+        effectInfo:SetEntity(self.Entity);
+        effectInfo:SetMagnitude(self.MaxRadius/1000);
     util.Effect("dakara_wave", effectInfo);
 end
 
@@ -88,10 +88,10 @@ function ENT:DisintegrateTargets()
    for _, entity in pairs(ents.FindInSphere(self:GetPos(), self.radius)) do
       local isValidTarget = (self:IsValidTarget(entity) && entity:GetPhysicsObject():IsValid()) -- So it doesn't dissolve stuff like info player start.
 
-		if (isValidTarget) then
-			local allow = hook.Call("StarGate.DarakaWave.Disintegrate",nil,entity,self);
-			if (allow==false) then continue end
-		end
+        if (isValidTarget) then
+            local allow = hook.Call("StarGate.DarakaWave.Disintegrate",nil,entity,self);
+            if (allow==false) then continue end
+        end
 
       if isValidTarget then
          for _, immuneEnt in pairs(self.immuneEnts) do
@@ -130,8 +130,8 @@ function ENT:DisintegrateTargets()
 
             timer.Simple(waveDuration,
                          function()
-                         	if (IsValid(entity)) then
-                            	entity.isHitByDakaraWave = false
+                             if (IsValid(entity)) then
+                                entity.isHitByDakaraWave = false
                             end
                          end)
          end
@@ -140,14 +140,14 @@ function ENT:DisintegrateTargets()
 end
 
 function ENT:PropagateThroughGate(gate)
-	for _,v in pairs(ents.FindByClass("stargate_*")) do
-		if(v.IsStargate and v!=gate and v:GetClass() != "stargate_supergate" and v:GetClass() != "stargate_orlin" and v:GetClass() != "stargate_universe" and not v.GateGalaxy) then
-			local wave = ents.Create("dakara_wave")
-			wave:Setup(v:GetPos(), self.immuneEnts, self.Target, false, self.MaxRadius)
-			wave:Spawn()
-			wave:Activate()
-		end
-	end
+    for _,v in pairs(ents.FindByClass("stargate_*")) do
+        if(v.IsStargate and v!=gate and v:GetClass() != "stargate_supergate" and v:GetClass() != "stargate_orlin" and v:GetClass() != "stargate_universe" and not v.GateGalaxy) then
+            local wave = ents.Create("dakara_wave")
+            wave:Setup(v:GetPos(), self.immuneEnts, self.Target, false, self.MaxRadius)
+            wave:Spawn()
+            wave:Activate()
+        end
+    end
 end
 
 function ENT:HitShields()
@@ -181,9 +181,9 @@ end
 function ENT:IsEntityATarget(entity)
    local entityClass = entity:GetClass()
 
-	for _, targetType in pairs(self.Target) do
-		if(string.find(entityClass, targetType)) then return true end
-	end
+    for _, targetType in pairs(self.Target) do
+        if(string.find(entityClass, targetType)) then return true end
+    end
 
    return false
 end
@@ -213,11 +213,11 @@ function ENT:IsPlanet(entity)
 end
 
 function ENT:End()
-	if timer.Exists("WaveExpanding"..self:EntIndex()) then timer.Destroy("WaveExpanding"..self:EntIndex()) end
+    if timer.Exists("WaveExpanding"..self:EntIndex()) then timer.Destroy("WaveExpanding"..self:EntIndex()) end
 
-	for _, entity in pairs(ents.FindInSphere(self:GetPos(), self.radius)) do
-		entity.isHitByDakaraWave = false
-	end
+    for _, entity in pairs(ents.FindInSphere(self:GetPos(), self.radius)) do
+        entity.isHitByDakaraWave = false
+    end
 
    self.radius = 0
 

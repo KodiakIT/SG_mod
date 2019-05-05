@@ -1,4 +1,4 @@
-/* Copyright (C) 2016 by glebqip */
+-- Copyright (C) 2016 by glebqip
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("extra")) then return end
 AddCSLuaFile("cl_init.lua")
 AddCSLuaFile("shared.lua")
@@ -73,7 +73,7 @@ function ENT:Think()
   if not self.Server.On and self.Screen!=0 then 
     self.TmpScreen = self.Screen
     self.Screen = 0
-	self:UpdateProgram()
+    self:UpdateProgram()
   end
 
   if self.Server.State == -1 and self.Screen == 0 and self.Server.On then
@@ -176,10 +176,10 @@ function ENT:Use(_,_,val)
 end
 
 function ENT:IsHoldDKey()
-	if IsValid(self.Keyboard) and self.Keys[self.Keyboard:GetRemappedKey(self.KeyD)] then
-		return true
-	end
-	return false
+    if IsValid(self.Keyboard) and self.Keys[self.Keyboard:GetRemappedKey(self.KeyD)] then
+        return true
+    end
+    return false
 end
 
 function ENT:Touch(ent)
@@ -190,7 +190,7 @@ function ENT:Touch(ent)
     util.Effect("propspawn", ed, true, true)
   elseif not IsValid(self.Keyboard) and ent.ActiveKeys and not IsValid(ent.SGCScreen) then
     self.Keyboard = ent
-	ent.SGCScreen = self
+    ent.SGCScreen = self
     local ed = EffectData()
     ed:SetEntity(self)
     util.Effect("propspawn", ed, true, true)
@@ -198,83 +198,83 @@ function ENT:Touch(ent)
 end
 
 function ENT:OnRemove()
-	if (IsValid(self.Keyboard)) then
-		self.Keyboard.SGCScreen = nil
-		if (self.KeyboardSpawned) then
-			self.Keyboard:Remove()
-		end
-	end
+    if (IsValid(self.Keyboard)) then
+        self.Keyboard.SGCScreen = nil
+        if (self.KeyboardSpawned) then
+            self.Keyboard:Remove()
+        end
+    end
 end
 
 function ENT:FindNearestClass(class,pos,dist)
-	dist = dist or 2000;
-	local ents = ents.FindByClass(class)
-	local fent,ldist = nil,dist
-	for k,v in pairs(ents) do
-		local e_pos = v:GetPos();
-		if ((e_pos - pos):Length()<=dist) then
-			local dist = (e_pos - pos):Length();
-			if (dist<ldist) then
-				fent = v
-				ldist = dist
-			end
-		end                                  
-	end
-	return fent
+    dist = dist or 2000;
+    local ents = ents.FindByClass(class)
+    local fent,ldist = nil,dist
+    for k,v in pairs(ents) do
+        local e_pos = v:GetPos();
+        if ((e_pos - pos):Length()<=dist) then
+            local dist = (e_pos - pos):Length();
+            if (dist<ldist) then
+                fent = v
+                ldist = dist
+            end
+        end
+    end
+    return fent
 end
 
 function ENT:PreEntityCopy()
-	local dupeInfo = {};
+    local dupeInfo = {};
 
-	dupeInfo.Screen = self.TmpScreen or self.Screen;
-	dupeInfo.On = self.On;
+    dupeInfo.Screen = self.TmpScreen or self.Screen;
+    dupeInfo.On = self.On;
 
-	dupeInfo.Keyboard = self.Keyboard:EntIndex();
-	dupeInfo.Server = self.Server:EntIndex();
-	
+    dupeInfo.Keyboard = self.Keyboard:EntIndex();
+    dupeInfo.Server = self.Server:EntIndex();
+
     duplicator.StoreEntityModifier(self, "StarGateSGCMonitorInfo", dupeInfo)
-	StarGate.WireRD.PreEntityCopy(self);
+    StarGate.WireRD.PreEntityCopy(self);
 end
 
 function ENT:PostEntityPaste(ply, Ent, CreatedEntities)
-	if (StarGate.NotSpawnable("sgc_screen",ply,"tool")) then Ent:Remove(); return end
+    if (StarGate.NotSpawnable("sgc_screen",ply,"tool")) then Ent:Remove(); return end
 
-	if (IsValid(ply)) then
-		if(ply:GetCount("CAP_sgc_screens")>=GetConVar("sbox_maxsgc_monitor"):GetInt()) then
-			ply:SendLua("GAMEMODE:AddNotify(SGLanguage.GetMessage(\"stool_sgcscreen_limit\"), NOTIFY_ERROR, 5); surface.PlaySound( \"buttons/button2.wav\" )");
-			Ent:Remove();
-			return
-		end
-		ply:AddCount("CAP_sgc_screens", Ent);
-	end
+    if (IsValid(ply)) then
+        if(ply:GetCount("CAP_sgc_screens")>=GetConVar("sbox_maxsgc_monitor"):GetInt()) then
+            ply:SendLua("GAMEMODE:AddNotify(SGLanguage.GetMessage(\"stool_sgcscreen_limit\"), NOTIFY_ERROR, 5); surface.PlaySound( \"buttons/button2.wav\" )");
+            Ent:Remove();
+            return
+        end
+        ply:AddCount("CAP_sgc_screens", Ent);
+    end
 
-	local dupeInfo = Ent.EntityMods.StarGateSGCMonitorInfo
+    local dupeInfo = Ent.EntityMods.StarGateSGCMonitorInfo
 
-	if (dupeInfo.Screen) then
-		self.TmpScreen = dupeInfo.Screen;
-	end
-	
-	if (dupeInfo.On!=nil) then
-		self.On = dupeInfo.On;
-		self:SetWire("On",self.On)
-	end
-	
-	if (dupeInfo.Keyboard and CreatedEntities[dupeInfo.Keyboard]) then
-		self.Keyboard = CreatedEntities[dupeInfo.Keyboard];
-		CreatedEntities[dupeInfo.Keyboard].SGCScreen = Ent;
-	end
-	if (dupeInfo.Server and CreatedEntities[dupeInfo.Server]) then
-		self.Server = CreatedEntities[dupeInfo.Server];
-	end
-	
-	if (IsValid(ply)) then
-		self.Owner = ply;
-		self:SetNWEntity("Owner",ply);
-	end
+    if (dupeInfo.Screen) then
+        self.TmpScreen = dupeInfo.Screen;
+    end
 
-	StarGate.WireRD.PostEntityPaste(self,ply,Ent,CreatedEntities)
+    if (dupeInfo.On!=nil) then
+        self.On = dupeInfo.On;
+        self:SetWire("On",self.On)
+    end
+
+    if (dupeInfo.Keyboard and CreatedEntities[dupeInfo.Keyboard]) then
+        self.Keyboard = CreatedEntities[dupeInfo.Keyboard];
+        CreatedEntities[dupeInfo.Keyboard].SGCScreen = Ent;
+    end
+    if (dupeInfo.Server and CreatedEntities[dupeInfo.Server]) then
+        self.Server = CreatedEntities[dupeInfo.Server];
+    end
+
+    if (IsValid(ply)) then
+        self.Owner = ply;
+        self:SetNWEntity("Owner",ply);
+    end
+
+    StarGate.WireRD.PostEntityPaste(self,ply,Ent,CreatedEntities)
 end
 
 if (StarGate and StarGate.CAP_GmodDuplicator) then
-	duplicator.RegisterEntityClass( "sgc_server", StarGate.CAP_GmodDuplicator, "Data" )
+    duplicator.RegisterEntityClass( "sgc_server", StarGate.CAP_GmodDuplicator, "Data" )
 end

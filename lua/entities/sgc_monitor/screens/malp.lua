@@ -20,7 +20,7 @@ if SERVER then
   function SCR:Initialize()
     self.MALPCheck = CurTime()-10
     self.Selected = 1
-	self.MALPList = {}
+    self.MALPList = {}
   end
 
   function SCR:Think(curr,dT)
@@ -31,7 +31,7 @@ if SERVER then
       self.MALP = self.MALPList[self.Selected]
       self.Selected = #self.MALPList
     end
-	if CurTime()-self.MALPCheck > 10 then
+    if CurTime()-self.MALPCheck > 10 then
       self.MALPList = ents.FindByClass("malp")
       self.MALPCheck = CurTime()
     end

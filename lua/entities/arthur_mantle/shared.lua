@@ -1,7 +1,7 @@
 --[[
-	Arthurs Mantle
-	Copyright (C) 2010 Madman07
-	Secret Code added by AlexALX
+    Arthurs Mantle
+    Copyright (C) 2010 Madman07
+    Secret Code added by AlexALX
 ]]--
 
 if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end

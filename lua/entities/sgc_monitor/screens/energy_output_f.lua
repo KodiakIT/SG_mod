@@ -92,13 +92,13 @@ else
         --draw.DrawTLine(240+x1,263+y1,238+x2,263+y2,2)
         draw.DrawTLine(146+x1,195+y1,146+x2,195+y2,2)
       end
-		render.SetStencilCompareFunction(STENCIL_EQUAL)
+        render.SetStencilCompareFunction(STENCIL_EQUAL)
       surface.SetDrawColor(Color(150,150,150))
       surface.SetTexture(Gradient)
       surface.DrawTexturedRectRotated(300,194,351,301,0)
-		render.SetStencilEnable(false)
+        render.SetStencilEnable(false)
     render.SetScissorRect(0,0,0,0,false)
-		--render.SetStencilTestMask(3);render.SetStencilWriteMask(3);render.SetStencilReferenceValue(3)
+        --render.SetStencilTestMask(3);render.SetStencilWriteMask(3);render.SetStencilReferenceValue(3)
   end
 
   function SCR:Think(curr)

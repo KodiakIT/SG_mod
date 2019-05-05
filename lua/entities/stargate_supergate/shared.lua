@@ -12,11 +12,11 @@ ENT.IsSuper = true;
 ENT.IsSupergate = true;
 
 ENT.EventHorizonData = {
-	OpeningDelay = 0.8,
-	OpenTime = 5.3,
-	NNFix = 0,
-	Model = "models/iziraider/supergate/eh.mdl",
-	Kawoosh = "supergate",
+    OpeningDelay = 0.8,
+    OpenTime = 5.3,
+    NNFix = 0,
+    Model = "models/iziraider/supergate/eh.mdl",
+    Kawoosh = "supergate",
 }
 
 ENT.StargateNoEHSelect = true

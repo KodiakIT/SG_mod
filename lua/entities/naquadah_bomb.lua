@@ -1,12 +1,12 @@
 -- Use the Stargate addon to add LS, RD and Wire support to this entity
 if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
 
-ENT.Type 		= "anim"
-ENT.Base 		= "base_anim"
+ENT.Type         = "anim"
+ENT.Base         = "base_anim"
 
-ENT.PrintName	= "Naquadah Bomb"
-ENT.Author		= "PyroSpirit and Madman1991 and Madman07"
-ENT.Contact		= "forums.facepunchstudios.com"
+ENT.PrintName    = "Naquadah Bomb"
+ENT.Author        = "PyroSpirit and Madman1991 and Madman07"
+ENT.Contact        = "forums.facepunchstudios.com"
 
 ENT.Spawnable        = false
 ENT.AdminSpawnable   = false
@@ -36,48 +36,48 @@ function ENT:Initialize()
   -- Set up physics for entity
   local thisPhysics = self.Entity:GetPhysicsObject()
 
-	self.Entity:PhysicsInit(SOLID_VPHYSICS)
-	self.Entity:SetMoveType(MOVETYPE_VPHYSICS)
-	self.Entity:SetSolid(SOLID_VPHYSICS)
+    self.Entity:PhysicsInit(SOLID_VPHYSICS)
+    self.Entity:SetMoveType(MOVETYPE_VPHYSICS)
+    self.Entity:SetSolid(SOLID_VPHYSICS)
 
    -- Set up wire inputs and outputs
-	if(self.HasWire) then
-		self:CreateWireInputs("Detonate", "Abort", "Detonation Code [STRING]", "Abort Code [STRING]", "Time to Destruct")
-		self:CreateWireOutputs("Charging", "Charge", "Countdown Timer")
-	end
+    if(self.HasWire) then
+        self:CreateWireInputs("Detonate", "Abort", "Detonation Code [STRING]", "Abort Code [STRING]", "Time to Destruct")
+        self:CreateWireOutputs("Charging", "Charge", "Countdown Timer")
+    end
 
-	--self.Sounds["ambient"] = CreateSound(self.Entity, self.SoundPaths["charge_ambient"])
+    --self.Sounds["ambient"] = CreateSound(self.Entity, self.SoundPaths["charge_ambient"])
 end
 
 function ENT:Setup(detonationCode, abortCode,  yield, chargeTime, hud, cart, p)
 
-	if(self.charging) then return false end;
+    if(self.charging) then return false end;
 
-	--DebugMsg("Setup detCode: "..tostring(detonationCode).." Abort: "..tostring(abortCode).."\n")
-	self.detonationCode = detonationCode or "1"
-	self.abortCode = abortCode or "2"
-	self.yield = math.Clamp(yield, 10, 100)
-	self.chargeTime = math.max(chargeTime, 10)
+    --DebugMsg("Setup detCode: "..tostring(detonationCode).." Abort: "..tostring(abortCode).."\n")
+    self.detonationCode = detonationCode or "1"
+    self.abortCode = abortCode or "2"
+    self.yield = math.Clamp(yield, 10, 100)
+    self.chargeTime = math.max(chargeTime, 10)
 
-	if(self.HasWire) then
-		self:SetWire("Charging", 0)
-		self:SetWire("Charge", 0)
-		self:SetWire("Countdown Timer", 0)
-	end
+    if(self.HasWire) then
+        self:SetWire("Charging", 0)
+        self:SetWire("Charge", 0)
+        self:SetWire("Countdown Timer", 0)
+    end
 
-	self:SetNWBool("Hud", hud)
-	if cart and not IsValid(self.Cart) then
-		if(self:GetModel()==("models/markjaw/gate_buster.mdl")) then
-			local ent = ents.Create("prop_physics");
-			ent:SetModel("models/MarkJaw/gate_buster_cart.mdl");
-			ent:SetAngles(self.Entity:GetAngles());
-			ent:SetPos(self.Entity:GetPos()-Vector(0,0,25));
-			ent:Spawn();
-			ent:Activate();
-			constraint.Weld(self.Entity,ent,0,0,0,true)
-			self.Cart = ent;
-			if CPPI and IsValid(p) and ent.CPPISetOwner then ent:CPPISetOwner(p) end
-		end
+    self:SetNWBool("Hud", hud)
+    if cart and not IsValid(self.Cart) then
+        if(self:GetModel()==("models/markjaw/gate_buster.mdl")) then
+            local ent = ents.Create("prop_physics");
+            ent:SetModel("models/MarkJaw/gate_buster_cart.mdl");
+            ent:SetAngles(self.Entity:GetAngles());
+            ent:SetPos(self.Entity:GetPos()-Vector(0,0,25));
+            ent:Spawn();
+            ent:Activate();
+            constraint.Weld(self.Entity,ent,0,0,0,true)
+            self.Cart = ent;
+            if CPPI and IsValid(p) and ent.CPPISetOwner then ent:CPPISetOwner(p) end
+        end
    end
 
    return true
@@ -97,7 +97,7 @@ end
 
 function ENT:StartDetonation(code)
    if(self:GetNetworkedInt("State", 1) == 3) then
-		return true
+        return true
    end
 
    if( not self:IsDetonationCode(code)) then
@@ -117,18 +117,18 @@ function ENT:StartDetonation(code)
 end
 
 function ENT:AbortDetonation(code)
-	if(self:GetNWInt("State", 1) ~= 3) then
-		return true
+    if(self:GetNWInt("State", 1) ~= 3) then
+        return true
    end
 
    if( not self:IsAbortCode(code)) then
       return false
    end
 
-	--if(not self.malfunctioning) then
+    --if(not self.malfunctioning) then
       self:SetNWInt("State", 2)
       self.charge = 0
-	  self.Entity:SetNetworkedInt("BombOverlayTime",0)
+      self.Entity:SetNetworkedInt("BombOverlayTime",0)
 
       if(self.HasWire) then
          self:SetWire("Charging", 0)
@@ -154,13 +154,13 @@ function ENT:IsDetonationCode(code)
 end
 
 function ENT:IsAbortCode(code)
-	if(code == self.abortCode) then
-		self.Entity:EmitSound(self.SoundPaths["code_accepted"])
-		return true
-	else
-		self.Entity:EmitSound(self.SoundPaths["code_rejected"])
-		return false
-	end
+    if(code == self.abortCode) then
+        self.Entity:EmitSound(self.SoundPaths["code_accepted"])
+        return true
+    else
+        self.Entity:EmitSound(self.SoundPaths["code_rejected"])
+        return false
+    end
 end
 
 -- Make local to avoid overriding any identically named functions in other scripts
@@ -191,7 +191,7 @@ concommand.Add("AbortDetonation", ReceiveAbortCommand)
 
 function ENT:OnTakeDamage(damageInfo)
     if self:GetNWInt("State", 1) == 4 then return end
-	self.Entity:SetHealth(self.Entity:Health() - damageInfo:GetDamage())
+    self.Entity:SetHealth(self.Entity:Health() - damageInfo:GetDamage())
 
     if(self.Entity:Health() <= 0) then
         self:Destruct()
@@ -212,20 +212,20 @@ end
 -- Destroy bomb (without detonating warhead)
 function ENT:Destruct()
    -- Make bomb explode (without warhead detonation)
-	self:SetNWInt("State", 4)
+    self:SetNWInt("State", 4)
 
-	self.Entity:Remove()
-	if IsValid(self.Cart) then self.Cart:Remove(); end
-	destructEffect = EffectData()
-	destructEffect:SetOrigin(self.Entity:GetPos())
-	destructEffect:SetScale(1 + (self.charge / 100))
-	destructEffect:SetMagnitude(50 + self.charge)
-	util.Effect("Explosion", destructEffect, true, true)
+    self.Entity:Remove()
+    if IsValid(self.Cart) then self.Cart:Remove(); end
+    destructEffect = EffectData()
+    destructEffect:SetOrigin(self.Entity:GetPos())
+    destructEffect:SetScale(1 + (self.charge / 100))
+    destructEffect:SetMagnitude(50 + self.charge)
+    util.Effect("Explosion", destructEffect, true, true)
 
-	local bombOwner = self.Entity:GetVar("Owner", self.Entity)
-	local blastRadius = 100 + (self.charge * 5)
-	local blastDamage = 50 + self.charge
-	util.BlastDamage(self.Entity, bombOwner, self.Entity:GetPos(), blastRadius, blastDamage)
+    local bombOwner = self.Entity:GetVar("Owner", self.Entity)
+    local blastRadius = 100 + (self.charge * 5)
+    local blastDamage = 50 + self.charge
+    util.BlastDamage(self.Entity, bombOwner, self.Entity:GetPos(), blastRadius, blastDamage)
 end
 
 -- Detonate warhead
@@ -247,14 +247,14 @@ function ENT:ShakeCamera(strength, duration, radius)
    local shake = ents.Create("env_shake")
 
    shake:SetKeyValue("amplitude", strength)
-	shake:SetKeyValue("duration", duration)
-	shake:SetKeyValue("radius", radius)
-	shake:SetKeyValue("frequency", "240")
-	shake:SetPos(self.Entity:GetPos())
+    shake:SetKeyValue("duration", duration)
+    shake:SetKeyValue("radius", radius)
+    shake:SetKeyValue("frequency", "240")
+    shake:SetPos(self.Entity:GetPos())
 
-	shake:Spawn()
-	shake:Fire("StartShake","","0")
-	shake:Fire("kill", "", duration + 2)
+    shake:Spawn()
+    shake:Fire("StartShake","","0")
+    shake:Fire("kill", "", duration + 2)
 end
 
 function ENT:OnRemove()
@@ -266,14 +266,14 @@ end
 function ENT:Think()
 
    if(self:GetNWInt("State", 1) == 3) then
-		self.Entity:SetNetworkedString("BombOverlay","Charging!")
-		self:Charge()
-		local explodetime = self.chargeTime * ((100-self.charge)/100)+1;
-		self.Entity:SetNetworkedInt("BombOverlayTime",explodetime)
+        self.Entity:SetNetworkedString("BombOverlay","Charging!")
+        self:Charge()
+        local explodetime = self.chargeTime * ((100-self.charge)/100)+1;
+        self.Entity:SetNetworkedInt("BombOverlayTime",explodetime)
    elseif(self.malfunctioned) then
       self:StartDetonation()
    else
-	  self.Entity:SetNetworkedString("BombOverlay","Armed")
+      self.Entity:SetNetworkedString("BombOverlay","Armed")
    end
 
    if(self.Entity:Health() < self.Entity:GetMaxHealth()) then
@@ -287,7 +287,7 @@ function ENT:Think()
       self:Damage()
    end
 
-	self.Entity:NextThink(CurTime() + 1)
+    self.Entity:NextThink(CurTime() + 1)
    return true
 end
 
@@ -300,8 +300,8 @@ function ENT:Charge()
    self.charge = self.charge + (100 / self.chargeTime)
 
    if(self.HasWire) then
-		self:SetWire("Charge", self.charge)
-		self:SetWire("Countdown Timer", self.chargeTime * ((100-self.charge)/100)+1)
+        self:SetWire("Charge", self.charge)
+        self:SetWire("Countdown Timer", self.chargeTime * ((100-self.charge)/100)+1)
    end
 
    self:ShakeCamera(16 * (self.charge / 100),
@@ -312,7 +312,7 @@ function ENT:Charge()
 end
 
 function ENT:AcceptInput(inputType, activator, caller)
-	if(inputType == "Use" &&
+    if(inputType == "Use" &&
       caller:IsPlayer() &&
       caller:KeyDownLast(IN_USE) == false) then
 
@@ -320,7 +320,7 @@ function ENT:AcceptInput(inputType, activator, caller)
       umsg.Entity(self.Entity)
       umsg.Bool(true)
       umsg.End()
-	end
+    end
 end
 
 end
@@ -334,56 +334,56 @@ end
 local cycleInterval = 0.5
 
 function OnUserMessage(userMessage)
-	local self = userMessage:ReadEntity()
-	if (IsValid(self)) then
-   	self.showCodeWindow = userMessage:ReadBool()
+    local self = userMessage:ReadEntity()
+    if (IsValid(self)) then
+       self.showCodeWindow = userMessage:ReadBool()
    end
 end
 
 function ENT:Initialize()
-	self.DAmt=0
-	self.RAmt=255
+    self.DAmt=0
+    self.RAmt=255
 
-	self.showCodeWindow = false
+    self.showCodeWindow = false
 end
 
 function ENT:Draw()
 
-	self.Entity:DrawModel()
-	local pos = self.Entity:LocalToWorld(Vector(-7.5, 9.5, 25));
-	local ang = self.Entity:GetAngles();
+    self.Entity:DrawModel()
+    local pos = self.Entity:LocalToWorld(Vector(-7.5, 9.5, 25));
+    local ang = self.Entity:GetAngles();
 
 
-	if self.Entity:GetNetworkedBool("Hud", false) then
+    if self.Entity:GetNetworkedBool("Hud", false) then
 
-		if(self:GetModel()=="models/markjaw/gate_buster.mdl") then
-			pos = self.Entity:LocalToWorld(Vector(-7.5, 9.5, 25));
-			ang = self.Entity:GetAngles();
-		elseif(self:GetModel()=="models/boba_fett/props/goauldbomb/goauldbomb.mdl") then
-			pos = self.Entity:LocalToWorld(Vector(0,0,20));
-			ang = self.Entity:GetAngles()+Angle(0,-90,0);
-		elseif(self:GetModel()=="models/boba_fett/props/lucian_bomb/lucian_bomb.mdl") then
-			pos = self.Entity:LocalToWorld(Vector(-5,0,52));
-			ang = self.Entity:GetAngles()+Angle(0,-90,0);
-		end
+        if(self:GetModel()=="models/markjaw/gate_buster.mdl") then
+            pos = self.Entity:LocalToWorld(Vector(-7.5, 9.5, 25));
+            ang = self.Entity:GetAngles();
+        elseif(self:GetModel()=="models/boba_fett/props/goauldbomb/goauldbomb.mdl") then
+            pos = self.Entity:LocalToWorld(Vector(0,0,20));
+            ang = self.Entity:GetAngles()+Angle(0,-90,0);
+        elseif(self:GetModel()=="models/boba_fett/props/lucian_bomb/lucian_bomb.mdl") then
+            pos = self.Entity:LocalToWorld(Vector(-5,0,52));
+            ang = self.Entity:GetAngles()+Angle(0,-90,0);
+        end
 
-		ang:RotateAroundAxis(ang:Up(), 180)
-		ang:RotateAroundAxis(ang:Forward(),	65)
+        ang:RotateAroundAxis(ang:Up(), 180)
+        ang:RotateAroundAxis(ang:Forward(),    65)
 
 
-		local str=self.Entity:GetNetworkedString("BombOverlay","")
-		local time=self.Entity:GetNetworkedInt("BombOverlayTime",0)
-		if time > 0 then str = str.."\n"..tostring(time); end
-		surface.SetFont("SandboxLabel")
-		local w,h=surface.GetTextSize(str)
+        local str=self.Entity:GetNetworkedString("BombOverlay","")
+        local time=self.Entity:GetNetworkedInt("BombOverlayTime",0)
+        if time > 0 then str = str.."\n"..tostring(time); end
+        surface.SetFont("SandboxLabel")
+        local w,h=surface.GetTextSize(str)
 
-		cam.Start3D2D(pos, ang, 0.05 )
-			surface.SetDrawColor( 128, 128, 128, 200 )
-			surface.DrawRect(0-w/2, 0, w, h)
-			draw.DrawText(str, "SandboxLabel", 0, 0, Color(255,255,255,255), TEXT_ALIGN_CENTER )
-		cam.End3D2D()
+        cam.Start3D2D(pos, ang, 0.05 )
+            surface.SetDrawColor( 128, 128, 128, 200 )
+            surface.DrawRect(0-w/2, 0, w, h)
+            draw.DrawText(str, "SandboxLabel", 0, 0, Color(255,255,255,255), TEXT_ALIGN_CENTER )
+        cam.End3D2D()
 
-	end
+    end
 
 end
 
@@ -417,13 +417,13 @@ function ENT:CreateCodeWindow()
    local CodeWindow = vgui.Create("DFrame")
    CodeWindow:SetDeleteOnClose(true)
    if (self:GetNWInt("State",0)==3) then
-   	CodeWindow:SetTitle(SGLanguage.GetMessage("naq_bomb_menu_01a"))
+       CodeWindow:SetTitle(SGLanguage.GetMessage("naq_bomb_menu_01a"))
 
-   	CodeWindow.CodeBoxLabel = Label(SGLanguage.GetMessage("naq_bomb_menu_02a").." ", CodeWindow)
+       CodeWindow.CodeBoxLabel = Label(SGLanguage.GetMessage("naq_bomb_menu_02a").." ", CodeWindow)
    else
-   	CodeWindow:SetTitle(SGLanguage.GetMessage("naq_bomb_menu_01"))
+       CodeWindow:SetTitle(SGLanguage.GetMessage("naq_bomb_menu_01"))
 
-   	CodeWindow.CodeBoxLabel = Label(SGLanguage.GetMessage("naq_bomb_menu_02").." ", CodeWindow)
+       CodeWindow.CodeBoxLabel = Label(SGLanguage.GetMessage("naq_bomb_menu_02").." ", CodeWindow)
    end
    CodeWindow.CodeBoxLabel:SetPos(padding, padding + 50)
    CodeWindow.CodeBoxLabel:SetContentAlignment(ALIGN_RIGHT)
@@ -435,7 +435,7 @@ function ENT:CreateCodeWindow()
    CodeWindow.CodeBox:SetEditable(true)
    CodeWindow.CodeBox:SetEnterAllowed(true)
    CodeWindow.CodeBox.OnEnter = function()
-		if (not IsValid(self)) then return end
+        if (not IsValid(self)) then return end
       local playerDistance = self:GetPos():Distance(LocalPlayer():GetPos())
 
       if(playerDistance < 100) then

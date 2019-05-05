@@ -5,16 +5,16 @@
 ( (_| |(  ___/| |   | ( ) ( ) |( (_| |
 `\__,_)`\____)(_)   (_) (_) (_)`\__,_)
 
-	DNumberWang
+    DNumberWang
 
 */
 
 local font = {
-	font = "Default",
-	size = 13,
-	weight = 400,
-	antialias = true,
-	additive = false,
+    font = "Default",
+    size = 13,
+    weight = 400,
+    antialias = true,
+    additive = false,
 }
 surface.CreateFont("OldDefaultSmall", font);
 
@@ -25,98 +25,98 @@ local PANEL = {}
 ---------------------------------------------------------*/
 function PANEL:Init()
 
-	self.Wang = vgui.Create ( "DNumberWang", self )
-	self.Wang.OnValueChanged = function( wang, val ) self:ValueChanged( val ) end
+    self.Wang = vgui.Create ( "DNumberWang", self )
+    self.Wang.OnValueChanged = function( wang, val ) self:ValueChanged( val ) end
 
-	self.Slider = vgui.Create( "DSlider", self )
-	self.Slider:SetLockY( 0.5 )
-	self.Slider.TranslateValues = function( slider, x, y ) return self:TranslateSliderValues( x, y ) end
-	self.Slider:SetTrapInside( true )
-	self.Slider:SetImage( "vgui/slider" )
-	Derma_Hook( self.Slider, "Paint", "Paint", "NumSlider" )
+    self.Slider = vgui.Create( "DSlider", self )
+    self.Slider:SetLockY( 0.5 )
+    self.Slider.TranslateValues = function( slider, x, y ) return self:TranslateSliderValues( x, y ) end
+    self.Slider:SetTrapInside( true )
+    self.Slider:SetImage( "vgui/slider" )
+    Derma_Hook( self.Slider, "Paint", "Paint", "NumSlider" )
 
-	self.Label = vgui.Create ( "DLabel", self )
-	self.Label:SetFont("OldDefaultSmall");
+    self.Label = vgui.Create ( "DLabel", self )
+    self.Label:SetFont("OldDefaultSmall");
 
-	self:SetTall( 35 )
+    self:SetTall( 35 )
 
 end
 
 function PANEL:UpdateNotches()
 
-	local range = self:GetRange()
-	self.Slider:SetNotches( nil )
+    local range = self:GetRange()
+    self.Slider:SetNotches( nil )
 
-	if ( range < self:GetWide() / 4 ) then
-		return self.Slider:SetNotches( range )
-	else
-		self.Slider:SetNotches( self:GetWide() / 4 )
-	end
+    if ( range < self:GetWide() / 4 ) then
+        return self.Slider:SetNotches( range )
+    else
+        self.Slider:SetNotches( self:GetWide() / 4 )
+    end
 
 end
 
 function PANEL:GetRange()
-	return self:GetMax() - self:GetMin()
+    return self:GetMax() - self:GetMin()
 end
 
 function PANEL:GetMin()
-	return self.Wang:GetMin()
+    return self.Wang:GetMin()
 end
 
 function PANEL:GetMax()
-	return self.Wang:GetMax()
+    return self.Wang:GetMax()
 end
 
 /*---------------------------------------------------------
-	SetMinMax
+    SetMinMax
 ---------------------------------------------------------*/
 function PANEL:SetMinMax( min, max )
-	self.Wang:SetMinMax( min, max )
-	self:UpdateNotches()
+    self.Wang:SetMinMax( min, max )
+    self:UpdateNotches()
 end
 
 /*---------------------------------------------------------
-	SetMin
+    SetMin
 ---------------------------------------------------------*/
 function PANEL:SetMin( min )
-	self.Wang:SetMin( min )
-	self:UpdateNotches()
+    self.Wang:SetMin( min )
+    self:UpdateNotches()
 end
 
 /*---------------------------------------------------------
-	SetMax
+    SetMax
 ---------------------------------------------------------*/
 function PANEL:SetMax( max )
-	self.Wang:SetMax( max )
-	self:UpdateNotches()
+    self.Wang:SetMax( max )
+    self:UpdateNotches()
 end
 
 /*---------------------------------------------------------
    Name: SetConVar
 ---------------------------------------------------------*/
 function PANEL:SetValue( val )
-	self.Wang:SetValue( val )
+    self.Wang:SetValue( val )
 end
 
 /*---------------------------------------------------------
    Name: GetValue
 ---------------------------------------------------------*/
 function PANEL:GetValue()
-	return self.Wang:GetValue()
+    return self.Wang:GetValue()
 end
 
 /*---------------------------------------------------------
    Name: SetDecimals
 ---------------------------------------------------------*/
 function PANEL:SetDecimals( d )
-	return self.Wang:SetDecimals( d )
+    return self.Wang:SetDecimals( d )
 end
 
 /*---------------------------------------------------------
    Name: GetDecimals
 ---------------------------------------------------------*/
 function PANEL:GetDecimals()
-	return self.Wang:GetDecimals()
+    return self.Wang:GetDecimals()
 end
 
 
@@ -124,14 +124,14 @@ end
    Name: SetConVar
 ---------------------------------------------------------*/
 function PANEL:SetConVar( cvar )
-	self.Wang:SetConVar( cvar )
+    self.Wang:SetConVar( cvar )
 end
 
 /*---------------------------------------------------------
    Name: SetText
 ---------------------------------------------------------*/
 function PANEL:SetText( text )
-	self.Label:SetText( text )
+    self.Label:SetText( text )
 end
 
 /*---------------------------------------------------------
@@ -139,17 +139,17 @@ end
 ---------------------------------------------------------*/
 function PANEL:PerformLayout()
 
-	self.Wang:SizeToContents()
-	self.Wang:SetPos( self:GetWide() - self.Wang:GetWide(), 0 )
-	self.Wang:SetTall( 20 )
+    self.Wang:SizeToContents()
+    self.Wang:SetPos( self:GetWide() - self.Wang:GetWide(), 0 )
+    self.Wang:SetTall( 20 )
 
-	self.Label:SetPos( 0, 0 )
-	self.Label:SetSize( self:GetWide(), 20 )
+    self.Label:SetPos( 0, 0 )
+    self.Label:SetSize( self:GetWide(), 20 )
 
-	self.Slider:SetPos( 0, 22 )
-	self.Slider:SetSize( self:GetWide(), 13 )
+    self.Slider:SetPos( 0, 22 )
+    self.Slider:SetSize( self:GetWide(), 13 )
 
-	self.Slider:SetSlideX( self.Wang:GetFraction() )
+    self.Slider:SetSlideX( self.Wang:GetFraction() )
 
 end
 
@@ -158,8 +158,8 @@ end
 ---------------------------------------------------------*/
 function PANEL:ValueChanged( val )
 
-	self.Slider:SetSlideX( self.Wang:GetFraction( val ) )
-	self:OnValueChanged( val )
+    self.Slider:SetSlideX( self.Wang:GetFraction( val ) )
+    self:OnValueChanged( val )
 
 end
 
@@ -169,7 +169,7 @@ end
 function PANEL:OnValueChanged( val )
 
 
-	// For override
+    // For override
 
 end
 
@@ -178,9 +178,9 @@ end
 ---------------------------------------------------------*/
 function PANEL:TranslateSliderValues( x, y )
 
-	self.Wang:SetFraction( x )
+    self.Wang:SetFraction( x )
 
-	return self.Wang:GetFraction(), y
+    return self.Wang:GetFraction(), y
 
 end
 
@@ -189,7 +189,7 @@ end
 ---------------------------------------------------------*/
 function PANEL:GetTextArea()
 
-	return self.Wang:GetTextArea()
+    return self.Wang:GetTextArea()
 
 end
 
@@ -198,11 +198,11 @@ end
 ---------------------------------------------------------*/
 function PANEL:GenerateExample( ClassName, PropertySheet, Width, Height )
 
-	local ctrl = vgui.Create( ClassName )
-		ctrl:SetWide( 200 )
-		ctrl:SetText( "Example Slider!" )
+    local ctrl = vgui.Create( ClassName )
+        ctrl:SetWide( 200 )
+        ctrl:SetText( "Example Slider!" )
 
-	PropertySheet:AddSheet( ClassName, ctrl, nil, true, true )
+    PropertySheet:AddSheet( ClassName, ctrl, nil, true, true )
 
 end
 

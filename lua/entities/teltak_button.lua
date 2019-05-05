@@ -16,28 +16,28 @@ ENT.CAP_ForceCloak = true;
 
 function ENT:Initialize()
 
-	self:SetModel("models/jaanus/thruster_flat.mdl")
-	self:SetMaterial("james/teltac/gold_plain.vtf")
-	self:SetSolid(SOLID_VPHYSICS)
-	--self:PhysicsInit(SOLID_VPHYSICS)
-	self:SetMoveType(MOVETYPE_VPHYSICS)
-	self.NextUse = CurTime();
-	self:SetUseType(SIMPLE_USE)
+    self:SetModel("models/jaanus/thruster_flat.mdl")
+    self:SetMaterial("james/teltac/gold_plain.vtf")
+    self:SetSolid(SOLID_VPHYSICS)
+    --self:PhysicsInit(SOLID_VPHYSICS)
+    self:SetMoveType(MOVETYPE_VPHYSICS)
+    self.NextUse = CurTime();
+    self:SetUseType(SIMPLE_USE)
 
 end
 
 function ENT:Use()
 
-	if self.NextUse < CurTime() then
-		if self.RearDoor and not self.BulkHead then
-			self.Parent:ToggleDoors("ine");
-		elseif self.Bulkhead and not self.RearDoor then
-			self.Parent:ToggleDoors("inc");
-		else
-			self.Parent:ToggleDoors("out");
-		end
-		self.NextUse = CurTime() + 1;
-	end
+    if self.NextUse < CurTime() then
+        if self.RearDoor and not self.BulkHead then
+            self.Parent:ToggleDoors("ine");
+        elseif self.Bulkhead and not self.RearDoor then
+            self.Parent:ToggleDoors("inc");
+        else
+            self.Parent:ToggleDoors("out");
+        end
+        self.NextUse = CurTime() + 1;
+    end
 end
 
 end

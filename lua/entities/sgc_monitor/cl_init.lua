@@ -3,21 +3,21 @@ include("shared.lua")
 --Lite lib from Wiremod GPU
 
 ENT.material = CreateMaterial("4:3DialComp","UnlitGeneric",{
-	["$vertexcolor"] = 1,
-	["$vertexalpha"] = 0,
-	["$nolod"] = 1,
+    ["$vertexcolor"] = 1,
+    ["$vertexalpha"] = 0,
+    ["$nolod"] = 1,
 })
 --[[
 local mat_pngrt = CreateMaterial("PngRT", "UnlitGeneric", {
-	["$basetexture"] = "", ["$ignorez"] = 1,
-	["$vertexcolor"] = 1, ["$vertexalpha"] = 1,
-	["$nolod"] = 1,
+    ["$basetexture"] = "", ["$ignorez"] = 1,
+    ["$vertexcolor"] = 1, ["$vertexalpha"] = 1,
+    ["$nolod"] = 1,
 })
 function draw.PngToRT(tex)
-	local m_type = type(tex)
-	tex = tex:GetTexture("$basetexture")
-	mat_pngrt:SetTexture("$basetexture", tex)
-	return mat_pngrt
+    local m_type = type(tex)
+    tex = tex:GetTexture("$basetexture")
+    mat_pngrt:SetTexture("$basetexture", tex)
+    return mat_pngrt
 end]]
 
 function ENT:ScreenInit(x,y,pos,ang,scale)
@@ -27,7 +27,7 @@ function ENT:ScreenInit(x,y,pos,ang,scale)
   self.SAng = ang
   self.SScale = scale
   --self.RT = GetRenderTarget("SGC_Mon"..math.random(1,1000), self.XRes, self.YRes)
-	--self.material:SetTexture("$basetexture", self.RT)
+    --self.material:SetTexture("$basetexture", self.RT)
 end
 function ENT:ScreenChange(pos,ang,scale)
   self.SPos = pos
@@ -37,41 +37,41 @@ end
 
 function ENT:DrawRT(x,y,w,h,s)
   if not self.Screen then return end
-	render.PushRenderTarget(self.RT,0,0,512 or self.XRes, 512 or self.YRes)
-		render.Clear( 0, 0, 0, 0 )
-	  cam.Start2D()
-	    local succ,err = pcall(self.Screen,self)
-	    if not succ then
-	      surface.SetAlphaMultiplier(1)
-	      ErrorNoHalt(err.."\n")
-	    end
+    render.PushRenderTarget(self.RT,0,0,512 or self.XRes, 512 or self.YRes)
+        render.Clear( 0, 0, 0, 0 )
+      cam.Start2D()
+        local succ,err = pcall(self.Screen,self)
+        if not succ then
+          surface.SetAlphaMultiplier(1)
+          ErrorNoHalt(err.."\n")
+        end
     cam.End2D()
-	render.PopRenderTarget()
+    render.PopRenderTarget()
 end
 
 function ENT:DrawScreen(x,y,w,h,s)
   if not self.Screen then return end
-	self.material:SetTexture("$basetexture", self.RT)
-	cam.Start3D2D(self:LocalToWorld(self.SPos), self:LocalToWorldAngles(self.SAng), self.SScale)
-		surface.SetDrawColor(0,0,0,255)
-		surface.DrawRect(x,y,w,h)
-		render.ClearStencil()
-		render.SetStencilEnable(true)
-		render.SetStencilTestMask(1);render.SetStencilWriteMask(1);render.SetStencilReferenceValue(1)
-		render.SetStencilPassOperation(STENCIL_REPLACE)
-		render.SetStencilFailOperation(STENCIL_KEEP)
-		render.SetStencilZFailOperation(STENCIL_KEEP)
-		render.SetStencilCompareFunction(STENCIL_ALWAYS)
-			surface.SetDrawColor(0,0,0,255)
+    self.material:SetTexture("$basetexture", self.RT)
+    cam.Start3D2D(self:LocalToWorld(self.SPos), self:LocalToWorldAngles(self.SAng), self.SScale)
+        surface.SetDrawColor(0,0,0,255)
+        surface.DrawRect(x,y,w,h)
+        render.ClearStencil()
+        render.SetStencilEnable(true)
+        render.SetStencilTestMask(1);render.SetStencilWriteMask(1);render.SetStencilReferenceValue(1)
+        render.SetStencilPassOperation(STENCIL_REPLACE)
+        render.SetStencilFailOperation(STENCIL_KEEP)
+        render.SetStencilZFailOperation(STENCIL_KEEP)
+        render.SetStencilCompareFunction(STENCIL_ALWAYS)
+            surface.SetDrawColor(0,0,0,255)
       surface.DrawRect(x,y,w,h)
     render.SetStencilCompareFunction(STENCIL_EQUAL)
-			surface.SetDrawColor(255,255,255,255)
-			surface.SetMaterial(self.material)
-			local w,h = self.XRes,self.YRes
-			surface.DrawTexturedRectRotated((w+(512-w))/2,(h+(512-h))/2,512*s,512*s,0)
+            surface.SetDrawColor(255,255,255,255)
+            surface.SetMaterial(self.material)
+            local w,h = self.XRes,self.YRes
+            surface.DrawTexturedRectRotated((w+(512-w))/2,(h+(512-h))/2,512*s,512*s,0)
     render.SetStencilEnable(false)
-		render.SetStencilTestMask(0);render.SetStencilWriteMask(0);render.SetStencilReferenceValue(0)
-	cam.End3D2D()
+        render.SetStencilTestMask(0);render.SetStencilWriteMask(0);render.SetStencilReferenceValue(0)
+    cam.End3D2D()
 end
 
 -------------------------------------
@@ -117,15 +117,15 @@ if (SGLanguage ~=nil and SGLanguage.GetMessage ~=nil) then
 end
 
 ENT.CusModelRS = {
-	["models/blacknecro/tv_plasma_4_3.mdl"] = {0.11},
-	["models/cheeze/pcb/pcb5.mdl"] = {0.078,-0.25},
-	["models/cheeze/pcb/pcb6.mdl"] = {0.117,-0.35},
-	["models/cheeze/pcb/pcb8.mdl"] = {0.156,-0.45},
-	["models/props/cs_assault/billboard.mdl"] = {0.28,-0.7},
-	["models/props/cs_militia/reload_bullet_tray.mdl"] = {0.0121},
-	["models/props/cs_office/computer_monitor.mdl"] = {0.041},
-	["models/props/cs_office/tv_plasma.mdl"] = {0.08,-0.15},
-	["models/props_lab/monitor01b.mdl"] = {0.0182,0,-0.25},
+    ["models/blacknecro/tv_plasma_4_3.mdl"] = {0.11},
+    ["models/cheeze/pcb/pcb5.mdl"] = {0.078,-0.25},
+    ["models/cheeze/pcb/pcb6.mdl"] = {0.117,-0.35},
+    ["models/cheeze/pcb/pcb8.mdl"] = {0.156,-0.45},
+    ["models/props/cs_assault/billboard.mdl"] = {0.28,-0.7},
+    ["models/props/cs_militia/reload_bullet_tray.mdl"] = {0.0121},
+    ["models/props/cs_office/computer_monitor.mdl"] = {0.041},
+    ["models/props/cs_office/tv_plasma.mdl"] = {0.08,-0.15},
+    ["models/props_lab/monitor01b.mdl"] = {0.0182,0,-0.25},
 }
                                                               
 function ENT:Initialize()
@@ -134,17 +134,17 @@ function ENT:Initialize()
 
   local monitor
   if WireGPU_Monitors then 
-	monitor = WireGPU_Monitors[self:GetModel()]
+    monitor = WireGPU_Monitors[self:GetModel()]
   end
   local model = self:GetModel():Replace("//","/") -- wtf? why sometiems with two slashes
   if (monitor and model!="models/props_lab/monitor01a.mdl") then  
-	local CusData = self.CusModelRS[model] or {}
-	local RS = CusData[1] or monitor.RS
-	local PFixX = CusData[2] or 0
-	local PFixZ = CusData[3] or 0
-	self:ScreenInit(512, 384, monitor.offset+monitor.rot:Forward()*(-512/2*RS)+monitor.rot:Right()*(-384/2*RS)+monitor.rot:Right()*PFixX+monitor.rot:Up()*PFixZ, monitor.rot, RS)  
+    local CusData = self.CusModelRS[model] or {}
+    local RS = CusData[1] or monitor.RS
+    local PFixX = CusData[2] or 0
+    local PFixZ = CusData[3] or 0
+    self:ScreenInit(512, 384, monitor.offset+monitor.rot:Forward()*(-512/2*RS)+monitor.rot:Right()*(-384/2*RS)+monitor.rot:Right()*PFixX+monitor.rot:Up()*PFixZ, monitor.rot, RS)
   else  
-	self:ScreenInit(512, 384, Vector(11.75, -512/2*0.04, 384/2*0.04+3.9), Angle(0, 90, 85.5), 0.04)
+    self:ScreenInit(512, 384, Vector(11.75, -512/2*0.04, 384/2*0.04+3.9), Angle(0, 90, 85.5), 0.04)
   end
   --[[
   --Colors:Movie
@@ -471,9 +471,9 @@ end
 function ENT:OnRemove()
   self.ScrollSND:Stop()
   self.IDCSound:Stop()
-	local RT = self.RT
-	timer.Simple(0.1, function()
-		if IsValid(self) then return end
-		RT_SGC_Mon:FreeRT(RT)
-	end)
+    local RT = self.RT
+    timer.Simple(0.1, function()
+        if IsValid(self) then return end
+        RT_SGC_Mon:FreeRT(RT)
+    end)
 end

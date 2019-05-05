@@ -1,4 +1,4 @@
-/*   Copyright (C) 2011 by Llapp   */
+--   Copyright (C) 2011 by Llapp
 
 if (StarGate!=nil and StarGate.LifeSupportAndWire!=nil) then StarGate.LifeSupportAndWire(ENT); end
 ENT.Type = "anim"
@@ -26,47 +26,47 @@ ENT.Materials = {
             }
 
 function ENT:Initialize()
-	self.Entity:PhysicsInit(SOLID_VPHYSICS)
-	self.Entity:SetMoveType(MOVETYPE_VPHYSICS)
-	self.Entity:SetSolid(SOLID_VPHYSICS)
-	--################# Set physic and entity properties
-	local phys = self.Entity:GetPhysicsObject();
-	if(phys:IsValid())then
-		phys:EnableMotion(false);
-		phys:SetMass(20);
-	end
+    self.Entity:PhysicsInit(SOLID_VPHYSICS)
+    self.Entity:SetMoveType(MOVETYPE_VPHYSICS)
+    self.Entity:SetSolid(SOLID_VPHYSICS)
+    -- Set physic and entity properties
+    local phys = self.Entity:GetPhysicsObject();
+    if(phys:IsValid())then
+        phys:EnableMotion(false);
+        phys:SetMass(20);
+    end
 
-	self.BearingMode = false;
+    self.BearingMode = false;
 
-	self:CreateWireInputs("Bearing Mode");
-	self:CreateWireOutputs("Activated");
+    self:CreateWireInputs("Bearing Mode");
+    self:CreateWireOutputs("Activated");
 end
 
 function ENT:TriggerInput(k,v)
-	if (k=="Bearing Mode") then
-		if (v>0) then
-			self.BearingMode = true;
-		else
-			self.BearingMode = false;
-		end
-	end
+    if (k=="Bearing Mode") then
+        if (v>0) then
+            self.BearingMode = true;
+        else
+            self.BearingMode = false;
+        end
+    end
 end
 
 function ENT:FloorChev(skin)
     if(skin)then
-	    if(self.Entity:GetModel() == self.Models[1])then
-		    self.Entity:SetMaterial(self.Materials[1]);
-		else
-		    self.Entity:Fire("skin",1);
-		end
-		self:SetWire("Activated",true);
-	else
-	    if(self.Entity:GetModel() == self.Models[1])then
-		    self.Entity:SetMaterial(self.Materials[2]);
-		else
-			self.Entity:Fire("skin",2);
-	    end
-	    self:SetWire("Activated",false);
+        if(self.Entity:GetModel() == self.Models[1])then
+            self.Entity:SetMaterial(self.Materials[1]);
+        else
+            self.Entity:Fire("skin",1);
+        end
+        self:SetWire("Activated",true);
+    else
+        if(self.Entity:GetModel() == self.Models[1])then
+            self.Entity:SetMaterial(self.Materials[2]);
+        else
+            self.Entity:Fire("skin",2);
+        end
+        self:SetWire("Activated",false);
     end
 end
 

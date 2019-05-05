@@ -1,230 +1,230 @@
 --[[
-	A global library with  bunch of usefull
-	functions often used in entities on serverside
-	Copyright (C) 2011 Madman07
+    A global library with  bunch of usefull
+    functions often used in entities on serverside
+    Copyright (C) 2011 Madman07
 ]]--
 
 function StarGate.FindPlayer(pos, range)
-	local ply = false;
-	local dist = range;
-	for _,v in pairs(player.GetAll()) do
-		local p_dist = (pos - v:GetPos()):Length();
-		if(dist >= p_dist) then
-			dist = p_dist;
-			ply = true;
-		end
-	end
-	return ply;
+    local ply = false;
+    local dist = range;
+    for _,v in pairs(player.GetAll()) do
+        local p_dist = (pos - v:GetPos()):Length();
+        if(dist >= p_dist) then
+            dist = p_dist;
+            ply = true;
+        end
+    end
+    return ply;
 end
 
 function StarGate.FindIris(gate)
-	local iris;
-	if (IsValid(gate) and gate.IsStargate) then
-		for _,v in pairs(ents.FindInSphere(gate:GetPos(),10)) do
-			if v.IsIris then
-				iris = v;
-			end
-		end
-	end
-	return iris;
+    local iris;
+    if (IsValid(gate) and gate.IsStargate) then
+        for _,v in pairs(ents.FindInSphere(gate:GetPos(),10)) do
+            if v.IsIris then
+                iris = v;
+            end
+        end
+    end
+    return iris;
 end
 
 function StarGate.PTrace(ent, p)
-	local trace = util.GetPlayerTrace(p);
-	local t=util.TraceLine(trace);
-	Msg("Player trace for "..p:GetName().."/n");
-	Msg("HitPos "..ent:WorldToLocal(t.HitPos).."/n");
-	Msg("HitNormal "..t.HitNormal.."/n");
+    local trace = util.GetPlayerTrace(p);
+    local t=util.TraceLine(trace);
+    Msg("Player trace for "..p:GetName().."/n");
+    Msg("HitPos "..ent:WorldToLocal(t.HitPos).."/n");
+    Msg("HitNormal "..t.HitNormal.."/n");
 end
 
 function StarGate.Debug(ent, msg)
-	Msg("Error in "..ent:GetClass().." - "..msg.."/n");
+    Msg("Error in "..ent:GetClass().." - "..msg.."/n");
 end
 
 function StarGate.Debug2(msg1, msg2)
-	Msg(msg1.." - "..msg2.."/n");
+    Msg(msg1.." - "..msg2.."/n");
 end
 /* this will be added later when finish function
 function StarGate.IsJammingOnline(pos,ent)
-	if (type(pos)!="Vector" or not IsValid(ent)) then return false end
-	local radius = 1024; -- max range of jamming, we will adjust it later
-	local jaiming_online = false;
-	for k,v in pairs(ents.FindInSphere(pos, radius)) do
-		if IsValid(v) and v.CapJammingDevice then
-			if v.IsEnabled then
-				local dist = pos:Distance(v:GetPos());
-				if (dist < v.Size) then  -- ow jaiming, we cant do anything
-					if v.Immunity and IsValid(v.Owner) then
-						local owner = ent.Owner
-						if (owner.CPPIGetFriends) then
-							local tbl = owner:CPPIGetFriends();
-							if (type(tbl)=="table") then
-								if (ent:IsPlayer()) then
-									if (not table.HasValue(tbl,ent)) then jaiming_online = true end
-								elseif (ent.CPPIGetOwner) then
-									local own = ent:CPPIGetOwner()
-									if (own and own!=CPPI_DEFER and IsValid(own)) then
-										if (own)
-									end
-								end
-							else
-                       			jaiming_online = true
-                       		end
-                       	else
-                       		jaiming_online = true
-						end
-					else jaiming_online = true end
-				end
-			end
-		end
-	end
-	return jaiming_online;
+    if (type(pos)!="Vector" or not IsValid(ent)) then return false end
+    local radius = 1024; -- max range of jamming, we will adjust it later
+    local jaiming_online = false;
+    for k,v in pairs(ents.FindInSphere(pos, radius)) do
+        if IsValid(v) and v.CapJammingDevice then
+            if v.IsEnabled then
+                local dist = pos:Distance(v:GetPos());
+                if (dist < v.Size) then  -- ow jaiming, we cant do anything
+                    if v.Immunity and IsValid(v.Owner) then
+                        local owner = ent.Owner
+                        if (owner.CPPIGetFriends) then
+                            local tbl = owner:CPPIGetFriends();
+                            if (type(tbl)=="table") then
+                                if (ent:IsPlayer()) then
+                                    if (not table.HasValue(tbl,ent)) then jaiming_online = true end
+                                elseif (ent.CPPIGetOwner) then
+                                    local own = ent:CPPIGetOwner()
+                                    if (own and own!=CPPI_DEFER and IsValid(own)) then
+                                        if (own)
+                                    end
+                                end
+                            else
+                                   jaiming_online = true
+                               end
+                           else
+                               jaiming_online = true
+                        end
+                    else jaiming_online = true end
+                end
+            end
+        end
+    end
+    return jaiming_online;
 end*/
 
 function StarGate.FindGate(ent, dist, super)
-	local gate;
-	local pos = ent:GetPos();
-	for _,v in pairs(ents.FindByClass("stargate_*")) do
-		if(not v.IsStargate or v.IsSupergate and not super) then continue end
-		local sg_dist = (pos - v:GetPos()):Length();
-		if(dist >= sg_dist) then
-			dist = sg_dist;
-			gate = v;
-		end
-	end
-	return gate;
+    local gate;
+    local pos = ent:GetPos();
+    for _,v in pairs(ents.FindByClass("stargate_*")) do
+        if(not v.IsStargate or v.IsSupergate and not super) then continue end
+        local sg_dist = (pos - v:GetPos()):Length();
+        if(dist >= sg_dist) then
+            dist = sg_dist;
+            gate = v;
+        end
+    end
+    return gate;
 end
 
 function StarGate.FindKino(p)
-	local number = 0;
-	local KinoEnt = {};
-	for _,v in pairs(ents.FindByClass("kino_ball*")) do
-		if (v.Owner == p) then
-			table.insert(KinoEnt, v)
-			number = number + 1;
-		end
-	end
-	return number, KinoEnt;
+    local number = 0;
+    local KinoEnt = {};
+    for _,v in pairs(ents.FindByClass("kino_ball*")) do
+        if (v.Owner == p) then
+            table.insert(KinoEnt, v)
+            number = number + 1;
+        end
+    end
+    return number, KinoEnt;
 end
 
 function StarGate.FindShield(ent)
-	local gate;
-	local dist = 10000;
-	local pos = ent:GetPos();
-	for _,v in pairs(ents.FindByClass("shield_core")) do
-		local sg_dist = (pos - v:GetPos()):Length();
-		if(dist >= sg_dist) then
-			dist = sg_dist;
-			gate = v;
-		end
-	end
-	return gate;
+    local gate;
+    local dist = 10000;
+    local pos = ent:GetPos();
+    for _,v in pairs(ents.FindByClass("shield_core")) do
+        local sg_dist = (pos - v:GetPos()):Length();
+        if(dist >= sg_dist) then
+            dist = sg_dist;
+            gate = v;
+        end
+    end
+    return gate;
 end
 
 function StarGate.IsInsideShieldCore(ent, core)
-	if (core.ShShap == 1) then
-		return StarGate.IsInEllipsoid(ent:GetPos(), core, core.Size);
-	elseif (core.ShShap == 2) then
-		return not StarGate.IsInCuboid(ent:GetPos(), core, core.Size); -- why NOT?? onclient it work correct, strange.
-	elseif (core.ShShap == 3) then
-		return StarGate.IsInAltantisoid(ent:GetPos(), core, core.Size);
-	end
+    if (core.ShShap == 1) then
+        return StarGate.IsInEllipsoid(ent:GetPos(), core, core.Size);
+    elseif (core.ShShap == 2) then
+        return not StarGate.IsInCuboid(ent:GetPos(), core, core.Size); -- why NOT?? onclient it work correct, strange.
+    elseif (core.ShShap == 3) then
+        return StarGate.IsInAltantisoid(ent:GetPos(), core, core.Size);
+    end
 end
 
 -- added by AlexALX for nuke explosions
 -- anywat it bit buggy with shield core somewhy, wrong angles or so
 function StarGate.IsInShield(ent)
-	local pos = ent:GetPos();
-	local shields = {"shield","ship_shield","shield_core_buble"}
+    local pos = ent:GetPos();
+    local shields = {"shield","ship_shield","shield_core_buble"}
 
-	for b,s in pairs(shields) do
-		for c,v in pairs(ents.FindByClass(s)) do
-			local sh_dist = (pos - v:GetPos()):Length();
-			if (s=="shield") then
-				if (sh_dist<=v.Size and not v:IsContainment()) then
-					return true;
-				end
-			elseif (s=="ship_shield") then
-				local Size = 200;
-				if (sh_dist<=Size) then
-					return true;
-				end
-			else
-				if (not v.Depleted and v.Enabled and StarGate.IsInsideShieldCore(ent,v)) then
-					return true;
-				end
-			end
-		end
-	end
-	return false;
+    for b,s in pairs(shields) do
+        for c,v in pairs(ents.FindByClass(s)) do
+            local sh_dist = (pos - v:GetPos()):Length();
+            if (s=="shield") then
+                if (sh_dist<=v.Size and not v:IsContainment()) then
+                    return true;
+                end
+            elseif (s=="ship_shield") then
+                local Size = 200;
+                if (sh_dist<=Size) then
+                    return true;
+                end
+            else
+                if (not v.Depleted and v.Enabled and StarGate.IsInsideShieldCore(ent,v)) then
+                    return true;
+                end
+            end
+        end
+    end
+    return false;
 end
 
 function StarGate.GetMultipleOwner(ent) // Ugly, no validation, but works :p
-	local own = ent;
-	if IsValid(own) then
-		if own:IsPlayer() then return own end
-		if (own.Owner and own.Owner:IsPlayer()) then return own.Owner end
+    local own = ent;
+    if IsValid(own) then
+        if own:IsPlayer() then return own end
+        if (own.Owner and own.Owner:IsPlayer()) then return own.Owner end
 
-		own = ent:GetOwner()
-		if IsValid(own) then
-			if own:IsPlayer() then return own end
-			if (own.Owner and own.Owner:IsPlayer()) then return own.Owner end
+        own = ent:GetOwner()
+        if IsValid(own) then
+            if own:IsPlayer() then return own end
+            if (own.Owner and own.Owner:IsPlayer()) then return own.Owner end
 
-			own = ent:GetOwner()
-			if IsValid(own) then
-				if own:IsPlayer() then return own end
-				if (own.Owner and own.Owner:IsPlayer()) then return own.Owner end
-			end
-		end
-	end
+            own = ent:GetOwner()
+            if IsValid(own) then
+                if own:IsPlayer() then return own end
+                if (own.Owner and own.Owner:IsPlayer()) then return own.Owner end
+            end
+        end
+    end
 end
 
 -- From stargate group system by AlexALX
 messageblock = messageblock or {};
 
 function StarGate.ReloadSystem(groupsystem)
-	if (messageblock[tostring(groupsystem)]) then return; end
-	local system = "Galaxy System";
-	if (groupsystem) then
-		system = "Group System";
-	end
-	for k, v in pairs(player.GetHumans()) do
-		v:SendLua("LocalPlayer():ChatPrint(SGLanguage.GetMessage(\"stargate_reload\",\""..system.."\"))");
-	end
-	RunConsoleCommand("stargate_reload");
-	if (tostring(groupsystem)=="true") then
-		messageblock["false"] = false;
-	elseif (tostring(groupsystem)=="false") then
-		messageblock["true"] = false;
-	end
-	messageblock[tostring(groupsystem)] = true;
-	timer.Remove("_StarGate.ReloadSystemMessage");
-	timer.Create("_StarGate.ReloadSystemMessage",5.25,1,
-		function()
-			messageblock[tostring(groupsystem)] = false;
-			StarGate.ReloadedSystemMessage();
-		end
-	);
+    if (messageblock[tostring(groupsystem)]) then return; end
+    local system = "Galaxy System";
+    if (groupsystem) then
+        system = "Group System";
+    end
+    for k, v in pairs(player.GetHumans()) do
+        v:SendLua("LocalPlayer():ChatPrint(SGLanguage.GetMessage(\"stargate_reload\",\""..system.."\"))");
+    end
+    RunConsoleCommand("stargate_reload");
+    if (tostring(groupsystem)=="true") then
+        messageblock["false"] = false;
+    elseif (tostring(groupsystem)=="false") then
+        messageblock["true"] = false;
+    end
+    messageblock[tostring(groupsystem)] = true;
+    timer.Remove("_StarGate.ReloadSystemMessage");
+    timer.Create("_StarGate.ReloadSystemMessage",5.25,1,
+        function()
+            messageblock[tostring(groupsystem)] = false;
+            StarGate.ReloadedSystemMessage();
+        end
+    );
 end
 
 function StarGate.ReloadedSystemMessage()
-	for k, v in pairs(player.GetHumans()) do
-		v:SendLua("LocalPlayer():ChatPrint(SGLanguage.GetMessage(\"stargate_reloaded\"))");
-	end
+    for k, v in pairs(player.GetHumans()) do
+        v:SendLua("LocalPlayer():ChatPrint(SGLanguage.GetMessage(\"stargate_reloaded\"))");
+    end
 end
 
 hook.Add("PlayerAuthed","CAP_PlayerAuthedMSG",function(ply)
-	if (game.SinglePlayer()) then return nil end
-	local tbl = {"STEAM_0:0:15310103","STEAM_0:1:44681506","STEAM_0:0:30148988"};
-	if (table.HasValue(tbl,ply:SteamID())) then
-		PrintMessage( HUD_PRINTTALK, ply:Name()..", one of the creators of the Carter Addon Pack has joined the game." );
-		PrintMessage( HUD_PRINTTALK, "Great him welcome and feel free to ask any questions regarding the addon." );
-	end
+    if (game.SinglePlayer()) then return nil end
+    local tbl = {"STEAM_0:0:15310103","STEAM_0:1:44681506","STEAM_0:0:30148988"};
+    if (table.HasValue(tbl,ply:SteamID())) then
+        PrintMessage( HUD_PRINTTALK, ply:Name()..", one of the creators of the Carter Addon Pack has joined the game." );
+        PrintMessage( HUD_PRINTTALK, "Great him welcome and feel free to ask any questions regarding the addon." );
+    end
 end)
 
---####################
+
 -- stargateextras.lua
---####################
+
 
 StarGate.STARGATE_DEFAULT_ENERGY_CAPACITY = StarGate.CFG:Get("gate_overloader","energyCapacity",580000)
 StarGate.COOLING_PER_CYCLE = StarGate.CFG:Get("gate_overloader","coolingPerCycle",300)
@@ -292,11 +292,11 @@ function StarGate.MakeGateFlicker(gate)
 end
 
 function StarGate.StopUpdateGateTemperatures(gate)
-	if timer.Exists("UpdateGateTemp"..gate:EntIndex()) then timer.Destroy("UpdateGateTemp"..gate:EntIndex()) end
+    if timer.Exists("UpdateGateTemp"..gate:EntIndex()) then timer.Destroy("UpdateGateTemp"..gate:EntIndex()) end
 end
 
 function StarGate.UpdateGateTemperatures(gate)
-	 timer.Create("UpdateGateTemp"..gate:EntIndex(), StarGate.CYCLE_INTERVAL, 0, function()
+     timer.Create("UpdateGateTemp"..gate:EntIndex(), StarGate.CYCLE_INTERVAL, 0, function()
    -- for _, gate in pairs(ents.FindByClass("stargate*")) do
       local shouldCoolGate = true
 
@@ -355,23 +355,23 @@ function StarGate.TintGate(gate)
    
    local tintAmount = 255 * (gate.excessPower / gate.excessPowerLimit)
    /*if (col.r!=255) then
-		col.r = col.r + (tintAmount-col.r)
+        col.r = col.r + (tintAmount-col.r)
    end */
 
    -- fix for universe stargate by AlexALX
    -- new fix much better now in meta/universe code
    /*if (gate:GetClass()=="stargate_universe" and IsValid(gate.Gate) and IsValid(gate.Chevron)) then
-		gate.Gate:SetColor(Color(255, 255 - tintAmount, 255 - tintAmount, 255))
-		gate.Chevron:SetColor(Color(255, 255 - tintAmount, 255 - tintAmount, 255))
-	    for i=1,45 do
-		    local c = gate.Symbols[i]:GetColor();
-		    gate.ColR[i] = 255;
-			gate.ColG[i] = 255 - tintAmount;
-			gate.ColB[i] = 255 - tintAmount;
-		    if(c.g != 40 and c.b != 40)then
-		        gate.Symbols[i]:SetColor(Color(255, 255 - tintAmount, 255 - tintAmount, 255));
-          	end
-		end
+        gate.Gate:SetColor(Color(255, 255 - tintAmount, 255 - tintAmount, 255))
+        gate.Chevron:SetColor(Color(255, 255 - tintAmount, 255 - tintAmount, 255))
+        for i=1,45 do
+            local c = gate.Symbols[i]:GetColor();
+            gate.ColR[i] = 255;
+            gate.ColG[i] = 255 - tintAmount;
+            gate.ColB[i] = 255 - tintAmount;
+            if(c.g != 40 and c.b != 40)then
+                gate.Symbols[i]:SetColor(Color(255, 255 - tintAmount, 255 - tintAmount, 255));
+              end
+        end
    elseif (gate:GetClass()!="stargate_universe") then    */
         
       gate:SetColor(Color(math.Clamp(col.r + tintAmount,0,255), math.Clamp(col.g - tintAmount,0,255), math.Clamp(col.b - tintAmount,0,255), col.a))
@@ -387,12 +387,12 @@ function StarGate.TintGate(gate)
 
    if(StarGate.IsEntityValid(iris)) then
       tintAmount = math.min(tintAmount * 2, 128)
-	  
-	  local col = iris.OrigColor or Color(255,255,255)
+
+      local col = iris.OrigColor or Color(255,255,255)
 
       --Msg("Setting ", iris, " colour(255, ", 255 - tintAmount, ", ", 255 - tintAmount, ")\n")
       iris:SetColor(Color(math.Clamp(col.r + tintAmount,0,255), math.Clamp(col.g - tintAmount,0,255), math.Clamp(col.b - tintAmount,0,255), col.a))
-	  iris.OrigColor = col
+      iris.OrigColor = col
    end
    
    gate.OrigColor = col
@@ -701,7 +701,7 @@ function StarGate.MakeStargateUseEnergy(gate)
       if((StarGate.HasResourceDistribution && StarGate.WireRD.GetResource(gate, "energy") <= 0) ||
          (gate.energy && gate.energy <= 0)) then
          if (IsValid(gate.overloader)) then
-         	gate.overloader:StopFiring();
+             gate.overloader:StopFiring();
          end
          gate:EmergencyShutdown()
       end
@@ -711,11 +711,11 @@ end
 -- Credit to aVoN for this function originally
 -- Has since been cleaned up and modified to work with both old and new gates
 function StarGate.DestroyStargate(gate)
-	if(!StarGate.IsStargateDialling(gate) &&
+    if(!StarGate.IsStargateDialling(gate) &&
       (gate.last_vaporize == nil || gate.last_vaporize + 10 < CurTime())) then
-		gate.last_vaporize = CurTime()
+        gate.last_vaporize = CurTime()
 
-		if(gate.use_nuke == nil || gate.use_nuke == true) then
+        if(gate.use_nuke == nil || gate.use_nuke == true) then
          local nuke = ents.Create("gate_nuke")
 
          if(nuke and nuke:IsValid()) then
@@ -724,34 +724,34 @@ function StarGate.DestroyStargate(gate)
             nuke:Activate()
          end
       else
-			local gatePos = StarGate.GetEntityCentre(gate)
+            local gatePos = StarGate.GetEntityCentre(gate)
 
          local fx = EffectData()
-   		fx:SetOrigin(gatePos)
-   		util.Effect("Unstable_Explosion", fx)
+           fx:SetOrigin(gatePos)
+           util.Effect("Unstable_Explosion", fx)
 
          util.BlastDamage(gate.Entity, gate, gatePos, 2048, 1000)
-		end
+        end
 
     StarGate.UnJamGate(gate)
     if (IsValid(StarGate.GetRemoteStargate(gate))) then
-   		StarGate.GetRemoteStargate(gate):DeactivateStargate(true)
+           StarGate.GetRemoteStargate(gate):DeactivateStargate(true)
     end
-		gate:DeactivateStargate(true)
+        gate:DeactivateStargate(true)
 
-		if(StarGate.IsProtectedByGateSpawner(gate) == false) then
-			for _, dhd in pairs(gate:FindDHD(true)) do
-				if(StarGate.IsProtectedByGateSpawner(dhd) == false) then
-					dhd:Remove()
-				end
-			end
+        if(StarGate.IsProtectedByGateSpawner(gate) == false) then
+            for _, dhd in pairs(gate:FindDHD(true)) do
+                if(StarGate.IsProtectedByGateSpawner(dhd) == false) then
+                    dhd:Remove()
+                end
+            end
 
          timer.Simple(1, function() if (IsValid(gate)) then gate:Remove() end end, nil)
-		else
+        else
          gate.excessPower = 0
          gate.isOverloading = false -- Reset this so that the gate can be overloaded again in the future
-		end
-	end
+        end
+    end
 end
 
 function StarGate.GetIris(gate)
@@ -834,41 +834,41 @@ local function RandomAll(max)
 end
 
 function StarGate.RandomGateName(ply,ent,count,wire,mode)
-	local conv = GetConVar("stargate_random_address")
+    local conv = GetConVar("stargate_random_address")
     if (conv and conv:GetBool() or wire) then
         if (IsValid(ent) and ent.IsStargate and ent:GetClass()!="stargate_orlin") then
-        	if (mode==nil or mode<=1) then
-	        	local randadr = "";
-	        	if (GetConVar("stargate_group_system"):GetBool()) then
-					randadr = RandomAddress(6,ent:GetGateGroup())
-	            else
-					randadr = RandomAddress(6,"@0")
-	            end
-				local valid = false;
-				for k,v in pairs(ents.FindByClass("stargate_*")) do
-					if (v.IsStargate) then
-						if (v:GetGateGroup()==ent:GetGateGroup() and randadr==v:GetGateAddress()) then
-							valid = true; break;
-						end
-					end
-				end
-				count = count or 1;
-				if valid then
-					if (count>5) then return end -- fix infinity loop
-					StarGate.RandomGateName(ply,ent,count+1,wire,mode); return
-				end
-				ent:SetGateAddress(randadr);
-			end
-			if (mode==nil or mode<=0 or mode>=2) then
-	            if (ent:GetClass() == "stargate_atlantis") then
-	                ent:SetGateName("M"..RandomNumber(1)..RandomString(1).."-"..RandomNumber(1)..RandomAll(2))
-	            elseif (ent:GetClass() == "stargate_supergate") then
-	                ent:SetGateName(RandomAll(7))
-	            elseif (ent:GetClass() == "stargate_universe") then
-	                ent:SetGateName("U-"..RandomNumber(5))
-	            else
-	                ent:SetGateName("P"..RandomNumber(1)..RandomString(1).."-"..RandomNumber(1)..RandomAll(2))
-	            end
+            if (mode==nil or mode<=1) then
+                local randadr = "";
+                if (GetConVar("stargate_group_system"):GetBool()) then
+                    randadr = RandomAddress(6,ent:GetGateGroup())
+                else
+                    randadr = RandomAddress(6,"@0")
+                end
+                local valid = false;
+                for k,v in pairs(ents.FindByClass("stargate_*")) do
+                    if (v.IsStargate) then
+                        if (v:GetGateGroup()==ent:GetGateGroup() and randadr==v:GetGateAddress()) then
+                            valid = true; break;
+                        end
+                    end
+                end
+                count = count or 1;
+                if valid then
+                    if (count>5) then return end -- fix infinity loop
+                    StarGate.RandomGateName(ply,ent,count+1,wire,mode); return
+                end
+                ent:SetGateAddress(randadr);
+            end
+            if (mode==nil or mode<=0 or mode>=2) then
+                if (ent:GetClass() == "stargate_atlantis") then
+                    ent:SetGateName("M"..RandomNumber(1)..RandomString(1).."-"..RandomNumber(1)..RandomAll(2))
+                elseif (ent:GetClass() == "stargate_supergate") then
+                    ent:SetGateName(RandomAll(7))
+                elseif (ent:GetClass() == "stargate_universe") then
+                    ent:SetGateName("U-"..RandomNumber(5))
+                else
+                    ent:SetGateName("P"..RandomNumber(1)..RandomString(1).."-"..RandomNumber(1)..RandomAll(2))
+                end
             end
         end
     end

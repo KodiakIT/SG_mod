@@ -62,8 +62,8 @@
 # The reason is, this config here is the default config and if you edit this one here incorrectly, the whole pack can stop working!
 
 #########################################
-#						Stargate Pack config by aVoN
-#						aka System of a pWne!^
+#                        Stargate Pack config by aVoN
+#                        aka System of a pWne!^
 #########################################
 
 #### Stargate config

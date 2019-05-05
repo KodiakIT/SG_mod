@@ -1,9 +1,9 @@
 --[[
-	DHD Supergate
-	Copyright (C) 2011 Assasin21
+    DHD Supergate
+    Copyright (C) 2011 Assasin21
 ]]--
 
---################# Header
+-- Header
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("extra") or SGLanguage==nil or SGLanguage.GetMessage==nil) then return end
 include("weapons/gmod_tool/stargate_base_tool.lua");
 TOOL.Category="Tech";
@@ -29,80 +29,80 @@ TOOL.Language["Undone"] = SGLanguage.GetMessage("stool_supergate_dhd_undone");
 TOOL.Language["Cleanup"] = SGLanguage.GetMessage("stool_supergate_dhd_cleanup");
 TOOL.Language["Cleaned"] = SGLanguage.GetMessage("stool_supergate_dhd_cleaned");
 TOOL.Language["SBoxLimit"] = SGLanguage.GetMessage("stool_supergate_dhd_limit");
---################# Code
+-- Code
 TOOL.Seg = Angle(0,0,0);
---################# LeftClick Toolaction @aVoN
+-- LeftClick Toolaction @aVoN
 function TOOL:LeftClick(t)
-	if(t.Entity and t.Entity:IsPlayer()) then return false end;
-	if(CLIENT) then return true end;
-	local p = self:GetOwner();
-	local toggle = self:GetClientNumber("toggle");
-	local model = self:GetClientInfo("model");
-	local seg
-	for _,v in pairs(ents.FindByClass("supergate_dhd")) do
-		if v:GetParent() != nil then
-			if v:GetParent() == t.Entity then
-				 p:SendLua("GAMEMODE:AddNotify(SGLanguage.GetMessage(\"stool_supergate_dhd_exs\"), NOTIFY_ERROR, 5); surface.PlaySound( \"buttons/button2.wav\" )");
-			return
-			end
-		end
-	end
-	if (t.Entity and t.Entity:GetClass() == "stargate_supergate") then
-		seg = t.Entity.Segments[1]
-		self.Seg = seg;
-	else
-		return
-		 p:SendLua("GAMEMODE:AddNotify(SGLanguage.GetMessage(\"stool_supergate_dhd_err\"), NOTIFY_ERROR, 5); surface.PlaySound( \"buttons/button2.wav\" )");
-	end
-	--######## Spawn SENT
-	if(t.Entity and t.Entity:GetClass() == self.Entity.Class) then
-		return true;
-	end
-	if(not self:CheckLimit()) then return false end;
-	local e = self:SpawnSENT(p,t,toggle,model);
-	if (not IsValid(e)) then return end
-	seg = t.Entity.Segments[1]
-	e:SetAngles(seg:GetAngles() + Angle(90,0,0));
-	e:SetPos(seg:GetPos() + seg:GetUp()*66.2 + seg:GetForward()*23.8);
-	e:SetParent(t.Entity)
-	--######## Weld things?
-	local c = self:Weld(e,t.Entity,true);
-	--######## Cleanup and undo register
-	self:AddUndo(p,e,c);
-	self:AddCleanup(p,c,e);
-	return true;
+    if(t.Entity and t.Entity:IsPlayer()) then return false end;
+    if(CLIENT) then return true end;
+    local p = self:GetOwner();
+    local toggle = self:GetClientNumber("toggle");
+    local model = self:GetClientInfo("model");
+    local seg
+    for _,v in pairs(ents.FindByClass("supergate_dhd")) do
+        if v:GetParent() != nil then
+            if v:GetParent() == t.Entity then
+                 p:SendLua("GAMEMODE:AddNotify(SGLanguage.GetMessage(\"stool_supergate_dhd_exs\"), NOTIFY_ERROR, 5); surface.PlaySound( \"buttons/button2.wav\" )");
+            return
+            end
+        end
+    end
+    if (t.Entity and t.Entity:GetClass() == "stargate_supergate") then
+        seg = t.Entity.Segments[1]
+        self.Seg = seg;
+    else
+        return
+         p:SendLua("GAMEMODE:AddNotify(SGLanguage.GetMessage(\"stool_supergate_dhd_err\"), NOTIFY_ERROR, 5); surface.PlaySound( \"buttons/button2.wav\" )");
+    end
+    -- Spawn SENT
+    if(t.Entity and t.Entity:GetClass() == self.Entity.Class) then
+        return true;
+    end
+    if(not self:CheckLimit()) then return false end;
+    local e = self:SpawnSENT(p,t,toggle,model);
+    if (not IsValid(e)) then return end
+    seg = t.Entity.Segments[1]
+    e:SetAngles(seg:GetAngles() + Angle(90,0,0));
+    e:SetPos(seg:GetPos() + seg:GetUp()*66.2 + seg:GetForward()*23.8);
+    e:SetParent(t.Entity)
+    -- Weld things?
+    local c = self:Weld(e,t.Entity,true);
+    -- Cleanup and undo register
+    self:AddUndo(p,e,c);
+    self:AddCleanup(p,c,e);
+    return true;
 end
 
---################# The PreEntitySpawn function is called before a SENT got spawned. Either by the duplicator or with the stool.@aVoN
+-- The PreEntitySpawn function is called before a SENT got spawned. Either by the duplicator or with the stool.@aVoN
 function TOOL:PreEntitySpawn(p,e,toggle,model)
-	e:SetModel(model);
+    e:SetModel(model);
 end
 
---################# The PostEntitySpawn function is called after a SENT got spawned. Either by the duplicator or with the stool.@aVoN
+-- The PostEntitySpawn function is called after a SENT got spawned. Either by the duplicator or with the stool.@aVoN
 function TOOL:PostEntitySpawn(p,e,toggle,model)
-	if(toggle) then
-		numpad.OnDown(p,toggle,"ToggleDHDMenu",e);
-	end
+    if(toggle) then
+        numpad.OnDown(p,toggle,"ToggleDHDMenu",e);
+    end
 end
 
---################# Controlpanel @aVoN
+-- Controlpanel @aVoN
 function TOOL:ControlsPanel(Panel)
-	Panel:AddControl("Numpad",{
-		ButtonSize=22,
-		Label=SGLanguage.GetMessage("stool_toggle"),
-		Command="supergate_dhd_toggle",
-	});
+    Panel:AddControl("Numpad",{
+        ButtonSize=22,
+        Label=SGLanguage.GetMessage("stool_toggle"),
+        Command="supergate_dhd_toggle",
+    });
 end
 
---################# Numpad bindings
+-- Numpad bindings
 if SERVER then
-	numpad.Register("ToggleDHDMenu",
-		function(p,e)
-			if(not e:IsValid()) then return end;
-			e:OpenMenu(p);
-		end
-	);
+    numpad.Register("ToggleDHDMenu",
+        function(p,e)
+            if(not e:IsValid()) then return end;
+            e:OpenMenu(p);
+        end
+    );
 end
 
---################# Register Stargate hooks. Needs to be called after all functions are loaded!
+-- Register Stargate hooks. Needs to be called after all functions are loaded!
 TOOL:Register();

@@ -215,10 +215,10 @@ else
         self.AnalyzedCode = {}
         self.LinesTimer = CurTime()-0.1
       end
-	  if self.State == 6 then
-		self.AnalyzedCode = {}
-		self.AnalyzingCode = ""
-	  end
+      if self.State == 6 then
+        self.AnalyzedCode = {}
+        self.AnalyzingCode = ""
+      end
     end
     if self.State > 2 and CurTime()-self.LinesTimer > 0.1 then
       local done = true
@@ -247,10 +247,10 @@ else
         if state == 3 then self:EmitSound("glebqip/idc_accept.wav",65,100,0.6) end
         if state > 3 then self:EmitSound("glebqip/idc_error.wav",65,100,0.6) end
 
-		self.Warn = state 
-		self.WarnState = true
-		self.WarnPlayed = state == 2 and 1.5 or state == 1 and 11 or -1
-		self.WarnTimer = CurTime()
+        self.Warn = state
+        self.WarnState = true
+        self.WarnPlayed = state == 2 and 1.5 or state == 1 and 11 or -1
+        self.WarnTimer = CurTime()
       end
     elseif self.WarnState or self.WarnPlayed then
       if self.WarnState ~= false then

@@ -15,23 +15,23 @@ ENT.CAP_NotSave = true;
 
 function ENT:Initialize()
 
-	self:SetModel("models/jaanus/thruster_flat.mdl")
-	--self:SetMaterial("james/teltac/gold_plain.vtf")
-	self:SetSolid(SOLID_VPHYSICS)
-	self:PhysicsInit(SOLID_VPHYSICS)
-	self:SetMoveType(MOVETYPE_VPHYSICS)
-	self.NextUse = CurTime();
-	self:SetUseType(SIMPLE_USE)
+    self:SetModel("models/jaanus/thruster_flat.mdl")
+    --self:SetMaterial("james/teltac/gold_plain.vtf")
+    self:SetSolid(SOLID_VPHYSICS)
+    self:PhysicsInit(SOLID_VPHYSICS)
+    self:SetMoveType(MOVETYPE_VPHYSICS)
+    self.NextUse = CurTime();
+    self:SetUseType(SIMPLE_USE)
 
 end
 
 function ENT:Use(activator,caller,useType,value)
-	if self.NextUse < CurTime() then
-		if IsValid(self.Parent) then
-			self.Parent:TrueUse(activator)
-		end
-		self.NextUse = CurTime() + 1;
-	end
+    if self.NextUse < CurTime() then
+        if IsValid(self.Parent) then
+            self.Parent:TrueUse(activator)
+        end
+        self.NextUse = CurTime() + 1;
+    end
 end
 
 end

@@ -8,9 +8,9 @@ list.Set("CAP.Entity", ENT.PrintName, ENT);
 ENT.WireDebugName = "Stargate Tollan"
 
 ENT.EventHorizonData = {
-	OpeningDelay = 1.5,
-	OpenTime = 2.2,
-	NNFix = 1,
+    OpeningDelay = 1.5,
+    OpenTime = 2.2,
+    NNFix = 1,
 }
 
 ENT.StargateTwoPoO = true

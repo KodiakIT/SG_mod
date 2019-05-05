@@ -1,22 +1,22 @@
 /*
-	Shield Spawner for GarrysMod10
-	Copyright (C) 2007  aVoN
+    Shield Spawner for GarrysMod10
+    Copyright (C) 2007  aVoN
 
-	This program is free software: you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation, either version 3 of the License, or
-	(at your option) any later version.
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
 
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
 
-	You should have received a copy of the GNU General Public License
-	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
---################# Header
+-- Header
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("base") or SGLanguage==nil or SGLanguage.GetMessage==nil) then return end
 include("weapons/gmod_tool/stargate_base_tool.lua");
 TOOL.Category="Tech";
@@ -58,80 +58,80 @@ TOOL.Language["Undone"] = SGLanguage.GetMessage("stool_stargate_dhd_undone");
 TOOL.Language["Cleanup"] = SGLanguage.GetMessage("stool_stargate_dhd_cleanup");
 TOOL.Language["Cleaned"] = SGLanguage.GetMessage("stool_stargate_dhd_cleaned");
 TOOL.Language["SBoxLimit"] = SGLanguage.GetMessage("stool_stargate_dhd_limit");
---################# Code
+-- Code
 
---################# LeftClick Toolaction @aVoN
+-- LeftClick Toolaction @aVoN
 function TOOL:LeftClick(t)
-	if(t.Entity and t.Entity:IsPlayer()) then return false end;
-	if(CLIENT) then return true end;
-	local p = self:GetOwner();
-	local toggle = self:GetClientNumber("toggle");
-	local model = self:GetClientInfo("model");
-	--######## Spawn SENT
-	if(t.Entity and t.Entity:GetClass() == self.Entity.Class) then
-		return true; -- We have nothing to update a mobile DHD
-	end
-	if(not self:CheckLimit()) then return false end;
-	local e = self:SpawnSENT(p,t,toggle,model);
-	--[[ -- No life support added yet
-	if(util.tobool(self:GetClientNumber("autolink"))) then
-		self:AutoLink(e,t.Entity); -- Link to that energy system, if valid
-	end
-	--]]
-	--######## Weld things?
-	local c = self:Weld(e,t.Entity,util.tobool(self:GetClientNumber("autoweld")));
-	--######## Cleanup and undo register
-	self:AddUndo(p,e,c);
-	self:AddCleanup(p,c,e);
-	return true;
+    if(t.Entity and t.Entity:IsPlayer()) then return false end;
+    if(CLIENT) then return true end;
+    local p = self:GetOwner();
+    local toggle = self:GetClientNumber("toggle");
+    local model = self:GetClientInfo("model");
+    -- Spawn SENT
+    if(t.Entity and t.Entity:GetClass() == self.Entity.Class) then
+        return true; -- We have nothing to update a mobile DHD
+    end
+    if(not self:CheckLimit()) then return false end;
+    local e = self:SpawnSENT(p,t,toggle,model);
+    --[[ -- No life support added yet
+    if(util.tobool(self:GetClientNumber("autolink"))) then
+        self:AutoLink(e,t.Entity); -- Link to that energy system, if valid
+    end
+    --]]
+    -- Weld things?
+    local c = self:Weld(e,t.Entity,util.tobool(self:GetClientNumber("autoweld")));
+    -- Cleanup and undo register
+    self:AddUndo(p,e,c);
+    self:AddCleanup(p,c,e);
+    return true;
 end
 
---################# The PreEntitySpawn function is called before a SENT got spawned. Either by the duplicator or with the stool.@aVoN
+-- The PreEntitySpawn function is called before a SENT got spawned. Either by the duplicator or with the stool.@aVoN
 function TOOL:PreEntitySpawn(p,e,toggle,model)
-	e:SetModel(model);
+    e:SetModel(model);
 end
 
---################# The PostEntitySpawn function is called after a SENT got spawned. Either by the duplicator or with the stool.@aVoN
+-- The PostEntitySpawn function is called after a SENT got spawned. Either by the duplicator or with the stool.@aVoN
 function TOOL:PostEntitySpawn(p,e,toggle,model)
-	if(toggle) then
-		numpad.OnDown(p,toggle,"ToggleDHDMenu",e);
-	end
+    if(toggle) then
+        numpad.OnDown(p,toggle,"ToggleDHDMenu",e);
+    end
 end
 
---################# Controlpanel @aVoN
+-- Controlpanel @aVoN
 function TOOL:ControlsPanel(Panel)
-	/*Panel:AddControl("ComboBox",{
-		Label="Presets",
-		MenuButton=1,
-		Folder="stargate_dhd",
-		Options={
-			Default=self:GetDefaultSettings(),
-		},
-		CVars=self:GetSettingsNames(),
-	});*/
-	Panel:AddControl("Numpad",{
-		ButtonSize=22,
-		Label=SGLanguage.GetMessage("stool_toggle"),
-		Command="stargate_dhd_toggle",
-	});
-	Panel:AddControl("PropSelect",{Label=SGLanguage.GetMessage("stool_model"),ConVar="stargate_dhd_model",Category="",Models=self.Models});
-	Panel:CheckBox(SGLanguage.GetMessage("stool_autoweld"),"stargate_dhd_autoweld");
-	--[[ -- No LifeSupport added yet
-	if(StarGate.HasResourceDistribution) then
-		Panel:CheckBox(SGLanguage.GetMessage("stool_autolink"),"stargate_dhd_autolink"):SetToolTip(SGLanguage.GetMessage("stool_autolink_desc"));
-	end
-	--]]
+    /*Panel:AddControl("ComboBox",{
+        Label="Presets",
+        MenuButton=1,
+        Folder="stargate_dhd",
+        Options={
+            Default=self:GetDefaultSettings(),
+        },
+        CVars=self:GetSettingsNames(),
+    });*/
+    Panel:AddControl("Numpad",{
+        ButtonSize=22,
+        Label=SGLanguage.GetMessage("stool_toggle"),
+        Command="stargate_dhd_toggle",
+    });
+    Panel:AddControl("PropSelect",{Label=SGLanguage.GetMessage("stool_model"),ConVar="stargate_dhd_model",Category="",Models=self.Models});
+    Panel:CheckBox(SGLanguage.GetMessage("stool_autoweld"),"stargate_dhd_autoweld");
+    --[[ -- No LifeSupport added yet
+    if(StarGate.HasResourceDistribution) then
+        Panel:CheckBox(SGLanguage.GetMessage("stool_autolink"),"stargate_dhd_autolink"):SetToolTip(SGLanguage.GetMessage("stool_autolink_desc"));
+    end
+    --]]
 end
 
---################# Numpad bindings
+-- Numpad bindings
 if SERVER then
-	numpad.Register("ToggleDHDMenu",
-		function(p,e)
-			if(not e:IsValid()) then return end;
-			e:OpenMenu(p);
-		end
-	);
+    numpad.Register("ToggleDHDMenu",
+        function(p,e)
+            if(not e:IsValid()) then return end;
+            e:OpenMenu(p);
+        end
+    );
 end
 
---################# Register Stargate hooks. Needs to be called after all functions are loaded!
+-- Register Stargate hooks. Needs to be called after all functions are loaded!
 TOOL:Register();

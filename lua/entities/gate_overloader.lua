@@ -7,8 +7,8 @@ ENT.Base             = "base_anim"
 ENT.PrintName        = "Gate Overloader"
 ENT.WireDebugName    = "Gate Overloader"
 ENT.Author           = "PyroSpirit, Madman07"
-ENT.Contact		      = "forums.facepunchstudios.com"
-ENT.Category 		 = "Stargate Carter Addon Pack: Weapons"
+ENT.Contact              = "forums.facepunchstudios.com"
+ENT.Category          = "Stargate Carter Addon Pack: Weapons"
 
 list.Set("CAP.Entity", ENT.PrintName, ENT);
 
@@ -20,32 +20,32 @@ ENT.coolingPerCycle       = 300
 
 -- Get the position of the beam emitter on the overloader
 function ENT:GetEmitterPos()
-	local emitter = self.Entity:GetAttachment(self.Entity:LookupAttachment("emitter0"));
-	if emitter and emitter.Pos then
-		return emitter.Pos
-	else
-		return self.Entity:GetPos() + self.Entity:GetForward()*100
-	end
+    local emitter = self.Entity:GetAttachment(self.Entity:LookupAttachment("emitter0"));
+    if emitter and emitter.Pos then
+        return emitter.Pos
+    else
+        return self.Entity:GetPos() + self.Entity:GetForward()*100
+    end
 end
 
 function ENT:GetSubBeamPos(beam)
-	local beams = {}
-	local attachmentIDs =
-	{
-		self.Entity:LookupAttachment("emitter1"),
-		self.Entity:LookupAttachment("emitter2"),
-		self.Entity:LookupAttachment("emitter3"),
-		self.Entity:LookupAttachment("emitter4"),
-		self.Entity:LookupAttachment("emitter5"),
-		self.Entity:LookupAttachment("emitter6")
-	}
+    local beams = {}
+    local attachmentIDs =
+    {
+        self.Entity:LookupAttachment("emitter1"),
+        self.Entity:LookupAttachment("emitter2"),
+        self.Entity:LookupAttachment("emitter3"),
+        self.Entity:LookupAttachment("emitter4"),
+        self.Entity:LookupAttachment("emitter5"),
+        self.Entity:LookupAttachment("emitter6")
+    }
 
-	local emitter = self.Entity:GetAttachment(attachmentIDs[beam])
-	if emitter and emitter.Pos then
-		return emitter.Pos
-	else
-		return self.Entity:GetPos() + self.Entity:GetForward()*10
-	end
+    local emitter = self.Entity:GetAttachment(attachmentIDs[beam])
+    if emitter and emitter.Pos then
+        return emitter.Pos
+    else
+        return self.Entity:GetPos() + self.Entity:GetForward()*10
+    end
 end
 
 function ENT:IsActive()
@@ -57,7 +57,7 @@ function ENT:IsFiring()
 end
 
 function ENT:GetBeamColour()
-	return "200 200 255"
+    return "200 200 255"
 end
 
 function ENT:GetLocalGate()
@@ -124,82 +124,82 @@ ENT.CDSEmp_Ignore = true
 
 -- Spawns a gate overloader for the given player
 function ENT:SpawnFunction( ply, tr )
-	if ( !tr.Hit ) then return end
+    if ( !tr.Hit ) then return end
 
-	if (IsValid(ply)) then
-		local PropLimit = GetConVar("CAP_overloader_max"):GetInt()
-		if(ply:GetCount("CAP_overloader")+1 > PropLimit) then
-			ply:SendLua("GAMEMODE:AddNotify(SGLanguage.GetMessage(\"entity_limit_overloader\"), NOTIFY_ERROR, 5); surface.PlaySound( \"buttons/button2.wav\" )");
-			return
-		end
-	end
+    if (IsValid(ply)) then
+        local PropLimit = GetConVar("CAP_overloader_max"):GetInt()
+        if(ply:GetCount("CAP_overloader")+1 > PropLimit) then
+            ply:SendLua("GAMEMODE:AddNotify(SGLanguage.GetMessage(\"entity_limit_overloader\"), NOTIFY_ERROR, 5); surface.PlaySound( \"buttons/button2.wav\" )");
+            return
+        end
+    end
 
-	local ang = ply:GetAimVector():Angle(); ang.p = 0; ang.r = 0; ang.y = ang.y % 360;
+    local ang = ply:GetAimVector():Angle(); ang.p = 0; ang.r = 0; ang.y = ang.y % 360;
 
-	local ent = ents.Create("gate_overloader");
-	ent:SetAngles(ang);
-	ent:SetPos(tr.HitPos);
-	ent:Spawn();
-	ent:Activate();
+    local ent = ents.Create("gate_overloader");
+    ent:SetAngles(ang);
+    ent:SetPos(tr.HitPos);
+    ent:Spawn();
+    ent:Activate();
 
-	if IsValid(tr.Entity) then
-		local model = tr.Entity:GetModel()
-		if (model == "models/madman07/overped/overped.mdl") then
-			ent:SetPos(tr.Entity:GetPos() + Vector(0,0,30));
-			ent:SetAngles(tr.Entity:GetAngles());
-			constraint.Weld(ent,tr.Entity,0,0,0,true)
-			local phys = tr.Entity:GetPhysicsObject()
-			if IsValid(phys) then phys:EnableMotion(false) end
-		end
-	else
-		local phys = ent:GetPhysicsObject()
-		if IsValid(phys) then phys:EnableMotion(false) end
-	end
+    if IsValid(tr.Entity) then
+        local model = tr.Entity:GetModel()
+        if (model == "models/madman07/overped/overped.mdl") then
+            ent:SetPos(tr.Entity:GetPos() + Vector(0,0,30));
+            ent:SetAngles(tr.Entity:GetAngles());
+            constraint.Weld(ent,tr.Entity,0,0,0,true)
+            local phys = tr.Entity:GetPhysicsObject()
+            if IsValid(phys) then phys:EnableMotion(false) end
+        end
+    else
+        local phys = ent:GetPhysicsObject()
+        if IsValid(phys) then phys:EnableMotion(false) end
+    end
 
-	if (IsValid(ply)) then
-		ply:AddCount("CAP_overloader", ent)
-	end
-	return ent
+    if (IsValid(ply)) then
+        ply:AddCount("CAP_overloader", ent)
+    end
+    return ent
 end
 
 function ENT:StartTouch(ent)
-	if IsValid(ent) then
-		local model = ent:GetModel()
-		if (model == "models/madman07/overped/overped.mdl") then
-			self.Entity:SetPos(ent:GetPos() + Vector(0,0,30));
-			self.Entity:SetAngles(ent:GetAngles());
-			constraint.Weld(ent,self.Entity,0,0,0,true)
-			local fx = EffectData();
-				fx:SetEntity(self.Entity);
-			util.Effect("propspawn",fx);
-		end
-	end
+    if IsValid(ent) then
+        local model = ent:GetModel()
+        if (model == "models/madman07/overped/overped.mdl") then
+            self.Entity:SetPos(ent:GetPos() + Vector(0,0,30));
+            self.Entity:SetAngles(ent:GetAngles());
+            constraint.Weld(ent,self.Entity,0,0,0,true)
+            local fx = EffectData();
+                fx:SetEntity(self.Entity);
+            util.Effect("propspawn",fx);
+        end
+    end
 end
 
 function ENT:PostEntityPaste(player, Ent,CreatedEntities)
-	if (StarGate.NotSpawnable(Ent:GetClass(),ply)) then self.Entity:Remove(); return end
-	local PropLimit = GetConVar("CAP_overloader_max"):GetInt()
-	if(IsValid(player) and player:IsPlayer() and player:GetCount("CAP_overloader")+1 > PropLimit) then
-		player:SendLua("GAMEMODE:AddNotify(SGLanguage.GetMessage(\"entity_limit_overloader\"), NOTIFY_ERROR, 5); surface.PlaySound( \"buttons/button2.wav\" )");
-		self.Entity:Remove();
-		return
-	end
-	if (IsValid(player)) then
-		player:AddCount("CAP_overloader", self.Entity)
-	end
-	StarGate.WireRD.PostEntityPaste(self,player,Ent,CreatedEntities)
+    if (StarGate.NotSpawnable(Ent:GetClass(),ply)) then self.Entity:Remove(); return end
+    local PropLimit = GetConVar("CAP_overloader_max"):GetInt()
+    if(IsValid(player) and player:IsPlayer() and player:GetCount("CAP_overloader")+1 > PropLimit) then
+        player:SendLua("GAMEMODE:AddNotify(SGLanguage.GetMessage(\"entity_limit_overloader\"), NOTIFY_ERROR, 5); surface.PlaySound( \"buttons/button2.wav\" )");
+        self.Entity:Remove();
+        return
+    end
+    if (IsValid(player)) then
+        player:AddCount("CAP_overloader", self.Entity)
+    end
+    StarGate.WireRD.PostEntityPaste(self,player,Ent,CreatedEntities)
 end
 
 if (StarGate and StarGate.CAP_GmodDuplicator) then
-	duplicator.RegisterEntityClass( "gate_overloader", StarGate.CAP_GmodDuplicator, "Data" )
+    duplicator.RegisterEntityClass( "gate_overloader", StarGate.CAP_GmodDuplicator, "Data" )
 end
 
 -- Sets the gate overloader's model, physics, health, resources, wire inputs/outputs, etc.
 function ENT:Initialize()
 
-	self.Entity:SetModel("models/pyro_overloader/overloader.mdl")
-	self.Entity:SetSolid(SOLID_VPHYSICS)
-	self.Entity:PhysicsInit(SOLID_VPHYSICS)
+    self.Entity:SetModel("models/pyro_overloader/overloader.mdl")
+    self.Entity:SetSolid(SOLID_VPHYSICS)
+    self.Entity:PhysicsInit(SOLID_VPHYSICS)
 
    -- Round up energy requirement
    self:SetEnergyUsage(math.ceil(self.energyPerSecond))
@@ -218,13 +218,13 @@ function ENT:Initialize()
    end
 
     -- Set up wire inputs and outputs
-	if(self.HasWire) then
-		self:CreateWireInputs("Fire")
-		self:CreateWireOutputs("Active", "Percent", "Energy", "Time")
-	end
+    if(self.HasWire) then
+        self:CreateWireInputs("Fire")
+        self:CreateWireOutputs("Active", "Percent", "Energy", "Time")
+    end
 
-	-- The time when the USE key was last pressed on this entity
-	self.lastUseTime = 0
+    -- The time when the USE key was last pressed on this entity
+    self.lastUseTime = 0
 
       --self.isBeamCoherent = false
    --self.Entity:SetNetworkedBool("isBeamCoherent", self.isBeamCoherent)
@@ -270,13 +270,13 @@ end
 
 -- Returns a valid target stargate (nearby and in front of the overloader)
 function ENT:FindTarget()
-	for _, gate in pairs(ents.FindByClass("stargate_*")) do
-		local gateDistance = self.Entity:GetPos():Distance(gate:GetPos())
+    for _, gate in pairs(ents.FindByClass("stargate_*")) do
+        local gateDistance = self.Entity:GetPos():Distance(gate:GetPos())
 
-		if(gateDistance < MAX_GATE_DISTANCE && self:IsAimedAtGate(gate)) then
+        if(gateDistance < MAX_GATE_DISTANCE && self:IsAimedAtGate(gate)) then
          return gate
-		end
-	end
+        end
+    end
 
    return nil
 end
@@ -351,11 +351,11 @@ function ENT:ClearTarget()
 end
 
 function ENT:UpdateTransmitState()
-	if (self.isFiring) then
-		return TRANSMIT_ALWAYS;
-	else
-		return TRANSMIT_PVS;
-	end
+    if (self.isFiring) then
+        return TRANSMIT_ALWAYS;
+    else
+        return TRANSMIT_PVS;
+    end
 end
 
 -- Handles state transitions and cools down all stargates
@@ -367,9 +367,9 @@ function ENT:Think()
 
    if(self.isArmed) then
       if(self:IsUpright()) then
-      	if(self.isActive) then
-      		self:FireBeam()
-      	else
+          if(self.isActive) then
+              self:FireBeam()
+          else
             self.localGate = self:FindTarget()
 
             if(self.localGate) then
@@ -390,8 +390,8 @@ function ENT:Think()
       end
    end
 
-	self.Entity:NextThink(CurTime() + self.cycleInterval)
-	return true
+    self.Entity:NextThink(CurTime() + self.cycleInterval)
+    return true
 end
 
 -- Updates all wire output values
@@ -405,16 +405,16 @@ function ENT:UpdateWireOutputs()
                              self.remoteGate.excessPower
       local timeLeft = (energyRequired / self.energyPerSecond)
       if(StarGate.IsIrisClosed(self.remoteGate)) then
-      	timeLeft = timeLeft * 2;
-	  end
+          timeLeft = timeLeft * 2;
+      end
       local perc = (self.remoteGate.excessPower/self.remoteGate.excessPowerLimit)*100;
       self:SetWire("Energy", energyRequired)
       self:SetWire("Percent", perc)
       self:SetWire("Time", timeLeft)
       self:SetWire("Active", 1)
    else
-   	  self:SetWire("Energy", 0)
-   	  self:SetWire("Percent", 0)
+         self:SetWire("Energy", 0)
+         self:SetWire("Percent", 0)
       self:SetWire("Active", 0)
       self:SetWire("Time", -1)
    end
@@ -562,7 +562,7 @@ function ENT:FireBeam()
 end
 
 function ENT:StartFiring()
-	self.lastUseTime = CurTime()
+    self.lastUseTime = CurTime()
    self.Entity:EmitSound(fireSoundPath, 100, 100)
 
    local firingAnimation = self.Entity:LookupSequence(firingAnimName)
@@ -582,7 +582,7 @@ function ENT:StartFiring()
    end
    -- fix for rd2
    if (self.remoteGate.excessPowerLimit<StarGate.STARGATE_DEFAULT_ENERGY_CAPACITY) then
-	  self.remoteGate.excessPowerLimit = StarGate.STARGATE_DEFAULT_ENERGY_CAPACITY;
+      self.remoteGate.excessPowerLimit = StarGate.STARGATE_DEFAULT_ENERGY_CAPACITY;
    end
 
    self.remoteGate.overloader = self.Entity
@@ -601,8 +601,8 @@ end
 
 function ENT:CreateBeam()
    inBeamInfo = EffectData()
-	 inBeamInfo:SetEntity(self.Entity)
-	 util.Effect("InBeam", inBeamInfo,true,true)
+     inBeamInfo:SetEntity(self.Entity)
+     util.Effect("InBeam", inBeamInfo,true,true)
 
    local gateMarker = StarGate.GetGateMarker(self.localGate)
 
@@ -746,7 +746,7 @@ function ENT:HeatGate(gate)
    local addedEnergy = 0
 
    if(self.HasRD) then
-   	  self:ConsumeResource("energy", self.energyPerCycle*100)
+         self:ConsumeResource("energy", self.energyPerCycle*100)
       addedEnergy = self.energyPerCycle
    else
       addedEnergy = self.energyPerCycle
@@ -791,32 +791,32 @@ function ENT:HeatGate(gate)
 end
    /*
 function ENT:FindAsuran(gat)
-	if (not IsValid(gat)) then return end
-	local pos = gat:GetPos();
-	for _,e in pairs(ents.FindByClass("asuran_gate_weapon")) do
-		if(IsValid(e)) then
-			local e_pos = e:GetPos();
-			local dist = (e_pos - pos):Length();
-		 	if (dist <= gat.DHDRange) then
-				local add = true;
-				for _,gate in pairs(gat:GetAllGates()) do
-					if(gate ~= self.Entity and (gate:GetPos() - e_pos):Length() < dist) then
-						add = false;
-						break;
-					end
-				end
-				if(add) then
-					return true;
-				end
-			end
-		end
-	end
-	return false;
+    if (not IsValid(gat)) then return end
+    local pos = gat:GetPos();
+    for _,e in pairs(ents.FindByClass("asuran_gate_weapon")) do
+        if(IsValid(e)) then
+            local e_pos = e:GetPos();
+            local dist = (e_pos - pos):Length();
+             if (dist <= gat.DHDRange) then
+                local add = true;
+                for _,gate in pairs(gat:GetAllGates()) do
+                    if(gate ~= self.Entity and (gate:GetPos() - e_pos):Length() < dist) then
+                        add = false;
+                        break;
+                    end
+                end
+                if(add) then
+                    return true;
+                end
+            end
+        end
+    end
+    return false;
 end     */
 
 -- Causes the gate overloader to take the given damage
 function ENT:OnTakeDamage(damageInfo)
-	if(damageInfo:GetInflictor():GetClass() == "env_laser" && IsValid(self.beam)) then
+    if(damageInfo:GetInflictor():GetClass() == "env_laser" && IsValid(self.beam)) then
       for _, beam in pairs(self.beam.subBeams) do
          if(damageInfo:GetInflictor() == beam) then
             damageInfo:SetDamage(0)
@@ -848,22 +848,22 @@ function ENT:Destruct()
    local blastDamage = self.energyPerSecond / 50
 
    destructEffect = EffectData()
-	destructEffect:SetOrigin(self.Entity:GetPos())
+    destructEffect:SetOrigin(self.Entity:GetPos())
    destructEffect:SetRadius(blastRadius / 2)
-	destructEffect:SetMagnitude(self.energyPerSecond / 10)
-	util.Effect("Explosion", destructEffect, true, true)
+    destructEffect:SetMagnitude(self.energyPerSecond / 10)
+    util.Effect("Explosion", destructEffect, true, true)
 
    local owner = self.Entity:GetVar("Owner", self.Entity)
    util.BlastDamage(self.Entity, owner, self.Entity:GetPos(), blastRadius, blastDamage)
 
-	self.Entity:Remove()
+    self.Entity:Remove()
 end
 
 -- Does cleanup if the gate overloader is being removed
 function ENT:OnRemove()
-	self:Disarm()
-	self:StopFiring();
-	if(self.beamSound) then
+    self:Disarm()
+    self:StopFiring();
+    if(self.beamSound) then
       self.beamSound:Stop()
    end
 

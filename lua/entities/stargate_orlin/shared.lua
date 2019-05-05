@@ -9,9 +9,9 @@ ENT.WireDebugName = "Stargate Orlin"
 ENT.IsStargateOrlin = true
 
 ENT.EventHorizonData = {
-	OpeningDelay = 0.8,
-	OpenTime = 2.2,
-	NNFix = 0,
-	Model = "models/sgorlin/stargate_horizon_orlin.mdl",
-	Kawoosh = "orlin",
+    OpeningDelay = 0.8,
+    OpenTime = 2.2,
+    NNFix = 0,
+    Model = "models/sgorlin/stargate_horizon_orlin.mdl",
+    Kawoosh = "orlin",
 }

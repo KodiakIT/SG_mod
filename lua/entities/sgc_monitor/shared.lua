@@ -79,7 +79,7 @@ function ENT:LoadScreens()
   for x,filename in pairs(file.Find("entities/sgc_monitor/screens/*.lua","LUA")) do
     local init = false
     local SCR,test = include("entities/sgc_monitor/screens/"..filename)
-	if not SCR then continue end
+    if not SCR then continue end
     local ID = SCR.ID
     if not self.Screens[ID] then                  
       self.Screens[ID] = {}

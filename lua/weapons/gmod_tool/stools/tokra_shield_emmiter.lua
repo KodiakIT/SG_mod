@@ -1,6 +1,6 @@
 /*
-	Tokra Shield Emmiter
-	Copyright (C) 2011  Madman07
+    Tokra Shield Emmiter
+    Copyright (C) 2011  Madman07
 */
 if (StarGate==nil or StarGate.CheckModule==nil or not StarGate.CheckModule("devices") or SGLanguage==nil or SGLanguage.GetMessage==nil) then return end
 include("weapons/gmod_tool/stargate_base_tool.lua");
@@ -23,24 +23,24 @@ TOOL.Language["Cleaned"] = SGLanguage.GetMessage("stool_tokra_shield_emmiter_cle
 TOOL.Language["SBoxLimit"] = SGLanguage.GetMessage("stool_tokra_shield_emmiter_limit");
 
 function TOOL:LeftClick(t)
-	if(t.Entity and t.Entity:IsPlayer()) then return false end;
-	if(CLIENT) then return true end;
-	local p = self:GetOwner();
-	local model = self:GetClientInfo("model");
-	if(not self:CheckLimit()) then return false end;
-	local e = self:SpawnSENT(p,t,model);
-	local c = self:Weld(e,t.Entity,util.tobool(self:GetClientNumber("autoweld")));
-	self:AddUndo(p,e,c);
-	self:AddCleanup(p,c,e);
-	return true;
+    if(t.Entity and t.Entity:IsPlayer()) then return false end;
+    if(CLIENT) then return true end;
+    local p = self:GetOwner();
+    local model = self:GetClientInfo("model");
+    if(not self:CheckLimit()) then return false end;
+    local e = self:SpawnSENT(p,t,model);
+    local c = self:Weld(e,t.Entity,util.tobool(self:GetClientNumber("autoweld")));
+    self:AddUndo(p,e,c);
+    self:AddCleanup(p,c,e);
+    return true;
 end
 
 function TOOL:PreEntitySpawn(p,e,model,toggle)
-	e:SetModel(model);
+    e:SetModel(model);
 end
 
 function TOOL:ControlsPanel(Panel)
-	Panel:CheckBox(SGLanguage.GetMessage("stool_autoweld"),"tokra_shield_emmiter_autoweld");
+    Panel:CheckBox(SGLanguage.GetMessage("stool_autoweld"),"tokra_shield_emmiter_autoweld");
 end
 
 TOOL:Register();
